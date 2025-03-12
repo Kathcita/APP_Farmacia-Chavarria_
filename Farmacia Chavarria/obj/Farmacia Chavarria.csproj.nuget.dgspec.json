@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj": {}
+    "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj": {
+    "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
+        "projectUniqueName": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
         "projectName": "Farmacia Chavarria",
-        "projectPath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
+        "projectPath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
         "packagesPath": "C:\\Users\\GATEWAY\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\obj\\",
+        "outputPath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "fallbackFolders": [

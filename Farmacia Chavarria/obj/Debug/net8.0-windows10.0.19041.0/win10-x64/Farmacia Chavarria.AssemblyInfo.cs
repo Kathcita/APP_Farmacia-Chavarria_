@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Farmacia Chavarria")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+e14ff853939ef0647008f4113a81073ed0c12e6f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+0d0e33a270fa3a8e54a6bf827d148dc53af3ec53")]
 [assembly: System.Reflection.AssemblyProductAttribute("Farmacia Chavarria")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Farmacia Chavarria")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

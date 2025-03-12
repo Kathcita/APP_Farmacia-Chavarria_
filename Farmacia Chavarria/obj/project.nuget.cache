@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sx0cHPjkcAU=",
+  "dgSpecHash": "GbVcNFjMJJM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_V1_FarmaciaChavarria\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
+  "projectFilePath": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\Proyecto Semestre VII\\Farmacia Chavarria\\Farmacia Chavarria\\Farmacia Chavarria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GATEWAY\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",
     "C:\\Users\\GATEWAY\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
