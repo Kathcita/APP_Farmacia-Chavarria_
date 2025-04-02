@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\APP_FarmaciaChavarria.props" />
+</Project>
