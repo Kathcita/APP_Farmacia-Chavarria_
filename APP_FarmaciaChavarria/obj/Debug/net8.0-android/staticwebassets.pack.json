@@ -1,32 +1,28 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "PackagePath": "staticwebassets\\APP_FarmaciaChavarria.styles.css"
     },
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\GATEWAY\\OneDrive\\Escritorio\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.APP_FarmaciaChavarria.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0-android\\staticwebassets\\msbuild.APP_FarmaciaChavarria.Microsoft.AspNetCore.StaticWebAssets.props",
