@@ -4,5 +4,54 @@
         <name>APP_FarmaciaChavarria</name>
     </assembly>
     <members>
+        <member name="T:FarmaciaChavarria.ViewModels.LoginViewModel">
+            <inheritdoc/>
+            <inheritdoc/>
+        </member>
+        <member name="P:FarmaciaChavarria.ViewModels.LoginViewModel.Usuario">
+            <inheritdoc cref="F:FarmaciaChavarria.ViewModels.LoginViewModel.usuario"/>
+        </member>
+        <member name="P:FarmaciaChavarria.ViewModels.LoginViewModel.Contraseña">
+            <inheritdoc cref="F:FarmaciaChavarria.ViewModels.LoginViewModel.contraseña"/>
+        </member>
+        <member name="P:FarmaciaChavarria.ViewModels.LoginViewModel.Mensaje">
+            <inheritdoc cref="F:FarmaciaChavarria.ViewModels.LoginViewModel.mensaje"/>
+        </member>
+        <member name="F:FarmaciaChavarria.ViewModels.LoginViewModel.iniciarSesionCommand">
+            <summary>The backing field for <see cref="P:FarmaciaChavarria.ViewModels.LoginViewModel.IniciarSesionCommand"/>.</summary>
+        </member>
+        <member name="P:FarmaciaChavarria.ViewModels.LoginViewModel.IniciarSesionCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:FarmaciaChavarria.ViewModels.LoginViewModel.IniciarSesion"/>.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Usuario">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Usuario" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Contraseña">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Contraseña" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs.Mensaje">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangingEventArgs"/> instance for all "Mensaje" generated properties.</summary>
+        </member>
+        <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs">
+            <summary>
+            A helper type providing cached, reusable <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instances
+            for all properties generated with <see cref="T:CommunityToolkit.Mvvm.ComponentModel.ObservablePropertyAttribute"/>.
+            </summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Usuario">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Usuario" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Contraseña">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Contraseña" generated properties.</summary>
+        </member>
+        <member name="F:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangedArgs.Mensaje">
+            <summary>The cached <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance for all "Mensaje" generated properties.</summary>
+        </member>
     </members>
 </doc>

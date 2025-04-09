@@ -1,0 +1,529 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\viewmodels\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\pages\\login.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\service\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\models\\authrequest\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\models\\authrequest\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\models\\authrequest\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\models\\authrequest\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\models\\categoria.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\pages\\counter.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\mainpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\mainpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\_imports.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\routes.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Azazel\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.82\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\app_farmaciachavarria.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\app_farmaciachavarria.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Azazel\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\service\\appstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\service\\appstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\service\\categoriaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\service\\categoriaservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\service\\inventarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\service\\inventarioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\models\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\service\\laboratorioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\service\\laboratorioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\platforms\\windows\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\platforms\\windows\\package.appxmanifest||{4D47164B-07B6-4A52-A855-728D6A2E2AA3}|Code"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\platforms\\windows\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\platforms\\windows\\app.manifest||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|c:\\users\\azazel\\onedrive\\escritorio\\coling\\app_farmacia-chavarria_\\app_farmaciachavarria\\models\\productocaducar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9E51E735-F556-4160-B85B-F1807112DCC6}|APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj|solutionrelative:app_farmaciachavarria\\models\\productocaducar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-08T22:21:03.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Categoria.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\Categoria.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Models\\Categoria.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\Categoria.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Models\\Categoria.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:30:12.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "CommunityToolkit.Mvvm.WindowsSdk.targets",
+              "DocumentMoniker": "C:\\Users\\Azazel\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
+              "ToolTip": "C:\\Users\\Azazel\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\buildTransitive\\CommunityToolkit.Mvvm.WindowsSdk.targets",
+              "ViewState": "AgIAAEQAAAAAAAAAAAApwFAAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-04-08T22:30:30.724Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\AuthService.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Service\\AuthService.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\AuthService.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Service\\AuthService.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAA5wBYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T06:13:25.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "LoginViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\ViewModels\\LoginViewModel.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\ViewModels\\LoginViewModel.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\ViewModels\\LoginViewModel.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\ViewModels\\LoginViewModel.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCUAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T06:35:33.561Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "App.xaml",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\App.xaml",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\App.xaml",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\App.xaml",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\App.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-08T22:17:15.971Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginResponse.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginResponse.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T06:25:39.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginRequest.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Models\\AuthRequest\\LoginRequest.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T06:01:27.215Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Login.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Pages\\Login.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Login.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Pages\\Login.razor",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAGcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:38:41.092Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Counter.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Counter.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Pages\\Counter.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Counter.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Pages\\Counter.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-09T18:04:05.501Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MauiProgram.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\MauiProgram.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAuwBIAAABvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T23:50:58.326Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Pages\\Home.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T22:23:46.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\App.xaml.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\App.xaml.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\App.xaml.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\App.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:17:21.077Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "_Imports.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\_Imports.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\_Imports.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\_Imports.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\_Imports.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:41:23.012Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Routes.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Routes.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Routes.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Routes.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Routes.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:38:59.927Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MainPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MainPage.xaml.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\MainPage.xaml.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MainPage.xaml.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\MainPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T22:17:26.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainPage.xaml",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MainPage.xaml",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\MainPage.xaml",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\MainPage.xaml",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\MainPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-08T22:17:31.247Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "APP_FarmaciaChavarria.csproj",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAFoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-04-08T22:31:29.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "App.g.i.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\Platforms\\Windows\\App.g.i.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-09T17:31:34.204Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\wwwroot\\index.html",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-08T21:41:34.384Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:41:20.862Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Components\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Components\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Components\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-04-08T21:41:13.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "AppState.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\AppState.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Service\\AppState.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\AppState.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Service\\AppState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T21:36:05.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CategoriaService.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\CategoriaService.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Service\\CategoriaService.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\CategoriaService.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Service\\CategoriaService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T06:33:12.267Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "InventarioService.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\InventarioService.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Service\\InventarioService.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\InventarioService.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Service\\InventarioService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAwwFUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T05:47:23.75Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\Usuario.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Models\\Usuario.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\Usuario.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Models\\Usuario.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T05:41:48.192Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "LaboratorioService.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\LaboratorioService.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Service\\LaboratorioService.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Service\\LaboratorioService.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Service\\LaboratorioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T05:39:37.991Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Package.appxmanifest",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Platforms\\Windows\\Package.appxmanifest",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Platforms\\Windows\\Package.appxmanifest",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Platforms\\Windows\\Package.appxmanifest",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Platforms\\Windows\\Package.appxmanifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001793|",
+              "WhenOpened": "2025-04-08T04:54:16.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Microsoft.Maui.Resizetizer.After.targets",
+              "DocumentMoniker": "C:\\Users\\Azazel\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.82\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.82\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "ToolTip": "C:\\Users\\Azazel\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.82\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\.nuget\\packages\\microsoft.maui.resizetizer\\8.0.82\\buildTransitive\\Microsoft.Maui.Resizetizer.After.targets",
+              "ViewState": "AgIAAGQCAAAAAAAAAAApwHYCAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
+              "WhenOpened": "2025-04-08T04:53:31.674Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "app.manifest",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Platforms\\Windows\\app.manifest",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Platforms\\Windows\\app.manifest",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Platforms\\Windows\\app.manifest",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Platforms\\Windows\\app.manifest",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001203|",
+              "WhenOpened": "2025-04-08T04:48:43.195Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "ProductoCaducar.cs",
+              "DocumentMoniker": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\ProductoCaducar.cs",
+              "RelativeDocumentMoniker": "APP_FarmaciaChavarria\\Models\\ProductoCaducar.cs",
+              "ToolTip": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\Models\\ProductoCaducar.cs",
+              "RelativeToolTip": "APP_FarmaciaChavarria\\Models\\ProductoCaducar.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-08T04:46:54.026Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

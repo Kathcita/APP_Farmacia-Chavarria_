@@ -1,30 +1,31 @@
 ﻿@page "/"
+@inject NavigationManager Navigation
 
 <h1>Dashboard</h1>
 <p>Una rápida descripción de los datos del inventario</p>
 
-<button class="btn btn-primary" @onclick="DescargarReporte">Descargar Reporte</button>
+<button class="btn btn-primary">Descargar Reporte</button>
 
 <div class="dashboard-grid">
     <div class="card">
         <h2>Bien</h2>
         <p>Estado del Inventario</p>
-        <button class="btn btn-secondary" @onclick="VerInventario">Ver Detalles del Reporte</button>
+        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
     </div>
     <div class="card">
         <h2>C$ 80,875</h2>
         <p>Ganancia - Ene 2025</p>
-        <button class="btn btn-secondary" @onclick="VerGanancias">Ver Detalles del Reporte</button>
+        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
     </div>
     <div class="card">
         <h2>298</h2>
         <p>Medicamentos Disponibles</p>
-        <button class="btn btn-secondary" @onclick="VisitarInventario">Visitar Inventario</button>
+        <button class="btn btn-secondary">Visitar Inventario</button>
     </div>
     <div class="card">
         <h2>01</h2>
         <p>Medicamentos Escasos</p>
-        <button class="btn btn-danger" @onclick="RevisarEscasos">Revisar Ahora</button>
+        <button class="btn btn-danger">Revisar Ahora</button>
     </div>
 </div>
 
@@ -47,25 +48,9 @@
 </div>
 
 @code {
-    private void DescargarReporte()
+    protected override void OnInitialized()
     {
-        Console.WriteLine("Descargando reporte...");
+        Navigation.NavigateTo("/login", true);
     }
-    private void VerInventario()
-    {
-        Console.WriteLine("Navegando a Inventario...");
-    }
-    private void VerGanancias()
-    {
-        Console.WriteLine("Mostrando detalles de ganancias...");
-    }
-    private void VisitarInventario()
-    {
-        Console.WriteLine("Visitando Inventario...");
-    }
-    private void RevisarEscasos()
-    {
-        Console.WriteLine("Revisando medicamentos escasos...");
-    }
-}
+}}
 

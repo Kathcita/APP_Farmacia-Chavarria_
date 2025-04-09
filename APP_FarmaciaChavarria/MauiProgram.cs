@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FarmaciaChavarria.Services;
+using FarmaciaChavarria.ViewModels;
+using Microsoft.Extensions.Logging;
 
 namespace APP_FarmaciaChavarria
 {
@@ -14,12 +16,19 @@ namespace APP_FarmaciaChavarria
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
+            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7053/") });
+
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddTransient<AuthService>();
+            builder.Services.AddSingleton<LoginViewModel>();
 
 #if DEBUG
-    		builder.Services.AddBlazorWebViewDeveloperTools();
-    		builder.Logging.AddDebug();
+            builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
 #endif
+
+
+
 
             return builder.Build();
         }
