@@ -8,15 +8,15 @@ namespace APP_FarmaciaChavarria.Models.AuthRequest
 {
     public class LoginRequest
     {
-        public string Usuario { get; set; }
-        public int Pin { get; set; }
+        public string nombre { get; set; }
+        public int pin { get; set; }
 
         public LoginRequest() { }
 
         public LoginRequest(string usuario, int pin)
         {
-            this.Usuario = usuario.Trim().ToLower(); 
-            this.Pin = pin;   
+            this.nombre = usuario.Trim().ToLower(); 
+            this.pin = pin;   
         }
     }
 }

@@ -33,8 +33,8 @@ namespace FarmaciaChavarria.ViewModels
             {
                 var request = new LoginRequest
                 {
-                    Usuario = Usuario,
-                    Pin = Convert.ToInt32(Contraseña)
+                    nombre = Usuario,
+                    pin = Convert.ToInt32(Contraseña)
                 };
 
                 var response = await _authService.LoginUser(request);
