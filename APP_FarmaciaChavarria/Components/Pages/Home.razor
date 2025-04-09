@@ -1,0 +1,56 @@
+﻿@page "/"
+@inject NavigationManager Navigation
+
+<h1>Dashboard</h1>
+<p>Una rápida descripción de los datos del inventario</p>
+
+<button class="btn btn-primary">Descargar Reporte</button>
+
+<div class="dashboard-grid">
+    <div class="card">
+        <h2>Bien</h2>
+        <p>Estado del Inventario</p>
+        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
+    </div>
+    <div class="card">
+        <h2>C$ 80,875</h2>
+        <p>Ganancia - Ene 2025</p>
+        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
+    </div>
+    <div class="card">
+        <h2>298</h2>
+        <p>Medicamentos Disponibles</p>
+        <button class="btn btn-secondary">Visitar Inventario</button>
+    </div>
+    <div class="card">
+        <h2>01</h2>
+        <p>Medicamentos Escasos</p>
+        <button class="btn btn-danger">Revisar Ahora</button>
+    </div>
+</div>
+
+<div class="dashboard-sections">
+    <h2>Inventario</h2>
+    <p>Número Total de Medicamentos: 298</p>
+    <p>Grupos de Medicinas: 24</p>
+
+    <h2>Mi Farmacia</h2>
+    <p>Número Total de Proveedores: 04</p>
+    <p>Total de Usuarios: 05</p>
+
+    <h2>Informe Rápido</h2>
+    <p>Medicamentos Vendidos: 70,856</p>
+    <p>Facturas Generadas: 5,288</p>
+
+    <h2>Clientes</h2>
+    <p>Total de Clientes: 845</p>
+    <p>Más Comprado: Acetaminofén</p>
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Navigation.NavigateTo("/login", true);
+    }
+}}
+
