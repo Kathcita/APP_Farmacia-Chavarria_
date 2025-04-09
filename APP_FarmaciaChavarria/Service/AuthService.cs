@@ -3,7 +3,9 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using APP_FarmaciaChavarria.Models.AuthRequest;
+using APP_FarmaciaChavarria.Models;
 using Newtonsoft.Json;
+using API_FarmaciaChavarria.Models;
 
 namespace FarmaciaChavarria.Services
 {
@@ -16,7 +18,7 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<LoginResponse> LoginUser(LoginRequest loginRequest)
+        public async Task<Usuario> LoginUser(LoginRequest loginRequest)
         {
             try
             {
@@ -26,7 +28,7 @@ namespace FarmaciaChavarria.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var responseData = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<LoginResponse>(responseData);
+                    return JsonConvert.DeserializeObject<Usuario>(responseData);
                 }
                 else
                 {
