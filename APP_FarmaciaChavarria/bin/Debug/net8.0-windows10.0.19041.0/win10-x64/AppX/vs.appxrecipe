@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-09T18:37:03.665</Modified>
+      <Modified>2025-04-09T19:42:46.130</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.dll">
       <PackagePath>APP_FarmaciaChavarria.dll</PackagePath>
-      <Modified>2025-04-09T18:37:02.962</Modified>
+      <Modified>2025-04-09T19:42:44.781</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>APP_FarmaciaChavarria.exe</PackagePath>
-      <Modified>2025-04-09T18:37:02.976</Modified>
+      <Modified>2025-04-09T19:42:44.871</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

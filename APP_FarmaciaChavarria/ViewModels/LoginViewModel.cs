@@ -39,9 +39,8 @@ namespace FarmaciaChavarria.ViewModels
 
                 var response = await _authService.LoginUser(request);
 
-                if (!string.IsNullOrEmpty(response?.Token))
+                if (!string.IsNullOrEmpty(response?.UserId))
                 {
-                    // Guardar token o redirigir
                     Mensaje = "Has iniciado sesión con éxito";
                 }
                 else
