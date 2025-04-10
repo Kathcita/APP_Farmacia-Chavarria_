@@ -50,7 +50,12 @@
 @code {
     protected override void OnInitialized()
     {
-        Navigation.NavigateTo("/login", true);
+        bool isLoggedIn = Preferences.Default.Get("IsLoggedIn", false);
+
+        if (!isLoggedIn)
+        {
+            Navigation.NavigateTo("/login", true);
+        }
     }
-}}
+}
 

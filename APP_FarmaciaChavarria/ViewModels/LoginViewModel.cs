@@ -5,6 +5,8 @@ using CommunityToolkit.Mvvm.Input;
 using FarmaciaChavarria.Services;
 using System.Net;
 using System.Threading.Tasks;
+using Microsoft.Maui.Storage;
+
 
 namespace FarmaciaChavarria.ViewModels
 {
@@ -42,6 +44,8 @@ namespace FarmaciaChavarria.ViewModels
                 if (!string.IsNullOrEmpty(response?.id_usuario.ToString()))
                 {
                     Mensaje = "Has iniciado sesión con éxito";
+                    Preferences.Default.Set("IsLoggedIn", true);
+
                 }
                 else
                 {

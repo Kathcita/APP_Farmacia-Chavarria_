@@ -1,27 +1,124 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">Farmacia Chavarria</a>
+﻿<div class="sidebar">
+    <div class="sidebar-header">
+        <img src="farmaciachavarialogo.jpg" alt="Logo" class="logo" />
+        <h3>Farmacia Chavarria</h3>
     </div>
-</div>
 
-<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+    <div class="user-info">
+        <img src="user.png" alt="User Avatar" class="avatar" />
+        <div>
+            <p class="user-name">Juan</p>
+            <p class="user-role">Super Admin</p>
+        </div>
+    </div>
 
-<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Counter
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="weather">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Weather
-            </NavLink>
-        </div>
+    <nav class="nav-menu">
+        <NavLink class="nav-item" href="/">
+            <i class="bi bi-grid"></i> Dashboard
+        </NavLink>
+        <NavLink class="nav-item" href="/inventario">
+            <i class="bi bi-box-seam"></i> Inventario
+        </NavLink>
+        <NavLink class="nav-item" href="/reportes">
+            <i class="bi bi-bar-chart"></i> Reportes
+        </NavLink>
+        <NavLink class="nav-item" href="/facturacion">
+            <i class="bi bi-file-earmark-text"></i> Facturación
+        </NavLink>
+        <NavLink class="nav-item" href="/compras">
+            <i class="bi bi-bag-check"></i> Compras
+        </NavLink>
     </nav>
+
+    <footer class="sidebar-footer">
+        <small>Copy Right © 2025</small>
+        <small>v1.12</small>
+    </footer>
 </div>
+<style>
+    .sidebar {
+        background-color: #1f2d40;
+        width: 260px;
+        height: 100vh;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+    }
+
+    .sidebar-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .logo {
+        width: 50px;
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar-header h3 {
+        font-size: 1.1rem;
+        margin: 0;
+    }
+
+    .user-info {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+        background-color: #007a7a;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+    }
+
+    .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid white;
+    }
+
+    .user-name {
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .user-role {
+        font-size: 0.85rem;
+        margin: 0;
+        color: #cfd8dc;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        flex-grow: 1;
+    }
+
+    .nav-item {
+        color: white;
+        text-decoration: none;
+        font-size: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        transition: background 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+        .nav-item:hover, .nav-item.active {
+            background-color: #00bcd4;
+        }
+
+    .sidebar-footer {
+        text-align: center;
+        font-size: 0.75rem;
+        color: #aaa;
+    }
+
+</style>
