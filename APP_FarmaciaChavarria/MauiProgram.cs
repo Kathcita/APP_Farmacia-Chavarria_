@@ -1,4 +1,5 @@
-﻿using FarmaciaChavarria.Services;
+﻿using APP_FarmaciaChavarria.ViewModels;
+using FarmaciaChavarria.Services;
 using FarmaciaChavarria.ViewModels;
 using Microsoft.Extensions.Logging;
 
@@ -20,7 +21,14 @@ namespace APP_FarmaciaChavarria
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddTransient<AuthService>();
+            builder.Services.AddSingleton<ProductoService>();
+            builder.Services.AddSingleton<CategoriaService>();
+
             builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<InventarioViewModel>();
+            builder.Services.AddSingleton<ProductoDetalleViewModel>();
+
+
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();

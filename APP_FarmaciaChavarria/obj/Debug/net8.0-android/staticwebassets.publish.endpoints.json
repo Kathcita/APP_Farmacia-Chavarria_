@@ -3,7 +3,7 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
-      "Route": "APP_FarmaciaChavarria.eiva1s18tt.styles.css",
+      "Route": "APP_FarmaciaChavarria.ox7ns7itfw.styles.css",
       "AssetFile": "APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "9172"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+qCij9CwGALUJXEK/wgzfIScLgfd9qohrI9qLnFJXv0=\""
+          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:07:28 GMT"
+          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "eiva1s18tt"
+          "Value": "ox7ns7itfw"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-+qCij9CwGALUJXEK/wgzfIScLgfd9qohrI9qLnFJXv0="
+          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5481"
+          "Value": "9172"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"+qCij9CwGALUJXEK/wgzfIScLgfd9qohrI9qLnFJXv0=\""
+          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:07:28 GMT"
+          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-+qCij9CwGALUJXEK/wgzfIScLgfd9qohrI9qLnFJXv0="
+          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
         }
       ]
     },
@@ -111,7 +111,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
         }
       ],
       "EndpointProperties": [
@@ -148,7 +148,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
         }
       ],
       "EndpointProperties": [
@@ -193,7 +193,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
         }
       ],
       "EndpointProperties": [
@@ -238,7 +238,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
         }
       ],
       "EndpointProperties": [
@@ -275,7 +275,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [
@@ -320,13 +320,95 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
           "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
+        }
+      ]
+    },
+    {
+      "Route": "farmaciachavarialogo.9sdqmwbfih.jpg",
+      "AssetFile": "farmaciachavarialogo.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "44541"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "9sdqmwbfih"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4="
+        },
+        {
+          "Name": "label",
+          "Value": "farmaciachavarialogo.jpg"
+        }
+      ]
+    },
+    {
+      "Route": "farmaciachavarialogo.jpg",
+      "AssetFile": "farmaciachavarialogo.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "44541"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4="
         }
       ]
     },
@@ -357,7 +439,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [
@@ -402,7 +484,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 18:06:37 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [
@@ -439,7 +521,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 20:52:50 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [
@@ -476,7 +558,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 02 Apr 2025 20:52:50 GMT"
+          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
         }
       ],
       "EndpointProperties": [

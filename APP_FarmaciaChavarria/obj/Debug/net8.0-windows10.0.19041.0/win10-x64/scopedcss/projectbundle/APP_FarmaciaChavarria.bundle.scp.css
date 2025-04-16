@@ -178,3 +178,187 @@ main[b-6o9o6c695x] {
         overflow-y: auto;
     }
 }
+/* /Components/Pages/DetalleProducto.razor.rz.scp.css */
+.header-container[b-z9yjfxairq]{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+
+.detalle-container[b-z9yjfxairq] {
+    padding: 1.5rem;
+    background-color: #f7f9fc;
+    border-radius: 8px;
+}
+
+.card[b-z9yjfxairq] {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+}
+
+.card1[b-z9yjfxairq]{
+    width: 49%;
+}
+
+.card-container[b-z9yjfxairq]{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    text-align:start;
+}
+
+span[b-z9yjfxairq]{
+    text-align:start;
+}
+
+.greatContainer[b-z9yjfxairq]{
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    padding-bottom: 20pX;
+}
+
+
+.greatContainer2[b-z9yjfxairq] {
+    padding-bottom: 20pX;
+}
+ /*textos con valores cargados desde base de datos*/
+.dataValue[b-z9yjfxairq] {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.btn[b-z9yjfxairq] {
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-danger[b-z9yjfxairq] {
+    background-color: #ffdddd;
+    color: #e74c3c;
+    border: 1px solid #e74c3c;
+}
+
+.btn-primary[b-z9yjfxairq] {
+    background-color: #00aaff;
+    color: white;
+    border: none;
+}
+/* /Components/Pages/Inventario.razor.rz.scp.css */
+body[b-fdqakp6o8s] {
+}
+
+.inventory-container[b-fdqakp6o8s] {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f6f9;
+}
+
+/*Cabezera de la interfaz*/
+.header[b-fdqakp6o8s] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.title-section h3[b-fdqakp6o8s] {
+    margin: 0;
+    font-size: 20px;
+}
+
+.title-section p[b-fdqakp6o8s] {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.gray-text[b-fdqakp6o8s] {
+    color: #9ca3af;
+}
+
+.btn-add[b-fdqakp6o8s] {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/*Contenedor de barra de búsqueda y combobox de filtro de categorías*/
+.search-filter-bar[b-fdqakp6o8s] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box[b-fdqakp6o8s] {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.category-select[b-fdqakp6o8s] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: white;
+}
+
+.medicine-table[b-fdqakp6o8s] {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+    .medicine-table th[b-fdqakp6o8s],
+    .medicine-table td[b-fdqakp6o8s] {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .medicine-table th[b-fdqakp6o8s] {
+        background-color: #f9fafb;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+.view-link[b-fdqakp6o8s] {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.pagination[b-fdqakp6o8s] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.page-controls[b-fdqakp6o8s] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-fdqakp6o8s] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+

@@ -1,0 +1,113 @@
+﻿body {
+}
+
+.inventory-container {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f6f9;
+}
+
+/*Cabezera de la interfaz*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.title-section h3 {
+    margin: 0;
+    font-size: 20px;
+}
+
+.title-section p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.gray-text {
+    color: #9ca3af;
+}
+
+.btn-add {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/*Contenedor de barra de búsqueda y combobox de filtro de categorías*/
+.search-filter-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.category-select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: white;
+}
+
+.medicine-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+    .medicine-table th,
+    .medicine-table td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .medicine-table th {
+        background-color: #f9fafb;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+.view-link {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.pagination {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+

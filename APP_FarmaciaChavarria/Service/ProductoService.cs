@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.ModelsDTO;
 
 
 namespace FarmaciaChavarria.Services
@@ -12,35 +13,57 @@ namespace FarmaciaChavarria.Services
     {
         private readonly HttpClient _httpClient;
 
-        public ProductoService()
+        public ProductoService(HttpClient httpClient)
         {
-            var handler = new HttpClientHandler
+            /*var handler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             };
             _httpClient = new HttpClient(handler)
             {
                 BaseAddress = new Uri("api") 
-            };
+            };*/
+
+            _httpClient = httpClient;
         }
 
-        public async Task<List<Producto>> ObtenerProductosAsync()
+        public async Task<List<ProductoDTO>> ObtenerProductosAsync()
         {
             var response = await _httpClient.GetAsync("/api/Productos");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Producto>>();
+                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
             }
-            return new List<Producto>();
+            return new List<ProductoDTO>();
         }
 
         // Obtener un producto por ID
-        public async Task<Producto?> ObtenerProductoPorIdAsync(int id)
+        public async Task<ProductoDTO?> ObtenerProductoPorIdAsync(int id)
         {
             var response = await _httpClient.GetAsync($"/api/Productos/{id}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<Producto>();
+                return await response.Content.ReadFromJsonAsync<ProductoDTO>();
+            }
+            return null;
+        }
+
+        public async Task<List<ProductoDTO?>> ObtenerProductoPorNombreAsync(string nombre)
+        {
+            var response = await _httpClient.GetAsync($"/api/Productos/nombre/{nombre}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
+            }
+            return null;
+        }
+
+        public async Task<List<ProductoDTO?>> ObtenerProductoPorCategoriaAsync(int id)
+        {
+            var response = await _httpClient.GetAsync($"/api/Productos/categoria/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
             }
             return null;
         }

@@ -1,0 +1,117 @@
+﻿@page "/detalle-producto/{id:int}"
+@using APP_FarmaciaChavarria.ViewModels
+@inject ProductoDetalleViewModel ViewModel
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductoPorId(id);
+    }
+}
+
+@if (ViewModel.Producto is null)
+{
+            <p>Cargando información del producto...</p>
+}
+else
+{
+            <div class="detalle-container">
+
+                <div class="header-container">
+                <h2>Inventario › Lista de Medicinas › <strong>@ViewModel.Producto.Nombre</strong></h2>
+
+                <button class="btn btn-primary">✏️ Editar Detalles</button>
+                </div>
+
+                <p>Lista de medicinas disponibles para venta</p>
+
+                <div class="grid grid-cols-2 gap-4 mt-4">
+
+            <div class="greatContainer">
+                    <div class="card card1">
+                        <strong>Medicamento</strong>
+                        <hr />
+
+                      <div class="card-container">
+
+                            <div class="minicard-continer">
+                        <span class="dataValue">@ViewModel.Producto.IdProducto</span> <br />
+                        <span class="small">ID</span>
+                            </div>
+
+                            <div class="minicard-continer">
+                        <span class="dataValue">@ViewModel.Producto.CategoriaNombre</span> <br />
+                        <span class="small">Categoría</span>
+                            </div>
+
+                       </div>
+               </div>
+
+                        <div class="card card1">
+                            <strong>Cantidad en Inventario</strong>
+                            <hr />
+
+                           <div class="card-container">
+
+                                <div class="minicard-continer">
+                            <span class="dataValue">@ViewModel.Producto.Precio</span>  <br />
+                            <span class="small">Ventas</span>
+                            </div>
+
+                                <div class="minicard-continer">
+                            <span class="dataValue">@ViewModel.Producto.Stock</span> <br />
+                            <span class="small">Stock Restante</span>
+                            </div>
+
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="greatContainer">
+                    <div class="card card1">
+                        <strong>Laboratorio</strong>
+                        <hr />
+
+                        <span>@ViewModel.Producto.LaboratorioNombre</span>
+                    </div>
+
+                    <div class="card card1">
+                        <strong>Fecha de vencimiento</strong>
+                        <hr />
+
+                        <span>@ViewModel.Producto.FechaVencimiento.ToString("dd/MM/yyyy")</span>
+                    </div>
+                        </div>
+
+                        <div class="greatContainer2">
+           <div class ="card">
+                 <strong>Cómo Usar</strong>
+                 <hr />
+           </div>
+               </div>
+
+            <div class="greatContainer2">
+
+            <div class="card">
+                <strong>Efectos Secundarios</strong>
+                <hr />
+
+            </div>
+                </div>
+
+                </div>
+
+                <div class="flex justify-between mt-6">
+                    <button class="btn btn-danger">🗑 Borrar</button>
+                </div>
+             </div>
+          
+}
+
+
+
