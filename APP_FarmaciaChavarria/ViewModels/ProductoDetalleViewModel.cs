@@ -24,8 +24,8 @@ namespace APP_FarmaciaChavarria.ViewModels
 
         public async Task CargarProductoPorId(int id)
         {
-            var lista = await _productoService.ObtenerProductosAsync();
-            Producto = lista.FirstOrDefault(p => p.IdProducto == id);
+            var lista = await _productoService.ObtenerProductoPorIdAsync(id);
+            Producto = lista;
         }
     }
 }

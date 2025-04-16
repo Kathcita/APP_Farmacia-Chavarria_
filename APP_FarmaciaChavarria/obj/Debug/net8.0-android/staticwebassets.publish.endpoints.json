@@ -3,7 +3,7 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
-      "Route": "APP_FarmaciaChavarria.ox7ns7itfw.styles.css",
+      "Route": "APP_FarmaciaChavarria.1ggxot883q.styles.css",
       "AssetFile": "APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9172"
+          "Value": "14303"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
+          "Value": "\"gf2Ydu51EoUNyOmS073XlouV1oHOQnj72HmttutN++w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
+          "Value": "Wed, 16 Apr 2025 16:29:22 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ox7ns7itfw"
+          "Value": "1ggxot883q"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
+          "Value": "sha256-gf2Ydu51EoUNyOmS073XlouV1oHOQnj72HmttutN++w="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9172"
+          "Value": "14303"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
+          "Value": "\"gf2Ydu51EoUNyOmS073XlouV1oHOQnj72HmttutN++w=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
+          "Value": "Wed, 16 Apr 2025 16:29:22 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
+          "Value": "sha256-gf2Ydu51EoUNyOmS073XlouV1oHOQnj72HmttutN++w="
         }
       ]
     },

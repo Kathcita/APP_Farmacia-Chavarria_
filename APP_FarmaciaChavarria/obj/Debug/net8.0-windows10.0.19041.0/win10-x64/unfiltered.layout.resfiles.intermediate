@@ -2,6 +2,8 @@ Components\Layout\MainLayout.razor.css
 Components\Layout\NavMenu.razor.css
 Components\Pages\DetalleProducto.razor.css
 Components\Pages\Inventario.razor.css
+Components\Pages\UiProductos\ActualizarProducto.razor.css
+Components\Pages\UiProductos\CrearProducto.razor.css
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -61,7 +63,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\APP_FarmaciaChavarria.styles.css
-wwwroot\APP_FarmaciaChavarria.ox7ns7itfw.bundle.scp.css
+wwwroot\APP_FarmaciaChavarria.hwkt8dgha9.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

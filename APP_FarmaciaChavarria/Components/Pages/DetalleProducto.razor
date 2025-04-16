@@ -1,6 +1,8 @@
 ﻿@page "/detalle-producto/{id:int}"
 @using APP_FarmaciaChavarria.ViewModels
 @inject ProductoDetalleViewModel ViewModel
+@inject NavigationManager Navigation
+
 
 @code {
     [Parameter]
@@ -9,6 +11,11 @@
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.CargarProductoPorId(id);
+    }
+
+    void NavegarActualizarProducto()
+    {
+        Navigation.NavigateTo($"/actualizarProducto/{id}");
     }
 }
 
@@ -23,7 +30,7 @@ else
                 <div class="header-container">
                 <h2>Inventario › Lista de Medicinas › <strong>@ViewModel.Producto.Nombre</strong></h2>
 
-                <button class="btn btn-primary">✏️ Editar Detalles</button>
+                        <button class="btn btn-primary" @onclick="() => NavegarActualizarProducto()">✏️ Editar Detalles</button>
                 </div>
 
                 <p>Lista de medicinas disponibles para venta</p>

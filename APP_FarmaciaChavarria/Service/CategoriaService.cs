@@ -51,6 +51,18 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
+        public async Task<List<Categoria?>> ObtenerCategoriaPorNombreAsync(string nombre)
+        {
+            var url = $"/api/Categorias/nombre/{nombre}";
+            var response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<Categoria>>();
+            }
+            return null;
+        }
+
 
         public async Task<string> CrearCategoriaAsync(Categoria categoria)
         {

@@ -23,11 +23,13 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddTransient<AuthService>();
             builder.Services.AddSingleton<ProductoService>();
             builder.Services.AddSingleton<CategoriaService>();
+            builder.Services.AddSingleton<LaboratorioService>();
 
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<InventarioViewModel>();
             builder.Services.AddSingleton<ProductoDetalleViewModel>();
-
+            builder.Services.AddSingleton<CrearProductoViewModel>();
+            builder.Services.AddSingleton<ActualizarProductoViewModel>();
 
 
 #if DEBUG

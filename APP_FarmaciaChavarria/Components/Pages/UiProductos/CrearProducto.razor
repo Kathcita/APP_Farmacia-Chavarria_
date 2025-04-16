@@ -1,0 +1,231 @@
+﻿@page "/crearProducto"
+
+@using API_FarmaciaChavarria.Models
+@using APP_FarmaciaChavarria.ViewModels
+@inject CrearProductoViewModel ViewModel
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="form-container">
+    <div class="form-header">
+        <div class="breadcrumbs">
+            <strong>Inventario</strong> &gt; <strong>Lista de Medicamentos</strong> &gt;
+            <span class="title">Agregar Nuevo Medicamento</span>
+        </div>
+        <button class="btn-guardar" @onclick="ViewModel.CrearProducto">Guardar Detalles</button>
+    </div>
+
+    <p class="note">
+        *Todos los campos son obligatorios, excepto los mencionados como (opcionales).
+    </p>
+
+    <div class="form-flex">
+        <div class="form-group">
+            <label>Nombre del Medicamento</label>
+            <input type="text" @bind="ViewModel.Nombre" />
+        </div>
+
+        <div class="form-group">
+            <label>ID del Medicamento</label>
+            <input type="text" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label>Categoría de Medicamento</label>
+            <input readonly @onclick="()=>ModalCategoriaVisible = true" class="form-control"
+                   value="@ViewModel.NombreCategoria" placeholder="Seleccionar Categoría" />
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input type="number" @bind="ViewModel.StockInput" />
+        </div>
+
+        <div class="form-group">
+            <label>Laboratorio</label>
+            <input readonly @onclick="()=>ModalLaboratorioVisible = true" class="form-control"
+                   value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
+        </div>
+
+        <div class="form-group">
+            <label>Fecha de Vencimiento</label>
+            <input type="date" @bind="ViewModel.FechaVencimiento" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+        </div>
+
+        <div class="form-group full-width">
+            <label>Como Usar</label>
+            <textarea rows="3"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+            <label>Efectos Secundarios</label>
+            <textarea rows="3"></textarea>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Categorías -->
+@if (ModalCategoriaVisible)
+{
+    <div class="modal-backdrop">
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <h3>Seleccionar Categoría</h3>
+
+                <div class="d-flex mb-2" style="gap: 8px;">
+                    <input type="text" class="form-control" placeholder="Buscar categoría..."
+                           @bind="ViewModel.BusquedaCategoria"
+                           @onkeydown="ManejarTeclaPresionadaCat" />
+
+                    <button class="btn btn-primary" @onclick="ViewModel.BuscarCategoria">
+                        Buscar
+                    </button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <div class="row-flex">
+                                    <span>Nombre</span>
+                                    <span>Acción</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var cat in ViewModel.Categorias)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <div class="row-flex">
+                                        <span>@cat.nombre</span>
+                                        <button class="btn btn-primary" @onclick="() => SeleccionarCategoria(cat)">
+                                            Seleccionar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <button class="btn btn-danger mt-2" @onclick="()=>ModalCategoriaVisible = false">Cerrar</button>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Modal Laboratorios -->
+@if (ModalLaboratorioVisible)
+{
+    <div class="modal-backdrop">
+        <div class="modal-content">
+            <h3>Seleccionar Laboratorio</h3>
+
+            <div class="d-flex mb-2" style="gap: 8px;">
+                <input type="text" class="form-control" placeholder="Buscar laboratorio..."
+                       @bind="ViewModel.BusquedaLaboratorio"
+                       @onkeydown="ManejarTeclaPresionadaLab" />
+
+                <button class="btn btn-primary" @onclick="ViewModel.BuscarLaboratorios">
+                    Buscar
+                </button>
+            </div>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th colspan="2">
+                            <div class="row-flex">
+                                <span>Nombre</span>
+                                <span>Acción</span>
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var lab in ViewModel.Laboratorios)
+                    {
+                        <tr>
+                            <td colspan="2">
+                                <div class="row-flex">
+                                    <span>@lab.nombre</span>
+                                    <button class="btn btn-primary" @onclick="() => SeleccionarLaboratorio(lab)">
+                                        Seleccionar
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <button class="btn btn-danger" @onclick="()=>ModalLaboratorioVisible = false">Cerrar</button>
+        </div>
+    </div>
+}
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        // para llenar categorías y laboratorios
+        await ViewModel.CargarCategorias(); 
+        await ViewModel.CargarLaboratorios();
+    }
+
+    // Variables y funciones necesarias para mostrar modals y obtener datos
+    private bool ModalCategoriaVisible = false;
+
+    private bool ModalLaboratorioVisible = false;
+    private string TextoBusquedaLaboratorio = "";
+
+    private void SeleccionarCategoria(Categoria cat)
+    {
+        ViewModel.CategoriaId = cat.id_categoria;
+        ViewModel.NombreCategoria = cat.nombre;
+        ModalCategoriaVisible = false;
+    }
+
+    private void SeleccionarLaboratorio(Laboratorio lab)
+    {
+        ViewModel.LaboratorioId = lab.id_laboratorio;
+        ViewModel.NombreLaboratorio = lab.nombre;
+        ModalLaboratorioVisible = false;
+    }
+
+    // Presionar enter en el input de búsqueda de categoría para llamar la función correspondiente
+    private async Task ManejarTeclaPresionadaCat(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarCategoria();
+        }
+    }
+
+    // Presionar enter en el input de búsqueda de laboratorios para llamar la función correspondiente
+
+    private async Task ManejarTeclaPresionadaLab(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarLaboratorios();
+        }
+    }
+
+}

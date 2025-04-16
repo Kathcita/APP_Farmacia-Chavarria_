@@ -12,16 +12,18 @@ namespace FarmaciaChavarria.Services
     {
         private readonly HttpClient _httpClient;
 
-        public LaboratorioService()
+        public LaboratorioService(HttpClient httpClient)
         {
-            var handler = new HttpClientHandler
+            /*var handler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             };
             _httpClient = new HttpClient(handler)
             {
                 BaseAddress = new Uri("api") 
-            };
+            };*/
+
+            _httpClient = httpClient;
         }
 
         public async Task<List<Laboratorio>> ObtenerLaboratoriosAsync()
@@ -41,6 +43,18 @@ namespace FarmaciaChavarria.Services
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<Laboratorio>();
+            }
+            return null;
+        }
+
+        public async Task<List<Laboratorio?>> ObtenerLaboratorioPorNombreAsync(string nombre)
+        {
+            var url = $"/api/Laboratorios/nombre/{nombre}";
+            var response = await _httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<Laboratorio>>();
             }
             return null;
         }

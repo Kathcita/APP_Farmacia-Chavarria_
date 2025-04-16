@@ -12,7 +12,7 @@
             <h3><span class="gray-text">Inventario</span> › <strong>Lista de medicinas</strong></h3>
             <p>Lista de medicinas disponibles para venta</p>
         </div>
-        <button class="btn-add">
+        <button class="btn-add" @onclick="() => NavegarCrearProducto()">
             <span>➕</span> Agregar Medicamento
         </button>
     </div>
@@ -91,6 +91,12 @@
         Navigation.NavigateTo($"/detalle-producto/{id}");
     }
 
+
+    void NavegarCrearProducto()
+    {
+        Navigation.NavigateTo($"/crearProducto");
+    }
+
     private async Task ManejarTeclaEnter(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
@@ -111,5 +117,5 @@
             var idCategoria = int.Parse(e.Value.ToString());
             await ViewModel.FiltrarProductosPorCategoria(idCategoria);
         }
-}
+    }
 }
