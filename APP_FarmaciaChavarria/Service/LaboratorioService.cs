@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.PaginationModels;
 
 
 namespace FarmaciaChavarria.Services
@@ -26,14 +27,14 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<Laboratorio>> ObtenerLaboratoriosAsync()
+        public async Task<LaboratorioPagedResult?> ObtenerLaboratoriosAsync(int pageNumber = 1, int pageSize = 8)
         {
-            var response = await _httpClient.GetAsync("/api/Laboratorios");
+            var response = await _httpClient.GetAsync($"/api/Laboratorios?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Laboratorio>>();
+                return await response.Content.ReadFromJsonAsync<LaboratorioPagedResult>();
             }
-            return new List<Laboratorio>();
+            return null;
         }
 
 
@@ -47,14 +48,14 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<List<Laboratorio?>> ObtenerLaboratorioPorNombreAsync(string nombre)
+        public async Task<LaboratorioPagedResult?> ObtenerLaboratorioPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
         {
-            var url = $"/api/Laboratorios/nombre/{nombre}";
+            var url = $"/api/Laboratorios/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Laboratorio>>();
+                return await response.Content.ReadFromJsonAsync<LaboratorioPagedResult>();
             }
             return null;
         }

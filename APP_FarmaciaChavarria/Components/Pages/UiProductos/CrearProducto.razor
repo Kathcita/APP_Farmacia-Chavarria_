@@ -47,7 +47,7 @@
         <div class="form-group">
             <label>Categoría de Medicamento</label>
             <input readonly @onclick="()=>ModalCategoriaVisible = true" class="form-control"
-                   value="@ViewModel.NombreCategoria" placeholder="Seleccionar Categoría" />
+            value="@ViewModel.NombreCategoria" placeholder="Seleccionar Categoría" />
         </div>
 
         <div class="form-group">
@@ -58,7 +58,7 @@
         <div class="form-group">
             <label>Laboratorio</label>
             <input readonly @onclick="()=>ModalLaboratorioVisible = true" class="form-control"
-                   value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
+            value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
         </div>
 
         <div class="form-group">
@@ -88,10 +88,10 @@
 
                 <div class="d-flex mb-2" style="gap: 8px;">
                     <input type="text" class="form-control" placeholder="Buscar categoría..."
-                           @bind="ViewModel.BusquedaCategoria"
-                           @onkeydown="ManejarTeclaPresionadaCat" />
+                    @bind="ViewModel.BusquedaCategoria"
+                    @onkeydown="ManejarTeclaPresionadaCat" />
 
-                    <button class="btn btn-primary" @onclick="ViewModel.BuscarCategoria">
+                    <button class="btn btn-primary" @onclick="() => ViewModel.BuscarCategoria(1)">
                         Buscar
                     </button>
                 </div>
@@ -124,6 +124,15 @@
                     </tbody>
                 </table>
 
+                <div class="pagination">
+                    <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDeCategorias</span>
+                    <div class="page-controls">
+                        <button class="nav-btn" @onclick="() => PaginaAnteriorCategoria()">‹</button>
+                        <span>Pág @ViewModel.NumeroPagina</span>
+                        <button class="nav-btn" @onclick="() => SiguientePaginaCategoria()">›</button>
+                    </div>
+                </div>
+
                 <button class="btn btn-danger mt-2" @onclick="()=>ModalCategoriaVisible = false">Cerrar</button>
             </div>
         </div>
@@ -139,10 +148,10 @@
 
             <div class="d-flex mb-2" style="gap: 8px;">
                 <input type="text" class="form-control" placeholder="Buscar laboratorio..."
-                       @bind="ViewModel.BusquedaLaboratorio"
-                       @onkeydown="ManejarTeclaPresionadaLab" />
+                @bind="ViewModel.BusquedaLaboratorio"
+                @onkeydown="ManejarTeclaPresionadaLab" />
 
-                <button class="btn btn-primary" @onclick="ViewModel.BuscarLaboratorios">
+                <button class="btn btn-primary" @onclick="() => ViewModel.BuscarLaboratorios(1)">
                     Buscar
                 </button>
             </div>
@@ -175,6 +184,15 @@
                 </tbody>
             </table>
 
+            <div class="pagination">
+                <span>Mostrando 1 - @ViewModel.TamañoDePaginaLab resultados de @ViewModel.TotalDeLaboratorios</span>
+                <div class="page-controls">
+                    <button class="nav-btn" @onclick="() => PaginaAnteriorLaboratorio()">‹</button>
+                    <span>Pág @ViewModel.NumeroPaginaLab</span>
+                    <button class="nav-btn" @onclick="() => SiguientePaginaLaboratorio()">›</button>
+                </div>
+            </div>
+
             <button class="btn btn-danger" @onclick="()=>ModalLaboratorioVisible = false">Cerrar</button>
         </div>
     </div>
@@ -191,22 +209,36 @@
 
     // Variables y funciones necesarias para mostrar modals y obtener datos
     private bool ModalCategoriaVisible = false;
-
     private bool ModalLaboratorioVisible = false;
-    private string TextoBusquedaLaboratorio = "";
 
-    private void SeleccionarCategoria(Categoria cat)
+    /*Al seleccionar una categoría, se cambian los valores en el viewModel y se llama a la función
+    CargarCategorias(),
+         para mostrar los datos que habían cargado en un inicio
+         */
+
+    private async Task SeleccionarCategoria(Categoria cat)
     {
         ViewModel.CategoriaId = cat.id_categoria;
         ViewModel.NombreCategoria = cat.nombre;
         ModalCategoriaVisible = false;
+        ViewModel.NumeroPagina = 1;
+        ViewModel.FiltroBusqueda = false;
+        await ViewModel.CargarCategorias();
     }
 
-    private void SeleccionarLaboratorio(Laboratorio lab)
+    /*Al seleccionar una laboratorio, se cambian los valores en el viewModel y se llama a la función
+    BuscarLaboratorios(), para mostrar los datos que habían cargado en un inicio
+             */
+
+
+    private async Task SeleccionarLaboratorio(Laboratorio lab)
     {
         ViewModel.LaboratorioId = lab.id_laboratorio;
         ViewModel.NombreLaboratorio = lab.nombre;
         ModalLaboratorioVisible = false;
+        ViewModel.NumeroPaginaLab = 1;
+        ViewModel.FiltroBusquedaLab = false;
+        await ViewModel.CargarLaboratorios();
     }
 
     // Presionar enter en el input de búsqueda de categoría para llamar la función correspondiente
@@ -214,7 +246,7 @@
     {
         if (e.Key == "Enter")
         {
-            await ViewModel.BuscarCategoria();
+            await ViewModel.BuscarCategoria(1);
         }
     }
 
@@ -224,7 +256,81 @@
     {
         if (e.Key == "Enter")
         {
-            await ViewModel.BuscarLaboratorios();
+            await ViewModel.BuscarLaboratorios(1);
+        }
+    }
+
+    /*Función que maneja el paginado de datos de categorías hacia atras*/
+
+    protected async Task SiguientePaginaCategoria()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.BuscarCategoria(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarCategorias();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos de categorías hacia atras*/
+
+    protected async Task PaginaAnteriorCategoria()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.BuscarCategoria(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarCategorias();
+        }
+    }
+
+    /*Función que maneja el paginado de datos de laboratorios hacia adelante*/
+
+    protected async Task SiguientePaginaLaboratorio()
+    {
+        if (ViewModel.NumeroPaginaLab < ViewModel.TotalDePaginasLab && ViewModel.FiltroBusquedaLab == true)
+        {
+            ViewModel.NumeroPaginaLab += 1;
+            await ViewModel.BuscarLaboratorios(ViewModel.NumeroPaginaLab);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaLab < ViewModel.TotalDePaginasLab)
+        {
+            ViewModel.NumeroPaginaLab += 1;
+            await ViewModel.CargarLaboratorios();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos de laboratorios hacia atras*/
+
+    protected async Task PaginaAnteriorLaboratorio()
+    {
+        if (ViewModel.NumeroPaginaLab > 1 && ViewModel.FiltroBusquedaLab == true)
+        {
+            ViewModel.NumeroPaginaLab -= 1;
+            await ViewModel.BuscarLaboratorios(ViewModel.NumeroPaginaLab);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaLab > 1)
+        {
+            ViewModel.NumeroPaginaLab -= 1;
+            await ViewModel.CargarLaboratorios();
         }
     }
 

@@ -3381,3 +3381,5 @@ C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\De
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-android\APP_FarmaciaChavarria.AssemblyInfo.cs
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-android\APP_FarmaciaChavarria.csproj.CoreCompileInputs.cache
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-android\APP_FarmaciaChavarria.sourcelink.json
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-android\scopedcss\Components\Pages\UiProductos\ActualizarProducto.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-android\scopedcss\Components\Pages\UiProductos\CrearProducto.razor.rz.scp.css

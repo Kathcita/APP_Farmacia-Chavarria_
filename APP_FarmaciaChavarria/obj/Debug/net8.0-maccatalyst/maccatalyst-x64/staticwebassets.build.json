@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "qq3tKoA3+vAILz2Gkb+b62/zE/A1ZfvFUKJUPTsfBbg=",
+  "Hash": "ShYlQpq6p4r81fXXkjppAEgBlcxuWBquQkeFalBHDbc=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "ox7ns7itfw",
-      "Integrity": "7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=",
+      "Fingerprint": "0labon0k67",
+      "Integrity": "VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "ox7ns7itfw",
-      "Integrity": "7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=",
+      "Fingerprint": "0labon0k67",
+      "Integrity": "VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
@@ -187,6 +187,96 @@
   ],
   "Endpoints": [
     {
+      "Route": "APP_FarmaciaChavarria.0labon0k67.bundle.scp.css",
+      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0labon0k67"
+        },
+        {
+          "Name": "label",
+          "Value": "APP_FarmaciaChavarria.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
+        }
+      ]
+    },
+    {
+      "Route": "APP_FarmaciaChavarria.0labon0k67.styles.css",
+      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18132"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "0labon0k67"
+        },
+        {
+          "Name": "label",
+          "Value": "APP_FarmaciaChavarria.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
+        }
+      ]
+    },
+    {
       "Route": "APP_FarmaciaChavarria.bundle.scp.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "Selectors": [],
@@ -197,7 +287,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9172"
+          "Value": "18132"
         },
         {
           "Name": "Content-Type",
@@ -205,11 +295,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
+          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
+          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -219,97 +309,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.ox7ns7itfw.bundle.scp.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9172"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ox7ns7itfw"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.ox7ns7itfw.styles.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "9172"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ox7ns7itfw"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
+          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
         }
       ]
     },
@@ -324,7 +324,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "9172"
+          "Value": "18132"
         },
         {
           "Name": "Content-Type",
@@ -332,11 +332,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0=\""
+          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 16 Apr 2025 01:51:34 GMT"
+          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -346,7 +346,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7P8zxqqZzW4aMfacl3iwX9JJSNBYS5e7l8Jmn73N5g0="
+          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
         }
       ]
     },

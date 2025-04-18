@@ -89,6 +89,7 @@
     text-decoration: none;
 }
 
+/*Estilos para el componente de paginación de datos*/
 .pagination {
     margin-top: 15px;
     display: flex;

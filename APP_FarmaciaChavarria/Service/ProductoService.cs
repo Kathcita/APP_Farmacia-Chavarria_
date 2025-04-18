@@ -5,6 +5,7 @@ using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
 using APP_FarmaciaChavarria.Models.ModelsDTO;
+using APP_FarmaciaChavarria.Models.PaginationModels;
 
 
 namespace FarmaciaChavarria.Services
@@ -27,15 +28,17 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<List<ProductoDTO>> ObtenerProductosAsync()
+        public async Task<ProductoPagedResult?> ObtenerProductosAsync(int pageNumber = 1, int pageSize = 8)
         {
-            var response = await _httpClient.GetAsync("/api/Productos");
+            var response = await _httpClient.GetAsync($"/api/Productos?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
             }
-            return new List<ProductoDTO>();
+
+            return null; // O manejar error de otra forma
         }
+
 
         // Obtener un producto por ID
         public async Task<ProductoDTO?> ObtenerProductoPorIdAsync(int id)
@@ -48,22 +51,22 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<List<ProductoDTO?>> ObtenerProductoPorNombreAsync(string nombre)
+        public async Task<ProductoPagedResult?> ObtenerProductoPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
         {
-            var response = await _httpClient.GetAsync($"/api/Productos/nombre/{nombre}");
+            var response = await _httpClient.GetAsync($"/api/Productos/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
             }
             return null;
         }
 
-        public async Task<List<ProductoDTO?>> ObtenerProductoPorCategoriaAsync(int id)
+        public async Task<ProductoPagedResult?> ObtenerProductoPorCategoriaAsync(int id, int pageNumber = 1, int pageSize = 8)
         {
-            var response = await _httpClient.GetAsync($"/api/Productos/categoria/{id}");
+            var response = await _httpClient.GetAsync($"/api/Productos/categoria/{id}?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<ProductoDTO>>();
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
             }
             return null;
         }

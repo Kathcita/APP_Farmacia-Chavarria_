@@ -19,6 +19,9 @@ namespace APP_FarmaciaChavarria.ViewModels
             _productoService = productoService;
         }
 
+        /*Obtiene y carga la información del producto para mostrarlo en la interfaz
+         detalle de producto*/
+
         [ObservableProperty]
         private ProductoDTO? producto;
 

@@ -82,6 +82,30 @@
         resize: none;
     }
 
+/*Estilos para el componente de paginación de datos*/
+.pagination {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom:20px;
+}
+
+.page-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
     /*Estilos para mensaje de error*/
 
 .alert-error {

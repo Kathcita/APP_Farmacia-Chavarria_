@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.PaginationModels;
 
 
 namespace FarmaciaChavarria.Services
@@ -27,16 +28,16 @@ namespace FarmaciaChavarria.Services
         }
 
 
-        public async Task<List<Categoria>> ObtenerCategoriasAsync()
+        public async Task<CategoriaPagedResult?> ObtenerCategoriasAsync(int pageNumber = 1, int pageSize = 8)
         {
-            var url = "/api/Categorias";
+            var url = $"/api/Categorias?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Categoria>>();
+                return await response.Content.ReadFromJsonAsync<CategoriaPagedResult>();
             }
-            return new List<Categoria>();
+            return null;
         }
 
         public async Task<Categoria?> ObtenerCategoriaPorIdAsync(int id)
@@ -51,14 +52,14 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<List<Categoria?>> ObtenerCategoriaPorNombreAsync(string nombre)
+        public async Task<CategoriaPagedResult?> ObtenerCategoriaPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
         {
-            var url = $"/api/Categorias/nombre/{nombre}";
+            var url = $"/api/Categorias/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Categoria>>();
+                return await response.Content.ReadFromJsonAsync<CategoriaPagedResult>();
             }
             return null;
         }

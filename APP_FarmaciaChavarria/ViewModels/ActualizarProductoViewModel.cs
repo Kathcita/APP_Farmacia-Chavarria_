@@ -85,6 +85,39 @@ namespace APP_FarmaciaChavarria.ViewModels
         [ObservableProperty]
         private string efectosSecundarios;
 
+        // Información de paginación de categorias
+        [ObservableProperty]
+        private int numeroPagina = 1;
+
+        [ObservableProperty]
+        private int totalDeCategorias;
+
+        [ObservableProperty]
+        private int totalDePaginas;
+
+        [ObservableProperty]
+        private int tamañoDePagina;
+
+        [ObservableProperty]
+        private bool filtroBusqueda;
+
+        // Información de paginación de laboratorios
+
+        [ObservableProperty]
+        private int numeroPaginaLab = 1;
+
+        [ObservableProperty]
+        private int totalDeLaboratorios;
+
+        [ObservableProperty]
+        private int totalDePaginasLab;
+
+        [ObservableProperty]
+        private int tamañoDePaginaLab;
+
+        [ObservableProperty]
+        private bool filtroBusquedaLab;
+
         public async Task CargarProductoPorId(int id)
         {
             var producto = await _productoService.ObtenerProductoPorIdAsync(id);
@@ -174,10 +207,14 @@ namespace APP_FarmaciaChavarria.ViewModels
         {
             try
             {
-                var categorias = await _categoriaService.ObtenerCategoriasAsync();
-                if (categorias is not null && categorias.Any())
+                var categorias = await _categoriaService.ObtenerCategoriasAsync(NumeroPagina);
+                if (categorias is not null && categorias.Categorias.Any())
                 {
-                    Categorias = categorias;
+                    Categorias = categorias.Categorias;
+                    NumeroPagina = categorias.CurrentPage;
+                    TotalDeCategorias = categorias.TotalItems;
+                    TotalDePaginas = categorias.TotalPages;
+                    TamañoDePagina = categorias.PageSize;
                 }
                 else
                 {
@@ -189,20 +226,26 @@ namespace APP_FarmaciaChavarria.ViewModels
                 MensajeError = $"Error al cargar categorias: {ex.Message}";
             }
         }
-        public async Task BuscarCategoria()
+        public async Task BuscarCategoria(int pagina)
         {
             try
             {
                 if (BusquedaCategoria == "")
                 {
                     await CargarCategorias();
+                    FiltroBusqueda = false;
                     return;
                 }
 
-                var categorias = await _categoriaService.ObtenerCategoriaPorNombreAsync(BusquedaCategoria);
-                if (categorias is not null && categorias.Any())
+                var categorias = await _categoriaService.ObtenerCategoriaPorNombreAsync(BusquedaCategoria, pagina);
+                if (categorias is not null && categorias.Categorias.Any())
                 {
-                    Categorias = categorias;
+                    Categorias = categorias.Categorias;
+                    NumeroPagina = categorias.CurrentPage;
+                    TotalDeCategorias = categorias.TotalItems;
+                    TotalDePaginas = categorias.TotalPages;
+                    TamañoDePagina = categorias.PageSize;
+                    FiltroBusqueda = true;
                 }
                 else
                 {
@@ -219,10 +262,14 @@ namespace APP_FarmaciaChavarria.ViewModels
         {
             try
             {
-                var laboratorios = await _laboratorioService.ObtenerLaboratoriosAsync();
-                if (laboratorios is not null && laboratorios.Any())
+                var laboratorios = await _laboratorioService.ObtenerLaboratoriosAsync(NumeroPaginaLab);
+                if (laboratorios is not null && laboratorios.Laboratorios.Any())
                 {
-                    Laboratorios = laboratorios;
+                    Laboratorios = laboratorios.Laboratorios;
+                    NumeroPaginaLab = laboratorios.CurrentPage;
+                    TotalDeLaboratorios = laboratorios.TotalItems;
+                    TotalDePaginasLab = laboratorios.TotalPages;
+                    TamañoDePaginaLab = laboratorios.PageSize;
                 }
                 else
                 {
@@ -235,20 +282,26 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
         }
 
-        public async Task BuscarLaboratorios()
+        public async Task BuscarLaboratorios(int pagina)
         {
             try
             {
                 if (BusquedaLaboratorio == "")
                 {
                     await CargarLaboratorios();
+                    FiltroBusquedaLab = false;
                     return;
                 }
 
-                var laboratorios = await _laboratorioService.ObtenerLaboratorioPorNombreAsync(BusquedaLaboratorio);
-                if (laboratorios is not null && laboratorios.Any())
+                var laboratorios = await _laboratorioService.ObtenerLaboratorioPorNombreAsync(BusquedaLaboratorio, pagina);
+                if (laboratorios is not null && laboratorios.Laboratorios.Any())
                 {
-                    Laboratorios = laboratorios;
+                    Laboratorios = laboratorios.Laboratorios;
+                    NumeroPaginaLab = laboratorios.CurrentPage;
+                    TotalDeLaboratorios = laboratorios.TotalItems;
+                    TotalDePaginasLab = laboratorios.TotalPages;
+                    TamañoDePaginaLab = laboratorios.PageSize;
+                    FiltroBusquedaLab = true;
                 }
                 else
                 {
@@ -261,6 +314,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
         }
 
+        // Función para limpiar los campos una vez fue actualizado el producto
         private void LimpiarCampos()
         {
             Nombre = string.Empty;

@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace APP_FarmaciaChavarria.ViewModels
 {
@@ -36,7 +37,36 @@ namespace APP_FarmaciaChavarria.ViewModels
         private string mensajeError = string.Empty;
 
 
+        // Información de paginación
+        [ObservableProperty]
+        private int numeroPagina = 1;
 
+        [ObservableProperty]
+        private int totalDeProductos;
+
+        [ObservableProperty]
+        private int totalDePaginas;
+
+        [ObservableProperty]
+        private int tamañoDePagina;
+
+        // Filtro activado
+
+        [ObservableProperty]
+        private int idCategoria;
+
+        [ObservableProperty]
+        private bool filtroCategoria;
+
+        [ObservableProperty]
+        private bool filtroBusqueda;
+
+        [ObservableProperty]
+        private string busquedaActual;
+
+
+        /*Fúnción para cargar las medicinas desde la base de datos
+         y luego mostrarlas en la tabla correspondiente*/
         [RelayCommand]
         public async Task CargarMedicinasAsync()
         {
@@ -45,11 +75,15 @@ namespace APP_FarmaciaChavarria.ViewModels
                 IsLoading = true;
                 MensajeError = string.Empty;
 
-                var productos = await _productoService.ObtenerProductosAsync();
+                var productos = await _productoService.ObtenerProductosAsync(NumeroPagina);
 
-                if (productos is not null && productos.Any())
+                if (productos is not null && productos.Productos.Any())
                 {
-                    Medicinas = productos;
+                    NumeroPagina = productos.CurrentPage;
+                    TotalDeProductos = productos.TotalItems;
+                    TotalDePaginas = productos.TotalPages;
+                    TamañoDePagina = productos.PageSize;
+                    Medicinas = productos.Productos;
                 }
                 else
                 {
@@ -69,22 +103,40 @@ namespace APP_FarmaciaChavarria.ViewModels
         [RelayCommand]
         public async Task BuscarMedicina(string nombre)
         {
-            if(nombre == "")
-            {
-                await CargarMedicinasAsync();
-                Debug.WriteLine($"cargando...");
-                return;
-            }
-
             try
-            {
+            { 
+                /*
+                Si la búsqueda en un string vacio entonces cargamos todas las medicinas,
+                reiniciamos el número de página a 1 y quitamos el filtro por categorías
+                */
+                if (nombre == "")
+                {
+                    NumeroPagina = 1;
+                    await CargarMedicinasAsync();
+                    FiltroCategoria = false;
+                    FiltroBusqueda = false;
+                    return;
+                }
+
+                if (BusquedaActual != nombre || FiltroCategoria)
+                {
+                    NumeroPagina = 1;
+                }
+
                 IsLoading = true;
                 MensajeError = string.Empty;
 
-                var productos = await _productoService.ObtenerProductoPorNombreAsync(nombre);
-                if (productos is not null && productos.Any())
+                var productos = await _productoService.ObtenerProductoPorNombreAsync(nombre, NumeroPagina);
+                if (productos is not null && productos.Productos.Any())
                 {
-                    Medicinas = productos;
+                    BusquedaActual = nombre;
+                    FiltroBusqueda = true;
+                    FiltroCategoria = false;
+                    NumeroPagina = productos.CurrentPage;
+                    TotalDeProductos = productos.TotalItems;
+                    TotalDePaginas = productos.TotalPages;
+                    TamañoDePagina = productos.PageSize;
+                    Medicinas = productos.Productos;
                 }
                 else
                 {
@@ -101,15 +153,17 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
         }
 
+        /*Función para cargar las categorías desde la base de datos
+         y luego cargarlas en el select para realizar filtrados de datos*/
         [RelayCommand]
         public async Task CargarCategorias()
         {
             try
             {
                 var categorias = await _categoriaService.ObtenerCategoriasAsync();
-                if(categorias is not null && categorias.Any())
+                if(categorias is not null && categorias.Categorias.Any())
                 {
-                    Categorias = categorias;
+                    Categorias = categorias.Categorias;
                 }
                 else
                 {
@@ -127,10 +181,38 @@ namespace APP_FarmaciaChavarria.ViewModels
         {
             try
             {
-                var productos = await _productoService.ObtenerProductoPorCategoriaAsync(id);
-                if (productos is not null && productos.Any())
+
+                /* Si el id proporcionado es 0, es decir la primera opción
+                 entonces se eliminará el filtro por categoría y cargarán
+                las medicinas
+                 */
+
+                if(id == 0)
                 {
-                    Medicinas = productos;
+                    await CargarMedicinasAsync();
+                    FiltroCategoria = false;
+                    return;
+                }
+
+                /* Si la categoría a filtrar es diferente a la que estaba,
+                  entonces el número de página a mostrar será la 1*/
+
+                if (id != IdCategoria)
+                {
+                    NumeroPagina = 1;
+                }
+
+                var productos = await _productoService.ObtenerProductoPorCategoriaAsync(id, NumeroPagina);
+                if (productos is not null && productos.Productos.Any())
+                {
+                    IdCategoria = id;
+                    FiltroBusqueda = false;
+                    FiltroCategoria = true;
+                    NumeroPagina = productos.CurrentPage;
+                    TotalDeProductos = productos.TotalItems;
+                    TotalDePaginas = productos.TotalPages;
+                    TamañoDePagina = productos.PageSize;
+                    Medicinas = productos.Productos;
                 }
                 else
                 {

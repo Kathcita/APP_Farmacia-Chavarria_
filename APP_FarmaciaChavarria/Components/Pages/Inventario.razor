@@ -26,7 +26,7 @@
 
         <button @onclick="async () => await BuscarProductos()">Buscar</button>
         <select class="category-select" @onchange="FiltrarPorCategoria">
-            <option value="" disabled selected>Seleccionar categoría</option>
+            <option value="0" selected>Seleccionar categoría</option>
             @foreach (var item in ViewModel.Categorias)
             {
                 <option value="@item.id_categoria">@item.nombre</option>
@@ -61,17 +61,18 @@
     </table>
 
     <div class="pagination">
-        <span>Mostrando 1 - 8 resultados de 298</span>
+        <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDeProductos</span>
         <div class="page-controls">
-            <button class="nav-btn">‹</button>
-            <span>Pág 01</span>
-            <button class="nav-btn">›</button>
+            <button class="nav-btn" @onclick="() => PaginaAnteriorMedicina()">‹</button>
+            <span>Pág @ViewModel.NumeroPagina</span>
+            <button class="nav-btn" @onclick="() => SiguientePaginaMedicina()">›</button>
         </div>
     </div>
 </div>
 
 @code {
 
+    /*Código para la actualización del valor de la barra de búsqueda*/
     private string productoABuscar { get; set; } = string.Empty;
 
     private void ActualizarProductoABuscar(ChangeEventArgs e)
@@ -79,11 +80,62 @@
         productoABuscar = e.Value?.ToString() ?? string.Empty;
     }
 
+    /*Función para la carga inicial de medicinas y categorías*/
+
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.CargarMedicinasAsync();
         await ViewModel.CargarCategorias();
-        Console.WriteLine("Cargaron las medicinas");
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task SiguientePaginaMedicina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await BuscarProductos();
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroCategoria == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.FiltrarProductosPorCategoria(ViewModel.IdCategoria);
+            return;
+        }
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroCategoria == false)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnteriorMedicina()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await BuscarProductos();
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroCategoria == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.FiltrarProductosPorCategoria(ViewModel.IdCategoria);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroCategoria == false)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
     }
 
     void NavegarAlDetalle(int id)
@@ -97,6 +149,7 @@
         Navigation.NavigateTo($"/crearProducto");
     }
 
+    /*Función para al dar click en Enter, entonces realizar una búsqueda de productos*/
     private async Task ManejarTeclaEnter(KeyboardEventArgs e)
     {
         if (e.Key == "Enter")
@@ -104,12 +157,15 @@
             await BuscarProductos();
         }
     }
+    
+    /*Función para buscar producto por nombre*/
 
     protected async Task BuscarProductos()
     {
         await ViewModel.BuscarMedicina(productoABuscar);
     }
 
+    /*Función para filtro de categorías según la elegida en el select*/
     private async Task FiltrarPorCategoria(ChangeEventArgs e)
     {
         if (e.Value is not null)

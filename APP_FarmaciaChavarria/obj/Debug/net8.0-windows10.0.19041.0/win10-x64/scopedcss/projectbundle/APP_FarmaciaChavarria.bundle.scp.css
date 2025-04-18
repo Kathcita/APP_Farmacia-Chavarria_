@@ -341,6 +341,7 @@ body[b-fdqakp6o8s] {
     text-decoration: none;
 }
 
+/*Estilos para el componente de paginación de datos*/
 .pagination[b-fdqakp6o8s] {
     margin-top: 15px;
     display: flex;
@@ -447,6 +448,30 @@ body[b-fdqakp6o8s] {
         color: #333;
         resize: none;
     }
+
+/*Estilos para el componente de paginación de datos*/
+.pagination[b-lk1h9g9be5] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.page-controls[b-lk1h9g9be5] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-lk1h9g9be5] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
 
 /*Estilos para mensaje de error*/
@@ -632,6 +657,30 @@ body[b-fdqakp6o8s] {
         color: #333;
         resize: none;
     }
+
+/*Estilos para el componente de paginación de datos*/
+.pagination[b-7ubq3svegt] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom:20px;
+}
+
+.page-controls[b-7ubq3svegt] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-7ubq3svegt] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
 
     /*Estilos para mensaje de error*/
 
