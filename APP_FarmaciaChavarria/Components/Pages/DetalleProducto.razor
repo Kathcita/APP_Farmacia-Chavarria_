@@ -13,10 +13,58 @@
         await ViewModel.CargarProductoPorId(id);
     }
 
+    // Funciones para navegar a inventario o actualizar producto
     void NavegarActualizarProducto()
     {
         Navigation.NavigateTo($"/actualizarProducto/{id}");
     }
+
+    void NavegarInventario()
+    {
+        Navigation.NavigateTo("/inventario");
+    }
+
+    private bool mostrarConfirmacion = false;
+    private string nombreConfirmacion = "";
+    private string errorMensaje = "";
+
+    //Fuciones para mostrar u ocultar el modal
+
+    private void MostrarModal()
+    {
+        nombreConfirmacion = "";
+        mostrarConfirmacion = true;
+    }
+
+    private void Cancelar()
+    {
+        mostrarConfirmacion = false;
+        nombreConfirmacion = "";
+    }
+
+    /*Función para confirmar y eliminar el producto de la base de datos*/
+    private async Task ConfirmarEliminacion()
+    {
+        if (nombreConfirmacion.Trim().Equals(ViewModel.Producto.Nombre, StringComparison.OrdinalIgnoreCase))
+        {
+            var response = await ViewModel.EliminarProducto();
+
+            if (!response.Contains("Error"))
+            {
+                NavegarInventario();
+                mostrarConfirmacion = false;
+            }
+            else
+            {
+                errorMensaje = response;
+            }
+        }
+        else
+        {
+            errorMensaje = "El nombre del producto no coincide.";
+        }
+    }
+
 }
 
 @if (ViewModel.Producto is null)
@@ -114,11 +162,33 @@ else
                 </div>
 
                 <div class="flex justify-between mt-6">
-                    <button class="btn btn-danger">🗑 Borrar</button>
+            <button class="btn btn-danger" @onclick="MostrarModal">🗑 Borrar</button>
                 </div>
              </div>
+
+             /*Modal con mensaje e input para confirmar la eliminación del producto*/
+    @if (mostrarConfirmacion)
+    {
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <h3 class="text-lg font-bold">Confirmar eliminación</h3>
+                <p class="mt-2">Escriba el nombre del producto <strong>@ViewModel.Producto.Nombre </strong> para confirmar:</p>
+
+                <input class="form-control mt-2" @bind="nombreConfirmacion" placeholder="Escriba el nombre del producto..." />
+
+                @if (!string.IsNullOrEmpty(errorMensaje))
+                {
+                    <div class="text-danger mt-1">@errorMensaje</div>
+                }
+
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button class="btn btn-secondary" @onclick="Cancelar">Cancelar</button>
+                    <button class="btn btn-danger" @onclick="() => ConfirmarEliminacion()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    }
           
 }
-
 
 

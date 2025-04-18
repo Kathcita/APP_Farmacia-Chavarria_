@@ -158,6 +158,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
         }
 
+        // Función para la validación de los campos antes de crear un producto
         private Boolean Validaciones()
         {
             if (Nombre == "")

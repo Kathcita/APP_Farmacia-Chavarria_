@@ -28,7 +28,7 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<ProductoPagedResult?> ObtenerProductosAsync(int pageNumber = 1, int pageSize = 8)
+        public async Task<ProductoPagedResult?> ObtenerProductosAsync(int pageNumber = 1, int pageSize = 10)
         {
             var response = await _httpClient.GetAsync($"/api/Productos?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
@@ -51,7 +51,7 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<ProductoPagedResult?> ObtenerProductoPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
+        public async Task<ProductoPagedResult?> ObtenerProductoPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 10)
         {
             var response = await _httpClient.GetAsync($"/api/Productos/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
@@ -61,7 +61,7 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<ProductoPagedResult?> ObtenerProductoPorCategoriaAsync(int id, int pageNumber = 1, int pageSize = 8)
+        public async Task<ProductoPagedResult?> ObtenerProductoPorCategoriaAsync(int id, int pageNumber = 1, int pageSize = 10)
         {
             var response = await _httpClient.GetAsync($"/api/Productos/categoria/{id}?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)

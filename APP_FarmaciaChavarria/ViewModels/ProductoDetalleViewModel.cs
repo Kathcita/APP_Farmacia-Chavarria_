@@ -25,10 +25,33 @@ namespace APP_FarmaciaChavarria.ViewModels
         [ObservableProperty]
         private ProductoDTO? producto;
 
+
         public async Task CargarProductoPorId(int id)
         {
             var lista = await _productoService.ObtenerProductoPorIdAsync(id);
             Producto = lista;
+        }
+
+        /*Función para eliminar producto con su id*/
+        public async Task<string> EliminarProducto()
+        {
+            try
+            {
+                var response = await _productoService.EliminarProductoAsync(producto.IdProducto);
+
+                if (!response.Contains("Error"))
+                {
+                    return response;
+                }
+                else
+                {
+                    return response;
+                }
+            }
+            catch(Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
         }
     }
 }
