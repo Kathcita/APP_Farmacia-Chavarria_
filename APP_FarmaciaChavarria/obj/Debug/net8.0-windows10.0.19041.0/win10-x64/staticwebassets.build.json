@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+nVUl3BP1O+sTvpWZsX2nrpMC+/lOQxq0DcAxgBQiwU=",
+  "Hash": "Iw+BKbD4a+9BWN02w1KX5O03alwbziFKUUHmmIo+AE8=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "svqgslwh5u",
-      "Integrity": "6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=",
+      "Fingerprint": "xppa4kw2yl",
+      "Integrity": "S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
@@ -52,8 +52,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "svqgslwh5u",
-      "Integrity": "6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=",
+      "Fingerprint": "xppa4kw2yl",
+      "Integrity": "S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
@@ -197,7 +197,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -205,11 +205,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -219,7 +219,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         }
       ]
     },
@@ -234,7 +234,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -242,11 +242,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -256,12 +256,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.svqgslwh5u.bundle.scp.css",
+      "Route": "APP_FarmaciaChavarria.xppa4kw2yl.bundle.scp.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -271,7 +271,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -279,11 +279,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -293,7 +293,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "svqgslwh5u"
+          "Value": "xppa4kw2yl"
         },
         {
           "Name": "label",
@@ -301,12 +301,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.svqgslwh5u.styles.css",
+      "Route": "APP_FarmaciaChavarria.xppa4kw2yl.styles.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -316,7 +316,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -324,11 +324,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -338,7 +338,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "svqgslwh5u"
+          "Value": "xppa4kw2yl"
         },
         {
           "Name": "label",
@@ -346,7 +346,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         }
       ]
     },

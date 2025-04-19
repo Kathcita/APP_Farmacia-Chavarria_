@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -25,22 +25,22 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.svqgslwh5u.styles.css",
+      "Route": "APP_FarmaciaChavarria.xppa4kw2yl.styles.css",
       "AssetFile": "APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -54,7 +54,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18580"
+          "Value": "22120"
         },
         {
           "Name": "Content-Type",
@@ -62,21 +62,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA=\""
+          "Value": "\"S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 19:26:08 GMT"
+          "Value": "Sat, 19 Apr 2025 00:55:00 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "svqgslwh5u"
+          "Value": "xppa4kw2yl"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-6MNFenalRpWkqo82FD+nbJ4+Hdat1cghrsrn7qiezKA="
+          "Value": "sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="
         },
         {
           "Name": "label",

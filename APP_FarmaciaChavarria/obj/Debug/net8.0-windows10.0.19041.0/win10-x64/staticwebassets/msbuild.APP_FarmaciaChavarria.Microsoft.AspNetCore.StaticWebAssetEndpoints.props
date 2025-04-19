@@ -3,14 +3,14 @@
     <StaticWebAssetEndpoint Include="APP_FarmaciaChavarria.styles.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\APP_FarmaciaChavarria.styles.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6MNFenalRpWkqo82FD\u002BnbJ4\u002BHdat1cghrsrn7qiezKA="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"18580"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226MNFenalRpWkqo82FD\u002BnbJ4\u002BHdat1cghrsrn7qiezKA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 19:26:08 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"22120"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 00:55:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
-    <StaticWebAssetEndpoint Include="APP_FarmaciaChavarria.svqgslwh5u.styles.css">
+    <StaticWebAssetEndpoint Include="APP_FarmaciaChavarria.xppa4kw2yl.styles.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\APP_FarmaciaChavarria.styles.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
-      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"svqgslwh5u"},{"Name":"integrity","Value":"sha256-6MNFenalRpWkqo82FD\u002BnbJ4\u002BHdat1cghrsrn7qiezKA="},{"Name":"label","Value":"APP_FarmaciaChavarria.styles.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"18580"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u00226MNFenalRpWkqo82FD\u002BnbJ4\u002BHdat1cghrsrn7qiezKA=\u0022"},{"Name":"Last-Modified","Value":"Fri, 18 Apr 2025 19:26:08 GMT"}]]]></ResponseHeaders>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"xppa4kw2yl"},{"Name":"integrity","Value":"sha256-S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI="},{"Name":"label","Value":"APP_FarmaciaChavarria.styles.css"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"22120"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022S4vozkSkxM6DN/z3ZmhX0GDBWIjJgfy8EHnPK6KbcxI=\u0022"},{"Name":"Last-Modified","Value":"Sat, 19 Apr 2025 00:55:00 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="css/app.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\app.css'))</AssetFile>
