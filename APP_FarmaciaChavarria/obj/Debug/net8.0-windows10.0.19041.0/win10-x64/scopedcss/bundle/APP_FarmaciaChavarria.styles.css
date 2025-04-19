@@ -978,3 +978,161 @@ span[b-z9yjfxairq]{
             display:block;
         }
 }
+/* /Components/Pages/UiReportes/ReporteVentas.razor.rz.scp.css */
+.reporte-container[b-bmv2702qo5] {
+    padding: 30px;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.encabezado[b-bmv2702qo5] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.texto[b-bmv2702qo5] {
+    flex: 1;
+    min-width: 250px;
+}
+
+.subtitulo[b-bmv2702qo5] {
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.btn-descargar[b-bmv2702qo5] {
+    padding: 10px 20px;
+    background-color: #e9ecef;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    cursor: pointer;
+    height: fit-content;
+    margin-top: 5px;
+}
+
+.subtitulo[b-bmv2702qo5] {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.filtros[b-bmv2702qo5] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+    .filtros > div[b-bmv2702qo5] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtros input[b-bmv2702qo5], .filtros select[b-bmv2702qo5] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 230px;
+    }
+
+.boton-descargar[b-bmv2702qo5] {
+    margin-left: auto;
+    align-self: flex-end;
+}
+
+    .boton-descargar button[b-bmv2702qo5] {
+        padding: 10px 20px;
+        background-color: #e9ecef;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+.contenido-reporte[b-bmv2702qo5] {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grafico[b-bmv2702qo5], .tabla[b-bmv2702qo5] {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.grafico[b-bmv2702qo5] {
+    flex: 3;
+}
+
+.tabla[b-bmv2702qo5] {
+    flex: 1;
+    height:500px;
+    overflow:scroll;
+}
+
+
+
+.grafico-placeholder[b-bmv2702qo5] {
+    text-align: center;
+    padding: 40px;
+    background-color: #f2f8fc;
+    border-radius: 6px;
+    color: #666;
+    font-weight: bold;
+}
+
+.table table[b-bmv2702qo5] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead th[b-bmv2702qo5] {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td[b-bmv2702qo5] {
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.tabla[b-bmv2702qo5] {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+    .encabezado[b-bmv2702qo5] {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-descargar[b-bmv2702qo5] {
+        margin-top: 15px;
+        align-self: center; /* CENTRA horizontalmente el botón */
+    }
+
+    .filtros[b-bmv2702qo5]{
+        justify-content:center;
+    }
+}
+
+@media (max-width: 1280px){
+    .contenido-reporte[b-bmv2702qo5] {
+        flex-direction: column;
+    }
+
+    .grafico[b-bmv2702qo5], .tabla[b-bmv2702qo5] {
+        width: 100%;
+        flex:1;
+    }
+
+
+}

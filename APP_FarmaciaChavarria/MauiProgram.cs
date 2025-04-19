@@ -1,7 +1,9 @@
 ﻿using APP_FarmaciaChavarria.ViewModels;
+using APP_FarmaciaChavarria.ViewModels.Reportes;
 using FarmaciaChavarria.Services;
 using FarmaciaChavarria.ViewModels;
 using Microsoft.Extensions.Logging;
+using Radzen;
 
 namespace APP_FarmaciaChavarria
 {
@@ -24,6 +26,8 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<ProductoService>();
             builder.Services.AddSingleton<CategoriaService>();
             builder.Services.AddSingleton<LaboratorioService>();
+            builder.Services.AddSingleton<FacturaService>();
+            builder.Services.AddSingleton<UsuarioService>();
 
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<InventarioViewModel>();
@@ -31,6 +35,9 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<CrearProductoViewModel>();
             builder.Services.AddSingleton<ActualizarProductoViewModel>();
 
+            builder.Services.AddSingleton<ReporteVentasViewModel>();
+
+            builder.Services.AddRadzenComponents();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();

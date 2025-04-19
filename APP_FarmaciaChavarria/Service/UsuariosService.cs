@@ -11,16 +11,18 @@ namespace FarmaciaChavarria.Services
     {
         private readonly HttpClient _httpClient;
 
-        public UsuarioService()
+        public UsuarioService(HttpClient httpClient)
         {
-            var handler = new HttpClientHandler
+            /*var handler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             };
             _httpClient = new HttpClient(handler)
             {
                 BaseAddress = new Uri("api") 
-            };
+            };*/
+
+            _httpClient = httpClient;
         }
 
         public async Task<List<Usuario>> ObtenerUsuariosAsync()

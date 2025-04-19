@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.ReporteModels;
 
 namespace FarmaciaChavarria.Services
 {
@@ -11,19 +12,21 @@ namespace FarmaciaChavarria.Services
     {
         private readonly HttpClient _httpClient;
 
-        public FacturaService()
+        public FacturaService(HttpClient httpClient)
         {
-            var handler = new HttpClientHandler
+            /*var handler = new HttpClientHandler
             {
                 ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
             };
             _httpClient = new HttpClient(handler)
             {
                 BaseAddress = new Uri("api") 
-            };
-        }
+            };*/
 
-        public async Task<List<Factura>> ObtenerFacturasAsync()
+            _httpClient = httpClient;
+        }
+       
+        public async Task<List<Factura>?> ObtenerFacturasAsync()
         {
             var response = await _httpClient.GetAsync("/api/Facturas");
             if (response.IsSuccessStatusCode)
@@ -31,6 +34,26 @@ namespace FarmaciaChavarria.Services
                 return await response.Content.ReadFromJsonAsync<List<Factura>>();
             }
             return new List<Factura>();
+        }
+
+        public async Task<List<Factura>?> ObtenerFacturasPorAñoAsync(int año, int userId=0)
+        {
+            var response = await _httpClient.GetAsync($"/api/Facturas/facturas-año?year={año}&userId={userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<Factura>>();
+            }
+            return new List<Factura>();
+        }
+
+        public async Task<List<RevenueDataItem>?> ObtenerFacturasReporteAsync(int año, int userId = 0)
+        {
+            var response = await _httpClient.GetAsync($"/api/Facturas/ventas-por-mes-año?year={año}&userId={userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<RevenueDataItem>>();
+            }
+            return new List<RevenueDataItem>();
         }
 
         public async Task<Factura?> ObtenerFacturaPorIdAsync(int id)
