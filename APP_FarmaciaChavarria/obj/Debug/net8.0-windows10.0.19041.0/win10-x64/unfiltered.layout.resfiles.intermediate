@@ -38,6 +38,9 @@ Components\Layout\MainLayout.razor.css
 Components\Layout\NavMenu.razor.css
 Components\Pages\DetalleProducto.razor.css
 Components\Pages\Inventario.razor.css
+Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.css
+Components\Pages\UiLaboratorios\CrearLaboratorio.razor.css
+Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.css
 Components\Pages\UiProductos\ActualizarProducto.razor.css
 Components\Pages\UiProductos\CrearProducto.razor.css
 Components\Pages\UiReportes\ReporteVentas.razor.css
@@ -100,11 +103,13 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\APP_FarmaciaChavarria.styles.css
-wwwroot\APP_FarmaciaChavarria.26ur1lhn2p.bundle.scp.css
+wwwroot\APP_FarmaciaChavarria.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css
 wwwroot\css\bootstrap\bootstrap.min.css.map
 wwwroot\farmaciachavarialogo.jpg
+wwwroot\farmaciachavarialogo.png
 wwwroot\favicon.png
 wwwroot\index.html
+wwwroot\user.jpg

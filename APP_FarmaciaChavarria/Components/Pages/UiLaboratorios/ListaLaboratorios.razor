@@ -1,0 +1,119 @@
+﻿@page "/laboratorios"
+
+@using Microsoft.AspNetCore.Components.Web
+@using APP_FarmaciaChavarria.ViewModels
+@inject CrearLaboratorioViewModel ViewModel
+@inject NavigationManager Navigation
+
+<div class="inventory-container">
+    <div class="header">
+        <div class="title-section">
+            <h3><span class="gray-text">Laboratorios</span> › <strong>Lista de Laboratorios</strong></h3>
+            <p>Listado de laboratorios registrados en el sistema</p>
+        </div>
+        <button class="btn-add" @onclick="NavegarCrearLaboratorio">
+            <span>➕</span> Agregar Laboratorio
+        </button>
+    </div>
+
+    <div class="search-filter-bar">
+        <input class="search-box"
+               placeholder="Buscar por nombre"
+               value="@laboratorioABuscar"
+               @oninput="ActualizarLaboratorioABuscar"
+               @onkeydown="ManejarTeclaEnter" />
+        <button @onclick="BuscarLaboratorio">Buscar</button>
+    </div>
+
+    <table class="medicine-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewModel.Laboratorios is not null && ViewModel.Laboratorios.Count > 0)
+            {
+                @foreach (var item in ViewModel.Laboratorios)
+                {
+                    <tr>
+                        <td>@item.id_laboratorio</td>
+                        <td>@item.nombre</td>
+                        <td>
+                            <a class="view-link" href="#" @onclick="() => NavegarAlDetalle(item.id_laboratorio)">
+                                Actualizar »
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">No hay laboratorios para mostrar.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+    {
+        <div class="error-message">@ViewModel.MensajeError</div>
+    }
+</div>
+
+@code {
+    private string laboratorioABuscar = string.Empty;
+
+    private void ActualizarLaboratorioABuscar(ChangeEventArgs e)
+    {
+        laboratorioABuscar = e.Value?.ToString() ?? string.Empty;
+    }
+
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await BuscarLaboratorio();
+        }
+    }
+
+    private async Task BuscarLaboratorio()
+    {
+        if (!string.IsNullOrWhiteSpace(laboratorioABuscar))
+        {
+            var resultado = await ViewModel.LaboratorioService.ObtenerLaboratorioPorNombreAsync(laboratorioABuscar);
+            if (resultado != null && resultado.Laboratorios.Any())
+            {
+                ViewModel.Laboratorios = resultado.Laboratorios;
+                ViewModel.MensajeError = string.Empty;
+            }
+            else
+            {
+                ViewModel.Laboratorios.Clear();
+                ViewModel.MensajeError = "No se encontraron laboratorios con ese nombre.";
+            }
+        }
+        else
+        {
+            await ViewModel.CargarLaboratoriosAsync();
+        }
+    }
+
+    private void NavegarAlDetalle(int id)
+    {
+        Navigation.NavigateTo($"/actualizarLaboratorio/{id}");
+    }
+
+    private void NavegarCrearLaboratorio()
+    {
+        Navigation.NavigateTo($"/crearLaboratorio");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarLaboratoriosAsync();
+    }
+}

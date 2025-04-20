@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fUDTnZuSq5LhhjR6jzZ1HHNUcGIsYHTMdISKUSw9Yq4=",
+  "Hash": "MI/BfJSM7KlHAt8+ecXkOv+kTVvr/svyHAiLDKkTxkQ=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -10,19 +10,703 @@
     {
       "Name": "APP_FarmaciaChavarria\\wwwroot",
       "Source": "APP_FarmaciaChavarria",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/dark-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\dark-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/default.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/default-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/default-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\default-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic-dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic-dark-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-dark-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/humanistic-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\humanistic-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material-dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material-dark-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-dark-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/material-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\material-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software-dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software-dark-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-dark-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/software-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\software-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard-dark.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark-base.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard-dark-base.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark-base.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard-dark-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-dark-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-wcag.css",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "css/standard-wcag.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\css\\standard-wcag.css"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "fonts/MaterialSymbolsOutlined.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\MaterialSymbolsOutlined.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\RobotoFlex.woff2",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "fonts/RobotoFlex.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\RobotoFlex.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "fonts/SourceSans3VF-Italic.ttf.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\SourceSans3VF-Italic.ttf.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "fonts/SourceSans3VF-Upright.ttf.woff2",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\fonts\\SourceSans3VF-Upright.ttf.woff2"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\Radzen.Blazor.js",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "Radzen.Blazor.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\Radzen.Blazor.js"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\Radzen.Blazor.min.js",
+      "SourceId": "Radzen.Blazor",
+      "SourceType": "Package",
+      "ContentRoot": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\",
+      "BasePath": "_content/Radzen.Blazor",
+      "RelativePath": "Radzen.Blazor.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "C:\\Users\\Azazel\\.nuget\\packages\\radzen.blazor\\6.6.1\\staticwebassets\\Radzen.Blazor.min.js"
+    },
+    {
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\",
       "BasePath": "/",
-      "RelativePath": "APP_FarmaciaChavarria#[.{fingerprint}]?.styles.css",
+      "RelativePath": "APP_FarmaciaChavarria.styles.css",
       "AssetKind": "All",
       "AssetMode": "CurrentProject",
       "AssetRole": "Primary",
@@ -31,19 +715,17 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "0labon0k67",
-      "Integrity": "VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
+      "OriginalItemSpec": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\",
       "BasePath": "/",
-      "RelativePath": "APP_FarmaciaChavarria#[.{fingerprint}]!.bundle.scp.css",
+      "RelativePath": "APP_FarmaciaChavarria.bundle.scp.css",
       "AssetKind": "All",
       "AssetMode": "Reference",
       "AssetRole": "Primary",
@@ -52,795 +734,123 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "0labon0k67",
-      "Integrity": "VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
+      "OriginalItemSpec": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "css/app#[.{fingerprint}]?.css",
+      "RelativePath": "css/app.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dex3usdpik",
-      "Integrity": "K1bY5kgLeD7nMlhLfmEK3TdjOVTQGBzyOIF4YwRlzuQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\app.css"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "css/bootstrap/bootstrap.min#[.{fingerprint}]?.css",
+      "RelativePath": "css/bootstrap/bootstrap.min.css",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "6gzpyzhau4",
-      "Integrity": "SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "css/bootstrap/bootstrap.min.css#[.{fingerprint}]?.map",
+      "RelativePath": "css/bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "8inm30yfxf",
-      "Integrity": "gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "farmaciachavarialogo#[.{fingerprint}]?.jpg",
+      "RelativePath": "farmaciachavarialogo.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "9sdqmwbfih",
-      "Integrity": "SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\farmaciachavarialogo.jpg"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "favicon#[.{fingerprint}]?.png",
+      "RelativePath": "favicon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ifv42okdf2",
-      "Integrity": "4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.png"
     },
     {
-      "Identity": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+      "Identity": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
       "SourceId": "APP_FarmaciaChavarria",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "index#[.{fingerprint}]?.html",
+      "RelativePath": "index.html",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
-      "AssetMergeBehavior": "",
+      "AssetMergeBehavior": "PreferTarget",
       "AssetMergeSource": "",
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "j3yn9t2gkk",
-      "Integrity": "X2kCqeRt7RljS7UOGe/gw1nEEpFr1hfp+5s79CFTDIs=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
-    }
-  ],
-  "Endpoints": [
-    {
-      "Route": "APP_FarmaciaChavarria.0labon0k67.bundle.scp.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18132"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0labon0k67"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.0labon0k67.styles.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18132"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "0labon0k67"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.bundle.scp.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18132"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.styles.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-ios\\iossimulator-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18132"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Fri, 18 Apr 2025 13:22:18 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-VN5ywbvW1wwfYhsAAoZ3Qh+0ldhz3AWTGDXOvrUXb7Y="
-        }
-      ]
-    },
-    {
-      "Route": "css/app.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3339"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"K1bY5kgLeD7nMlhLfmEK3TdjOVTQGBzyOIF4YwRlzuQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-K1bY5kgLeD7nMlhLfmEK3TdjOVTQGBzyOIF4YwRlzuQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/app.dex3usdpik.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "3339"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"K1bY5kgLeD7nMlhLfmEK3TdjOVTQGBzyOIF4YwRlzuQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "dex3usdpik"
-        },
-        {
-          "Name": "label",
-          "Value": "css/app.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-K1bY5kgLeD7nMlhLfmEK3TdjOVTQGBzyOIF4YwRlzuQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/bootstrap/bootstrap.min.6gzpyzhau4.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162726"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "6gzpyzhau4"
-        },
-        {
-          "Name": "label",
-          "Value": "css/bootstrap/bootstrap.min.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
-        }
-      ]
-    },
-    {
-      "Route": "css/bootstrap/bootstrap.min.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "162726"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:03 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7/p4nS6D/0="
-        }
-      ]
-    },
-    {
-      "Route": "css/bootstrap/bootstrap.min.css.8inm30yfxf.map",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "449111"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "8inm30yfxf"
-        },
-        {
-          "Name": "label",
-          "Value": "css/bootstrap/bootstrap.min.css.map"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
-        }
-      ]
-    },
-    {
-      "Route": "css/bootstrap/bootstrap.min.css.map",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "449111"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/plain"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-gBwg2tmA0Ci2u54gMF1jNCVku6vznarkLS6D76htNNQ="
-        }
-      ]
-    },
-    {
-      "Route": "farmaciachavarialogo.9sdqmwbfih.jpg",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "44541"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "9sdqmwbfih"
-        },
-        {
-          "Name": "label",
-          "Value": "farmaciachavarialogo.jpg"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4="
-        }
-      ]
-    },
-    {
-      "Route": "farmaciachavarialogo.jpg",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "44541"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/jpeg"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-SY4ccAUn6zB3+wVtwKc7THUU06kyW+tj61j+/2VKXe4="
-        }
-      ]
-    },
-    {
-      "Route": "favicon.ifv42okdf2.png",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1148"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "ifv42okdf2"
-        },
-        {
-          "Name": "label",
-          "Value": "favicon.png"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
-        }
-      ]
-    },
-    {
-      "Route": "favicon.png",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1148"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "image/png"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=3600, must-revalidate"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-4mWsDy3aHl36ZbGt8zByK7Pvd4kRUoNgTYzRnwmPHwg="
-        }
-      ]
-    },
-    {
-      "Route": "index.html",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "896"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"X2kCqeRt7RljS7UOGe/gw1nEEpFr1hfp+5s79CFTDIs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-X2kCqeRt7RljS7UOGe/gw1nEEpFr1hfp+5s79CFTDIs="
-        }
-      ]
-    },
-    {
-      "Route": "index.j3yn9t2gkk.html",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "896"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"X2kCqeRt7RljS7UOGe/gw1nEEpFr1hfp+5s79CFTDIs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Tue, 15 Apr 2025 19:55:04 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "j3yn9t2gkk"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-X2kCqeRt7RljS7UOGe/gw1nEEpFr1hfp+5s79CFTDIs="
-        }
-      ]
     }
   ]
 }

@@ -1,0 +1,53 @@
+﻿@page "/crearLaboratorio"
+
+@using API_FarmaciaChavarria.Models
+@using APP_FarmaciaChavarria.ViewModels
+@inject CrearLaboratorioViewModel ViewModel
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="form-container">
+    <div class="form-header">
+        <div class="breadcrumbs">
+            <strong>Laboratorios</strong> &gt; <strong>Lista de Laboratorios</strong> &gt;
+            <span class="title">Agregar Nuevo Laboratorio</span>
+        </div>
+        <button class="btn-guardar" @onclick="ViewModel.CrearLaboratorio">Guardar Laboratorio</button>
+    </div>
+
+    <p class="note">
+        *Todos los campos son obligatorios, excepto los mencionados como (opcionales).
+    </p>
+
+    <div class="form-flex">
+        <div class="form-group">
+            <label>Nombre del Laboratorio</label>
+            <input type="text" @bind="ViewModel.NombreLaboratorio" />
+        </div>
+
+        <div class="form-group">
+            <label>ID del Laboratorio</label>
+            <input type="text" readonly />
+        </div>
+
+
+        <button class="btn-guardar" @onclick="ViewModel.CrearLaboratorio" id="btnMobile">Guardar Detalles</button>
+    </div>
+</div>
+
+
+

@@ -1,36 +1,32 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "PackagePath": "staticwebassets\\APP_FarmaciaChavarria.styles.css"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\farmaciachavarialogo.jpg",
       "PackagePath": "staticwebassets\\farmaciachavarialogo.jpg"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
-      "Id": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+      "Id": "C:\\Users\\Azazel\\OneDrive\\Escritorio\\coling\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
-    },
-    {
-      "Id": "obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\staticwebassets\\msbuild.APP_FarmaciaChavarria.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
-      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0-maccatalyst\\maccatalyst-x64\\staticwebassets\\msbuild.APP_FarmaciaChavarria.Microsoft.AspNetCore.StaticWebAssets.props",

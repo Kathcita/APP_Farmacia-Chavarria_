@@ -1,51 +1,147 @@
 ﻿@page "/"
 @inject NavigationManager Navigation
 
-<h1>Dashboard</h1>
-<p>Una rápida descripción de los datos del inventario</p>
+<div class="dashboard-container">
+    <h1>Dashboard</h1>
+    <p class="dashboard-description">Una rápida descripción de los datos del inventario</p>
 
-<button class="btn btn-primary">Descargar Reporte</button>
+    <button class="btn-download">Descargar Reporte</button>
 
-<div class="dashboard-grid">
-    <div class="card">
-        <h2>Bien</h2>
-        <p>Estado del Inventario</p>
-        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
+    <div class="dashboard-grid">
+        <div class="card">
+            <h2>Bien</h2>
+            <p>Estado del Inventario</p>
+            <button>Ver Detalles del Reporte</button>
+        </div>
+        <div class="card">
+            <h2>C$ 80,875</h2>
+            <p>Ganancia - Ene 2025</p>
+            <button>Ver Detalles del Reporte</button>
+        </div>
+        <div class="card">
+            <h2>298</h2>
+            <p>Medicamentos Disponibles</p>
+            <button>Visitar Inventario</button>
+        </div>
+        <div class="card">
+            <h2>01</h2>
+            <p>Medicamentos Escasos</p>
+            <button class="btn-danger">Revisar Ahora</button>
+        </div>
     </div>
-    <div class="card">
-        <h2>C$ 80,875</h2>
-        <p>Ganancia - Ene 2025</p>
-        <button class="btn btn-secondary">Ver Detalles del Reporte</button>
-    </div>
-    <div class="card">
-        <h2>298</h2>
-        <p>Medicamentos Disponibles</p>
-        <button class="btn btn-secondary">Visitar Inventario</button>
-    </div>
-    <div class="card">
-        <h2>01</h2>
-        <p>Medicamentos Escasos</p>
-        <button class="btn btn-danger">Revisar Ahora</button>
+
+    <div class="dashboard-sections">
+        <div>
+            <h4>Inventario</h4>
+            <p>Número Total de Medicamentos: 298</p>
+            <p>Categorías: 24</p>
+        </div>
+        <div>
+            <h4>Mi Farmacia</h4>
+            <p>Número Total de Proveedores: 04</p>
+            <p>Total de Usuarios: 05</p>
+        </div>
+        <div>
+            <h4>Informe Rápido</h4>
+            <p>Medicamentos Vendidos: 70,856</p>
+            <p>Facturas Generadas: 5,288</p>
+        </div>
+        <div>
+            <h4>Clientes</h4>
+            <p>Total de Clientes: 845</p>
+            <p>Acetaminofén - Comprado con Frecuencia</p>
+        </div>
     </div>
 </div>
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f1f6fc;
+        margin: 0;
+        padding: 0;
+    }
 
-<div class="dashboard-sections">
-    <h2>Inventario</h2>
-    <p>Número Total de Medicamentos: 298</p>
-    <p>Grupos de Medicinas: 24</p>
+    .dashboard-container {
+        padding: 2rem;
+    }
 
-    <h2>Mi Farmacia</h2>
-    <p>Número Total de Proveedores: 04</p>
-    <p>Total de Usuarios: 05</p>
+    h1 {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #1a1a1a;
+    }
 
-    <h2>Informe Rápido</h2>
-    <p>Medicamentos Vendidos: 70,856</p>
-    <p>Facturas Generadas: 5,288</p>
+    .dashboard-description {
+        margin-bottom: 1rem;
+        color: #4a4a4a;
+    }
 
-    <h2>Clientes</h2>
-    <p>Total de Clientes: 845</p>
-    <p>Más Comprado: Acetaminofén</p>
-</div>
+    .btn-download {
+        background-color: #6c63ff;
+        color: white;
+        border: none;
+        padding: 0.5rem 1.25rem;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 0.5rem;
+        transition: all 0.3s ease;
+    }
+
+        .card h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #1a1a1a;
+        }
+
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        .card button {
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+        }
+
+        .card .btn-danger {
+            background-color: #f87171;
+            color: white;
+        }
+
+    .dashboard-sections {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.5rem;
+        color: #222;
+        font-size: 0.95rem;
+    }
+
+</style>
 
 @code {
     protected override void OnInitialized()
@@ -58,4 +154,3 @@
         }
     }
 }
-

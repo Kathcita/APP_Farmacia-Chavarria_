@@ -472,6 +472,694 @@ span[b-z9yjfxairq]{
 
 }
 
+/* /Components/Pages/UiLaboratorios/ActualizarLaboratorio.razor.rz.scp.css */
+.form-container[b-zty3jnkgly] {
+    padding: 2rem;
+    background-color: #edf0f3;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 10px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+}
+
+.form-header[b-zty3jnkgly] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.breadcrumbs[b-zty3jnkgly] {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+    .breadcrumbs .title[b-zty3jnkgly] {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-left: 0.5rem;
+    }
+
+.btn-actualizar[b-zty3jnkgly] {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-guardar:hover[b-zty3jnkgly] {
+    background-color: #c0392b;
+}
+
+.note[b-zty3jnkgly] {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+}
+
+.form-flex[b-zty3jnkgly] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-group[b-zty3jnkgly] {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%;
+    width: 100%;
+}
+
+    .form-group.full-width[b-zty3jnkgly] {
+        flex: 1 1 100%;
+    }
+
+    .form-group label[b-zty3jnkgly] {
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-group input[b-zty3jnkgly],
+    .form-group select[b-zty3jnkgly],
+    .form-group textarea[b-zty3jnkgly] {
+        padding: 0.6rem;
+        border: 1px solid #c7d0da;
+        border-radius: 6px;
+        background-color: #dce3eb;
+        font-size: 1rem;
+        color: #333;
+        resize: none;
+    }
+
+/*Estilos para el componente de paginación de datos*/
+.pagination[b-zty3jnkgly] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.page-controls[b-zty3jnkgly] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-zty3jnkgly] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+/*Estilos para mensaje de error*/
+
+.alert-error[b-zty3jnkgly] {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-zty3jnkgly 0.3s ease-in-out;
+}
+
+    .alert-error button[b-zty3jnkgly] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-zty3jnkgly {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success[b-zty3jnkgly] {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-zty3jnkgly 0.3s ease-in-out;
+}
+
+    .alert-success button[b-zty3jnkgly] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-zty3jnkgly {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/*Modal para mostrar y seleccionar las categorías y laboratorios*/
+.modal-backdrop[b-zty3jnkgly] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content[b-zty3jnkgly] {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.row-flex[b-zty3jnkgly] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+#btnMobile[b-zty3jnkgly] {
+    display: none;
+}
+
+/*Responsive mobile*/
+@media (max-width: 768px) {
+    .form-header[b-zty3jnkgly] {
+        flex-direction: column;
+    }
+
+    .breadcrumbs[b-zty3jnkgly] {
+        padding-bottom: 20px;
+    }
+
+
+    .form-flex[b-zty3jnkgly] {
+        flex-direction: column;
+    }
+
+    .form-group[b-zty3jnkgly] {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+
+        .form-group input[b-zty3jnkgly],
+        .form-group select[b-zty3jnkgly],
+        .form-group textarea[b-zty3jnkgly] {
+            width: 100%;
+        }
+
+    .btn-actualizar[b-zty3jnkgly] {
+        display: none;
+    }
+
+    #btnMobile[b-zty3jnkgly] {
+        display: block;
+    }
+}
+/* /Components/Pages/UiLaboratorios/CrearLaboratorio.razor.rz.scp.css */
+.form-container[b-edzrov31ye] {
+    padding: 2rem;
+    background-color: #edf0f3;
+    font-family: 'Segoe UI', sans-serif;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%; /* o usa min-height si tienes scroll */
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.form-header[b-edzrov31ye] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.breadcrumbs[b-edzrov31ye] {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+    .breadcrumbs .title[b-edzrov31ye] {
+        font-weight: 700;
+        font-size: 1.3rem;
+        margin-left: 0.5rem;
+    }
+
+.btn-guardar[b-edzrov31ye] {
+    background-color: #e74c3c;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-guardar:hover[b-edzrov31ye] {
+        background-color: #c0392b;
+    }
+
+.note[b-edzrov31ye] {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 1.2rem;
+}
+
+.form-flex[b-edzrov31ye] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.form-group[b-edzrov31ye] {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 45%;
+    width: 100%;
+}
+
+    .form-group.full-width[b-edzrov31ye] {
+        flex: 1 1 100%;
+    }
+
+    .form-group label[b-edzrov31ye] {
+        margin-bottom: 0.4rem;
+        font-weight: 500;
+        color: #333;
+    }
+
+    .form-group input[b-edzrov31ye],
+    .form-group select[b-edzrov31ye],
+    .form-group textarea[b-edzrov31ye] {
+        padding: 0.6rem;
+        border: 1px solid #c7d0da;
+        border-radius: 6px;
+        background-color: #dce3eb;
+        font-size: 1rem;
+        color: #333;
+        resize: none;
+    }
+
+/*Estilos para el componente de paginación de datos*/
+.pagination[b-edzrov31ye] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom: 20px;
+}
+
+.page-controls[b-edzrov31ye] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-edzrov31ye] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/*Estilos para mensaje de error*/
+
+.alert-error[b-edzrov31ye] {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-edzrov31ye 0.3s ease-in-out;
+}
+
+    .alert-error button[b-edzrov31ye] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-edzrov31ye {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success[b-edzrov31ye] {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-edzrov31ye 0.3s ease-in-out;
+}
+
+    .alert-success button[b-edzrov31ye] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-edzrov31ye {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Modal para mostrar y seleccionar las categorías y laboratorios*/
+.modal-backdrop[b-edzrov31ye] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modal-content[b-edzrov31ye] {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.row-flex[b-edzrov31ye] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 16px;
+}
+
+#btnMobile[b-edzrov31ye] {
+    display: none
+}
+
+/*Responsive mobile*/
+@media (max-width: 768px) {
+    .form-header[b-edzrov31ye] {
+        flex-direction: column;
+    }
+
+    .breadcrumbs[b-edzrov31ye] {
+        padding-bottom: 20px;
+    }
+
+    .form-header[b-edzrov31ye] {
+        flex-direction: column;
+    }
+
+    .breadcrumbs[b-edzrov31ye] {
+        padding-bottom: 20px;
+    }
+
+
+    .form-flex[b-edzrov31ye] {
+        flex-direction: column;
+    }
+
+    .form-group[b-edzrov31ye] {
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+
+        .form-group input[b-edzrov31ye],
+        .form-group select[b-edzrov31ye],
+        .form-group textarea[b-edzrov31ye] {
+            width: 100%;
+        }
+
+    .btn-guardar[b-edzrov31ye] {
+        display: none;
+    }
+
+    #btnMobile[b-edzrov31ye] {
+        display: block;
+    }
+}
+/* /Components/Pages/UiLaboratorios/LIstaLaboratorios.razor.rz.scp.css */
+.inventory-container[b-6fr02y8qwp] {
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f3f6f9;
+    height: 100vh; /* o usa min-height si tienes scroll */
+    box-sizing: border-box;
+}
+
+/*Cabezera de la interfaz*/
+.header[b-6fr02y8qwp] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.title-section h3[b-6fr02y8qwp] {
+    margin: 0;
+    font-size: 20px;
+}
+
+.title-section p[b-6fr02y8qwp] {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.gray-text[b-6fr02y8qwp] {
+    color: #9ca3af;
+}
+
+.btn-add[b-6fr02y8qwp] {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+/*Contenedor de barra de búsqueda y combobox de filtro de categorías*/
+.search-filter-bar[b-6fr02y8qwp] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box[b-6fr02y8qwp] {
+    flex-grow: 1;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+}
+
+.category-select[b-6fr02y8qwp] {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    background-color: white;
+}
+
+.medicine-table[b-6fr02y8qwp] {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+    .medicine-table th[b-6fr02y8qwp],
+    .medicine-table td[b-6fr02y8qwp] {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .medicine-table th[b-6fr02y8qwp] {
+        background-color: #f9fafb;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+.view-link[b-6fr02y8qwp] {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+/*Estilos para el componente de paginación de datos*/
+.pagination[b-6fr02y8qwp] {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+.page-controls[b-6fr02y8qwp] {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn[b-6fr02y8qwp] {
+    background-color: white;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+/*Responsive mobile*/
+@media (max-width: 768px) {
+    .header[b-6fr02y8qwp] {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .btn-add[b-6fr02y8qwp] {
+        width: 100%;
+        text-align: center;
+    }
+
+    .search-filter-bar[b-6fr02y8qwp] {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+        .search-filter-bar input[b-6fr02y8qwp],
+        .search-filter-bar button[b-6fr02y8qwp],
+        .category-select[b-6fr02y8qwp] {
+            width: 100%;
+        }
+
+    .page-controls[b-6fr02y8qwp] {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .pagination[b-6fr02y8qwp] {
+        flex-direction: column;
+    }
+
+        .pagination span[b-6fr02y8qwp] {
+            text-align: center;
+        }
+}
+
+.modal-background[b-6fr02y8qwp] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal[b-6fr02y8qwp] {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+}
+
+.modal-input[b-6fr02y8qwp] {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.modal-buttons button[b-6fr02y8qwp] {
+    margin-right: 10px;
+}
+
+.btn-accion[b-6fr02y8qwp] {
+    margin-right: 5px;
+}
 /* /Components/Pages/UiProductos/ActualizarProducto.razor.rz.scp.css */
 .form-container[b-lk1h9g9be5] {
     padding: 2rem;

@@ -33,6 +33,7 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<InventarioViewModel>();
             builder.Services.AddSingleton<ProductoDetalleViewModel>();
             builder.Services.AddSingleton<CrearProductoViewModel>();
+            builder.Services.AddSingleton<CrearLaboratorioViewModel>();
             builder.Services.AddSingleton<ActualizarProductoViewModel>();
 
             builder.Services.AddSingleton<ReporteVentasViewModel>();

@@ -1,0 +1,51 @@
+﻿@page "/actualizarLaboratorio/{id:int}"
+@using API_FarmaciaChavarria.Models
+@using APP_FarmaciaChavarria.ViewModels
+@inject CrearLaboratorioViewModel ViewModel
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarLaboratorioPorId(id);
+    }
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="form-container">
+    <div class="form-header">
+        <div class="breadcrumbs">
+            <strong>Laboratorios</strong> &gt; <span class="title">Actualizar Laboratorio</span>
+        </div>
+        <button class="btn-actualizar" @onclick="ViewModel.ActualizarLaboratorio">Actualizar Detalles</button>
+    </div>
+
+    <p class="note">*El campo es obligatorio.</p>
+
+    <div class="form-group">
+        <label>ID del Laboratorio</label>
+        <input type="text" @bind="ViewModel.IdLaboratorio" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Nombre del Laboratorio</label>
+        <input type="text" @bind="ViewModel.NombreLaboratorio" />
+    </div>
+</div>
