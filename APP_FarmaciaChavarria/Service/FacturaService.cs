@@ -36,9 +36,9 @@ namespace FarmaciaChavarria.Services
             return new List<Factura>();
         }
 
-        public async Task<List<Factura>?> ObtenerFacturasPorAñoAsync(int año, int userId=0)
+        public async Task<List<Factura>?> ObtenerFacturasPorAñoAsync(string firstDate, string lastDate, int userId=0)
         {
-            var response = await _httpClient.GetAsync($"/api/Facturas/facturas-año?year={año}&userId={userId}");
+            var response = await _httpClient.GetAsync($"/api/Facturas/facturas-año?fechaInicio={firstDate}&fechaFin={lastDate}&&userId={userId}");
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<List<Factura>>();
@@ -46,9 +46,9 @@ namespace FarmaciaChavarria.Services
             return new List<Factura>();
         }
 
-        public async Task<List<RevenueDataItem>?> ObtenerFacturasReporteAsync(int año, int userId = 0)
+        public async Task<List<RevenueDataItem>?> ObtenerFacturasReporteAsync(string firstDate, string lastDate, int userId = 0)
         {
-            var response = await _httpClient.GetAsync($"/api/Facturas/ventas-por-mes-año?year={año}&userId={userId}");
+            var response = await _httpClient.GetAsync($"/api/Facturas/ventas-por-mes-año?fechaInicio={firstDate}&fechaFin={lastDate}&userId={userId}");
             if (response.IsSuccessStatusCode)
             {
                 return await response.Content.ReadFromJsonAsync<List<RevenueDataItem>>();

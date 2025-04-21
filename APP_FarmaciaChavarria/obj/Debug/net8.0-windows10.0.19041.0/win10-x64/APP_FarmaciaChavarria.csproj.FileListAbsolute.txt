@@ -710,3 +710,6 @@ C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaC
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\CrearLaboratorio.razor.rz.scp.css
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.rz.scp.css
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\CrearLaboratorio.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.rz.scp.css

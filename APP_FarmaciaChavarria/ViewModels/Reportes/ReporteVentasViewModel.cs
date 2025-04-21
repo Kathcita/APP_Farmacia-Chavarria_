@@ -19,6 +19,10 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
         {
             _facturaService = facturaService;
             _usuarioService = usuarioService;
+
+            // Inicializar fechas con datos por defecto, el rango de fecha es desde el inicio del año hasta la fecha actual
+            FirstDate = new DateTime(DateTime.Now.Year, 1, 1);
+            LastDate = DateTime.Now.Date;
         }
 
         [ObservableProperty]
@@ -38,13 +42,27 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
         [ObservableProperty]
         private int userId = 0;
 
+        [ObservableProperty]
+        private DateTime firstDate;
+
+        [ObservableProperty]
+        private DateTime lastDate;
+
 
         /*Función para cargar los datos de datos de ventas y mostrarlos en la tabla*/
         public async Task CargarVentas()
         {
             try
             {
-                var response = await _facturaService.ObtenerFacturasPorAñoAsync(Año, UserId);
+                if (FirstDate > LastDate)
+                {
+                    return;
+                }
+
+                var fechaInicioString = FirstDate.ToString("yyyy-MM-dd");
+                var fechaFinString = LastDate.ToString("yyyy-MM-dd");
+
+                var response = await _facturaService.ObtenerFacturasPorAñoAsync(fechaInicioString, fechaFinString, UserId);
 
                 if (response.Any())
                 {
@@ -66,16 +84,19 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
         {
             try
             {
-                if (!(Año is int))
+                if (FirstDate > LastDate)
                 {
                     return;
                 }
 
-                var response = await _facturaService.ObtenerFacturasReporteAsync(Año, UserId);
+                var fechaInicioString = FirstDate.ToString("yyyy-MM-dd");
+                var fechaFinString = LastDate.ToString("yyyy-MM-dd");
 
+                var response = await _facturaService.ObtenerFacturasReporteAsync(fechaInicioString, fechaFinString, UserId);
                 if (response.Any())
                 {
                     RevenueData = response;
+                    Debug.WriteLine("I am Here bitch");
                 }
                 else
                 {
@@ -109,5 +130,6 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
             }
         }
+
     }
 }

@@ -19,11 +19,23 @@
     </div>
 
     <div class="filtros">
+
+    <div>
+       <div>
         <div>
-            <label>Date Range</label>
-            <input type="number" placeholder="Año" @bind=ViewModel.Año/>
-            <button @onclick="() => ActualizarDatos()">Buscar</button>
+            <label>Fecha Inicio</label>
+            <input type="date" placeholder="Fecha Inicio" @bind=@ViewModel.FirstDate />
         </div>
+
+        <div>
+            <label>Fecha Final</label>
+            <input type="date" placeholder="Fecha final" @bind=ViewModel.LastDate />
+        </div>
+       </div>
+            <div>
+                <button @onclick="() => ActualizarDatos()">Buscar</button>
+            </div>
+     </div>
         <div>
             <label>Grupo de Medicamentos</label>
             <select>
