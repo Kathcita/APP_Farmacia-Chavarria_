@@ -56,6 +56,35 @@
         width: 230px;
     }
 
+.FechasMaxContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fechasContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+.fechasContainer > div {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.filtrarFechaBtn {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; 
+}
+
+.filtrarFechaBtn > button {
+   width:50%;
+}
+
+
 .boton-descargar {
     margin-left: auto;
     align-self: flex-end;
@@ -125,6 +154,75 @@ table tbody td {
     justify-content: center;
 }
 
+/*Estilos para mensaje de error*/
+
+.alert-error {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+}
+
+    .alert-error button {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+}
+
+    .alert-success button {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -140,6 +238,11 @@ table tbody td {
 
     .filtros{
         justify-content:center;
+    }
+
+    .fechasContainer {
+        display: flex;
+        flex-direction: column;
     }
 }
 

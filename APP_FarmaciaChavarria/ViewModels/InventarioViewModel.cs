@@ -31,7 +31,7 @@ namespace APP_FarmaciaChavarria.ViewModels
         private List<Categoria> categorias = new();
 
         [ObservableProperty]
-        private bool isLoading;
+        private bool cargando;
 
         [ObservableProperty]
         private string mensajeError = string.Empty;
@@ -72,7 +72,7 @@ namespace APP_FarmaciaChavarria.ViewModels
         {
             try
             {
-                IsLoading = true;
+                Cargando = true;
                 MensajeError = string.Empty;
 
                 var productos = await _productoService.ObtenerProductosAsync(NumeroPagina);
@@ -96,7 +96,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
             finally
             {
-                IsLoading = false;
+                Cargando = false;
             }
         }
 
@@ -123,7 +123,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                     NumeroPagina = 1;
                 }
 
-                IsLoading = true;
+                Cargando = true;
                 MensajeError = string.Empty;
 
                 var productos = await _productoService.ObtenerProductoPorNombreAsync(nombre, NumeroPagina);
@@ -149,7 +149,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             }
             finally
             {
-                IsLoading = false;
+                Cargando = false;
             }
         }
 

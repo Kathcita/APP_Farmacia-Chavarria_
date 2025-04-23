@@ -1725,6 +1725,35 @@ span[b-z9yjfxairq]{
         width: 230px;
     }
 
+.FechasMaxContainer[b-bmv2702qo5] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fechasContainer[b-bmv2702qo5] {
+    display: flex;
+    flex-direction: row;
+}
+
+.fechasContainer > div[b-bmv2702qo5] {
+    display: flex;
+    flex-direction: column;
+    padding: 0 5px;
+}
+
+.filtrarFechaBtn[b-bmv2702qo5] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px; 
+}
+
+.filtrarFechaBtn > button[b-bmv2702qo5] {
+   width:50%;
+}
+
+
 .boton-descargar[b-bmv2702qo5] {
     margin-left: auto;
     align-self: flex-end;
@@ -1794,6 +1823,75 @@ table tbody td[b-bmv2702qo5] {
     justify-content: center;
 }
 
+/*Estilos para mensaje de error*/
+
+.alert-error[b-bmv2702qo5] {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-bmv2702qo5 0.3s ease-in-out;
+}
+
+    .alert-error button[b-bmv2702qo5] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-bmv2702qo5 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success[b-bmv2702qo5] {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-bmv2702qo5 0.3s ease-in-out;
+}
+
+    .alert-success button[b-bmv2702qo5] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-bmv2702qo5 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -1809,6 +1907,11 @@ table tbody td[b-bmv2702qo5] {
 
     .filtros[b-bmv2702qo5]{
         justify-content:center;
+    }
+
+    .fechasContainer[b-bmv2702qo5] {
+        display: flex;
+        flex-direction: column;
     }
 }
 

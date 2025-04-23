@@ -8,6 +8,22 @@
 @inject ReporteVentasViewModel ViewModel
 
 
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
 <div class="reporte-container">
 
     <div class="encabezado">
@@ -15,27 +31,27 @@
             <h2><strong>Reportes › Reporte de Ventas</strong></h2>
             <p class="subtitulo">Reporte relacionado a las ventas de la farmacia.</p>
         </div>
-        <button class="btn-descargar">📄 Descargar Reporte</button>
+        <button class="btn-descargar" @onclick="ExportarExcel">📄 Descargar Reporte</button>
     </div>
 
     <div class="filtros">
 
-    <div>
-       <div>
-        <div>
-            <label>Fecha Inicio</label>
-            <input type="date" placeholder="Fecha Inicio" @bind=@ViewModel.FirstDate />
-        </div>
+        <div class="FechasMaxContainer">
+            <div class="fechasContainer">
+                <div>
+                    <label>Fecha Inicio</label>
+                    <input type="date" placeholder="Fecha Inicio" @bind=@ViewModel.PrimeraFecha  class="inputFecha"/>
+                </div>
 
-        <div>
-            <label>Fecha Final</label>
-            <input type="date" placeholder="Fecha final" @bind=ViewModel.LastDate />
-        </div>
-       </div>
-            <div>
+                <div>
+                    <label>Fecha Final</label>
+                    <input type="date" placeholder="Fecha final" @bind=ViewModel.UltimaFecha />
+                </div>
+            </div>
+            <div class="filtrarFechaBtn">
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
-     </div>
+        </div>
         <div>
             <label>Grupo de Medicamentos</label>
             <select>
@@ -165,5 +181,10 @@
     {
         ViewModel.UserId = Convert.ToInt32(e.Value);
         await ActualizarDatos(); // Llama a tu método para cargar datos
+    }
+
+    private void ExportarExcel()
+    {
+        ViewModel.GenerarExcel(ViewModel.RevenueData);
     }
 }
