@@ -9,8 +9,11 @@ namespace APP_FarmaciaChavarria
 {
     public static class MauiProgram
     {
+
         public static MauiApp CreateMauiApp()
         {
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()

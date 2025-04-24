@@ -16,6 +16,7 @@
           "Microsoft.Maui.Controls": "8.0.100",
           "Microsoft.Maui.Controls.Compatibility": "8.0.100",
           "Newtonsoft.Json.Bson": "1.0.3",
+          "QuestPDF": "2025.4.0",
           "Radzen.Blazor": "6.6.1",
           "runtimepack.Microsoft.Windows.SDK.NET.Ref": "10.0.19041.53"
         },
@@ -831,6 +832,31 @@
           }
         }
       },
+      "QuestPDF/2025.4.0": {
+        "runtime": {
+          "lib/net8.0/QuestPDF.dll": {
+            "assemblyVersion": "2025.4.0.0",
+            "fileVersion": "2025.4.0.0"
+          }
+        },
+        "native": {
+          "runtimes/win-x64/native/QuestPdfSkia.dll": {
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libgcc_s_seh-1.dll": {
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libstdc++-6.dll": {
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-x64/native/libwinpthread-1.dll": {
+            "fileVersion": "1.0.0.0"
+          },
+          "runtimes/win-x64/native/qpdf.dll": {
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "Radzen.Blazor/6.6.1": {
         "dependencies": {
           "Microsoft.AspNetCore.Components": "8.0.10",
@@ -1252,6 +1278,13 @@
       "sha512": "sha512-bCcwagnHfYnhwQfY1criEcn6Hy9PtBuVnZu0pA8hmRhuR3jI/8WxVgoVAdNw9BJ3JHkxmWJzpj/AQy+PMMLqxg==",
       "path": "newtonsoft.json.bson/1.0.3",
       "hashPath": "newtonsoft.json.bson.1.0.3.nupkg.sha512"
+    },
+    "QuestPDF/2025.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IgLeBf/niXR/r8eRMomwD7TXKJELnIsZX/biOV29zpY1XIztl2DgfZFFoHCLX0dRzmVDy+YG/GfCkUjOMqXzCA==",
+      "path": "questpdf/2025.4.0",
+      "hashPath": "questpdf.2025.4.0.nupkg.sha512"
     },
     "Radzen.Blazor/6.6.1": {
       "type": "package",

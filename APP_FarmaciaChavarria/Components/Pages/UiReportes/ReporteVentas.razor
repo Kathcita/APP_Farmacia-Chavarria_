@@ -6,6 +6,7 @@
 @using Radzen.Blazor
 
 @inject ReporteVentasViewModel ViewModel
+@inject IJSRuntime JSRuntime
 
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
@@ -31,7 +32,19 @@
             <h2><strong>Reportes › Reporte de Ventas</strong></h2>
             <p class="subtitulo">Reporte relacionado a las ventas de la farmacia.</p>
         </div>
-        <button class="btn-descargar" @onclick="ExportarExcel">📄 Descargar Reporte</button>
+        <div class="contenedor-boton">
+            <button class="btn-descargar" @onclick="ToggleOpcionesDescarga">
+                📄 Descargar Reporte
+            </button>
+
+            @if (mostrarOpciones)
+            {
+                <div class="menu-opciones">
+                    <button class="btn-opcion" @onclick="DescargarExcel">📊 Excel</button>
+                    <button class="btn-opcion" @onclick="DescargarPdf">🧾 PDF</button>
+                </div>
+            }
+        </div>
     </div>
 
     <div class="filtros">
@@ -143,7 +156,6 @@
             </table>
         </div>
     </div>
-
 </div>
 
 
@@ -183,8 +195,36 @@
         await ActualizarDatos(); // Llama a tu método para cargar datos
     }
 
-    private void ExportarExcel()
+
+    // Funciones para la descarga de reporte en excel o pdf
+
+    private bool mostrarOpciones = false;
+
+    private void ToggleOpcionesDescarga()
     {
-        ViewModel.GenerarExcel(ViewModel.RevenueData);
+        mostrarOpciones = !mostrarOpciones;
+    }
+
+    private async Task DescargarExcel()
+    {
+        mostrarOpciones = false;
+
+        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.RevenueData);
+        var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+        await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+    }
+
+    private async Task DescargarPdf()
+    {
+        mostrarOpciones = false;
+
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.RevenueData);
+
+        if (pdfBytes != null)
+        {
+            var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+        }
     }
 }

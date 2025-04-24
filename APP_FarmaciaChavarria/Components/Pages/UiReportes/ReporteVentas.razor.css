@@ -22,15 +22,48 @@
     margin-top: 5px;
 }
 
-.btn-descargar {
-    padding: 10px 20px;
-    background-color: #e9ecef;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
-    height: fit-content;
-    margin-top: 5px;
+.contenedor-boton {
+    position: relative;
+    display: inline-block;
 }
+
+.btn-descargar {
+    background-color: #0078d7;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-opciones {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.btn-opcion {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+}
+
+    .btn-opcion:hover {
+        background-color: #f0f0f0;
+    }
+
 
 .subtitulo {
     color: #6c757d;
@@ -255,6 +288,4 @@ table tbody td {
         width: 100%;
         flex:1;
     }
-
-
 }

@@ -78,6 +78,7 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
 		<PackageReference Include="Newtonsoft.Json.Bson" Version="1.0.3" />
+		<PackageReference Include="QuestPDF" Version="2025.4.0" />
 		<PackageReference Include="Radzen.Blazor" Version="6.6.1" />
 	</ItemGroup>
 
@@ -88,6 +89,7 @@
 	<ItemGroup>
 	  <Folder Include="Components\Pages\UiCompras\" />
 	  <Folder Include="wwwroot\Images\" />
+	  <Folder Include="wwwroot\js\" />
 	</ItemGroup>
 
 </Project>

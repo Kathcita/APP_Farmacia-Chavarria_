@@ -30,25 +30,25 @@
     <AppXManifest Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-23T23:18:45.384</Modified>
+      <Modified>2025-04-24T16:05:50.907</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-23T23:18:45.234</Modified>
+      <Modified>2025-04-24T16:05:50.677</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.runtimeconfig.json">
       <PackagePath>APP_FarmaciaChavarria.runtimeconfig.json</PackagePath>
-      <Modified>2025-04-21T21:29:30.169</Modified>
+      <Modified>2025-04-24T16:05:50.600</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.dll">
       <PackagePath>APP_FarmaciaChavarria.dll</PackagePath>
-      <Modified>2025-04-23T23:18:45.022</Modified>
+      <Modified>2025-04-24T16:05:50.267</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>APP_FarmaciaChavarria.exe</PackagePath>
-      <Modified>2025-04-23T23:18:45.028</Modified>
+      <Modified>2025-04-24T16:05:50.273</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -80,7 +80,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\wwwroot\index.html">
       <PackagePath>wwwroot\index.html</PackagePath>
-      <Modified>2025-04-19T01:42:53.063</Modified>
+      <Modified>2025-04-24T15:43:17.476</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\wwwroot\user.jpg">
       <PackagePath>wwwroot\user.jpg</PackagePath>
@@ -318,9 +318,85 @@
       <PackagePath>farmaciachavarialogo.scale-100.jpg</PackagePath>
       <Modified>2025-04-20T22:08:43.993</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Black.ttf">
+      <PackagePath>LatoFont\Lato-Black.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-BlackItalic.ttf">
+      <PackagePath>LatoFont\Lato-BlackItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Bold.ttf">
+      <PackagePath>LatoFont\Lato-Bold.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-BoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-BoldItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-ExtraBold.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBold.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-ExtraBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraBoldItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-ExtraLight.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLight.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-ExtraLightItalic.ttf">
+      <PackagePath>LatoFont\Lato-ExtraLightItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Italic.ttf">
+      <PackagePath>LatoFont\Lato-Italic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Light.ttf">
+      <PackagePath>LatoFont\Lato-Light.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-LightItalic.ttf">
+      <PackagePath>LatoFont\Lato-LightItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Medium.ttf">
+      <PackagePath>LatoFont\Lato-Medium.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-MediumItalic.ttf">
+      <PackagePath>LatoFont\Lato-MediumItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Regular.ttf">
+      <PackagePath>LatoFont\Lato-Regular.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-SemiBold.ttf">
+      <PackagePath>LatoFont\Lato-SemiBold.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-SemiBoldItalic.ttf">
+      <PackagePath>LatoFont\Lato-SemiBoldItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-Thin.ttf">
+      <PackagePath>LatoFont\Lato-Thin.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\Lato-ThinItalic.ttf">
+      <PackagePath>LatoFont\Lato-ThinItalic.ttf</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\LatoFont\OFL.txt">
+      <PackagePath>LatoFont\OFL.txt</PackagePath>
+      <Modified>2025-04-07T21:31:46.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.deps.json">
       <PackagePath>APP_FarmaciaChavarria.deps.json</PackagePath>
-      <Modified>2025-04-23T22:42:23.404</Modified>
+      <Modified>2025-04-24T16:05:50.514</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.53\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
@@ -565,6 +641,10 @@
     <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\newtonsoft.json.bson\1.0.3\lib\netstandard2.0\Newtonsoft.Json.Bson.dll">
       <PackagePath>Newtonsoft.Json.Bson.dll</PackagePath>
       <Modified>2024-11-04T23:51:46.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\lib\net8.0\QuestPDF.dll">
+      <PackagePath>QuestPDF.dll</PackagePath>
+      <Modified>2025-04-07T21:38:12.000</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\radzen.blazor\6.6.1\lib\net8.0\Radzen.Blazor.dll">
       <PackagePath>Radzen.Blazor.dll</PackagePath>
@@ -834,9 +914,29 @@
       <PackagePath>Microsoft.WindowsAppRuntime.Bootstrap.dll</PackagePath>
       <Modified>2024-06-25T19:48:44.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\runtimes\win-x64\native\QuestPdfSkia.dll">
+      <PackagePath>QuestPdfSkia.dll</PackagePath>
+      <Modified>2025-04-07T21:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\runtimes\win-x64\native\libgcc_s_seh-1.dll">
+      <PackagePath>libgcc_s_seh-1.dll</PackagePath>
+      <Modified>2025-04-07T21:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\runtimes\win-x64\native\libstdc++-6.dll">
+      <PackagePath>libstdc++-6.dll</PackagePath>
+      <Modified>2025-04-07T21:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\runtimes\win-x64\native\libwinpthread-1.dll">
+      <PackagePath>libwinpthread-1.dll</PackagePath>
+      <Modified>2025-04-07T21:31:48.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\questpdf\2025.4.0\runtimes\win-x64\native\qpdf.dll">
+      <PackagePath>qpdf.dll</PackagePath>
+      <Modified>2025-04-07T21:31:48.000</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>APP_FarmaciaChavarria.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-04-23T23:18:39.006</Modified>
+      <Modified>2025-04-24T16:05:42.508</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -996,11 +1096,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\APP_FarmaciaChavarria.styles.css">
       <PackagePath>wwwroot\APP_FarmaciaChavarria.styles.css</PackagePath>
-      <Modified>2025-04-23T23:18:38.978</Modified>
+      <Modified>2025-04-24T16:05:31.819</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\APP_FarmaciaChavarria.bundle.scp.css">
-      <PackagePath>wwwroot\APP_FarmaciaChavarria.r7yhsujfw0.bundle.scp.css</PackagePath>
-      <Modified>2025-04-23T23:18:38.981</Modified>
+      <PackagePath>wwwroot\APP_FarmaciaChavarria.k75ur7z4hi.bundle.scp.css</PackagePath>
+      <Modified>2025-04-24T16:05:31.821</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
@@ -1040,7 +1140,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteVentas.razor.css">
       <PackagePath>Components\Pages\UiReportes\ReporteVentas.razor.css</PackagePath>
-      <Modified>2025-04-23T23:18:34.866</Modified>
+      <Modified>2025-04-24T16:05:31.046</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

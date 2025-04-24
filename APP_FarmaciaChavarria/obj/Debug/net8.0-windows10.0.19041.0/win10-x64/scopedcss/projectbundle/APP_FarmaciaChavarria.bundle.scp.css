@@ -1691,15 +1691,48 @@ span[b-z9yjfxairq]{
     margin-top: 5px;
 }
 
-.btn-descargar[b-bmv2702qo5] {
-    padding: 10px 20px;
-    background-color: #e9ecef;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    cursor: pointer;
-    height: fit-content;
-    margin-top: 5px;
+.contenedor-boton[b-bmv2702qo5] {
+    position: relative;
+    display: inline-block;
 }
+
+.btn-descargar[b-bmv2702qo5] {
+    background-color: #0078d7;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-opciones[b-bmv2702qo5] {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.btn-opcion[b-bmv2702qo5] {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+}
+
+    .btn-opcion:hover[b-bmv2702qo5] {
+        background-color: #f0f0f0;
+    }
+
 
 .subtitulo[b-bmv2702qo5] {
     color: #6c757d;
@@ -1924,6 +1957,4 @@ table tbody td[b-bmv2702qo5] {
         width: 100%;
         flex:1;
     }
-
-
 }

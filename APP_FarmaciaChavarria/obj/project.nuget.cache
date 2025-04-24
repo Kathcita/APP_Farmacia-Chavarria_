@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "zUf0+eMaKLE=",
+  "dgSpecHash": "LzIvI2KDrtc=",
   "success": true,
   "projectFilePath": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\APP_FarmaciaChavarria.csproj",
   "expectedPackageFiles": [
@@ -57,6 +57,7 @@
     "C:\\Users\\juan1\\.nuget\\packages\\microsoft.windowsappsdk\\1.5.240802000\\microsoft.windowsappsdk.1.5.240802000.nupkg.sha512",
     "C:\\Users\\juan1\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\juan1\\.nuget\\packages\\newtonsoft.json.bson\\1.0.3\\newtonsoft.json.bson.1.0.3.nupkg.sha512",
+    "C:\\Users\\juan1\\.nuget\\packages\\questpdf\\2025.4.0\\questpdf.2025.4.0.nupkg.sha512",
     "C:\\Users\\juan1\\.nuget\\packages\\radzen.blazor\\6.6.1\\radzen.blazor.6.6.1.nupkg.sha512",
     "C:\\Users\\juan1\\.nuget\\packages\\rbush\\4.0.0\\rbush.4.0.0.nupkg.sha512",
     "C:\\Users\\juan1\\.nuget\\packages\\sixlabors.fonts\\1.0.0\\sixlabors.fonts.1.0.0.nupkg.sha512",

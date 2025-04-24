@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "U/EJt3shXXiozK115cu3iUY0WPz2j89HC5RVNfLxfoA=",
+  "Hash": "i1uZLA/PhE+6KULErYyfva0qF6f9L1u79YyDAfUxzvM=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "xw49ko2mox",
-      "Integrity": "IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=",
+      "Fingerprint": "8ray2tf0m9",
+      "Integrity": "9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
@@ -808,8 +808,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "xw49ko2mox",
-      "Integrity": "IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=",
+      "Fingerprint": "8ray2tf0m9",
+      "Integrity": "9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
@@ -955,8 +955,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "m0r2ii5lp1",
-      "Integrity": "Rl9C8XYzxKxapxXeIWnnZV9QVSLV4wd4jfH74XqHwsw=",
+      "Fingerprint": "bzdxkpb1oh",
+      "Integrity": "B01S4HcdWU1aVTtoAyT6eWpXyLtSGW3fKsml7BzeoLo=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
@@ -3937,6 +3937,96 @@
       ]
     },
     {
+      "Route": "APP_FarmaciaChavarria.8ray2tf0m9.bundle.scp.css",
+      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 14:44:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ray2tf0m9"
+        },
+        {
+          "Name": "label",
+          "Value": "APP_FarmaciaChavarria.bundle.scp.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U="
+        }
+      ]
+    },
+    {
+      "Route": "APP_FarmaciaChavarria.8ray2tf0m9.styles.css",
+      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "41631"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 14:44:43 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "8ray2tf0m9"
+        },
+        {
+          "Name": "label",
+          "Value": "APP_FarmaciaChavarria.styles.css"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U="
+        }
+      ]
+    },
+    {
       "Route": "APP_FarmaciaChavarria.bundle.scp.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "Selectors": [],
@@ -3947,7 +4037,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39581"
+          "Value": "41631"
         },
         {
           "Name": "Content-Type",
@@ -3955,11 +4045,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=\""
+          "Value": "\"9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 22:08:22 GMT"
+          "Value": "Thu, 24 Apr 2025 14:44:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3969,7 +4059,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI="
+          "Value": "sha256-9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U="
         }
       ]
     },
@@ -3984,7 +4074,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39581"
+          "Value": "41631"
         },
         {
           "Name": "Content-Type",
@@ -3992,11 +4082,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=\""
+          "Value": "\"9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 22:08:22 GMT"
+          "Value": "Thu, 24 Apr 2025 14:44:43 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4006,97 +4096,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.xw49ko2mox.bundle.scp.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "39581"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 22:08:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xw49ko2mox"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.bundle.scp.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI="
-        }
-      ]
-    },
-    {
-      "Route": "APP_FarmaciaChavarria.xw49ko2mox.styles.css",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "39581"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sun, 20 Apr 2025 22:08:22 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "xw49ko2mox"
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.styles.css"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-IRWKspGrZvk643+ov7c/mz8qfIVE4CzcA06Yyt891qI="
+          "Value": "sha256-9DDsFR3EGGxKiyC1pRal/pIU4LGJ5O3as3vOLnGwK8U="
         }
       ]
     },
@@ -4593,6 +4593,51 @@
       ]
     },
     {
+      "Route": "index.bzdxkpb1oh.html",
+      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2468"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"B01S4HcdWU1aVTtoAyT6eWpXyLtSGW3fKsml7BzeoLo=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Thu, 24 Apr 2025 15:04:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "bzdxkpb1oh"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-B01S4HcdWU1aVTtoAyT6eWpXyLtSGW3fKsml7BzeoLo="
+        }
+      ]
+    },
+    {
       "Route": "index.html",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
       "Selectors": [],
@@ -4603,7 +4648,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "1135"
+          "Value": "2468"
         },
         {
           "Name": "Content-Type",
@@ -4611,11 +4656,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Rl9C8XYzxKxapxXeIWnnZV9QVSLV4wd4jfH74XqHwsw=\""
+          "Value": "\"B01S4HcdWU1aVTtoAyT6eWpXyLtSGW3fKsml7BzeoLo=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:42:53 GMT"
+          "Value": "Thu, 24 Apr 2025 15:04:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4625,52 +4670,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Rl9C8XYzxKxapxXeIWnnZV9QVSLV4wd4jfH74XqHwsw="
-        }
-      ]
-    },
-    {
-      "Route": "index.m0r2ii5lp1.html",
-      "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\wwwroot\\index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "1135"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"Rl9C8XYzxKxapxXeIWnnZV9QVSLV4wd4jfH74XqHwsw=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 19 Apr 2025 01:42:53 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "m0r2ii5lp1"
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-Rl9C8XYzxKxapxXeIWnnZV9QVSLV4wd4jfH74XqHwsw="
+          "Value": "sha256-B01S4HcdWU1aVTtoAyT6eWpXyLtSGW3fKsml7BzeoLo="
         }
       ]
     },

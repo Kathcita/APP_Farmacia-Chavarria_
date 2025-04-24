@@ -101,6 +101,10 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.4.0, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[6.6.1, )"
@@ -186,6 +190,10 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.4.0, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[6.6.1, )"
@@ -259,6 +267,10 @@
               "target": "Package",
               "version": "[1.0.3, )"
             },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.4.0, )"
+            },
             "Radzen.Blazor": {
               "target": "Package",
               "version": "[6.6.1, )"
@@ -326,6 +338,10 @@
             "Newtonsoft.Json.Bson": {
               "target": "Package",
               "version": "[1.0.3, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.4.0, )"
             },
             "Radzen.Blazor": {
               "target": "Package",
