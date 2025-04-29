@@ -162,3 +162,17 @@ build_metadata.AdditionalFiles.ManifestResourceName =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVaVJlcG9ydGVzXFJlcG9ydGVWZW50YXMucmF6b3I=
 build_metadata.AdditionalFiles.RelativePath = 
 build_metadata.AdditionalFiles.CssScope = b-bmv2702qo5
+
+[C:/Users/juan1/Source/Repos/APP_Farmacia-Chavarria_/APP_FarmaciaChavarria/Components/Pages/UiReportes/ReporteVentasCategorias.razor]
+build_metadata.AdditionalFiles.GenKind = 
+build_metadata.AdditionalFiles.ManifestResourceName = 
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVaVJlcG9ydGVzXFJlcG9ydGVWZW50YXNDYXRlZ29yaWFzLnJhem9y
+build_metadata.AdditionalFiles.RelativePath = 
+build_metadata.AdditionalFiles.CssScope = b-37zexzq34h
+
+[C:/Users/juan1/Source/Repos/APP_Farmacia-Chavarria_/APP_FarmaciaChavarria/Components/Pages/UiReportes/ReporteVentasLaboratorios.razor]
+build_metadata.AdditionalFiles.GenKind = 
+build_metadata.AdditionalFiles.ManifestResourceName = 
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVaVJlcG9ydGVzXFJlcG9ydGVWZW50YXNMYWJvcmF0b3Jpb3MucmF6b3I=
+build_metadata.AdditionalFiles.RelativePath = 
+build_metadata.AdditionalFiles.CssScope = b-rvrkogxnl1

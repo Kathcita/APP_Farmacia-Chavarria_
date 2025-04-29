@@ -100,22 +100,22 @@
     flex-direction: row;
 }
 
-.fechasContainer > div {
-    display: flex;
-    flex-direction: column;
-    padding: 0 5px;
-}
+    .fechasContainer > div {
+        display: flex;
+        flex-direction: column;
+        padding: 0 5px;
+    }
 
 .filtrarFechaBtn {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
-.filtrarFechaBtn > button {
-   width:50%;
-}
+    .filtrarFechaBtn > button {
+        width: 50%;
+    }
 
 
 .boton-descargar {
@@ -138,7 +138,7 @@
     margin-top: 20px;
 }
 
-.grafico, .tabla {
+.grafico {
     background-color: #ffffff;
     padding: 16px;
     border-radius: 8px;
@@ -157,34 +157,6 @@
     border-radius: 6px;
     color: #666;
     font-weight: bold;
-}
-
-/*Estilos para la tabla*/
-.tabla {
-    flex: 1;
-    height:500px;
-    overflow:scroll;
-}
-
-.table table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-table thead th {
-    background-color: #f0f0f0;
-    padding: 10px;
-    text-align: left;
-}
-
-table tbody td {
-    padding: 10px;
-    border-top: 1px solid #e0e0e0;
-}
-
-.tabla {
-    display: flex;
-    justify-content: center;
 }
 
 /*Estilos para mensaje de error*/
@@ -269,8 +241,8 @@ table tbody td {
         align-self: center; /* CENTRA horizontalmente el botón */
     }
 
-    .filtros{
-        justify-content:center;
+    .filtros {
+        justify-content: center;
     }
 
     .fechasContainer {
@@ -279,13 +251,13 @@ table tbody td {
     }
 }
 
-@media (max-width: 1280px){
+@media (max-width: 1280px) {
     .contenido-reporte {
         flex-direction: column;
     }
 
-    .grafico, .tabla {
+    .grafico {
         width: 100%;
-        flex:1;
+        flex: 1;
     }
 }

@@ -3,51 +3,6 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
-      "Route": "APP_FarmaciaChavarria.k75ur7z4hi.styles.css",
-      "AssetFile": "APP_FarmaciaChavarria.styles.css",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "42253"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/css"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"IOMq8bWqUdG7pQqvHXvx5CY5Ofof8qOjQgzkxlK9y4E=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 16:05:31 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "k75ur7z4hi"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-IOMq8bWqUdG7pQqvHXvx5CY5Ofof8qOjQgzkxlK9y4E="
-        },
-        {
-          "Name": "label",
-          "Value": "APP_FarmaciaChavarria.styles.css"
-        }
-      ]
-    },
-    {
       "Route": "APP_FarmaciaChavarria.styles.css",
       "AssetFile": "APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
@@ -62,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "42253"
+          "Value": "52888"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +25,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"IOMq8bWqUdG7pQqvHXvx5CY5Ofof8qOjQgzkxlK9y4E=\""
+          "Value": "\"J3EbvT46eJNTkUo6KoPppSq5Pe22Jb7RzLc8bv2kB7Q=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 16:05:31 GMT"
+          "Value": "Mon, 28 Apr 2025 21:18:02 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-IOMq8bWqUdG7pQqvHXvx5CY5Ofof8qOjQgzkxlK9y4E="
+          "Value": "sha256-J3EbvT46eJNTkUo6KoPppSq5Pe22Jb7RzLc8bv2kB7Q="
+        }
+      ]
+    },
+    {
+      "Route": "APP_FarmaciaChavarria.ve1o05y09r.styles.css",
+      "AssetFile": "APP_FarmaciaChavarria.styles.css",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "52888"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/css"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"J3EbvT46eJNTkUo6KoPppSq5Pe22Jb7RzLc8bv2kB7Q=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Mon, 28 Apr 2025 21:18:02 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "ve1o05y09r"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-J3EbvT46eJNTkUo6KoPppSq5Pe22Jb7RzLc8bv2kB7Q="
+        },
+        {
+          "Name": "label",
+          "Value": "APP_FarmaciaChavarria.styles.css"
         }
       ]
     },
@@ -3529,51 +3529,6 @@
       ]
     },
     {
-      "Route": "index.g9htpk3kcz.html",
-      "AssetFile": "index.html",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "2288"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/html"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"pLXsm/sXUctXx23M82sQtFV6I7/gJ4J/RKMK6ZEoQu8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 15:43:17 GMT"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "g9htpk3kcz"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-pLXsm/sXUctXx23M82sQtFV6I7/gJ4J/RKMK6ZEoQu8="
-        },
-        {
-          "Name": "label",
-          "Value": "index.html"
-        }
-      ]
-    },
-    {
       "Route": "index.html",
       "AssetFile": "index.html",
       "Selectors": [],
@@ -3588,7 +3543,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "2288"
+          "Value": "2340"
         },
         {
           "Name": "Content-Type",
@@ -3596,17 +3551,62 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"pLXsm/sXUctXx23M82sQtFV6I7/gJ4J/RKMK6ZEoQu8=\""
+          "Value": "\"7ST/TuLsPFJCeIWGP3+/jIkgLRRCRNBrCGCfDDdwVhg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Thu, 24 Apr 2025 15:43:17 GMT"
+          "Value": "Sat, 26 Apr 2025 01:27:00 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-pLXsm/sXUctXx23M82sQtFV6I7/gJ4J/RKMK6ZEoQu8="
+          "Value": "sha256-7ST/TuLsPFJCeIWGP3+/jIkgLRRCRNBrCGCfDDdwVhg="
+        }
+      ]
+    },
+    {
+      "Route": "index.p5a21xs4ei.html",
+      "AssetFile": "index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "2340"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"7ST/TuLsPFJCeIWGP3+/jIkgLRRCRNBrCGCfDDdwVhg=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 26 Apr 2025 01:27:00 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "p5a21xs4ei"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-7ST/TuLsPFJCeIWGP3+/jIkgLRRCRNBrCGCfDDdwVhg="
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
         }
       ]
     },

@@ -1,13 +1,13 @@
-﻿@page "/reporteVentas"
+﻿@page "/reporteVentasLaboratorios"
 
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Globalization
 @using Radzen
 @using Radzen.Blazor
+@using System.Diagnostics
 
-@inject ReporteVentasViewModel ViewModel
+@inject ReporteVentasLaboratoriosViewModel ViewModel
 @inject IJSRuntime JSRuntime
-
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
 {
@@ -29,7 +29,7 @@
 
     <div class="encabezado">
         <div class="texto">
-            <h2><strong>Reportes › Reporte de Ventas</strong></h2>
+            <h2><strong>Reportes › Reporte de Ventas por Laboratorio</strong></h2>
             <p class="subtitulo">Reporte relacionado a las ventas de la farmacia.</p>
         </div>
         <div class="contenedor-boton">
@@ -65,12 +65,12 @@
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
         </div>
-        <div>
+      <!--<div>
             <label>Grupo de Medicamentos</label>
             <select>
                 <option>- Seleccionar Categorías -</option>
             </select>
-        </div>
+          </div> -->
         <div>
             <label>Nombre de Usuario</label>
             <select @onchange="OnUserChanged" value="@ViewModel.UserId">
@@ -83,83 +83,39 @@
         </div>
     </div>
 
-    <!--Código de interfaz del gráfico de líneas-->
-    <div class="contenido-reporte">
-        <div class="grafico">
-            <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
-                <RadzenCard Variant="Variant.Outlined">
-                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap">
+        <div class="contenido-reporte">
+            <div class="grafico"> 
+                <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
 
-                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                            <RadzenCheckBox @bind-Value="@smooth" Name="smooth"></RadzenCheckBox>
-                            <RadzenLabel Text="Smooth" Component="smooth" />
-                        </RadzenStack>
+    <RadzenCard Variant="Variant.Outlined">
+        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
+            <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
+            <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
+        </RadzenStack>
+    </RadzenCard>
 
-                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                            <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-                            <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
-                        </RadzenStack>
+    <RadzenRow>
+        <RadzenColumn Size="12">
+            <RadzenChart>
 
-                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                            <RadzenCheckBox @bind-Value="@showMarkers" Name="markers"></RadzenCheckBox>
-                            <RadzenLabel Text="Show Markers" Component="markers" />
-                        </RadzenStack>
+                <RadzenColumnSeries Data="@ViewModel.VentasLaboratorio" CategoryProperty="NombreLaboratorio" LineType="LineType.Dashed" ValueProperty="TotalVentas">
+                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                </RadzenColumnSeries>
 
-                        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
-                            <RadzenCheckBox @bind-Value="@sharedTooltip" Name="sharedToltip"></RadzenCheckBox>
-                            <RadzenLabel Text="Shared Tooltip" Component="sharedTooltip"/>
-                        </RadzenStack>
+                <RadzenColumnOptions Radius="5" />
+                <RadzenValueAxis Formatter="@FormatAsNIO">
+                    <RadzenGridLines Visible="true" />
+                    <RadzenAxisTitle Text="Ventas en còrdobas" />
+                </RadzenValueAxis>
+            </RadzenChart>
+        </RadzenColumn>
+                </RadzenRow>
 
-                    </RadzenStack>
-                </RadzenCard>
-
-                <RadzenChart>
-                    <RadzenChartTooltipOptions Shared="@sharedTooltip" />
-
-                    <RadzenLineSeries Smooth="@smooth" Data="@ViewModel.RevenueData" CategoryProperty="Date" Title="@ViewModel.Año.ToString()" ValueProperty="Revenue" >
-                        <RadzenMarkers Visible="@showMarkers" MarkerType="MarkerType.Circle" />
-                        <RadzenSeriesDataLabels Visible="@showDataLabels" />
-                    </RadzenLineSeries>
-
-                    <RadzenCategoryAxis Padding="20" />
-
-                    <RadzenValueAxis Formatter="@FormatAsNIO">
-
-                        <RadzenGridLines Visible="true" />
-
-                        <RadzenAxisTitle Text="Ganancias en córdobas" />
-                    </RadzenValueAxis>
-
-                </RadzenChart>
             </RadzenStack>
+            </div>
         </div>
 
-        <div class="tabla">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Orden ID</th>
-                        <th>Fecha y Hora</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in ViewModel.Facturas)
-                    {
-                        <tr>
-                            <td>@item.id_factura</td>
-                            <td>@item.fecha_venta</td>
-                            <td>C$ @item.total</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-    </div>
 </div>
-
-
-
 
 @code {
 
@@ -169,10 +125,7 @@
         await ActualizarDatos();
     }
 
-    bool smooth = false;
-    bool sharedTooltip = true;
-    bool showDataLabels = false;
-    bool showMarkers = true;
+    bool showDataLabels = true;
 
     private string FormatAsNIO(object value)
     {
@@ -185,8 +138,7 @@
 
     protected async Task ActualizarDatos()
     {
-        await ViewModel.CargarVentasGrafico();
-        await ViewModel.CargarVentas();
+        await ViewModel.CargarTotalVentas();
     }
 
     private async Task OnUserChanged(ChangeEventArgs e)
@@ -195,8 +147,8 @@
         await ActualizarDatos(); // Llama a tu método para cargar datos
     }
 
-
     // Funciones para la descarga de reporte en excel o pdf
+
 
     private bool mostrarOpciones = false;
 
@@ -209,8 +161,8 @@
     {
         mostrarOpciones = false;
 
-        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.RevenueData);
-        var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasLaboratorio);
+        var nombreArchivo = $"ReporteDeVentasLaboratorios_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
         await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
     }
@@ -218,8 +170,8 @@
     private async Task DescargarPdf()
     {
         mostrarOpciones = false;
-
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.RevenueData);
+   
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasLaboratorio);
 
         if (pdfBytes != null)
         {

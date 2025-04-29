@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>k75ur7z4hi</Fingerprint>
-      <Integrity>IOMq8bWqUdG7pQqvHXvx5CY5Ofof8qOjQgzkxlK9y4E=</Integrity>
+      <Fingerprint>ve1o05y09r</Fingerprint>
+      <Integrity>J3EbvT46eJNTkUo6KoPppSq5Pe22Jb7RzLc8bv2kB7Q=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\APP_FarmaciaChavarria.styles.css'))</OriginalItemSpec>
@@ -138,8 +138,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>g9htpk3kcz</Fingerprint>
-      <Integrity>pLXsm/sXUctXx23M82sQtFV6I7/gJ4J/RKMK6ZEoQu8=</Integrity>
+      <Fingerprint>p5a21xs4ei</Fingerprint>
+      <Integrity>7ST/TuLsPFJCeIWGP3+/jIkgLRRCRNBrCGCfDDdwVhg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\index.html'))</OriginalItemSpec>
