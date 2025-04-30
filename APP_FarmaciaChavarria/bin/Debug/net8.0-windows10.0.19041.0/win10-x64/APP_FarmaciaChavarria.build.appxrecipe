@@ -824,7 +824,7 @@
       <PackagePath>wwwroot\APP_FarmaciaChavarria.styles.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\APP_FarmaciaChavarria.bundle.scp.css">
-      <PackagePath>wwwroot\APP_FarmaciaChavarria.ve1o05y09r.bundle.scp.css</PackagePath>
+      <PackagePath>wwwroot\APP_FarmaciaChavarria.upslzhezz3.bundle.scp.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
@@ -861,6 +861,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css">
       <PackagePath>Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteVentasProducto.razor.css">
+      <PackagePath>Components\Pages\UiReportes\ReporteVentasProducto.razor.css</PackagePath>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1Lj0DyVfQUPMh1LhThWLWpRu+n1hnKVeJR6wWnpMc3I=",
+  "Hash": "wDKIeUv2qyvxGfAlc1/Ue+UKQ7DA5LiTDriXyEHkT6w=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "1sawi07ypb",
-      "Integrity": "b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=",
+      "Fingerprint": "3pzudsyltm",
+      "Integrity": "N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
@@ -808,8 +808,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "1sawi07ypb",
-      "Integrity": "b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=",
+      "Fingerprint": "3pzudsyltm",
+      "Integrity": "N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
@@ -3937,7 +3937,7 @@
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.1sawi07ypb.bundle.scp.css",
+      "Route": "APP_FarmaciaChavarria.3pzudsyltm.bundle.scp.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3947,7 +3947,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47708"
+          "Value": "52988"
         },
         {
           "Name": "Content-Type",
@@ -3955,11 +3955,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=\""
+          "Value": "\"N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Apr 2025 21:14:54 GMT"
+          "Value": "Wed, 30 Apr 2025 02:07:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3969,7 +3969,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1sawi07ypb"
+          "Value": "3pzudsyltm"
         },
         {
           "Name": "label",
@@ -3977,12 +3977,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ="
+          "Value": "sha256-N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.1sawi07ypb.styles.css",
+      "Route": "APP_FarmaciaChavarria.3pzudsyltm.styles.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-android\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3992,7 +3992,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47708"
+          "Value": "52988"
         },
         {
           "Name": "Content-Type",
@@ -4000,11 +4000,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=\""
+          "Value": "\"N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Apr 2025 21:14:54 GMT"
+          "Value": "Wed, 30 Apr 2025 02:07:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4014,7 +4014,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "1sawi07ypb"
+          "Value": "3pzudsyltm"
         },
         {
           "Name": "label",
@@ -4022,7 +4022,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ="
+          "Value": "sha256-N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y="
         }
       ]
     },
@@ -4037,7 +4037,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47708"
+          "Value": "52988"
         },
         {
           "Name": "Content-Type",
@@ -4045,11 +4045,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=\""
+          "Value": "\"N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Apr 2025 21:14:54 GMT"
+          "Value": "Wed, 30 Apr 2025 02:07:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4059,7 +4059,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ="
+          "Value": "sha256-N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y="
         }
       ]
     },
@@ -4074,7 +4074,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47708"
+          "Value": "52988"
         },
         {
           "Name": "Content-Type",
@@ -4082,11 +4082,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ=\""
+          "Value": "\"N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 28 Apr 2025 21:14:54 GMT"
+          "Value": "Wed, 30 Apr 2025 02:07:11 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4096,7 +4096,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-b7+Is14EWMay8/6HPBd1vP2n8mCNGwj+Qo3Ih3/S3UQ="
+          "Value": "sha256-N42dZ4t0DMMJEMEw145az1iu8VVmrPV85XbHMwjS81Y="
         }
       ]
     },

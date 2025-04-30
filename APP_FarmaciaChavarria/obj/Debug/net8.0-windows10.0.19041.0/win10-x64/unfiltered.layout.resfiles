@@ -46,6 +46,7 @@ Components\Pages\UiProductos\CrearProducto.razor.css
 Components\Pages\UiReportes\ReporteVentas.razor.css
 Components\Pages\UiReportes\ReporteVentasCategorias.razor.css
 Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css
+Components\Pages\UiReportes\ReporteVentasProducto.razor.css
 OpenSans-Regular.ttf
 appicon.ico
 appiconLargeTile.scale-100.png
@@ -105,7 +106,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\APP_FarmaciaChavarria.styles.css
-wwwroot\APP_FarmaciaChavarria.ve1o05y09r.bundle.scp.css
+wwwroot\APP_FarmaciaChavarria.upslzhezz3.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

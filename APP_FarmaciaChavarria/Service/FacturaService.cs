@@ -76,6 +76,16 @@ namespace FarmaciaChavarria.Services
             return new List<CategoriaVentasDTO>();
         }
 
+        public async Task<List<ProductoVentasDTO>?> ObtenerProductosMasVentasAsync(string firstDate, string lastDate, int userId = 0)
+        {
+            var response = await _httpClient.GetAsync($"/api/Facturas/top-productos?fechaInicio={firstDate}&fechaFin={lastDate}&userId={userId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<List<ProductoVentasDTO>>();
+            }
+            return new List<ProductoVentasDTO>();
+        }
+
         public async Task<Factura?> ObtenerFacturaPorIdAsync(int id)
         {
             var response = await _httpClient.GetAsync($"/api/Facturas/{id}");

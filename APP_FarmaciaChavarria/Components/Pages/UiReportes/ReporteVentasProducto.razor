@@ -1,0 +1,172 @@
+﻿@page "/reporteVentasProducto"
+
+@using APP_FarmaciaChavarria.ViewModels.Reportes
+@using System.Diagnostics
+@using System.Globalization
+
+@inject ReporteVentasProductoViewModel ViewModel
+@inject IJSRuntime JSRuntime
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+        <div class="alert-error">
+            <span>@ViewModel.MensajeError</span>
+            <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+        </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+        <div class="alert-success">
+            <span>@ViewModel.MensajeExito</span>
+            <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+        </div>
+}
+
+
+<div class="reporte-container">
+    <div class="encabezado">
+        <div class="texto">
+            <h2><strong>Reportes › Reporte de Ventas por Producto</strong></h2>
+            <p class="subtitulo">Reporte relacionado a las ventas de la farmacia.</p>
+        </div>
+        <div class="contenedor-boton">
+            <button class="btn-descargar" @onclick="ToggleOpcionesDescarga">
+                📄 Descargar Reporte
+            </button>
+
+            @if (mostrarOpciones)
+            {
+                <div class="menu-opciones">
+                    <button class="btn-opcion" @onclick="DescargarExcel">📊 Excel</button>
+                    <button class="btn-opcion" @onclick="DescargarPdf">🧾 PDF</button>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="filtros">
+
+        <div class="FechasMaxContainer">
+            <div class="fechasContainer">
+                <div>
+                    <label>Fecha Inicio</label>
+                    <input type="date" placeholder="Fecha Inicio" @bind=@ViewModel.PrimeraFecha  class="inputFecha"/>
+                </div>
+
+                <div>
+                    <label>Fecha Final</label>
+                    <input type="date" placeholder="Fecha final" @bind=ViewModel.UltimaFecha />
+                </div>
+            </div>
+            <div class="filtrarFechaBtn">
+                <button @onclick="() => ActualizarDatos()">Buscar</button>
+            </div>
+        </div>
+      <!--<div>
+            <label>Grupo de Medicamentos</label>
+            <select>
+                <option>- Seleccionar Categorías -</option>
+            </select>
+          </div> -->
+        <div>
+            <label>Nombre de Usuario</label>
+            <select @onchange="OnUserChanged" value="@ViewModel.UserId">
+                <option value="0">- Seleccionar Usuario -</option>
+                @foreach (var user in ViewModel.Usuarios)
+                {
+                    <option value="@user.id_usuario">@user.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Orden</th>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Total de Ventas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < ViewModel.VentasProducto.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td> <!-- Sumamos 1 porque los índices empiezan en 0 -->
+                        <td>@ViewModel.VentasProducto[i].IdProducto</td>
+                        <td>@ViewModel.VentasProducto[i].NombreProducto</td>
+                        <td>@FormatAsNIO(ViewModel.VentasProducto[i].TotalVentas)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+   </div>
+
+@code {
+        protected override async Task OnInitializedAsync()
+        {
+            await ViewModel.CargarUsuarios();
+            await ActualizarDatos();
+        }
+
+        protected async Task ActualizarDatos()
+        {
+            await ViewModel.CargarTotalVentas();
+        }
+
+        private async Task OnUserChanged(ChangeEventArgs e)
+        {
+            ViewModel.UserId = Convert.ToInt32(e.Value);
+            await ActualizarDatos(); // Llama a tu método para cargar datos
+        }
+
+    private string FormatAsNIO(object value)
+    {
+        // Crear cultura personalizada para Nicaragua
+        var culture = (CultureInfo)CultureInfo.CreateSpecificCulture("es-NI").Clone();
+        culture.NumberFormat.CurrencyDecimalSeparator = ".";
+        culture.NumberFormat.CurrencyGroupSeparator = ",";
+        culture.NumberFormat.CurrencySymbol = "C$ ";
+
+        // Usar Convert.ToDecimal en lugar de (double)
+        return Convert.ToDecimal(value).ToString("C2", culture);
+    }
+
+        // Funciones para la descarga de reporte en excel o pdf
+
+
+        private bool mostrarOpciones = false;
+
+        private void ToggleOpcionesDescarga()
+        {
+            mostrarOpciones = !mostrarOpciones;
+        }
+
+        private async Task DescargarExcel()
+        {
+            mostrarOpciones = false;
+        
+        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasProducto);
+        var nombreArchivo = $"ReporteDeVentasLaboratorios_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+        await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+    }
+
+        private async Task DescargarPdf()
+        {
+            mostrarOpciones = false;
+
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasProducto); 
+
+        if (pdfBytes != null)
+        {
+            var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            }
+    }
+}

@@ -748,3 +748,4 @@ C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\De
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\qpdf.dll
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.rz.scp.css
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasCategorias.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasProducto.razor.rz.scp.css

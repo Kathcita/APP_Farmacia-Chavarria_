@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-29T01:55:02.281</Modified>
+      <Modified>2025-04-30T02:33:27.835</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-28T21:19:54.747</Modified>
+      <Modified>2025-04-30T02:24:23.758</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.runtimeconfig.json">
       <PackagePath>APP_FarmaciaChavarria.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\APP_FarmaciaChavarria.dll">
       <PackagePath>APP_FarmaciaChavarria.dll</PackagePath>
-      <Modified>2025-04-29T01:55:01.284</Modified>
+      <Modified>2025-04-30T02:33:27.529</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>APP_FarmaciaChavarria.exe</PackagePath>
-      <Modified>2025-04-29T01:55:01.292</Modified>
+      <Modified>2025-04-30T02:33:27.535</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -936,7 +936,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\staticwebassets.build.endpoints.json">
       <PackagePath>APP_FarmaciaChavarria.staticwebassets.endpoints.json</PackagePath>
-      <Modified>2025-04-28T21:18:02.610</Modified>
+      <Modified>2025-04-30T02:24:16.288</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\.nuget\packages\microsoft.maui.controls.compatibility\8.0.100\lib\net8.0-windows10.0.19041\Microsoft.Maui.Controls.Compatibility.pri">
       <PackagePath>Microsoft.Maui.Controls.Compatibility.pri</PackagePath>
@@ -1096,11 +1096,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\bundle\APP_FarmaciaChavarria.styles.css">
       <PackagePath>wwwroot\APP_FarmaciaChavarria.styles.css</PackagePath>
-      <Modified>2025-04-28T21:18:02.577</Modified>
+      <Modified>2025-04-30T02:24:16.257</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\APP_FarmaciaChavarria.bundle.scp.css">
-      <PackagePath>wwwroot\APP_FarmaciaChavarria.ve1o05y09r.bundle.scp.css</PackagePath>
-      <Modified>2025-04-28T21:18:02.580</Modified>
+      <PackagePath>wwwroot\APP_FarmaciaChavarria.upslzhezz3.bundle.scp.css</PackagePath>
+      <Modified>2025-04-30T02:24:16.260</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
@@ -1149,6 +1149,10 @@
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css">
       <PackagePath>Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css</PackagePath>
       <Modified>2025-04-28T21:15:25.848</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteVentasProducto.razor.css">
+      <PackagePath>Components\Pages\UiReportes\ReporteVentasProducto.razor.css</PackagePath>
+      <Modified>2025-04-30T02:24:06.044</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

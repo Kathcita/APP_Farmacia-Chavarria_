@@ -2486,3 +2486,256 @@ table tbody td[b-bmv2702qo5] {
         flex: 1;
     }
 }
+/* /Components/Pages/UiReportes/ReporteVentasProducto.razor.rz.scp.css */
+.reporte-container[b-a0admk835o] {
+    padding: 30px;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.encabezado[b-a0admk835o] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.texto[b-a0admk835o] {
+    flex: 1;
+    min-width: 250px;
+}
+
+.subtitulo[b-a0admk835o] {
+    color: #6c757d;
+    margin-top: 5px;
+}
+
+.contenedor-boton[b-a0admk835o] {
+    position: relative;
+    display: inline-block;
+}
+
+.btn-descargar[b-a0admk835o] {
+    background-color: #0078d7;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu-opciones[b-a0admk835o] {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.btn-opcion[b-a0admk835o] {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+}
+
+    .btn-opcion:hover[b-a0admk835o] {
+        background-color: #f0f0f0;
+    }
+
+
+.subtitulo[b-a0admk835o] {
+    color: #6c757d;
+    margin-bottom: 20px;
+}
+
+.filtros[b-a0admk835o] {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+    .filtros > div[b-a0admk835o] {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .filtros input[b-a0admk835o], .filtros select[b-a0admk835o] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        width: 230px;
+    }
+
+.FechasMaxContainer[b-a0admk835o] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.fechasContainer[b-a0admk835o] {
+    display: flex;
+    flex-direction: row;
+}
+
+    .fechasContainer > div[b-a0admk835o] {
+        display: flex;
+        flex-direction: column;
+        padding: 0 5px;
+    }
+
+.filtrarFechaBtn[b-a0admk835o] {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 10px;
+}
+
+    .filtrarFechaBtn > button[b-a0admk835o] {
+        width: 50%;
+    }
+
+
+.boton-descargar[b-a0admk835o] {
+    margin-left: auto;
+    align-self: flex-end;
+}
+
+    .boton-descargar button[b-a0admk835o] {
+        padding: 10px 20px;
+        background-color: #e9ecef;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+/*Estilos para la tabla*/
+.tabla[b-a0admk835o] {
+    flex: 1;
+    height: 500px;
+    overflow: scroll;
+}
+
+.table table[b-a0admk835o] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead th[b-a0admk835o] {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td[b-a0admk835o] {
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.tabla[b-a0admk835o] {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*Estilos para mensaje de error*/
+
+.alert-error[b-a0admk835o] {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-a0admk835o 0.3s ease-in-out;
+}
+
+    .alert-error button[b-a0admk835o] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-a0admk835o {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success[b-a0admk835o] {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein-b-a0admk835o 0.3s ease-in-out;
+}
+
+    .alert-success button[b-a0admk835o] {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein-b-a0admk835o {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .encabezado[b-a0admk835o] {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-descargar[b-a0admk835o] {
+        margin-top: 15px;
+        align-self: center; /* CENTRA horizontalmente el botón */
+    }
+
+    .filtros[b-a0admk835o] {
+        justify-content: center;
+    }
+
+    .fechasContainer[b-a0admk835o] {
+        display: flex;
+        flex-direction: column;
+    }
+}
