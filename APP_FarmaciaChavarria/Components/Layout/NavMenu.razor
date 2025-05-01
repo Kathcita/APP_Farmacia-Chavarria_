@@ -17,11 +17,28 @@
         <NavLink class="nav-item" href="/"><i class="bi bi-grid"></i> Dashboard</NavLink>
         <NavLink class="nav-item" href="/inventario"><i class="bi bi-box-seam"></i> Inventario</NavLink>
         <NavLink class="nav-item" href="/laboratorios"><i class="bi bi-box-seam"></i> Laboratorio</NavLink>
-        <NavLink class="nav-item" href="/reportes"><i class="bi bi-bar-chart"></i> Reportes</NavLink>
-        <NavLink class="nav-item" href="/reporteVentas"><i class="bi bi-bar-chart"></i> Reporte de Ventas</NavLink>
-        <NavLink class="nav-item" href="/reporteVentasProducto"><i class="bi bi-bar-chart"></i> Reporte de Ventas Productos</NavLink>
-        <NavLink class="nav-item" href="/reporteVentasLaboratorios"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
-        <NavLink class="nav-item" href="/reporteVentasCategorias"><i class="bi bi-bar-chart"></i> Reporte de Ventas Categorias</NavLink>
+
+        <!-- Menú desplegable de Reportes -->
+        <div class="nav-item report-menu" @onclick="ToggleReportMenu">
+            <i class="bi bi-bar-chart"></i> Reportes
+            <div class="space"></div>
+            <i class="fa-solid @(showReports ? "fa-chevron-up" : "fa-chevron-down")"></i>
+
+
+        </div>
+
+        <!-- Submenú de Reportes (oculto inicialmente) -->
+        @if (showReports)
+        {
+            <div class="submenu">
+                <NavLink class="nav-item submenu-item" href="/reportesGenerales"><i class="bi bi-bar-chart"></i> Reportes Generales</NavLink>
+                <NavLink class="nav-item submenu-item" href="/reporteVentas"><i class="bi bi-bar-chart"></i> Reporte de Ventas</NavLink>
+                <NavLink class="nav-item submenu-item" href="/reporteVentasProducto"><i class="bi bi-bar-chart"></i> Reporte de Ventas Productos</NavLink>
+                <NavLink class="nav-item submenu-item" href="/reporteVentasLaboratorios"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
+                <NavLink class="nav-item submenu-item" href="/reporteVentasCategorias"><i class="bi bi-bar-chart"></i> Reporte de Ventas Categorias</NavLink>
+            </div>
+        }
+
         <NavLink class="nav-item" href="/facturacion"><i class="bi bi-file-earmark-text"></i> Facturación</NavLink>
         <NavLink class="nav-item" href="/compras"><i class="bi bi-bag-check"></i> Compras</NavLink>
     </nav>
@@ -157,11 +174,26 @@
     cursor: pointer;
 }
 
+    .report-menu {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .space {
+        flex:1;
+    }
+    
+
 
 </style>
 
 
 @code {
-    private bool isMenuOpen = false;
+private bool isMenuOpen = false;
+    private bool showReports = false; // Controla si se muestran los subreportes
+
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
+    private void ToggleReportMenu() => showReports = !showReports;
 }

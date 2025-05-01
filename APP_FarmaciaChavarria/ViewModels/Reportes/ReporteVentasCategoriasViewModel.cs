@@ -5,6 +5,8 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using FarmaciaChavarria.Services;
 using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -165,7 +167,7 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
         }
 
-        public byte[] GenerarPdf(List<CategoriaVentasDTO> data, string nombreArchivo = "ReporteDeVentasPorCategoria")
+        public byte[] GenerarPdf(List<CategoriaVentasDTO> data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteDeVentasPorCategoria")
         {
             try
             {
@@ -225,6 +227,25 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
                             text.Span($"{DateTime.Now:dd/MM/yyyy HH:mm}");
                         });
                     });
+
+                    // Segunda página (horizontal) solo para el gráfico
+                    if (imagenGrafico != null)
+                    {
+                        container.Page(page =>
+                        {
+                            page.Size(PageSizes.A4.Landscape());
+                            page.Margin(30);
+
+                            page.Content().Column(col =>
+                            {
+                                col.Item().AlignCenter().Text("Gráfico de Ventas por Categoría")
+                                    .SemiBold().FontSize(18).FontColor(QuestPDF.Helpers.Colors.Blue.Darken2);
+
+                                // Ajusta el tamaño de la imagen para que ocupe la mayor parte de la página
+                                col.Item().PaddingTop(20).Image(imagenGrafico, ImageScaling.FitArea);
+                            });
+                        });
+                    }
                 });
 
                 MensajeExito = "El archivo pdf se guardó exitosamente en memoria";

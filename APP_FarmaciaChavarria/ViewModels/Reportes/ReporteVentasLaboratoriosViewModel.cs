@@ -12,6 +12,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuestPDF.Fluent;
+using DocumentFormat.OpenXml.Bibliography;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 
 namespace APP_FarmaciaChavarria.ViewModels.Reportes
 {
@@ -164,10 +167,9 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             workbook.SaveAs(memoryStream);
             MensajeExito = "El archivo de excel se guardó exitosamente en memoria";
             return memoryStream.ToArray();
-
         }
 
-        public byte[] GenerarPdf(List<LaboratorioVentasDTO> data, string nombreArchivo = "ReporteDeVentasPorLaboratorio")
+        public byte[] GenerarPdf(List<LaboratorioVentasDTO> data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteDeVentasPorLaboratorio")
         {
             try
             {
@@ -227,6 +229,26 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
                             text.Span($"{DateTime.Now:dd/MM/yyyy HH:mm}");
                         });
                     });
+
+                    // Segunda página (horizontal) solo para el gráfico
+                    if (imagenGrafico != null)
+                    {
+                        container.Page(page =>
+                        {
+                            page.Size(PageSizes.A4.Landscape());
+                            page.Margin(30);
+
+                            page.Content().Column(col =>
+                            {
+                                col.Item().AlignCenter().Text("Gráfico de Ventas por Laboratorio")
+                                    .SemiBold().FontSize(18).FontColor(QuestPDF.Helpers.Colors.Blue.Darken2);
+
+                                // Ajusta el tamaño de la imagen para que ocupe la mayor parte de la página
+                                col.Item().PaddingTop(20).Image(imagenGrafico, ImageScaling.FitArea);
+                            });
+                        });
+                    }
+
                 });
 
                 MensajeExito = "El archivo pdf se guardó exitosamente en memoria";

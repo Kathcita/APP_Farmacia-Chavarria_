@@ -43,6 +43,7 @@ Components\Pages\UiLaboratorios\CrearLaboratorio.razor.css
 Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.css
 Components\Pages\UiProductos\ActualizarProducto.razor.css
 Components\Pages\UiProductos\CrearProducto.razor.css
+Components\Pages\UiReportes\ReportesGenerales.razor.css
 Components\Pages\UiReportes\ReporteVentas.razor.css
 Components\Pages\UiReportes\ReporteVentasCategorias.razor.css
 Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.css
@@ -106,7 +107,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\APP_FarmaciaChavarria.styles.css
-wwwroot\APP_FarmaciaChavarria.upslzhezz3.bundle.scp.css
+wwwroot\APP_FarmaciaChavarria.deqdih1af6.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

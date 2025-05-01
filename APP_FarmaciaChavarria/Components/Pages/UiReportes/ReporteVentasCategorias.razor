@@ -114,7 +114,20 @@
             </RadzenStack>
             </div>
         </div>
+</div>
 
+<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 900px; height: 550px; display:none;">
+    <RadzenChart>
+        <RadzenColumnSeries Data="@ViewModel.VentasCategoria" CategoryProperty="NombreCategoria" LineType="LineType.Dashed" ValueProperty="TotalVentas">
+            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+        </RadzenColumnSeries>
+
+        <RadzenColumnOptions Radius="5" />
+        <RadzenValueAxis Formatter="@FormatAsNIO">
+            <RadzenGridLines Visible="true" />
+            <RadzenAxisTitle Text="Ventas en còrdobas" />
+        </RadzenValueAxis>
+    </RadzenChart>
 </div>
 
 @code {
@@ -166,11 +179,25 @@
         await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
     }
 
+    private async Task<byte[]> CapturarGraficoComoImagen()
+    {
+        var imageDataUrl = await JSRuntime.InvokeAsync<string>("capturarGrafico", "grafico-reporte-export");
+
+        if (string.IsNullOrEmpty(imageDataUrl))
+            return null;
+
+        // Convertir Data URL a bytes
+        var base64Data = imageDataUrl.Split(',')[1];
+        return Convert.FromBase64String(base64Data);
+    }
+
     private async Task DescargarPdf()
     {
         mostrarOpciones = false;
 
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasCategoria);
+        var imagenGrafico = await CapturarGraficoComoImagen();
+
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasCategoria, imagenGrafico);
 
         if (pdfBytes != null)
         {

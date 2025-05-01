@@ -65,12 +65,12 @@
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
         </div>
-      <!--<div>
-            <label>Grupo de Medicamentos</label>
-            <select>
-                <option>- Seleccionar Categorías -</option>
-            </select>
-          </div> -->
+        <!--<div>
+        <label>Grupo de Medicamentos</label>
+        <select>
+        <option>- Seleccionar Categorías -</option>
+        </select>
+        </div> -->
         <div>
             <label>Nombre de Usuario</label>
             <select @onchange="OnUserChanged" value="@ViewModel.UserId">
@@ -83,39 +83,55 @@
         </div>
     </div>
 
-        <div class="contenido-reporte">
-            <div class="grafico"> 
-                <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
+    <div class="contenido-reporte">
+        <div class="grafico"> 
+            <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
 
-    <RadzenCard Variant="Variant.Outlined">
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
-            <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-            <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
-        </RadzenStack>
-    </RadzenCard>
+                <RadzenCard Variant="Variant.Outlined">
+                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
+                        <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
+                        <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
+                    </RadzenStack>
+                </RadzenCard>
 
-    <RadzenRow>
-        <RadzenColumn Size="12">
-            <RadzenChart>
+                <RadzenRow>
+                    <RadzenColumn Size="12">
+                        <RadzenChart>
 
-                <RadzenColumnSeries Data="@ViewModel.VentasLaboratorio" CategoryProperty="NombreLaboratorio" LineType="LineType.Dashed" ValueProperty="TotalVentas">
-                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
-                </RadzenColumnSeries>
+                            <RadzenColumnSeries Data="@ViewModel.VentasLaboratorio" CategoryProperty="NombreLaboratorio" LineType="LineType.Dashed" ValueProperty="TotalVentas">
+                                <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                            </RadzenColumnSeries>
 
-                <RadzenColumnOptions Radius="5" />
-                <RadzenValueAxis Formatter="@FormatAsNIO">
-                    <RadzenGridLines Visible="true" />
-                    <RadzenAxisTitle Text="Ventas en còrdobas" />
-                </RadzenValueAxis>
-            </RadzenChart>
-        </RadzenColumn>
+                            <RadzenColumnOptions Radius="5" />
+                            <RadzenValueAxis Formatter="@FormatAsNIO">
+                                <RadzenGridLines Visible="true" />
+                                <RadzenAxisTitle Text="Ventas en còrdobas" />
+                            </RadzenValueAxis>
+                        </RadzenChart>
+                    </RadzenColumn>
                 </RadzenRow>
 
             </RadzenStack>
-            </div>
         </div>
-
+    </div>
 </div>
+
+
+<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 900px; height: 550px; display:none;">
+    <RadzenChart>
+
+        <RadzenColumnSeries Data="@ViewModel.VentasLaboratorio" CategoryProperty="NombreLaboratorio" LineType="LineType.Dashed" ValueProperty="TotalVentas">
+            <RadzenSeriesDataLabels Visible="@showDataLabels" />
+        </RadzenColumnSeries>
+
+        <RadzenColumnOptions Radius="5" />
+        <RadzenValueAxis Formatter="@FormatAsNIO">
+            <RadzenGridLines Visible="true" />
+            <RadzenAxisTitle Text="Ventas en còrdobas" />
+        </RadzenValueAxis>
+    </RadzenChart>
+</div>
+
 
 @code {
 
@@ -167,11 +183,25 @@
         await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
     }
 
+    private async Task<byte[]> CapturarGraficoComoImagen()
+    {
+        var imageDataUrl = await JSRuntime.InvokeAsync<string>("capturarGrafico", "grafico-reporte-export");
+
+        if (string.IsNullOrEmpty(imageDataUrl))
+            return null;
+
+        // Convertir Data URL a bytes
+        var base64Data = imageDataUrl.Split(',')[1];
+        return Convert.FromBase64String(base64Data);
+    }
+
     private async Task DescargarPdf()
     {
         mostrarOpciones = false;
-   
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasLaboratorio);
+
+        var imagenGrafico = await CapturarGraficoComoImagen();
+
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasLaboratorio, imagenGrafico);
 
         if (pdfBytes != null)
         {

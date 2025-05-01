@@ -134,8 +134,6 @@
 /*Estilos para la tabla*/
 .tabla {
     flex: 1;
-    height: 500px;
-    overflow: scroll;
 }
 
 .table table {
