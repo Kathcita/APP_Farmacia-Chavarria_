@@ -56,6 +56,7 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             {
                 if (PrimeraFecha > UltimaFecha)
                 {
+                    MensajeError = "La fecha de inicio no puede ser superior a la fecha final";
                     return;
                 }
 
@@ -64,9 +65,10 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
                 var response = await _facturaService.ObtenerProductosMasVentasAsync(fechaInicioString, fechaFinString, UserId);
 
-                if (response.Any())
+                if (response != null && response.Any())
                 {
                     VentasProducto = response;
+                    MensajeError = "";
                 }
                 else
                 {

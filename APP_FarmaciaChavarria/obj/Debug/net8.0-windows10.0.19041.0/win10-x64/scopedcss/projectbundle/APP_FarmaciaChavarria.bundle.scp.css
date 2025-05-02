@@ -1834,9 +1834,12 @@ body[b-1kmuh3fslo] {
 
 /*Estilos para la tabla*/
 .tabla[b-bmv2702qo5] {
+    display: flex;
+    justify-content: center;
+    align-items:center;
     flex: 1;
-    height:500px;
-    overflow:scroll;
+    overflow: scroll;
+    flex-direction:column;
 }
 
 .table table[b-bmv2702qo5] {
@@ -1855,10 +1858,22 @@ table tbody td[b-bmv2702qo5] {
     border-top: 1px solid #e0e0e0;
 }
 
-.tabla[b-bmv2702qo5] {
-    display: flex;
-    justify-content: center;
+
+
+/*Estilos en paginación*/
+
+.page-controls[b-bmv2702qo5] {
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+.pagination[b-bmv2702qo5] {
+    flex-direction: column;
+}
+
+    .pagination span[b-bmv2702qo5] {
+        text-align: center;
+    }
 
 /*Estilos para mensaje de error*/
 

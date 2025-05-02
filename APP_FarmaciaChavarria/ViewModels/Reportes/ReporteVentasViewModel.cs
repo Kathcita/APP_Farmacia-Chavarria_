@@ -33,6 +33,7 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             // Inicializar fechas con datos por defecto, el rango de fecha es desde el inicio del año hasta la fecha actual
             PrimeraFecha = new DateTime(DateTime.Now.Year, 1, 1);
             UltimaFecha = DateTime.Now.Date;
+            NumeroPagina = 1;
         }
 
         [ObservableProperty]
@@ -65,6 +66,14 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
         [ObservableProperty]
         private string mensajeError;
 
+        // Paginación
+
+        [ObservableProperty]
+        private int numeroPagina;
+
+        [ObservableProperty]
+        private int totalDePaginas;
+
 
         /*Función para cargar los datos de datos de ventas y mostrarlos en la tabla*/
         public async Task CargarVentas()
@@ -73,21 +82,24 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             {
                 if (PrimeraFecha > UltimaFecha)
                 {
+                    MensajeError = "La fecha de inicio no puede ser superior a la fecha final";
                     return;
                 }
 
                 var fechaInicioString = PrimeraFecha.ToString("yyyy-MM-dd");
                 var fechaFinString = UltimaFecha.ToString("yyyy-MM-dd");
 
-                var response = await _facturaService.ObtenerFacturasPorAñoAsync(fechaInicioString, fechaFinString, UserId);
+                var response = await _facturaService.ObtenerFacturasPorAñoAsync(fechaInicioString, fechaFinString, UserId, NumeroPagina);
 
-                if (response.Any())
+                if (response != null && response.Facturas.Any())
                 {
-                    Facturas = response;
+                    Facturas = response.Facturas;
+                    TotalDePaginas = response.TotalPages;
+                    MensajeError = "";
                 }
                 else
                 {
-
+                    MensajeError = "No se encontraron facturas";
                 }
             }
             catch (Exception ex)

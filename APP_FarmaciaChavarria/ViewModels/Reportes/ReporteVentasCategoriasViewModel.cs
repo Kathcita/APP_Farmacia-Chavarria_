@@ -67,9 +67,10 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
                 var response = await _facturaService.ObtenerCategoriaMasVentasAsync(fechaInicioString, fechaFinString, UserId);
 
-                if (response.Any())
+                if (response != null && response.Any())
                 {
                     VentasCategoria = response;
+                    MensajeError = "";
                 }
                 else
                 {

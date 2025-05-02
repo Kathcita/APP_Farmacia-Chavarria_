@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.PaginationModels;
 using APP_FarmaciaChavarria.Models.ReporteModels;
 
 namespace FarmaciaChavarria.Services
@@ -36,15 +37,15 @@ namespace FarmaciaChavarria.Services
             return new List<Factura>();
         }
 
-        public async Task<List<Factura>?> ObtenerFacturasPorAñoAsync(string firstDate, string lastDate, int userId=0)
+        public async Task<FacturaPagedResult?> ObtenerFacturasPorAñoAsync(string firstDate, string lastDate, int userId=0, int pageNumber = 1, int pageSize = 10)
         {
-            var response = await _httpClient.GetAsync($"/api/Facturas/facturas-año?fechaInicio={firstDate}&fechaFin={lastDate}&&userId={userId}");
+            var response = await _httpClient.GetAsync($"/api/Facturas/facturas-año?fechaInicio={firstDate}&fechaFin={lastDate}&userId={userId}&pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Factura>>();
+                return await response.Content.ReadFromJsonAsync<FacturaPagedResult>();
             }
-            return new List<Factura>();
-        }
+            return null;
+        }  
 
         public async Task<List<RevenueDataItem>?> ObtenerFacturasReporteAsync(string firstDate, string lastDate, int userId = 0)
         {

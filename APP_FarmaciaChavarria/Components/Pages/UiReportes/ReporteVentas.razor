@@ -154,7 +154,16 @@
                     }
                 </tbody>
             </table>
+
+            <div class="pagination">
+                <div class="page-controls">
+                    <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+                    <span>Pág @ViewModel.NumeroPagina</span>
+                    <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+                </div>
+            </div>
         </div>
+
     </div>
 </div>
 
@@ -206,6 +215,7 @@
     private async Task OnUserChanged(ChangeEventArgs e)
     {
         ViewModel.UserId = Convert.ToInt32(e.Value);
+        ViewModel.NumeroPagina = 1;
         await ActualizarDatos(); // Llama a tu método para cargar datos
     }
 
@@ -256,4 +266,32 @@
             await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
         }
     }
+
+    // Funciones de paginación
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task SiguientePagina()
+    {
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarVentas();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnterior()
+    {
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarVentas();
+        }
+    }
+
 }
