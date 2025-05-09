@@ -74,6 +74,9 @@ namespace APP_FarmaciaChavarria.ViewModels
         private int stock;
 
         [ObservableProperty]
+        private int stockMinimo = 1;
+
+        [ObservableProperty]
         private decimal precio = 0;
 
         [ObservableProperty]
@@ -135,6 +138,8 @@ namespace APP_FarmaciaChavarria.ViewModels
                 NombreCategoria = producto.CategoriaNombre;
                 NombreLaboratorio = producto.LaboratorioNombre;
                 StockInput = producto.Stock.ToString();
+                EfectosSecundarios = producto.Efectos_Secundarios;
+                ComoUsar = producto.Como_Usar;
             }
         }
 
@@ -155,7 +160,10 @@ namespace APP_FarmaciaChavarria.ViewModels
                     id_laboratorio = LaboratorioId,
                     fecha_vencimiento = FechaVencimiento,
                     stock = Stock,
-                    precio = Precio
+                    precio = Precio,
+                    stock_minimo = StockMinimo,
+                    efectos_secundarios = EfectosSecundarios,
+                    como_usar = ComoUsar
                 };
 
                 var response = await _productoService.ActualizarProductoAsync(producto.IdProducto, actualizarProducto);

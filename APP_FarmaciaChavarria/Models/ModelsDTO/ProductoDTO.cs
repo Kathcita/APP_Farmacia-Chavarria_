@@ -16,6 +16,9 @@ namespace APP_FarmaciaChavarria.Models.ModelsDTO
         public int id_laboratorio { get; set; }
         public decimal Precio { get; set; }
         public int Stock { get; set; }
+        public int Stock_Minimo { get; set; }
+        public string Efectos_Secundarios { get; set; }
+        public string Como_Usar { get; set; }
         public DateOnly FechaVencimiento { get; set; }
     }
 

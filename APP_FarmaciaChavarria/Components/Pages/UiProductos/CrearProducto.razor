@@ -68,12 +68,12 @@
 
         <div class="form-group full-width">
             <label>Como Usar</label>
-            <textarea rows="3"></textarea>
+            <textarea rows="3" @bind="ViewModel.ComoUsar"></textarea>
         </div>
 
         <div class="form-group full-width">
             <label>Efectos Secundarios</label>
-            <textarea rows="3"></textarea>
+            <textarea rows="3" @bind="ViewModel.EfectosSecundarios"></textarea>
         </div>
 
         <button class="btn-guardar" @onclick="ViewModel.CrearProducto" id="btnMobile">Guardar Detalles</button>
