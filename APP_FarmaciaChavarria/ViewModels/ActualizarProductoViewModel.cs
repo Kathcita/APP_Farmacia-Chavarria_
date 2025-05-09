@@ -71,6 +71,9 @@ namespace APP_FarmaciaChavarria.ViewModels
         private string stockInput = "0";
 
         [ObservableProperty]
+        private string stockMinimoInput = "0";
+
+        [ObservableProperty]
         private int stock;
 
         [ObservableProperty]
@@ -83,10 +86,10 @@ namespace APP_FarmaciaChavarria.ViewModels
         private DateOnly fechaVencimiento = DateOnly.FromDateTime(DateTime.Today);
 
         [ObservableProperty]
-        private string comoUsar;
+        private string comoUsar = "";
 
         [ObservableProperty]
-        private string efectosSecundarios;
+        private string efectosSecundarios = "";
 
         // Información de paginación de categorias
         [ObservableProperty]
@@ -138,6 +141,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 NombreCategoria = producto.CategoriaNombre;
                 NombreLaboratorio = producto.LaboratorioNombre;
                 StockInput = producto.Stock.ToString();
+                StockMinimoInput = producto.Stock_Minimo.ToString();
                 EfectosSecundarios = producto.Efectos_Secundarios;
                 ComoUsar = producto.Como_Usar;
             }
@@ -173,6 +177,13 @@ namespace APP_FarmaciaChavarria.ViewModels
                     MensajeError = "";
                     MensajeExito = "Producto actualizado exitosamente";
                     LimpiarCampos();
+
+                    // Función ejecutada en segundo plano para dejar el mensaje de éxito vacío luego de dos segundos
+                    _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(500);
+                        MensajeExito = string.Empty;
+                    });
                 }
                 else
                 {
@@ -208,6 +219,12 @@ namespace APP_FarmaciaChavarria.ViewModels
                 MensajeError = "Ingrese una cantidad válida (entero positivo)";
                 return false;
             }
+            if (!decimal.TryParse(StockMinimoInput, out var parsedStockValue) || parsedStockValue % 1 != 0 || parsedStockValue < 0)
+            {
+                MensajeError = "Ingrese una cantidad válida (entero positivo)";
+                return false;
+            }
+            StockMinimo = (int)parsedStockValue;
             Stock = (int)parsedValue;
             return true;
         }
@@ -338,6 +355,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             FechaVencimiento = DateOnly.FromDateTime(DateTime.Today);
             IdProducto = 0;
             StockInput = "0";
+            StockMinimoInput = "";
         }
 
     }

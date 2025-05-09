@@ -72,6 +72,9 @@ namespace APP_FarmaciaChavarria.ViewModels
         private string stockInput = "0";
 
         [ObservableProperty]
+        private string stockInputMinimo = "0";
+
+        [ObservableProperty]
         private int stock;
 
         [ObservableProperty]
@@ -84,10 +87,10 @@ namespace APP_FarmaciaChavarria.ViewModels
         private DateOnly fechaVencimiento = DateOnly.FromDateTime(DateTime.Today);
 
         [ObservableProperty]
-        private string comoUsar;
+        private string comoUsar = "";
 
         [ObservableProperty]
-        private string efectosSecundarios;
+        private string efectosSecundarios = "";
 
         // Información de paginación de categorias
         [ObservableProperty]
@@ -152,6 +155,13 @@ namespace APP_FarmaciaChavarria.ViewModels
                     MensajeError = "";
                     MensajeExito = "Producto registrado exitosamente";
                     LimpiarCampos();
+
+                    // Función ejecutada en segundo plano para dejar el mensaje de éxito vacío luego de dos segundos
+                    _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(2000);
+                        MensajeExito = string.Empty;
+                    });
                 }
                 else
                 {
@@ -192,7 +202,13 @@ namespace APP_FarmaciaChavarria.ViewModels
                 MensajeError = "Ingrese una cantidad válida (entero positivo)";
                 return false;
             }
+            if (!decimal.TryParse(StockInputMinimo, out var parsedStockValue) || parsedStockValue % 1 != 0 || parsedStockValue < 0)
+            {
+                MensajeError = "Ingrese una cantidad válida (entero positivo)";
+                return false;
+            }
 
+            StockMinimo = (int)parsedStockValue;
             Stock = (int)parsedValue;
             return true;
         }
@@ -332,6 +348,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             NombreLaboratorio = string.Empty;
             NombreCategoria = string.Empty;
             StockInput = "0";
+            StockInputMinimo = "0";
         }
     }
 }

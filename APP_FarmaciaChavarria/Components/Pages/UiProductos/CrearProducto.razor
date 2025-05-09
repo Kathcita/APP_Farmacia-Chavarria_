@@ -24,7 +24,7 @@
     <div class="form-header">
         <div class="breadcrumbs">
             <strong>Inventario</strong> &gt; <strong>Lista de Medicamentos</strong> &gt;
-            <span class="title">Agregar Nuevo Medicamento</span>
+            <span class="title">Agregar Nuevo Medicamento </span>
         </div>
         <button class="btn-guardar" @onclick="ViewModel.CrearProducto">Guardar Detalles</button>
     </div>
@@ -35,34 +35,39 @@
 
     <div class="form-flex">
         <div class="form-group">
-            <label>Nombre del Medicamento</label>
+            <label>Nombre del Medicamento <span style="color:red">*</span></label>
             <input type="text" @bind="ViewModel.Nombre" />
         </div>
 
         <div class="form-group">
-            <label>ID del Medicamento</label>
+            <label>ID del Medicamento</label> 
             <input type="text" readonly/>
         </div>
 
         <div class="form-group">
-            <label>Categoría de Medicamento</label>
+            <label>Categoría de Medicamento <span style="color:red">*</span></label>
             <input readonly @onclick="()=>ModalCategoriaVisible = true" class="form-control"
             value="@ViewModel.NombreCategoria" placeholder="Seleccionar Categoría" />
         </div>
 
         <div class="form-group">
-            <label>Cantidad</label>
+            <label>Cantidad <span style="color:red">*</span></label>
             <input type="number" @bind="ViewModel.StockInput" />
         </div>
 
         <div class="form-group">
-            <label>Laboratorio</label>
+            <label>Stock Mínimo <span style="color:red">*</span></label>
+            <input type="number" @bind="ViewModel.StockInputMinimo" />
+        </div>
+
+        <div class="form-group">
+            <label>Laboratorio <span style="color:red">*</span></label>
             <input readonly @onclick="()=>ModalLaboratorioVisible = true" class="form-control"
             value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
         </div>
 
         <div class="form-group">
-            <label>Fecha de Vencimiento</label>
+            <label>Fecha de Vencimiento <span style="color:red">*</span></label>
             <input type="date" @bind="ViewModel.FechaVencimiento" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
         </div>
 

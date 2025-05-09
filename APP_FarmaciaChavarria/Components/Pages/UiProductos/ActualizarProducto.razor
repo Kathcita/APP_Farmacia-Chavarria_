@@ -3,6 +3,7 @@
 @using API_FarmaciaChavarria.Models
 @using APP_FarmaciaChavarria.ViewModels
 @inject ActualizarProductoViewModel ViewModel
+@inject NavigationManager Navigation
 
 
 @code {
@@ -17,6 +18,17 @@
         await ViewModel.CargarLaboratorios();
     }
 
+    private async Task NavegarInventario()
+    {
+        await ViewModel.ActualizarProducto();
+
+        _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(2500);
+                        Navigation.NavigateTo($"/inventario");
+                    });
+       
+    }
 
     // Variables y funciones necesarias para mostrar modals y obtener datos
     private bool ModalCategoriaVisible = false;
@@ -161,7 +173,7 @@
             <strong>Inventario</strong> &gt; <strong>Lista de Medicamentos</strong> &gt;
             <span class="title">Actualizar Medicamento</span>
         </div>
-        <button class="btn-actualizar" @onclick="ViewModel.ActualizarProducto">Actualizar</button>
+        <button class="btn-actualizar" @onclick="() => NavegarInventario()">Actualizar</button>
     </div>
 
     <p class="note">
@@ -170,7 +182,7 @@
 
     <div class="form-flex">
         <div class="form-group">
-            <label>Nombre</label>
+            <label>Nombre <span style="color:red">*</span></label>
             <input type="text" @bind="ViewModel.Nombre" />
         </div>
 
@@ -180,24 +192,29 @@
         </div>
 
         <div class="form-group">
-            <label>Categoría de Medicamento</label>
+            <label>Categoría de Medicamento <span style="color:red">*</span></label> 
             <input readonly @onclick="()=>ModalCategoriaVisible = true" class="form-control"
                    value="@ViewModel.NombreCategoria" placeholder="Seleccionar Categoría" />
         </div>
 
         <div class="form-group">
-            <label>Cantidad</label>
+            <label>Cantidad <span style="color:red">*</span></label>
             <input type="number" @bind="ViewModel.StockInput" />
         </div>
 
         <div class="form-group">
-            <label>Laboratorio</label>
+            <label>Stock Mínimo <span style="color:red">*</span></label>
+            <input type="number" @bind="ViewModel.StockMinimoInput" />
+        </div>
+
+        <div class="form-group">
+            <label>Laboratorio <span style="color:red">*</span></label> 
             <input readonly @onclick="()=>ModalLaboratorioVisible = true" class="form-control"
                    value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
         </div>
 
         <div class="form-group">
-            <label>Fecha de Vencimiento</label>
+            <label>Fecha de Vencimiento <span style="color:red">*</span></label
             <input type="date" @bind="ViewModel.FechaVencimiento" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
         </div>
 

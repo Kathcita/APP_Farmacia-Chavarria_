@@ -1666,6 +1666,68 @@ span[b-z9yjfxairq]{
             display:block;
         }
 }
+/* /Components/Pages/UiReportes/ReporteMedicamentosEscasos.razor.rz.scp.css */
+.reporte-container[b-xz7c3fctdw] {
+    height:100vh;
+    padding: 30px;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.encabezado[b-xz7c3fctdw] {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/*Estilos para la tabla*/
+.tabla[b-xz7c3fctdw] {
+    flex: 1;
+    display:flex;
+    flex-direction:column;
+}
+
+.table table[b-xz7c3fctdw] {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead th[b-xz7c3fctdw] {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td[b-xz7c3fctdw] {
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.tabla[b-xz7c3fctdw] {
+    display: flex;
+    justify-content: center;
+}
+
+/*Estilos en paginación*/
+
+.page-controls[b-xz7c3fctdw] {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pagination[b-xz7c3fctdw] {
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .pagination span[b-xz7c3fctdw] {
+        text-align: center;
+    }
+
 /* /Components/Pages/UiReportes/ReportesGenerales.razor.rz.scp.css */
 body[b-1kmuh3fslo] {
 }
@@ -2642,6 +2704,8 @@ table tbody td[b-bmv2702qo5] {
 /*Estilos para la tabla*/
 .tabla[b-a0admk835o] {
     flex: 1;
+    display:flex;
+    flex-direction:column;
 }
 
 .table table[b-a0admk835o] {

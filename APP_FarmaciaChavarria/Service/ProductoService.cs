@@ -39,6 +39,17 @@ namespace FarmaciaChavarria.Services
             return null; // O manejar error de otra forma
         }
 
+        public async Task<ProductoPagedResult?> ObtenerProductosEscasosAsync(int pageNumber = 1, int pageSize = 10)
+        {
+            var response = await _httpClient.GetAsync($"/api/Productos/medicamentos-escasos?pageNumber={pageNumber}&pageSize={pageSize}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
+            }
+
+            return null; // O manejar error de otra forma
+        }
+
 
         // Obtener un producto por ID
         public async Task<ProductoDTO?> ObtenerProductoPorIdAsync(int id)

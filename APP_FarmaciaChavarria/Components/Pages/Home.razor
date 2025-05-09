@@ -26,7 +26,7 @@
         <div class="card">
             <h2>01</h2>
             <p>Medicamentos Escasos</p>
-            <button class="btn-danger">Revisar Ahora</button>
+            <button class="btn-danger" @onclick=NavegarAProductosEscasos>Revisar Ahora</button>
         </div>
     </div>
 
@@ -55,90 +55,90 @@
 </div>
 <style>
     body {
-        font-family: 'Segoe UI', sans-serif;
-        background-color: #f1f6fc;
-        margin: 0;
-        padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f1f6fc;
+    margin: 0;
+    padding: 0;
     }
 
     .dashboard-container {
-        padding: 2rem;
+    padding: 2rem;
     }
 
     h1 {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1a1a1a;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a1a1a;
     }
 
     .dashboard-description {
-        margin-bottom: 1rem;
-        color: #4a4a4a;
+    margin-bottom: 1rem;
+    color: #4a4a4a;
     }
 
     .btn-download {
-        background-color: #6c63ff;
-        color: white;
-        border: none;
-        padding: 0.5rem 1.25rem;
-        border-radius: 8px;
-        font-weight: 600;
-        cursor: pointer;
-        margin-bottom: 1.5rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1.25rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
     }
 
     .dashboard-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1rem;
-        margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
     }
 
     .card {
-        background-color: white;
-        border-radius: 12px;
-        padding: 1.5rem;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        gap: 0.5rem;
-        transition: all 0.3s ease;
+    background-color: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
     }
 
-        .card h2 {
-            margin: 0;
-            font-size: 1.8rem;
-            color: #1a1a1a;
-        }
+    .card h2 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #1a1a1a;
+    }
 
-        .card p {
-            margin: 0;
-            font-size: 0.95rem;
-            color: #666;
-        }
+    .card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666;
+    }
 
-        .card button {
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
-            font-weight: 600;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            background-color: #f1f1f1;
-        }
+    .card button {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    }
 
-        .card .btn-danger {
-            background-color: #f87171;
-            color: white;
-        }
+    .card .btn-danger {
+    background-color: #f87171;
+    color: white;
+    }
 
     .dashboard-sections {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 1.5rem;
-        color: #222;
-        font-size: 0.95rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    color: #222;
+    font-size: 0.95rem;
     }
 
 </style>
@@ -152,5 +152,10 @@
         {
             Navigation.NavigateTo("/login", true);
         }
+    }
+
+    private void NavegarAProductosEscasos()
+    {
+        Navigation.NavigateTo($"/medicamentosEscasos");
     }
 }

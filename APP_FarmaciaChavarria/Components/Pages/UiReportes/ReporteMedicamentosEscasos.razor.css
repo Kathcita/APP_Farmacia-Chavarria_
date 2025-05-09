@@ -1,0 +1,61 @@
+﻿.reporte-container {
+    height:100vh;
+    padding: 30px;
+    background-color: #f4f7fa;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+/*Estilos para la tabla*/
+.tabla {
+    flex: 1;
+    display:flex;
+    flex-direction:column;
+}
+
+.table table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table thead th {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody td {
+    padding: 10px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.tabla {
+    display: flex;
+    justify-content: center;
+}
+
+/*Estilos en paginación*/
+
+.page-controls {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.pagination {
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+    .pagination span {
+        text-align: center;
+    }
+

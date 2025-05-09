@@ -1,0 +1,79 @@
+﻿@page "/medicamentosEscasos"
+
+@using APP_FarmaciaChavarria.ViewModels.Reportes
+@using System.Diagnostics
+
+@inject ReporteMedicamentosEscasosViewModel ViewModel
+
+
+<div class="reporte-container">
+    <div class="encabezado">
+        <div class="texto">
+            <h2><strong>Reportes › Medicamentos Escasos</strong></h2>
+            <p class="subtitulo">Reporte relacionado a los producto con stock escaso.</p>
+        </div>
+    </div>
+
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Laboratorio</th>
+                    <th>Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < ViewModel.ProductosEscasos.Count; i++)
+                {
+                    <tr>
+                        <td>@ViewModel.ProductosEscasos[i].IdProducto</td> <!-- Sumamos 1 porque los índices empiezan en 0 -->
+                        <td>@ViewModel.ProductosEscasos[i].Nombre</td>
+                        <td>@ViewModel.ProductosEscasos[i].CategoriaNombre</td>
+                        <td>@ViewModel.ProductosEscasos[i].LaboratorioNombre</td>
+                        <td>@ViewModel.ProductosEscasos[i].Stock</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="pagination">
+            <div class="page-controls">
+                <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+                <span>Pág @ViewModel.NumeroPagina</span>
+                <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductos();
+    }
+
+    protected async Task SiguientePagina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarProductos();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnterior()
+    {
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarProductos();
+        }
+    }
+}

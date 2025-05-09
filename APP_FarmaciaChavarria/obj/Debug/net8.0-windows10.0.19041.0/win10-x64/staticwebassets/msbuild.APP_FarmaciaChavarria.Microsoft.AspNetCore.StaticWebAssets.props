@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>d3o4a440na</Fingerprint>
-      <Integrity>+Wx5n6w7RCYIkcuoEPhDHn3pq2wtouLlsvMzlMkkG8s=</Integrity>
+      <Fingerprint>g8i6vo0y1f</Fingerprint>
+      <Integrity>MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\APP_FarmaciaChavarria.styles.css'))</OriginalItemSpec>
