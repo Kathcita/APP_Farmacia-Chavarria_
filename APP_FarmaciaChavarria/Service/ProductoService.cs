@@ -82,6 +82,27 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
+        public async Task<ProductoPagedResult?> ObtenerProductoPorCategoriaYNombreAsync(int id, string nombre,int pageNumber = 1, int pageSize = 10)
+        {
+            var response = await _httpClient.GetAsync($"/api/Productos/categoria/{id}/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
+            }
+            return null;
+        }
+
+        // Obtener productos próximos a caducar (período de 3 meses)
+        public async Task<ProductoPagedResult?> ObtenerProductoPorCaducar(int pageNumber = 1, int pageSize = 10)
+        {
+            var response = await _httpClient.GetAsync($"/api/Productos/productosPorCadudar?pageNumber={pageNumber}&pageSize={pageSize}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<ProductoPagedResult>();
+            }
+            return null;
+        }
+
         // Crear un nuevo producto
         public async Task<string> CrearProductoAsync(Producto producto)
         {

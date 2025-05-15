@@ -1,0 +1,166 @@
+﻿@page "/detalleCategoria/{id:int}"
+@using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels
+@using System.Diagnostics
+
+@inject DetalleCategoriaViewModel ViewModel
+@inject NavigationManager Navigation
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+@if (ViewModel.NombreCategoria is null)
+{
+    <p>Cargando información de la categoría...</p>
+}
+else
+{
+    <div class="detalle-container">
+
+        <div class="header-container">
+            <h2>Inventario › Categorías › <strong>@ViewModel.NombreCategoria</strong></h2>
+            <button class="btn btn-primary" @onclick="() => NavegarActualizarCategoria(ViewModel.IdCategoria)">✏️ Editar Detalles</button>
+        </div>
+
+        <p>Lista de productos en ésta categoría</p>
+
+
+        <div class="inventory-container">
+            <div class="search-filter-bar">
+                <input class="search-box"
+                placeholder="Búsqueda de medicamentos en el inventario"
+                value="@productoABuscar"
+                @oninput="ActualizarProductoABuscar"
+                @onkeydown="ManejarTeclaEnter" /> 
+
+                <button @onclick="async () => await BuscarProductos()">Buscar</button> 
+            </div>
+
+            <table class="medicine-table">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewModel.Productos)
+                    {
+                        <tr>
+                            <td>@item.Nombre</td>
+                            <td>@item.Stock</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <div class="pagination">
+                <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDeProductos</span>
+                <div class="page-controls">
+                    <button class="nav-btn" @onclick="() => PaginaAnteriorMedicina()">‹</button>
+                    <span>Pág @ViewModel.NumeroPagina</span>
+                    <button class="nav-btn" @onclick="() => SiguientePaginaMedicina()">›</button>
+                </div>
+            </div>
+        </div> 
+    </div>
+}
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    // Función para cargar el detalle de la categoría
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarCategoriaPorId(id);
+        await ViewModel.CargarMedicinasAsync();
+    }
+
+    // Funcion para navegar a actualizar categoría
+    void NavegarActualizarCategoria(int id)
+    {
+        Navigation.NavigateTo($"/actualizarCategoria/{id}");
+    }
+
+    /*Código para la actualización del valor de la barra de búsqueda*/
+    private string productoABuscar { get; set; } = string.Empty;
+
+    private void ActualizarProductoABuscar(ChangeEventArgs e)
+    {
+        productoABuscar = e.Value?.ToString() ?? string.Empty;
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task SiguientePaginaMedicina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.BuscarMedicina(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnteriorMedicina()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.BuscarMedicina(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
+    }
+
+    void NavegarAlDetalle(int id)
+    {
+        Navigation.NavigateTo($"/detalle-producto/{id}");
+    }
+
+    /*Función para al dar click en Enter, entonces realizar una búsqueda de productos*/
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await BuscarProductos();
+        }
+    }
+
+    /*Función para buscar producto por nombre*/
+
+    protected async Task BuscarProductos()
+    {
+        // Siempre que se realice
+        ViewModel.NumeroPagina = 1;
+        ViewModel.BusquedaActual = productoABuscar;
+        await ViewModel.BuscarMedicina(1);
+    }
+}

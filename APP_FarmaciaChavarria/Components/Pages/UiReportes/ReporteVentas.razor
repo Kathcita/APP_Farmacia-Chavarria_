@@ -66,12 +66,7 @@
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
         </div>
-        <div>
-            <label>Grupo de Medicamentos</label>
-            <select>
-                <option>- Seleccionar Categorías -</option>
-            </select>
-        </div>
+
         <div>
             <label>Nombre de Usuario</label>
             <select @onchange="OnUserChanged" value="@ViewModel.UserId">
@@ -93,17 +88,17 @@
 
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
                             <RadzenCheckBox @bind-Value="@smooth" Name="smooth"></RadzenCheckBox>
-                            <RadzenLabel Text="Smooth" Component="smooth" />
+                            <RadzenLabel Text="Suavizado" Component="smooth" />
                         </RadzenStack>
 
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
                             <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-                            <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
+                            <RadzenLabel Text="Mostrar números" Component="dataLabels" />
                         </RadzenStack>
 
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
                             <RadzenCheckBox @bind-Value="@showMarkers" Name="markers"></RadzenCheckBox>
-                            <RadzenLabel Text="Show Markers" Component="markers" />
+                            <RadzenLabel Text="Mostrar Marcadores" Component="markers" />
                         </RadzenStack>
 
                         <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem">
@@ -167,7 +162,7 @@
     </div>
 </div>
 
-<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 900px; height: 550px; display:none;">
+<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 1200px; height: 550px; display:none; padding:10px;">
     <RadzenChart>
         <RadzenChartTooltipOptions Shared="@sharedTooltip" />
         <RadzenLineSeries Smooth="@smooth" Data="@ViewModel.RevenueData" CategoryProperty="Date" Title="@ViewModel.Año.ToString()" ValueProperty="Revenue">
@@ -194,7 +189,7 @@
 
     bool smooth = false;
     bool sharedTooltip = true;
-    bool showDataLabels = false;
+    bool showDataLabels = true;
     bool showMarkers = true;
 
     private string FormatAsNIO(object value)

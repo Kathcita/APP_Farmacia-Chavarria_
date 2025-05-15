@@ -3,7 +3,7 @@
   "ManifestType": "Publish",
   "Endpoints": [
     {
-      "Route": "APP_FarmaciaChavarria.0nhamg68sh.styles.css",
+      "Route": "APP_FarmaciaChavarria.ei0cuzhbwz.styles.css",
       "AssetFile": "APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -17,7 +17,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58669"
+          "Value": "76468"
         },
         {
           "Name": "Content-Type",
@@ -25,21 +25,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NBJepgCehV30YnBJa69xrTlSH64eyN8AvOEceRpAwwI=\""
+          "Value": "\"aljJpiuHncbbB0oBOvDsT1L4NnkPyInNQac1wXdMxbY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:11:14 GMT"
+          "Value": "Thu, 15 May 2025 15:03:32 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "0nhamg68sh"
+          "Value": "ei0cuzhbwz"
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NBJepgCehV30YnBJa69xrTlSH64eyN8AvOEceRpAwwI="
+          "Value": "sha256-aljJpiuHncbbB0oBOvDsT1L4NnkPyInNQac1wXdMxbY="
         },
         {
           "Name": "label",
@@ -62,7 +62,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "58669"
+          "Value": "76468"
         },
         {
           "Name": "Content-Type",
@@ -70,17 +70,17 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NBJepgCehV30YnBJa69xrTlSH64eyN8AvOEceRpAwwI=\""
+          "Value": "\"aljJpiuHncbbB0oBOvDsT1L4NnkPyInNQac1wXdMxbY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:11:14 GMT"
+          "Value": "Thu, 15 May 2025 15:03:32 GMT"
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NBJepgCehV30YnBJa69xrTlSH64eyN8AvOEceRpAwwI="
+          "Value": "sha256-aljJpiuHncbbB0oBOvDsT1L4NnkPyInNQac1wXdMxbY="
         }
       ]
     },

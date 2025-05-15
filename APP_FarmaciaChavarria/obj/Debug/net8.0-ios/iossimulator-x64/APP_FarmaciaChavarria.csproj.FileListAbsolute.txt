@@ -447,3 +447,16 @@ C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaC
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\APP_FarmaciaChavarria.pdb
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\APP_FarmaciaChavarria.genruntimeconfig.cache
 C:\Users\Azazel\OneDrive\Escritorio\coling\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\ref\APP_FarmaciaChavarria.dll
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiCategorias\Categorias.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiLaboratorios\CrearLaboratorio.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReporteMedicamentosEscasos.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReportesGenerales.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReporteVentas.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasCategorias.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasLaboratorios.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasProducto.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiCategorias\ActualizarCategoria.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiCategorias\CrearCategoria.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-ios\iossimulator-x64\scopedcss\Components\Pages\UiCategorias\DetalleCategoria.razor.rz.scp.css

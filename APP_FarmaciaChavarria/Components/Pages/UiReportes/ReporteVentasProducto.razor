@@ -152,7 +152,7 @@
             mostrarOpciones = false;
         
         var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasProducto);
-        var nombreArchivo = $"ReporteDeVentasLaboratorios_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+        var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
         await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
     }
@@ -165,7 +165,7 @@
 
         if (pdfBytes != null)
         {
-            var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
             await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
             }
     }

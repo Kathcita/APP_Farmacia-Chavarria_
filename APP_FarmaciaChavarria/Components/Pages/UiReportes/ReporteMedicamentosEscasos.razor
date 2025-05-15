@@ -10,7 +10,7 @@
     <div class="encabezado">
         <div class="texto">
             <h2><strong>Reportes › Medicamentos Escasos</strong></h2>
-            <p class="subtitulo">Reporte relacionado a los producto con stock escaso.</p>
+            <p class="subtitulo">Reporte relacionado a los productos con stock escaso.</p>
         </div>
     </div>
 
@@ -29,7 +29,7 @@
                 @for (int i = 0; i < ViewModel.ProductosEscasos.Count; i++)
                 {
                     <tr>
-                        <td>@ViewModel.ProductosEscasos[i].IdProducto</td> <!-- Sumamos 1 porque los índices empiezan en 0 -->
+                        <td>@ViewModel.ProductosEscasos[i].IdProducto</td>
                         <td>@ViewModel.ProductosEscasos[i].Nombre</td>
                         <td>@ViewModel.ProductosEscasos[i].CategoriaNombre</td>
                         <td>@ViewModel.ProductosEscasos[i].LaboratorioNombre</td>

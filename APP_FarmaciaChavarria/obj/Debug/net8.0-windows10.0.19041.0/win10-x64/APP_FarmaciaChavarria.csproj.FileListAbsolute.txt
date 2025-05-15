@@ -751,3 +751,8 @@ C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\De
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteVentasProducto.razor.rz.scp.css
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReportesGenerales.razor.rz.scp.css
 C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteMedicamentosEscasos.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiCategorias\Categorias.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiCategorias\CrearCategoria.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiCategorias\DetalleCategoria.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiCategorias\ActualizarCategoria.razor.rz.scp.css
+C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\Components\Pages\UiReportes\ReporteMedicamentosPorCaducar.razor.rz.scp.css

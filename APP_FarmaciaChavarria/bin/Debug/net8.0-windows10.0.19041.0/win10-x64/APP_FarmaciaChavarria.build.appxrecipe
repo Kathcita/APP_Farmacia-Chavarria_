@@ -824,7 +824,7 @@
       <PackagePath>wwwroot\APP_FarmaciaChavarria.styles.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\scopedcss\projectbundle\APP_FarmaciaChavarria.bundle.scp.css">
-      <PackagePath>wwwroot\APP_FarmaciaChavarria.g8i6vo0y1f.bundle.scp.css</PackagePath>
+      <PackagePath>wwwroot\APP_FarmaciaChavarria.ovyo0lco94.bundle.scp.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Layout\MainLayout.razor.css">
       <PackagePath>Components\Layout\MainLayout.razor.css</PackagePath>
@@ -837,6 +837,18 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\Inventario.razor.css">
       <PackagePath>Components\Pages\Inventario.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiCategorias\ActualizarCategoria.razor.css">
+      <PackagePath>Components\Pages\UiCategorias\ActualizarCategoria.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiCategorias\Categorias.razor.css">
+      <PackagePath>Components\Pages\UiCategorias\Categorias.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiCategorias\CrearCategoria.razor.css">
+      <PackagePath>Components\Pages\UiCategorias\CrearCategoria.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiCategorias\DetalleCategoria.razor.css">
+      <PackagePath>Components\Pages\UiCategorias\DetalleCategoria.razor.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.css">
       <PackagePath>Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.css</PackagePath>
@@ -855,6 +867,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteMedicamentosEscasos.razor.css">
       <PackagePath>Components\Pages\UiReportes\ReporteMedicamentosEscasos.razor.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReporteMedicamentosPorCaducar.razor.css">
+      <PackagePath>Components\Pages\UiReportes\ReporteMedicamentosPorCaducar.razor.css</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\Components\Pages\UiReportes\ReportesGenerales.razor.css">
       <PackagePath>Components\Pages\UiReportes\ReportesGenerales.razor.css</PackagePath>

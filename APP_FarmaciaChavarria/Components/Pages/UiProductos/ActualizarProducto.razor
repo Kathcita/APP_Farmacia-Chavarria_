@@ -22,12 +22,14 @@
     {
         await ViewModel.ActualizarProducto();
 
-        _ = Task.Run(async () =>
+        if (ViewModel.MensajeError == "")
+        {
+            _ = Task.Run(async () =>
                     {
                         await Task.Delay(2500);
                         Navigation.NavigateTo($"/inventario");
                     });
-       
+        } 
     }
 
     // Variables y funciones necesarias para mostrar modals y obtener datos
@@ -211,6 +213,11 @@
             <label>Laboratorio <span style="color:red">*</span></label> 
             <input readonly @onclick="()=>ModalLaboratorioVisible = true" class="form-control"
                    value="@ViewModel.NombreLaboratorio" placeholder="Seleccionar Laboratorio" />
+        </div>
+
+        <div class="form-group">
+            <label>Precio <span style="color:red">*</span></label>
+            <input type="number" @bind="ViewModel.PrecioInput" min="0" />
         </div>
 
         <div class="form-group">

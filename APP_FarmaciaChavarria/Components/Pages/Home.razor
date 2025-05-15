@@ -1,58 +1,126 @@
 ﻿@page "/"
+
+@using APP_FarmaciaChavarria.ViewModels.Reportes
+@using System.Diagnostics
+@using System.Globalization
+
 @inject NavigationManager Navigation
+@inject DashboardViewModel ViewModel
+@inject IJSRuntime JSRuntime
 
-<div class="dashboard-container">
-    <h1>Dashboard</h1>
-    <p class="dashboard-description">Una rápida descripción de los datos del inventario</p>
 
-    <button class="btn-download">Descargar Reporte</button>
+@if(ViewModel.Cargando){
+    <p>Cargando información...</p>
+} else{
+    <div class="dashboard-container">
+        <h1>Dashboard</h1>
+        <p class="dashboard-description">Una rápida descripción de los datos del inventario</p>
 
-    <div class="dashboard-grid">
-        <div class="card">
-            <h2>Bien</h2>
-            <p>Estado del Inventario</p>
-            <button>Ver Detalles del Reporte</button>
+        <div class="contenedor-boton">
+            <button class="btn-download" @onclick="ToggleOpcionesDescarga">Descargar Reporte</button>
+
+            @if (mostrarOpciones)
+            {
+                <div class="menu-opciones">
+                    <button class="btn-opcion" @onclick="DescargarExcel">📊 Excel</button>
+                    <button class="btn-opcion" @onclick="DescargarPdf">🧾 PDF</button>
+                </div>
+            }
         </div>
-        <div class="card">
-            <h2>C$ 80,875</h2>
-            <p>Ganancia - Ene 2025</p>
-            <button>Ver Detalles del Reporte</button>
+
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>@ViewModel.DashboardData.EstadoInventario</h2>
+                <p>Estado del Inventario</p>
+                <button @onclick=NavegarInventario>Ver Detalles del Reporte</button>
+            </div>
+            <div class="card">
+                <h2>C$ @ViewModel.DashboardData.VentasDelMes</h2>
+                <p>Ganancia - Ene 2025</p>
+                <button @onclick=NavegarReporteVentas>Ver Detalles del Reporte</button>
+            </div>
+            <div class="card">
+                <h2>@ViewModel.DashboardData.MedicamentosDisponibles</h2>
+                <p>Medicamentos Disponibles</p>
+                <button @onclick=NavegarInventario>Visitar Inventario</button>
+            </div>
+            <div class="card">
+                <h2>@ViewModel.DashboardData.MedicamentosEscasos</h2>
+                <p>Medicamentos Escasos</p>
+                <button class="btn-danger" @onclick=NavegarAProductosEscasos>Revisar Ahora</button>
+            </div>
         </div>
-        <div class="card">
-            <h2>298</h2>
-            <p>Medicamentos Disponibles</p>
-            <button>Visitar Inventario</button>
-        </div>
-        <div class="card">
-            <h2>01</h2>
-            <p>Medicamentos Escasos</p>
-            <button class="btn-danger" @onclick=NavegarAProductosEscasos>Revisar Ahora</button>
+
+        <div class="dashboard-sections">
+            <div>
+                <h4>Inventario</h4>
+                <p>Número Total de Medicamentos: @ViewModel.DashboardData.MedicamentosTotales</p>
+                <p>Categorías: @ViewModel.DashboardData.CategoriasTotales</p>
+            </div>
+            <div>
+                <h4>Mi Farmacia</h4>
+                <p>Número Total de Proveedores: @ViewModel.DashboardData.TotalProveedores</p>
+                <p>Total de Usuarios: @ViewModel.DashboardData.TotalUsuarios</p>
+            </div>
+            <div>
+                <h4>Informe Rápido</h4>
+                <p>Medicamentos Vendidos: @ViewModel.DashboardData.TotalMedicamentosVendidosDelMes</p>
+                <p>Facturas Generadas: @ViewModel.DashboardData.TotalFacturasDelMes</p>
+            </div>
+            <div>
+                <h4>Producto Popular</h4>
+                <p>@ViewModel.DashboardData.ProductoMasVendido - Comprado con Frecuencia</p>
+            </div>
         </div>
     </div>
 
-    <div class="dashboard-sections">
-        <div>
-            <h4>Inventario</h4>
-            <p>Número Total de Medicamentos: 298</p>
-            <p>Categorías: 24</p>
+    <div id="grafico-reporte-export">
+        <div class="dashboard-grid">
+            <div class="card">
+                <h2>@ViewModel.DashboardData.EstadoInventario</h2>
+                <p>Estado del Inventario</p>
+                <button @onclick=NavegarInventario>Ver Detalles del Reporte</button>
+            </div>
+            <div class="card">
+                <h2>C$ @ViewModel.DashboardData.VentasDelMes</h2>
+                <p>Ganancia - @ObtenerMesAbreviado() @date.Year</p>
+                <button @onclick=NavegarReporteVentas>Ver Detalles del Reporte</button>
+            </div>
+            <div class="card">
+                <h2>@ViewModel.DashboardData.MedicamentosDisponibles</h2>
+                <p>Medicamentos Disponibles</p>
+                <button @onclick=NavegarInventario>Visitar Inventario</button>
+            </div>
+            <div class="card">
+                <h2>@ViewModel.DashboardData.MedicamentosEscasos</h2>
+                <p>Medicamentos Escasos</p>
+                <button class="btn-danger" @onclick=NavegarAProductosEscasos>Revisar Ahora</button>
+            </div>
         </div>
-        <div>
-            <h4>Mi Farmacia</h4>
-            <p>Número Total de Proveedores: 04</p>
-            <p>Total de Usuarios: 05</p>
-        </div>
-        <div>
-            <h4>Informe Rápido</h4>
-            <p>Medicamentos Vendidos: 70,856</p>
-            <p>Facturas Generadas: 5,288</p>
-        </div>
-        <div>
-            <h4>Clientes</h4>
-            <p>Total de Clientes: 845</p>
-            <p>Acetaminofén - Comprado con Frecuencia</p>
+
+        <div class="dashboard-sections">
+            <div>
+                <h4>Inventario</h4>
+                <p>Número Total de Medicamentos: @ViewModel.DashboardData.MedicamentosTotales</p>
+                <p>Categorías: @ViewModel.DashboardData.CategoriasTotales</p>
+            </div>
+            <div>
+                <h4>Mi Farmacia</h4>
+                <p>Número Total de Proveedores: @ViewModel.DashboardData.TotalProveedores</p>
+                <p>Total de Usuarios: @ViewModel.DashboardData.TotalUsuarios</p>
+            </div>
+            <div>
+                <h4>Informe Rápido</h4>
+                <p>Medicamentos Vendidos: @ViewModel.DashboardData.TotalMedicamentosVendidosDelMes</p>
+                <p>Facturas Generadas: @ViewModel.DashboardData.TotalFacturasDelMes</p>
+            </div>
+            <div>
+                <h4>Producto Popular</h4>
+                <p>@ViewModel.DashboardData.ProductoMasVendido - Comprado con Frecuencia</p>
+            </div>
         </div>
     </div>
-</div>
+}
 <style>
     body {
     font-family: 'Segoe UI', sans-serif;
@@ -141,9 +209,63 @@
     font-size: 0.95rem;
     }
 
+    /*Diseños para el botón de descargar reporte y las opciones*/
+    .contenedor-boton {
+    position: relative;
+    display: inline-block;
+    }
+
+    .btn-descargar {
+    background-color: #0078d7;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+
+    .menu-opciones {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 6px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 1000;
+    border-radius: 6px;
+    margin-top: 4px;
+    }
+
+    .btn-opcion {
+    display: block;
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 6px 10px;
+    text-align: left;
+    cursor: pointer;
+    color: #333;
+    }
+
+    .btn-opcion:hover {
+    background-color: #f0f0f0;
+    }
+
+    /*Gráfico para la captura de pantalla*/
+
+    #grafico-reporte-export {
+    position: absolute;
+    top: -9999px;
+    width: 1200px;
+    height: 550px;
+    display: none;
+    }
 </style>
 
 @code {
+    private DateTime date = DateTime.Now;
+
     protected override void OnInitialized()
     {
         bool isLoggedIn = Preferences.Default.Get("IsLoggedIn", false);
@@ -152,10 +274,82 @@
         {
             Navigation.NavigateTo("/login", true);
         }
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarDatos();
     }
 
     private void NavegarAProductosEscasos()
     {
-        Navigation.NavigateTo($"/medicamentosEscasos");
+        Navigation.NavigateTo("/medicamentosEscasos");
+    }
+
+    private void NavegarInventario()
+    {
+        Navigation.NavigateTo("/inventario");
+    }
+
+    private void NavegarReporteVentas()
+    {
+        Navigation.NavigateTo("/reporteVentas");
+    }
+
+    // Funciones para la descarga de reporte en excel o pdf
+
+    private bool mostrarOpciones = false;
+
+    private void ToggleOpcionesDescarga()
+    {
+        mostrarOpciones = !mostrarOpciones;
+    }
+
+    private async Task DescargarExcel()
+    {
+        mostrarOpciones = false;
+
+        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.DashboardData);
+        var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+        await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+    }
+
+    private async Task<byte[]> CapturarGraficoComoImagen()
+    {
+        var imageDataUrl = await JSRuntime.InvokeAsync<string>("capturarGrafico", "grafico-reporte-export");
+
+        if (string.IsNullOrEmpty(imageDataUrl))
+            return null;
+
+        // Convertir Data URL a bytes
+        var base64Data = imageDataUrl.Split(',')[1];
+        return Convert.FromBase64String(base64Data);
+    }
+
+    private async Task DescargarPdf()
+    {
+        mostrarOpciones = false;
+
+        var imagenGrafico = await CapturarGraficoComoImagen();
+        Debug.WriteLine($"Imagen {imagenGrafico}");
+        var pdfBytes = ViewModel.GenerarPdf(ViewModel.DashboardData, imagenGrafico);
+
+        if (pdfBytes != null)
+        {
+            var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            }
+    }
+
+    private static string ObtenerMesAbreviado()
+    {
+        // Cultura española para obtener "Ene", "Feb", etc.
+        CultureInfo cultura = new CultureInfo("es-ES");
+        string mesAbreviado = DateTime.Now.ToString("MMM", cultura);
+
+        // Opción: convertir a mayúscula inicial si es necesario
+        return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(mesAbreviado);
     }
 }

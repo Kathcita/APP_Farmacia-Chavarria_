@@ -171,7 +171,7 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             return memoryStream.ToArray();
         }
 
-        public byte[] GenerarPdf(List<LaboratorioVentasDTO> data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteDeVentasPorLaboratorio")
+        public byte[]? GenerarPdf(List<LaboratorioVentasDTO> data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteDeVentasPorLaboratorio")
         {
             try
             {
@@ -262,7 +262,6 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al generar el PDF: " + ex.Message);
                 MensajeError = "Error al generar el PDF: " + ex.Message;
                 return null;
             }

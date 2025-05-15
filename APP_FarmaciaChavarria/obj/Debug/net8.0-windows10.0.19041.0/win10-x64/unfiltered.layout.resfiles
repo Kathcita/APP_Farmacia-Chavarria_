@@ -38,12 +38,17 @@ Components\Layout\MainLayout.razor.css
 Components\Layout\NavMenu.razor.css
 Components\Pages\DetalleProducto.razor.css
 Components\Pages\Inventario.razor.css
+Components\Pages\UiCategorias\ActualizarCategoria.razor.css
+Components\Pages\UiCategorias\Categorias.razor.css
+Components\Pages\UiCategorias\CrearCategoria.razor.css
+Components\Pages\UiCategorias\DetalleCategoria.razor.css
 Components\Pages\UiLaboratorios\ActualizarLaboratorio.razor.css
 Components\Pages\UiLaboratorios\CrearLaboratorio.razor.css
 Components\Pages\UiLaboratorios\LIstaLaboratorios.razor.css
 Components\Pages\UiProductos\ActualizarProducto.razor.css
 Components\Pages\UiProductos\CrearProducto.razor.css
 Components\Pages\UiReportes\ReporteMedicamentosEscasos.razor.css
+Components\Pages\UiReportes\ReporteMedicamentosPorCaducar.razor.css
 Components\Pages\UiReportes\ReportesGenerales.razor.css
 Components\Pages\UiReportes\ReporteVentas.razor.css
 Components\Pages\UiReportes\ReporteVentasCategorias.razor.css
@@ -108,7 +113,7 @@ splashSplashScreen.scale-150.png
 splashSplashScreen.scale-200.png
 splashSplashScreen.scale-400.png
 wwwroot\APP_FarmaciaChavarria.styles.css
-wwwroot\APP_FarmaciaChavarria.g8i6vo0y1f.bundle.scp.css
+wwwroot\APP_FarmaciaChavarria.ovyo0lco94.bundle.scp.css
 AboutAssets.txt
 wwwroot\css\app.css
 wwwroot\css\bootstrap\bootstrap.min.css

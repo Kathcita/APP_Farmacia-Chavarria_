@@ -1,0 +1,153 @@
+﻿@page "/categorias"
+@using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels
+
+@inject CategoriaViewModel ViewModel
+@inject NavigationManager Navigation
+
+<div class="inventory-container">
+    <div class="header">
+        <div class="title-section">
+            <h3><span class="gray-text">Categorías</span> › <strong>Lista de Categorías</strong></h3>
+            <p>Listado de categorías registrados en el sistema</p>
+        </div>
+        <button class="btn-add" @onclick="NavegarCrearCategoria">
+            <span>➕</span> Agregar Categoría
+        </button>
+    </div>
+
+    <div class="search-filter-bar">
+        <input class="search-box"
+        placeholder="Buscar por nombre"
+        value="@categoriaABuscar"
+        @oninput="ActualizarCategoriaABuscar"
+        @onkeydown="ManejarTeclaEnter" />
+        <button @onclick="BuscarCategoria">Buscar</button>
+    </div>
+
+    <table class="medicine-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewModel.Categorias is not null && ViewModel.Categorias.Count > 0)
+            {
+                @foreach (var item in ViewModel.Categorias)
+                {
+                    <tr>
+                        <td>@item.id_categoria</td>
+                        <td>@item.nombre</td>
+                        <td>
+                            <a class="view-link" href="#" @onclick="() => NavegarAlDetalle(item.id_categoria)">
+                                    Ver Detalles »
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">No hay categorías para mostrar.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="pagination">
+        <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDeCategorias</span>
+        <div class="page-controls">
+            <button class="nav-btn" @onclick="() => PaginaAnteriorCategoria()">‹</button>
+            <span>Pág @ViewModel.NumeroPagina</span>
+            <button class="nav-btn" @onclick="() => SiguientePaginaCategoria()">›</button>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+    {
+        <div class="error-message">@ViewModel.MensajeError</div>
+    } 
+
+</div>
+
+@code {
+    private string categoriaABuscar = string.Empty;
+
+    // Función llamada cuando recién es mostrada la interfaz para cargar los datos
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarCategorias();
+    }
+
+    private void ActualizarCategoriaABuscar(ChangeEventArgs e)
+    {
+        categoriaABuscar = e.Value?.ToString() ?? string.Empty;
+    }
+
+
+    private void NavegarAlDetalle(int id)
+    {
+         Navigation.NavigateTo($"/detalleCategoria/{id}");
+    }
+
+    private void NavegarCrearCategoria()
+    {
+        Navigation.NavigateTo($"/crearCategoria");
+    }
+
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await BuscarCategoria();
+        }
+    }
+
+    private async Task BuscarCategoria()
+    {
+        ViewModel.BusquedaCategoria = categoriaABuscar;
+        await ViewModel.BuscarCategoria(1);
+    }
+
+
+    /*Función que maneja el paginado de datos de categorías hacia atras*/
+
+    protected async Task SiguientePaginaCategoria()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.BuscarCategoria(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarCategorias();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos de categorías hacia atras*/
+
+    protected async Task PaginaAnteriorCategoria()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.BuscarCategoria(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarCategorias();
+        }
+    }
+
+}

@@ -1,0 +1,69 @@
+﻿@page "/actualizarCategoria/{id:int}"
+@using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels
+
+@inject DetalleCategoriaViewModel ViewModel
+@inject NavigationManager Navigation
+
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="form-container">
+    <div class="form-header">
+        <div class="breadcrumbs">
+            <strong>Categorías</strong> &gt; <span class="title">Actualizar Categoría</span>
+        </div>
+        <button class="btn-actualizar" @onclick="() => ActualizarYNavegar()">Actualizar Detalles</button>
+    </div>
+
+    <p class="note">*El campo es obligatorio.</p>
+
+    <div class="form-group">
+        <label>ID de Categoría</label>
+        <input type="text" @bind="ViewModel.IdCategoria" readonly />
+    </div>
+
+    <div class="form-group">
+        <label>Nombre de Categoría <span style="color:red">*</span></label>
+        <input type="text" @bind="ViewModel.NombreCategoria" />
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    // Función para cargar el detalle de la categoría
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarCategoriaPorId(id);
+    }
+
+    private async Task ActualizarYNavegar(){
+        await ViewModel.ActualizarCategoria();
+
+        if (ViewModel.MensajeError == "")
+        {
+            _ = Task.Run(async () =>
+        {
+            await Task.Delay(2500);
+            Navigation.NavigateTo($"/categorias");
+        });
+
+        }
+        }
+        
+}

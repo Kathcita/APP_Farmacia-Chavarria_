@@ -90,7 +90,7 @@
                 <RadzenCard Variant="Variant.Outlined">
                     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
                         <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-                        <RadzenLabel Text="Show Data Labels" Component="dataLabels" />
+                        <RadzenLabel Text="Mostrar números" Component="dataLabels" />
                     </RadzenStack>
                 </RadzenCard>
 
@@ -117,7 +117,7 @@
 </div>
 
 
-<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 900px; height: 550px; display:none;">
+<div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 1200px; height: 550px; display:none;">
     <RadzenChart>
 
         <RadzenColumnSeries Data="@ViewModel.VentasLaboratorio" CategoryProperty="NombreLaboratorio" LineType="LineType.Dashed" ValueProperty="TotalVentas">
@@ -205,7 +205,7 @@
 
         if (pdfBytes != null)
         {
-            var nombreArchivo = $"ReporteDeVentas_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+            var nombreArchivo = $"ReporteDeVentasLaboratorios_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
             await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
         }
     }

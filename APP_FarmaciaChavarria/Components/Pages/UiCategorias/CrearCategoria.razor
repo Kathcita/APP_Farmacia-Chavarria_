@@ -1,0 +1,58 @@
+﻿@page "/crearCategoria"
+
+@using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels
+
+@inject DetalleCategoriaViewModel ViewModel
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="form-container">
+    <div class="form-header">
+        <div class="breadcrumbs">
+            <strong>Categorías</strong> &gt; <strong>Lista de Categorías</strong> &gt;
+            <span class="title">Agregar Nueva Categoría</span>
+        </div>
+        <button class="btn-guardar" @onclick="ViewModel.CrearCategoria">Guardar Categoría</button>
+    </div>
+
+    <p class="note">
+        *Todos los campos son obligatorios, excepto los mencionados como (opcionales).
+    </p>
+
+    <div class="form-flex">
+        <div class="form-group">
+            <label>Nombre de Categoría <span style="color:red">*</span></label>
+            <input type="text" @bind="ViewModel.NombreCategoria" />
+        </div>
+
+        <div class="form-group">
+            <label>ID de Categoría</label>
+            <input type="text" readonly />
+        </div>
+
+
+        <button class="btn-guardar" @onclick="ViewModel.CrearCategoria" id="btnMobile">Guardar Detalles</button>
+    </div>
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        ViewModel.NombreCategoria = "";
+        ViewModel.IdCategoria = 0;
+    }
+}

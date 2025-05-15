@@ -22,6 +22,7 @@
     margin-top: 5px;
 }
 
+
 .contenedor-boton {
     position: relative;
     display: inline-block;
@@ -295,7 +296,7 @@ table tbody td {
     }
 }
 
-@media (max-width: 1280px){
+@media (max-width: 1280px) {
     .contenido-reporte {
         flex-direction: column;
     }

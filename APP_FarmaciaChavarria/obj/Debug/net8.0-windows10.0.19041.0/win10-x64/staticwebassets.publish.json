@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "AHy5QieCFNMvn9Gxb01+I+qtziqcmhS5yGNHRypCxs4=",
+  "Hash": "6wNTqTXkUw9XsmVP020s3mIYn/WzxwGhgieAJNDqqKc=",
   "Source": "APP_FarmaciaChavarria",
   "BasePath": "/",
   "Mode": "Root",
@@ -787,8 +787,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ApplicationBundle",
-      "Fingerprint": "g8i6vo0y1f",
-      "Integrity": "MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=",
+      "Fingerprint": "ovyo0lco94",
+      "Integrity": "lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css"
@@ -808,8 +808,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "ScopedCss",
       "AssetTraitValue": "ProjectBundle",
-      "Fingerprint": "g8i6vo0y1f",
-      "Integrity": "MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=",
+      "Fingerprint": "ovyo0lco94",
+      "Integrity": "lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css"
@@ -3947,7 +3947,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "59543"
+          "Value": "77575"
         },
         {
           "Name": "Content-Type",
@@ -3955,11 +3955,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=\""
+          "Value": "\"lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:45:52 GMT"
+          "Value": "Thu, 15 May 2025 15:40:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3969,12 +3969,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k="
+          "Value": "sha256-lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.g8i6vo0y1f.bundle.scp.css",
+      "Route": "APP_FarmaciaChavarria.ovyo0lco94.bundle.scp.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\projectbundle\\APP_FarmaciaChavarria.bundle.scp.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3984,7 +3984,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "59543"
+          "Value": "77575"
         },
         {
           "Name": "Content-Type",
@@ -3992,11 +3992,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=\""
+          "Value": "\"lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:45:52 GMT"
+          "Value": "Thu, 15 May 2025 15:40:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4006,7 +4006,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g8i6vo0y1f"
+          "Value": "ovyo0lco94"
         },
         {
           "Name": "label",
@@ -4014,12 +4014,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k="
+          "Value": "sha256-lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98="
         }
       ]
     },
     {
-      "Route": "APP_FarmaciaChavarria.g8i6vo0y1f.styles.css",
+      "Route": "APP_FarmaciaChavarria.ovyo0lco94.styles.css",
       "AssetFile": "C:\\Users\\juan1\\Source\\Repos\\APP_Farmacia-Chavarria_\\APP_FarmaciaChavarria\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\APP_FarmaciaChavarria.styles.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4029,7 +4029,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "59543"
+          "Value": "77575"
         },
         {
           "Name": "Content-Type",
@@ -4037,11 +4037,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=\""
+          "Value": "\"lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:45:52 GMT"
+          "Value": "Thu, 15 May 2025 15:40:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4051,7 +4051,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "g8i6vo0y1f"
+          "Value": "ovyo0lco94"
         },
         {
           "Name": "label",
@@ -4059,7 +4059,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k="
+          "Value": "sha256-lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98="
         }
       ]
     },
@@ -4074,7 +4074,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "59543"
+          "Value": "77575"
         },
         {
           "Name": "Content-Type",
@@ -4082,11 +4082,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k=\""
+          "Value": "\"lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 09 May 2025 21:45:52 GMT"
+          "Value": "Thu, 15 May 2025 15:40:09 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4096,7 +4096,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-MP/v/2WdX+S/EanGrxC6Dbz3pwvhXN7KpX0zjQgRC7k="
+          "Value": "sha256-lPqkLCDqu+kEs31aikXIprqC1uDjN+5yK5G45Kr1U98="
         }
       ]
     },

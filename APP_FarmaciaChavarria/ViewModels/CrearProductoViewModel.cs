@@ -84,6 +84,9 @@ namespace APP_FarmaciaChavarria.ViewModels
         private decimal precio = 0;
 
         [ObservableProperty]
+        private string precioInput = "0";
+
+        [ObservableProperty]
         private DateOnly fechaVencimiento = DateOnly.FromDateTime(DateTime.Today);
 
         [ObservableProperty]
@@ -197,17 +200,24 @@ namespace APP_FarmaciaChavarria.ViewModels
                 MensajeError = "Ingrese una fecha de vencimiento válida";
                 return false;
             }
-            if (!decimal.TryParse(StockInput, out var parsedValue) || parsedValue % 1 != 0 || parsedValue < 0)
+            if (!int.TryParse(StockInput, out var parsedValue) || parsedValue % 1 != 0 || parsedValue < 0)
             {
-                MensajeError = "Ingrese una cantidad válida (entero positivo)";
+                MensajeError = "Ingrese una cantidad válida (entero positivo) en stock";
                 return false;
             }
-            if (!decimal.TryParse(StockInputMinimo, out var parsedStockValue) || parsedStockValue % 1 != 0 || parsedStockValue < 0)
+            if (!int.TryParse(StockInputMinimo, out var parsedStockValue) || parsedStockValue % 1 != 0 || parsedStockValue < 0)
             {
-                MensajeError = "Ingrese una cantidad válida (entero positivo)";
+                MensajeError = "Ingrese una cantidad válida (entero positivo) en stock mínimo";
                 return false;
             }
 
+            if (!decimal.TryParse(precioInput, out var precioParse) || precioParse % 1 != 0 || precioParse <= 0)
+            {
+                MensajeError = "Ingrese un válido para precio";
+                return false;
+            }
+
+            Precio = (decimal)precioParse;
             StockMinimo = (int)parsedStockValue;
             Stock = (int)parsedValue;
             return true;
@@ -349,6 +359,7 @@ namespace APP_FarmaciaChavarria.ViewModels
             NombreCategoria = string.Empty;
             StockInput = "0";
             StockInputMinimo = "0";
+            PrecioInput = "0";
         }
     }
 }

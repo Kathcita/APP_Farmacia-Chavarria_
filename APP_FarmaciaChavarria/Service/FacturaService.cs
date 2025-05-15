@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
 using APP_FarmaciaChavarria.Models.PaginationModels;
 using APP_FarmaciaChavarria.Models.ReporteModels;
+using APP_FarmaciaChavarria.ViewModels.Reportes;
 
 namespace FarmaciaChavarria.Services
 {
@@ -85,6 +86,16 @@ namespace FarmaciaChavarria.Services
                 return await response.Content.ReadFromJsonAsync<List<ProductoVentasDTO>>();
             }
             return new List<ProductoVentasDTO>();
+        }
+
+        public async Task<DashboardData?> ObtenerDatosDashboard()
+        {
+            var response = await _httpClient.GetAsync($"/api/Facturas/DashboardData");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<DashboardData>();
+            }
+            return null;
         }
 
         public async Task<Factura?> ObtenerFacturaPorIdAsync(int id)

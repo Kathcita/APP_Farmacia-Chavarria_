@@ -16,6 +16,7 @@
     <nav class="nav-menu">
         <NavLink class="nav-item" href="/"><i class="bi bi-grid"></i> Dashboard</NavLink>
         <NavLink class="nav-item" href="/inventario"><i class="bi bi-box-seam"></i> Inventario</NavLink>
+        <NavLink class="nav-item" href="/categorias"><i class="bi bi-box-seam"></i> Categorías</NavLink>
         <NavLink class="nav-item" href="/laboratorios"><i class="bi bi-box-seam"></i> Laboratorio</NavLink>
 
         <!-- Menú desplegable de Reportes -->
@@ -37,6 +38,7 @@
                 <NavLink class="nav-item submenu-item" href="/reporteVentasLaboratorios"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
                 <NavLink class="nav-item submenu-item" href="/reporteVentasCategorias"><i class="bi bi-bar-chart"></i> Reporte de Ventas Categorias</NavLink>
                 <NavLink class="nav-item submenu-item" href="/medicamentosEscasos"><i class="bi bi-bar-chart"></i> Medicamentos Escasos</NavLink>
+                <NavLink class="nav-item submenu-item" href="/medicamentosPorCaducar"><i class="bi bi-bar-chart"></i> Medicamentos Por Caducar</NavLink>
             </div>
         }
 
@@ -69,88 +71,88 @@
     overflow-y: auto;
     transition: transform 0.3s ease;
     z-index: 1000;
-}
+    }
 
 
-.sidebar-header {
+    .sidebar-header {
     display: flex;
     align-items: center;
     padding: 1rem 1rem 1rem 1rem;
     border-bottom: 1px solid #2f3b4c;
     background-color: #1D242E;
     margin-top:-15px;
-}
+    }
 
-        .sidebar-header h3 {
-            color: #ffffff;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin: 0;
-            line-height: 1.4;
-            letter-spacing: 0.5px;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-.logo {
+    .sidebar-header h3 {
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.4;
+    letter-spacing: 0.5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .logo {
     width: 35px;
     height: 35px;
     margin-right: 0.75rem;
     border-radius: 8px;
-}
+    }
 
-.user-info {
+    .user-info {
     display: flex;
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid #2f3b4c;
-}
+    }
 
-.avatar {
+    .avatar {
     width: 45px;
     height: 45px;
     border-radius: 50%;
     margin-right: 1rem;
     border: 2px solid #0FC8CF;
-}
+    }
 
-.user-name {
+    .user-name {
     font-weight: bold;
     margin: 0;
-}
+    }
 
-.user-role {
+    .user-role {
     font-size: 0.8rem;
     color: #80ffaa;
     margin: 0;
-}
+    }
 
-.nav-menu {
+    .nav-menu {
     display: flex;
     flex-direction: column;
     padding: 0 1rem;
     flex: 1;
-}
+    }
 
-.nav-item {
+    .nav-item {
     display: flex;
     align-items: center;
     padding: 0.75rem 0;
     color: #ffffff;
     text-decoration: none;
     transition: background-color 0.2s ease;
-}
+    }
 
-.nav-item i {
+    .nav-item i {
     margin-right: 0.75rem;
     font-size: 1.1rem;
-}
+    }
 
-.nav-item:hover {
+    .nav-item:hover {
     background-color: #0FC8CF;
     border-radius: 8px;
     padding-left: 0.75rem;
-}
+    }
 
-.sidebar-footer {
+    .sidebar-footer {
     padding: 1rem;
     font-size: 0.75rem;
     color: #cccccc;
@@ -158,9 +160,9 @@
     text-align: center;
     background-color: #1D242E;
     border-top: 1px solid #2f3b4c;
-}
+    }
 
-.menu-toggle {
+    .menu-toggle {
     position: fixed;
     top: 1rem;
     left: 1rem;
@@ -173,26 +175,26 @@
     display: none;
     z-index: 1100;
     cursor: pointer;
-}
+    }
 
     .report-menu {
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    cursor: pointer;
     }
 
     .space {
-        flex:1;
+    flex:1;
     }
-    
+
 
 
 </style>
 
 
 @code {
-private bool isMenuOpen = false;
+    private bool isMenuOpen = false;
     private bool showReports = false; // Controla si se muestran los subreportes
 
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
