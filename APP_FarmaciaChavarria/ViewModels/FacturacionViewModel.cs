@@ -1,28 +1,31 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.ModelsDTO;
 using FarmaciaChavarria.Services;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System;
+using System.Diagnostics;
 
 namespace FarmaciaChavarria.ViewModels
 {
-    public partial class FacturaViewModel : ObservableObject
+    public partial class FacturacionViewModel : ObservableObject
     {
+        private readonly ProductoService _productoService;
         private readonly FacturaService _facturaService;
 
-        public FacturaViewModel(FacturaService facturaService)
+        public FacturacionViewModel(ProductoService productoService, FacturaService facturaService)
         {
+            _productoService = productoService;
             _facturaService = facturaService;
-            Facturas = new ObservableCollection<Factura>();
+
             DetallesFactura = new ObservableCollection<DetalleFactura>();
             NuevaFactura = new Factura { fecha_venta = DateTime.Now };
-            NuevoDetalle = new DetalleFactura();
         }
 
         [ObservableProperty]
-        private ObservableCollection<Factura> facturas;
+        private List<ProductoDTO> productosEncontrados = new();
 
         [ObservableProperty]
         private ObservableCollection<DetalleFactura> detallesFactura;
@@ -31,7 +34,7 @@ namespace FarmaciaChavarria.ViewModels
         private Factura nuevaFactura;
 
         [ObservableProperty]
-        private DetalleFactura nuevoDetalle;
+        private string textoBusqueda = string.Empty;
 
         [ObservableProperty]
         private string mensaje = string.Empty;
@@ -39,80 +42,172 @@ namespace FarmaciaChavarria.ViewModels
         [ObservableProperty]
         private string errorMessage = string.Empty;
 
+        [ObservableProperty]
+        private string nombreProd = string.Empty;
+
+        [ObservableProperty]
+        private decimal precioProd;
+
+        [ObservableProperty]
+        private int idproducto;
+
+        [ObservableProperty]
+        private int stock;
+
+        [ObservableProperty]
+        private string lab;
+
+        [ObservableProperty]
+        private List<ProductoDTO> productos = new();
+
+        [ObservableProperty]
+        private string mensajeError;
+
+
+
+        [ObservableProperty]
+        private int numeroPagina = 1;
+
+        [ObservableProperty]
+        private int totalProductos;
+
+        [ObservableProperty]
+        private int totalDePaginas;
+
+        [ObservableProperty]
+        private int tamañoDePagina;
+
+        [ObservableProperty]
+        private bool filtroBusqueda;
+
+        [ObservableProperty]
+        private string busquedaProductos = "";
+
+        [ObservableProperty]
+        private bool filtrobusqueda;
+
+        [ObservableProperty]
+        private string productoselect;
+
+        [ObservableProperty]
+        private int cant;
+
+        [ObservableProperty]
+        private int numeroFactura;
+
+        [ObservableProperty]
+        private DateTime fechaVenta = DateTime.Now;
+
+        [ObservableProperty]
+        private int idUsuario = 3;
+
+        [ObservableProperty]
+        private decimal total;
+
+
         [RelayCommand]
-        public async Task ObtenerFacturas()
+        public async Task ObtenerIdFactAsync()
         {
             try
             {
-                var lista = await _facturaService.ObtenerFacturasAsync();
-                Facturas = new ObservableCollection<Factura>(lista!);
+                var facturas = await _facturaService.ObtenerFacturasAsync();
+
+                if (facturas != null && facturas.Any())
+                {
+                    var ultimoId = facturas.Max(f => f.id_factura); 
+                    NumeroFactura = ultimoId + 1; 
+                }
+                else
+                {
+                    NumeroFactura = 1; 
+                }
             }
             catch (Exception ex)
             {
-                ErrorMessage = $"Error al obtener facturas: {ex.Message}";
+
+                Console.WriteLine($"Error al obtener facturas: {ex.Message}");
+                NumeroFactura = 1;
             }
         }
 
         [RelayCommand]
-        public void AgregarDetalle()
+        public async Task GuardarFacturaCommandAsync()
         {
-            if (NuevoDetalle.id_producto == 0 || NuevoDetalle.cantidad <= 0 || NuevoDetalle.precio_unitario <= 0)
+            var factura = new Factura
             {
-                Mensaje = "Todos los campos del detalle deben estar llenos.";
-                return;
+                fecha_venta = DateTime.Now,
+                total = DetallesFactura.Sum(d => d.subtotal)
+            };
+
+            var resultado = await _facturaService.GuardarFacturaYDetallesAsync(factura, DetallesFactura.ToList());
+            if (resultado)
+            {
+                Mensaje = "Factura guardada correctamente.";
+                DetallesFactura.Clear();
+                Total = 0;
             }
-
-            DetallesFactura.Add(new DetalleFactura
+            else
             {
-                id_producto = NuevoDetalle.id_producto,
-                cantidad = NuevoDetalle.cantidad,
-                precio_unitario = NuevoDetalle.precio_unitario
-            });
-
-            CalcularTotal();
-            NuevoDetalle = new DetalleFactura(); 
-        }
-
-        [RelayCommand]
-        public void EliminarDetalle(DetalleFactura detalle)
-        {
-            DetallesFactura.Remove(detalle);
-            CalcularTotal();
-        }
-
-        private void CalcularTotal()
-        {
-            decimal total = 0;
-            foreach (var item in DetallesFactura)
-            {
-                total += item.subtotal;
+                ErrorMessage = "Ocurrió un error al guardar la factura.";
             }
-            NuevaFactura.total = total;
         }
 
-        [RelayCommand]
-        public async Task CrearFactura()
+        public async Task CargarProductos()
         {
             try
             {
-                if (DetallesFactura.Count == 0)
+                var productos = await _productoService.ObtenerProductosAsync(NumeroPagina);
+                if (productos is not null && productos.Productos.Any())
                 {
-                    Mensaje = "Debe agregar al menos un detalle.";
+                    Productos = productos.Productos;
+                    NumeroPagina = productos.CurrentPage;
+                    TotalDePaginas = productos.TotalPages;
+                    TotalProductos = productos.TotalItems;
+                    TamañoDePagina = productos.PageSize;
+                }
+                else
+                {
+                    MensajeError = "No se encontraron productos.";
+                }
+            }
+            catch (Exception ex)
+            {
+                MensajeError = $"Error al cargar productos: {ex.Message}";
+            }
+        }
+
+        public async Task BuscarProductos(int pagina)
+        {
+            try
+            {
+                MensajeError = string.Empty;
+
+                if (BusquedaProductos == "")
+                {
+                    NumeroPagina = 1;
+                    await CargarProductos();
+                    Filtrobusqueda = false;
                     return;
                 }
 
-                NuevaFactura.fecha_venta = DateTime.Now;
-                CalcularTotal();
-
-                var resultado = await _facturaService.CrearFacturaAsync(NuevaFactura, new List<DetalleFactura>(DetallesFactura));
-                Mensaje = resultado;
-
-                await ObtenerFacturas();
-                LimpiarFormulario();
+                var productos = await _productoService.ObtenerProductoPorNombreAsync(BusquedaProductos, pagina);
+                if (productos is not null && productos.Productos.Any())
+                {
+                    Productos = productos.Productos;
+                    NumeroPagina = productos.CurrentPage;
+                    TotalProductos = productos.TotalItems;
+                    TotalDePaginas = productos.TotalPages;
+                    TamañoDePagina = productos.PageSize;
+                    FiltroBusqueda = true;
+                }
+                else
+                {
+                    MensajeError = "No se encontraron productos.";
+                }
             }
             catch (Exception ex)
             {
-                ErrorMessage = $"Error al crear factura: {ex.Message}";
+                MensajeError = $"Error al buscar productos: {ex.Message}";
             }
         }
 
@@ -121,9 +216,40 @@ namespace FarmaciaChavarria.ViewModels
         {
             NuevaFactura = new Factura { fecha_venta = DateTime.Now };
             DetallesFactura.Clear();
-            NuevoDetalle = new DetalleFactura();
+            ProductosEncontrados.Clear();
+            TextoBusqueda = "";
             Mensaje = "";
             ErrorMessage = "";
+            Idproducto = 0;
+            NombreProd = "";
+            PrecioProd = 0;
+            Cant = 0;
+        }
+
+        // NUEVO MÉTODO: Agregar producto al detalle de factura
+        [RelayCommand]
+        public void AgregarProductoAlDetalle()
+        {
+            if (Idproducto <= 0 || Cant <= 0)
+            {
+                ErrorMessage = "Seleccione un producto válido y cantidad.";
+                return;
+            }
+
+            var detalle = new DetalleFactura
+            {
+                id_producto = Idproducto,
+                cantidad = Cant,
+                precio_unitario = PrecioProd
+            };
+
+            DetallesFactura.Add(detalle);
+
+            // Limpiar campos
+            Idproducto = 0;
+            NombreProd = "";
+            PrecioProd = 0;
+            Cant = 0;
         }
     }
 }

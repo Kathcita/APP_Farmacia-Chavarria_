@@ -1,0 +1,229 @@
+﻿@page "/facturacion"
+@using API_FarmaciaChavarria.Models
+@using APP_FarmaciaChavarria.Models.ModelsDTO
+@using System.Diagnostics
+@inject FarmaciaChavarria.ViewModels.FacturacionViewModel ViewModel
+
+<!-- MENSAJES -->
+@if (!string.IsNullOrEmpty(ViewModel.Mensaje))
+{
+    <p class="alert-success"> @ViewModel.Mensaje</p>
+    <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+}
+@if (!string.IsNullOrEmpty(ViewModel.ErrorMessage))
+{
+    <p class="alert-error"> @ViewModel.ErrorMessage</p>
+    <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+}
+
+<h2>Facturación</h2>
+
+
+
+<!-- BOTÓN PARA ABRIR EL MODAL -->
+
+<div class="form-group">
+    <label>Producto <span style="color:red">*</span></label>
+    <input readonly  class="form-control"
+           value="@ViewModel.NumeroFactura"/>
+</div>
+
+<div class="form-group">
+    <label>Producto <span style="color:red">*</span></label>
+    <input readonly @onclick="()=>mostrarModal = true" class="form-control"
+           value="@ViewModel.NombreProd" placeholder="Seleccionar Producto" />
+</div>
+
+<div class="form-group">
+    <label>Cantidad <span style="color:red">*</span></label>
+    <input type="number" @bind="ViewModel.Cant" />
+</div>
+<br>
+<button class="btn btn-primary mt-2" @onclick="() => ViewModel.AgregarProductoAlDetalle()">
+    ➕ Agregar Producto
+</button>
+<br>
+<br>
+
+
+
+
+
+
+<!-- DETALLES FACTURA -->
+<table class="invoice-table">
+    <thead>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio Unitario</th>
+            <th>Sub Total</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detalle in ViewModel.DetallesFactura)
+        {
+            <tr>
+                <td>@detalle.id_producto</td>
+                <td>@detalle.cantidad</td>
+                <td>C$ @detalle.precio_unitario</td>
+                <td>C$ @detalle.subtotal</td>
+                <td>
+                    <button class="btn btn-danger btn-sm" @onclick="() => QuitarDetalle(detalle)">Quitar</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="3" class="total-label">Total</td>
+            <td colspan="2" class="total-value">C$ @ViewModel.DetallesFactura.Sum(d => d.subtotal)</td>
+        </tr>
+    </tfoot>
+</table>
+<br>
+<br>
+
+<!-- BOTÓN PARA GUARDAR -->
+<div style="margin-top: 10px;">
+    <button class="btn btn-success" @onclick="async () => await ViewModel.GuardarFacturaCommandAsync()">Guardar Factura</button>
+</div>
+
+
+<!-- Modal productos -->
+@if (mostrarModal)
+{
+    <div class="modal-backdrop">
+        <div class="modal-backdrop">
+            <div class="modal-content">
+                <h3>Seleccionar Categoría</h3>
+
+                <div class="d-flex mb-2" style="gap: 8px;">
+                    <input type="text" class="form-control" placeholder="Buscar Producto..."
+                           @bind="ViewModel.BusquedaProductos"
+                           @onkeydown="ManejarTeclaPresionada" />
+
+                    <button class="btn btn-primary" @onclick="() => ViewModel.BuscarProductos(1)">
+                        Buscar
+                    </button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <div class="row-flex">
+                                    <span>Nombre</span>
+                                    <span>Acción</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var produc in ViewModel.Productos)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <div class="row-flex">
+                                        <span>@produc.Nombre</span>
+                                        <button class="btn btn-primary" @onclick="() => seleccionarprod(produc)">
+                                            Seleccionar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDePaginas</span>
+                    <div class="page-controls">
+                        <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+                        <span>Pág @ViewModel.NumeroPagina</span>
+                        <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+                    </div>
+                </div>
+
+
+                <button class="btn btn-danger mt-2" @onclick="()=>mostrarModal = false">Cerrar</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+@code {
+    private bool mostrarModal = false;
+    private int cantidadPorDefecto = 1;
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductos();
+        await ViewModel.ObtenerIdFactAsync();
+    }
+
+    private async Task seleccionarprod(ProductoDTO produc)
+    {
+        ViewModel.Idproducto = produc.IdProducto;
+        ViewModel.NombreProd = produc.Nombre;
+        ViewModel.PrecioProd = produc.Precio;
+        mostrarModal = false;
+        ViewModel.NumeroPagina = 1;
+        ViewModel.Filtrobusqueda = false;
+        await ViewModel.CargarProductos();
+    }
+
+
+    /*Función que maneja el paginado de datos de categorías hacia atras*/
+
+    protected async Task PaginaAnterior()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.BuscarProductos(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarProductos();
+        }
+    }
+
+    /*Función que maneja el paginado de datos de laboratorios hacia adelante*/
+
+    protected async Task SiguientePagina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.Filtrobusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.BuscarProductos(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarProductos();
+        }
+
+    }
+
+    // Presionar enter en el input de búsqueda de laboratorios para llamar la función correspondiente
+
+    private async Task ManejarTeclaPresionada(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarProductos(1);
+        }
+    }
+    private void QuitarDetalle(DetalleFactura detalle)
+    {
+        ViewModel.DetallesFactura.Remove(detalle);
+    }
+}

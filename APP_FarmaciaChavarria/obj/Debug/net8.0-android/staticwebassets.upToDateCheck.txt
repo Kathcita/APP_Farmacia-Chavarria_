@@ -1,8 +1,0 @@
-wwwroot\css\app.css
-wwwroot\css\bootstrap\bootstrap.min.css
-wwwroot\css\bootstrap\bootstrap.min.css.map
-wwwroot\farmaciachavarialogo.jpg
-wwwroot\farmaciachavarialogo.png
-wwwroot\favicon.png
-wwwroot\index.html
-wwwroot\user.jpg

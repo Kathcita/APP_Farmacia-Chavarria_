@@ -107,8 +107,41 @@ namespace FarmaciaChavarria.Services
             }
             return null;
         }
+        public async Task<int?> GuardarFacturaAsync(Factura factura)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/Facturas", factura);
+            if (!response.IsSuccessStatusCode) return null;
 
-        public async Task<string> CrearFacturaAsync(Factura factura, List<DetalleFactura> detalles)
+            var nuevaFactura = await response.Content.ReadFromJsonAsync<Factura>();
+            return nuevaFactura?.id_factura;
+        }
+
+        public async Task<bool> GuardarDetalleFacturaAsync(DetalleFactura detalle)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/DetalleFacturas", detalle);
+            return response.IsSuccessStatusCode;
+        }
+
+        public async Task<bool> GuardarFacturaYDetallesAsync(Factura factura, List<DetalleFactura> detalles)
+        {
+            var idFactura = await GuardarFacturaAsync(factura);
+            if (idFactura == null) return false;
+
+            foreach (var detalle in detalles)
+            {
+                detalle.id_factura = idFactura.Value;
+                var success = await GuardarDetalleFacturaAsync(detalle);
+                if (!success) return false;
+            }
+
+            return true;
+        }
+
+ 
+
+    
+
+    public async Task<string> CrearFacturaAsync(Factura factura, List<DetalleFactura> detalles)
         {
             var facturaConDetalles = new
             {

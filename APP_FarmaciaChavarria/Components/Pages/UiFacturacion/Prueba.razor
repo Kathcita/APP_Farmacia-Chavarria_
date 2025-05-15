@@ -1,0 +1,97 @@
+﻿@page "/prueba-modal"
+
+<h2>Prueba Modal en Blazor</h2>
+
+<p>
+    <strong>Estado del modal:</strong> @mostrarModal
+</p>
+
+<button class="btn btn-primary" @onclick="AbrirModal">🧪 Abrir Modal</button>
+
+@if (mostrarModal)
+{
+    <div class="overlay">
+        <div class="modal-contenido">
+            <div class="modal-header">
+                <h3>Título del Modal</h3>
+                <button class="close-button" @onclick="CerrarModal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Este es el contenido del modal de prueba.</p>
+                <button class="btn btn-danger" @onclick="CerrarModal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+}
+
+<style>
+    .overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        width: 100%; height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+    }
+
+    .modal-contenido {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 500px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        position: relative;
+    }
+
+    .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .close-button {
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .modal-body {
+        margin-top: 10px;
+    }
+
+    .btn {
+        padding: 8px 16px;
+        margin-top: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .btn-danger {
+        background-color: #dc3545;
+        color: white;
+    }
+</style>
+
+@code {
+    private bool mostrarModal = false;
+
+    private void AbrirModal()
+    {
+        mostrarModal = true;
+    }
+
+    private void CerrarModal()
+    {
+        mostrarModal = false;
+    }
+}

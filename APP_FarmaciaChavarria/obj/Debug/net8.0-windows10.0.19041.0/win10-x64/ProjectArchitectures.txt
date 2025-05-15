@@ -1,1 +1,0 @@
-C:\Users\juan1\Source\Repos\APP_Farmacia-Chavarria_\APP_FarmaciaChavarria\APP_FarmaciaChavarria.csproj;x64
