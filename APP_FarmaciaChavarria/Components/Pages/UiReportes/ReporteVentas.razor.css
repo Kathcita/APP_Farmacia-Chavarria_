@@ -101,22 +101,22 @@
     flex-direction: row;
 }
 
-.fechasContainer > div {
-    display: flex;
-    flex-direction: column;
-    padding: 0 5px;
-}
+    .fechasContainer > div {
+        display: flex;
+        flex-direction: column;
+        padding: 0 5px;
+    }
 
 .filtrarFechaBtn {
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 10px; 
+    margin-top: 10px;
 }
 
-.filtrarFechaBtn > button {
-   width:50%;
-}
+    .filtrarFechaBtn > button {
+        width: 50%;
+    }
 
 
 .boton-descargar {
@@ -165,10 +165,10 @@
 .tabla {
     display: flex;
     justify-content: center;
-    align-items:center;
+    align-items: center;
     flex: 1;
     overflow: scroll;
-    flex-direction:column;
+    flex-direction: column;
 }
 
 .table table {
@@ -286,8 +286,8 @@ table tbody td {
         align-self: center; /* CENTRA horizontalmente el botón */
     }
 
-    .filtros{
-        justify-content:center;
+    .filtros {
+        justify-content: center;
     }
 
     .fechasContainer {
@@ -303,6 +303,6 @@ table tbody td {
 
     .grafico, .tabla {
         width: 100%;
-        flex:1;
+        flex: 1;
     }
 }
