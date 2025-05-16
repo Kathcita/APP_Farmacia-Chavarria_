@@ -1,12 +1,16 @@
 ﻿@page "/"
 
+@using APP_FarmaciaChavarria.Service
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Diagnostics
 @using System.Globalization
+@using System.Net.Http.Headers
 
 @inject NavigationManager Navigation
 @inject DashboardViewModel ViewModel
 @inject IJSRuntime JSRuntime
+@inject TokenHandlerService TokenHandler
+
 
 
 @if(ViewModel.Cargando){
@@ -268,13 +272,31 @@
 
     protected override void OnInitialized()
     {
-        bool isLoggedIn = Preferences.Default.Get("IsLoggedIn", false);
+        var token = Preferences.Default.Get("JwtToken", string.Empty);
+        var createdAtStr = Preferences.Default.Get<string>("TokenCreatedAt", string.Empty);
+        Debug.WriteLine($"TOken: {token}");
+        Debug.WriteLine($"Fecha: {createdAtStr}");
 
-        if (!isLoggedIn)
+        Debug.WriteLine($"Fecha: {DateTime.UtcNow}");
+
+        if (!string.IsNullOrEmpty(token) && DateTime.TryParse(createdAtStr, out var createdAt))
+        {
+            TokenHandler.SetToken(token);
+
+            if ((DateTime.UtcNow - createdAt).TotalMinutes < 180)
+            {
+                // Mantener Sesión iniciada
+            }
+            else
+            {
+                Navigation.NavigateTo("/login", true);
+                // Ir a login
+            }
+        }
+        else
         {
             Navigation.NavigateTo("/login", true);
         }
-
     }
 
     protected override async Task OnInitializedAsync()

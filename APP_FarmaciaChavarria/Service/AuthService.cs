@@ -12,13 +12,14 @@ namespace FarmaciaChavarria.Services
     public class AuthService
     {
         private readonly HttpClient _httpClient;
+        public string Token { get; private set; }
 
         public AuthService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
 
-        public async Task<Usuario> LoginUser(LoginRequest loginRequest)
+        public async Task<string> LoginUser(LoginRequest loginRequest)
         {
             try
             {
@@ -27,12 +28,19 @@ namespace FarmaciaChavarria.Services
 
                 if (response.IsSuccessStatusCode)
                 {
-                    var responseData = await response.Content.ReadAsStringAsync();
-                    return JsonConvert.DeserializeObject<Usuario>(responseData);
+                    var json = await response.Content.ReadAsStringAsync();
+                    var tokenObj = JsonConvert.DeserializeObject<TokenResponse>(json);
+                    Token = tokenObj.Token;
+
+                    // Ejemplo: agregar el token a cada petición automáticamente
+                    _httpClient.DefaultRequestHeaders.Authorization =
+                        new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token);
+
+                    return Token;
                 }
                 else
                 {
-                    throw new Exception("Credenciales incorrectas");
+                    return string.Empty;
                 }
             }
             catch (HttpRequestException ex)

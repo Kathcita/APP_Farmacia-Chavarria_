@@ -41,10 +41,11 @@ namespace FarmaciaChavarria.ViewModels
 
                 var response = await _authService.LoginUser(request);
 
-                if (!string.IsNullOrEmpty(response?.id_usuario.ToString()))
+                if (!(response == ""))
                 {
                     Mensaje = "Has iniciado sesión con éxito";
-                    Preferences.Default.Set("IsLoggedIn", true);
+                    Preferences.Default.Set("JwtToken", response);
+                    Preferences.Default.Set("TokenCreatedAt", DateTime.UtcNow.ToString());
 
                 }
                 else
