@@ -1,4 +1,5 @@
 ﻿using APP_FarmaciaChavarria.Components.Pages.UiCategorias;
+using APP_FarmaciaChavarria.Service;
 using APP_FarmaciaChavarria.ViewModels;
 using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels;
 using APP_FarmaciaChavarria.ViewModels.Reportes;
@@ -24,7 +25,8 @@ namespace APP_FarmaciaChavarria
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7053/") });
+            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7053/") });
+            builder.Services.AddScoped<TokenHandlerService>();
 
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddTransient<AuthService>();

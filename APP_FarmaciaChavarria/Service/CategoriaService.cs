@@ -27,7 +27,6 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-
         public async Task<CategoriaPagedResult?> ObtenerCategoriasAsync(int pageNumber = 1, int pageSize = 8)
         {
             var url = $"/api/Categorias?pageNumber={pageNumber}&pageSize={pageSize}";

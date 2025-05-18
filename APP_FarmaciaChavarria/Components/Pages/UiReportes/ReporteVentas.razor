@@ -1,5 +1,9 @@
 ﻿@page "/reporteVentas"
 
+<HeadContent>
+    <link href="css/ReporteVentas.css" rel="stylesheet" />
+</HeadContent>
+
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Globalization
 @using Radzen
@@ -290,3 +294,325 @@
     }
 
 }
+
+<style>
+    .reporte-container {
+        padding: 30px;
+        background-color: #f4f7fa;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .encabezado {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .texto {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .subtitulo {
+        color: #6c757d;
+        margin-top: 5px;
+    }
+
+
+    .contenedor-boton {
+        position: relative;
+        display: inline-block;
+    }
+
+    .btn-descargar {
+        background-color: #0078d7;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .menu-opciones {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 6px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-radius: 6px;
+        margin-top: 4px;
+    }
+
+    .btn-opcion {
+        display: block;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 6px 10px;
+        text-align: left;
+        cursor: pointer;
+        color: #333;
+    }
+
+        .btn-opcion:hover {
+            background-color: #f0f0f0;
+        }
+
+
+    .subtitulo {
+        color: #6c757d;
+        margin-bottom: 20px;
+    }
+
+    .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+        .filtros > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filtros input, .filtros select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 230px;
+        }
+
+    .FechasMaxContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .fechasContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .fechasContainer > div {
+            display: flex;
+            flex-direction: column;
+            padding: 0 5px;
+        }
+
+    .filtrarFechaBtn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .filtrarFechaBtn > button {
+            width: 50%;
+        }
+
+
+    .boton-descargar {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+
+        .boton-descargar button {
+            padding: 10px 20px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+    .contenido-reporte {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .grafico, .tabla {
+        background-color: #ffffff;
+        padding: 16px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .grafico {
+        flex: 3;
+    }
+
+
+    .grafico-placeholder {
+        text-align: center;
+        padding: 40px;
+        background-color: #f2f8fc;
+        border-radius: 6px;
+        color: #666;
+        font-weight: bold;
+    }
+
+
+    /*Estilos para la tabla*/
+    .tabla {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        overflow: scroll;
+        flex-direction: column;
+    }
+
+    .table table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table thead th {
+        background-color: #f0f0f0;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table tbody td {
+        padding: 10px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+
+
+    /*Estilos en paginación*/
+
+    .page-controls {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .pagination {
+        flex-direction: column;
+    }
+
+        .pagination span {
+            text-align: center;
+        }
+
+    /*Estilos para mensaje de error*/
+
+    .alert-error {
+        position: absolute;
+        background-color: #f44336;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-error button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from
+    {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    }
+
+    /*Estilos para mensaje de éxito*/
+    .alert-success {
+        position: absolute;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-success button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from
+
+    {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    }
+
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .encabezado
+
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-descargar {
+        margin-top: 15px;
+        align-self: center; /* CENTRA horizontalmente el botón */
+    }
+
+    .filtros {
+        justify-content: center;
+    }
+
+    .fechasContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    }
+
+    @@media (max-width: 1280px) {
+        .contenido-reporte
+
+    {
+        flex-direction: column;
+    }
+
+    .grafico, .tabla {
+        width: 100%;
+        flex: 1;
+    }
+
+    }
+</style>
