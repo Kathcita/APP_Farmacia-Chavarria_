@@ -151,6 +151,7 @@ namespace FarmaciaChavarria.ViewModels
             foreach (var detalle in DetallesFactura)
             {
                 detalle.id_factura = idFactura.Value;
+                Console.WriteLine($"ID de factura asignado al detalle: {detalle.id_factura}");
                 var resultado = await _facturaService.GuardarDetalleFacturaAsync(detalle);
                 if (!resultado)
                 {
@@ -163,6 +164,7 @@ namespace FarmaciaChavarria.ViewModels
             {
                 MensajeExito = "Factura y todos los detalles guardados exitosamente.";
                 LimpiarFormulario();
+                await ObtenerIdFactAsync();            
             }
             else
             {
@@ -244,6 +246,7 @@ namespace FarmaciaChavarria.ViewModels
             NombreProd = "";
             PrecioProd = 0;
             Cant = 0;
+            NumeroFactura = 0;
         }
 
         [RelayCommand]
@@ -251,13 +254,12 @@ namespace FarmaciaChavarria.ViewModels
         {
             if (Idproducto <= 0 || Cant <= 0)
             {
-                ErrorMessage = "Seleccione un producto válido y cantidad.";
+                MensajeError = "Seleccione un producto válido y cantidad.";
                 return;
             }
 
             var detalle = new DetalleFactura
             {
-                id_factura = numeroFactura,
                 id_producto = Idproducto,
                 cantidad = Cant,
                 precio_unitario = PrecioProd
