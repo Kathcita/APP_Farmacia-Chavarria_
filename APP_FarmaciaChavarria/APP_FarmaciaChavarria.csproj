@@ -87,7 +87,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Components\Pages\UiCompras\" />
 	  <Folder Include="wwwroot\Images\" />
 	  <Folder Include="wwwroot\js\" />
 	</ItemGroup>
