@@ -49,6 +49,13 @@
     </div>
 </div>
 
+@code{
+    protected override void OnInitialized()
+    {
+        ViewModel.NombreLaboratorio = "";
+    }
+}
+
 <style>
     .form-container {
         padding: 2rem;

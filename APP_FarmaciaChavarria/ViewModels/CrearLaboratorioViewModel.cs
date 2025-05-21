@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using FarmaciaChavarria.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,12 +47,34 @@ namespace APP_FarmaciaChavarria.ViewModels
                     return;
 
                 IsLoading = true;
-
                 var nuevoLaboratorio = new Laboratorio
                 {
                     nombre = NombreLaboratorio
                 };
+               var response = await _laboratorioService.CrearLaboratorioAsync(nuevoLaboratorio);
 
+                if (!response.Contains("Error"))
+                {
+                    NombreLaboratorio = "";
+                    MensajeExito = "Laboratorio creado exitosamente";
+
+                    _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(500);
+                        MensajeExito = string.Empty;
+                    });
+                }
+                else
+                {
+                    MensajeError = response;
+                    MensajeExito = "";
+
+                    _ = Task.Run(async () =>
+                    {
+                        await Task.Delay(500);
+                        MensajeError = string.Empty;
+                    });
+                }
                
             }
             catch (Exception ex)
@@ -118,7 +141,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 MensajeError = string.Empty;
 
                 var lab = await _laboratorioService.ObtenerLaboratorioPorIdAsync(id);
-
+                Debug.WriteLine($"Nombre de laboratorio Web: {lab.nombre}");
                 if (lab != null)
                 {
                     IdLaboratorio = lab.id_laboratorio;
