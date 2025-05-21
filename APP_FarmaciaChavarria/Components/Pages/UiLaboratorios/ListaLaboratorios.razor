@@ -1,5 +1,6 @@
 ﻿@page "/laboratorios"
 
+@using APP_FarmaciaChavarria.Models.AuthRequest
 @using Microsoft.AspNetCore.Components.Web
 @using APP_FarmaciaChavarria.ViewModels
 @inject CrearLaboratorioViewModel ViewModel
@@ -30,7 +31,10 @@
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                @if (UserStatic.Rol == "Administrador")
+                {           
                 <th>Acción</th>
+                }
             </tr>
         </thead>
         <tbody>
@@ -41,11 +45,14 @@
                     <tr>
                         <td>@item.id_laboratorio</td>
                         <td>@item.nombre</td>
-                        <td>
+                        @if (UserStatic.Rol == "Administrador")
+                        {
+                            <td>
                             <a class="view-link" href="#" @onclick="() => NavegarAlDetalle(item.id_laboratorio)">
                                 Actualizar »
                             </a>
                         </td>
+                        }
                     </tr>
                 }
             }

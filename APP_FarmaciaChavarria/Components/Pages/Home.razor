@@ -1,5 +1,6 @@
 ﻿@page "/"
 
+@using APP_FarmaciaChavarria.Models.AuthRequest
 @using APP_FarmaciaChavarria.Service
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Diagnostics
@@ -274,10 +275,7 @@
     {
         var token = Preferences.Default.Get("JwtToken", string.Empty);
         var createdAtStr = Preferences.Default.Get<string>("TokenCreatedAt", string.Empty);
-        Debug.WriteLine($"TOken: {token}");
-        Debug.WriteLine($"Fecha: {createdAtStr}");
-
-        Debug.WriteLine($"Fecha: {DateTime.UtcNow}");
+        UserStatic.Rol = Preferences.Default.Get<string>("RolUser", string.Empty);
 
         if (!string.IsNullOrEmpty(token) && DateTime.TryParse(createdAtStr, out var createdAt))
         {

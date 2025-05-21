@@ -1,7 +1,7 @@
 ﻿@page "/detalleCategoria/{id:int}"
+@using APP_FarmaciaChavarria.Models.AuthRequest
 @using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels
 @using System.Diagnostics
-
 @inject DetalleCategoriaViewModel ViewModel
 @inject NavigationManager Navigation
 
@@ -31,7 +31,10 @@ else
 
         <div class="header-container">
             <h2>Inventario › Categorías › <strong>@ViewModel.NombreCategoria</strong></h2>
-            <button class="btn btn-primary" @onclick="() => NavegarActualizarCategoria(ViewModel.IdCategoria)">✏️ Editar Detalles</button>
+            @if (UserStatic.Rol == "Administrador")
+            {
+                <button class="btn btn-primary" @onclick="() => NavegarActualizarCategoria(ViewModel.IdCategoria)">✏️ Editar Detalles</button>
+            }
         </div>
 
         <p>Lista de productos en ésta categoría</p>
@@ -85,6 +88,7 @@ else
     // Función para cargar el detalle de la categoría
     protected override async Task OnInitializedAsync()
     {
+        Debug.WriteLine($"Rol {UserStatic.Rol}");
         await ViewModel.CargarCategoriaPorId(id);
         await ViewModel.CargarMedicinasAsync();
     }

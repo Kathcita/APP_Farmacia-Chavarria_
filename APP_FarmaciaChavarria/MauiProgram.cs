@@ -15,7 +15,9 @@ namespace APP_FarmaciaChavarria
 
         public static MauiApp CreateMauiApp()
         {
-            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+#if WINDOWS
+    QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+#endif
 
             var builder = MauiApp.CreateBuilder();
             builder
@@ -25,7 +27,17 @@ namespace APP_FarmaciaChavarria
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-            builder.Services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7053/") });
+#if ANDROID
+        string baseAddress = "https://10.0.2.2:7053/";
+#else
+        string baseAddress = "https://localhost:7053/";
+#endif
+
+            builder.Services.AddSingleton(sp => new HttpClient
+            {
+                BaseAddress = new Uri(baseAddress)
+            });
+
             builder.Services.AddScoped<TokenHandlerService>();
 
             builder.Services.AddMauiBlazorWebView();

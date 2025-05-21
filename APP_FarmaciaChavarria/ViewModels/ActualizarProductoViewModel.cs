@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using FarmaciaChavarria.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -138,7 +139,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 Nombre = producto.Nombre;
                 CategoriaId = producto.id_categoria;
                 LaboratorioId = producto.id_laboratorio;
-                Precio = producto.Precio;
+                PrecioInput = producto.Precio.ToString();
                 Stock = producto.Stock;
                 FechaVencimiento = producto.FechaVencimiento;
                 NombreCategoria = producto.CategoriaNombre;
@@ -228,7 +229,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 return false;
             }
 
-            if (!decimal.TryParse(precioInput, out var precioParse) || precioParse % 1 != 0 || precioParse <= 0)
+            if (!decimal.TryParse(PrecioInput, out var precioParse) || precioParse % 1 != 0 || precioParse <= 0)
             {
                 MensajeError = "Ingrese un válido para precio";
                 return false;

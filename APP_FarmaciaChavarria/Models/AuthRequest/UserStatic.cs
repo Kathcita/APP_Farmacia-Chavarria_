@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace APP_FarmaciaChavarria.Models.AuthRequest
 {
-    public class TokenResponse
+    public static class UserStatic
     {
-        public string Token { get; set; }
-        public string Rol { get; set; }
+        public static string Rol { get; set; } = "";
     }
 }

@@ -6,6 +6,7 @@ using APP_FarmaciaChavarria.Models.AuthRequest;
 using APP_FarmaciaChavarria.Models;
 using Newtonsoft.Json;
 using API_FarmaciaChavarria.Models;
+using System.Diagnostics;
 
 namespace FarmaciaChavarria.Services
 {
@@ -19,13 +20,12 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<string> LoginUser(LoginRequest loginRequest)
+        public async Task<TokenResponse?> LoginUser(LoginRequest loginRequest)
         {
             try
             {
                 var url = "api/login"; 
                 var response = await _httpClient.PostAsJsonAsync(url, loginRequest);
-
                 if (response.IsSuccessStatusCode)
                 {
                     var json = await response.Content.ReadAsStringAsync();
@@ -35,12 +35,12 @@ namespace FarmaciaChavarria.Services
                     // Ejemplo: agregar el token a cada petición automáticamente
                     _httpClient.DefaultRequestHeaders.Authorization =
                         new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", Token);
-
-                    return Token;
+                    UserStatic.Rol = tokenObj.Rol;
+                    return tokenObj;
                 }
                 else
                 {
-                    return string.Empty;
+                    return null;
                 }
             }
             catch (HttpRequestException ex)

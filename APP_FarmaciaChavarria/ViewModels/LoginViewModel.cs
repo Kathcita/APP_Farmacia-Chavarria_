@@ -6,6 +6,7 @@ using FarmaciaChavarria.Services;
 using System.Net;
 using System.Threading.Tasks;
 using Microsoft.Maui.Storage;
+using System.Diagnostics;
 
 
 namespace FarmaciaChavarria.ViewModels
@@ -40,13 +41,12 @@ namespace FarmaciaChavarria.ViewModels
                 };
 
                 var response = await _authService.LoginUser(request);
-
-                if (!(response == ""))
+                if (response != null)
                 {
                     Mensaje = "Has iniciado sesión con éxito";
-                    Preferences.Default.Set("JwtToken", response);
+                    Preferences.Default.Set("JwtToken", response?.Token);
                     Preferences.Default.Set("TokenCreatedAt", DateTime.UtcNow.ToString());
-
+                    Preferences.Default.Set("RolUser", response?.Rol);
                 }
                 else
                 {
