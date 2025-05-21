@@ -52,20 +52,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                     nombre = NombreLaboratorio
                 };
 
-                var respuesta = await _laboratorioService.CrearLaboratorioAsync(nuevoLaboratorio);
-
-                if (!respuesta.Contains("Error"))
-                {
-                    MensajeExito = "Laboratorio registrado exitosamente.";
-                    MensajeError = string.Empty;
-                    LimpiarCampos();
-                    await CargarLaboratoriosAsync(); // refrescar lista
-                }
-                else
-                {
-                    MensajeError = respuesta;
-                    MensajeExito = string.Empty;
-                }
+               
             }
             catch (Exception ex)
             {

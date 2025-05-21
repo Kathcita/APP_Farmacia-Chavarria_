@@ -4,18 +4,21 @@
 @using System.Diagnostics
 @inject FarmaciaChavarria.ViewModels.FacturacionViewModel ViewModel
 
-<!-- MENSAJES -->
-@if (!string.IsNullOrEmpty(ViewModel.Mensaje))
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
 {
-    <p class="alert-success"> @ViewModel.Mensaje</p>
-    <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
-}
-@if (!string.IsNullOrEmpty(ViewModel.ErrorMessage))
-{
-    <p class="alert-error"> @ViewModel.ErrorMessage</p>
-    <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
 }
 
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
 <h2>Facturación</h2>
 
 
@@ -23,7 +26,7 @@
 <!-- BOTÓN PARA ABRIR EL MODAL -->
 
 <div class="form-group">
-    <label>Producto <span style="color:red">*</span></label>
+    <label>No. Factura <span style="color:red">*</span></label>
     <input readonly  class="form-control"
            value="@ViewModel.NumeroFactura"/>
 </div>
@@ -91,14 +94,13 @@
 </div>
 
 
-<!-- Modal productos -->
 @if (mostrarModal)
 {
     <div class="modal-backdrop">
-        <div class="modal-backdrop">
-            <div class="modal-content">
-                <h3>Seleccionar Categoría</h3>
+        <div class="modal-content">
+            <h3>Seleccionar Producto</h3>
 
+            <div class="modal-body">
                 <div class="d-flex mb-2" style="gap: 8px;">
                     <input type="text" class="form-control" placeholder="Buscar Producto..."
                            @bind="ViewModel.BusquedaProductos"
@@ -145,14 +147,12 @@
                         <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
                     </div>
                 </div>
-
-
-                <button class="btn btn-danger mt-2" @onclick="()=>mostrarModal = false">Cerrar</button>
             </div>
+
+            <button class="btn btn-danger mt-2" @onclick="()=>mostrarModal = false">Cerrar</button>
         </div>
     </div>
 }
-
 
 @code {
     private bool mostrarModal = false;

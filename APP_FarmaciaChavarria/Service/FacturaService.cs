@@ -110,11 +110,17 @@ namespace FarmaciaChavarria.Services
         public async Task<int?> GuardarFacturaAsync(Factura factura)
         {
             var response = await _httpClient.PostAsJsonAsync("api/Facturas", factura);
-            if (!response.IsSuccessStatusCode) return null;
+
+            if (!response.IsSuccessStatusCode)
+            {
+                Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                return null;
+            }
 
             var nuevaFactura = await response.Content.ReadFromJsonAsync<Factura>();
             return nuevaFactura?.id_factura;
         }
+
 
         public async Task<bool> GuardarDetalleFacturaAsync(DetalleFactura detalle)
         {
@@ -141,22 +147,7 @@ namespace FarmaciaChavarria.Services
 
     
 
-    public async Task<string> CrearFacturaAsync(Factura factura, List<DetalleFactura> detalles)
-        {
-            var facturaConDetalles = new
-            {
-                Factura = factura,
-                Detalles = detalles
-            };
-
-            var response = await _httpClient.PostAsJsonAsync("/api/Facturas", facturaConDetalles);
-            if (response.IsSuccessStatusCode)
-            {
-                return "Factura creada exitosamente.";
-            }
-            return $"Error: {response.StatusCode} - {response.ReasonPhrase}";
-        }
-
+  
         public async Task<string> ActualizarFacturaAsync(int id, Factura factura)
         {
             var response = await _httpClient.PutAsJsonAsync($"/api/Facturas/{id}", factura);

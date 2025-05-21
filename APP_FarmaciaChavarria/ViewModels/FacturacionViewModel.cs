@@ -7,6 +7,7 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System;
 using System.Diagnostics;
+using System.Runtime.Serialization;
 
 namespace FarmaciaChavarria.ViewModels
 {
@@ -104,6 +105,9 @@ namespace FarmaciaChavarria.ViewModels
         [ObservableProperty]
         private decimal total;
 
+        [ObservableProperty]
+        private string mensajeExito;
+
 
         [RelayCommand]
         public async Task ObtenerIdFactAsync()
@@ -136,20 +140,38 @@ namespace FarmaciaChavarria.ViewModels
             var factura = new Factura
             {
                 fecha_venta = DateTime.Now,
-                total = DetallesFactura.Sum(d => d.subtotal)
+                total = DetallesFactura.Sum(d => d.subtotal),
+                id_usuario = 3,
             };
 
-            var resultado = await _facturaService.GuardarFacturaYDetallesAsync(factura, DetallesFactura.ToList());
-            if (resultado)
+            var idFactura = await _facturaService.GuardarFacturaAsync(factura);
+
+            bool todosExitosos = true;
+
+            foreach (var detalle in DetallesFactura)
             {
-                Mensaje = "Factura guardada correctamente.";
-                DetallesFactura.Clear();
-                Total = 0;
+                detalle.id_factura = idFactura.Value;
+                Console.WriteLine($"ID de factura asignado al detalle: {detalle.id_factura}");
+                var resultado = await _facturaService.GuardarDetalleFacturaAsync(detalle);
+                if (!resultado)
+                {
+                    todosExitosos = false;
+                    break;
+                }
+            }
+
+            if (todosExitosos)
+            {
+                MensajeExito = "Factura y todos los detalles guardados exitosamente.";
+                LimpiarFormulario();
+                await ObtenerIdFactAsync();            
             }
             else
             {
-                ErrorMessage = "Ocurrió un error al guardar la factura.";
+                MensajeError = "Factura guardada, pero uno o más detalles fallaron.";
             }
+
+
         }
 
         public async Task CargarProductos()
@@ -224,15 +246,15 @@ namespace FarmaciaChavarria.ViewModels
             NombreProd = "";
             PrecioProd = 0;
             Cant = 0;
+            NumeroFactura = 0;
         }
 
-        // NUEVO MÉTODO: Agregar producto al detalle de factura
         [RelayCommand]
         public void AgregarProductoAlDetalle()
         {
             if (Idproducto <= 0 || Cant <= 0)
             {
-                ErrorMessage = "Seleccione un producto válido y cantidad.";
+                MensajeError = "Seleccione un producto válido y cantidad.";
                 return;
             }
 
@@ -245,7 +267,7 @@ namespace FarmaciaChavarria.ViewModels
 
             DetallesFactura.Add(detalle);
 
-            // Limpiar campos
+
             Idproducto = 0;
             NombreProd = "";
             PrecioProd = 0;

@@ -4,6 +4,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.PaginationModels;
 
 namespace FarmaciaChavarria.Services
 {
@@ -11,27 +12,41 @@ namespace FarmaciaChavarria.Services
     {
         private readonly HttpClient _httpClient;
 
-        public ProveedorService()
+        public ProveedorService(HttpClient httpClient)
         {
-            var handler = new HttpClientHandler
-            {
-                ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
-            };
-            _httpClient = new HttpClient(handler)
-            {
-                BaseAddress = new Uri("api") 
-            };
-        }
+            /*var handler = new HttpClientHandler
+              {
+                  ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => true
+              };
+              _httpClient = new HttpClient(handler)
+              {
+                  BaseAddress = new Uri("api") 
+              };*/
 
-        public async Task<List<Proveedor>> ObtenerProveedoresAsync()
+            _httpClient = httpClient;
+        }
+            public async Task<ProveedorPagedResult?> ObtenerProveedoresAsync(int page = 1, int pageSize = 10)
         {
-            var response = await _httpClient.GetAsync("/api/Proveedors");
+            var response = await _httpClient.GetAsync($"/api/Proveedors?page={page}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
             {
-                return await response.Content.ReadFromJsonAsync<List<Proveedor>>();
+                return await response.Content.ReadFromJsonAsync<ProveedorPagedResult>();
             }
-            return new List<Proveedor>();
+
+            return null;
         }
+
+        public async Task<ProveedorPagedResult?> BuscarProveedoresPorNombreAsync(string nombre, int page = 1, int pageSize = 10)
+        {
+            var response = await _httpClient.GetAsync($"/api/Proveedors/buscar?nombre={nombre}&page={page}&pageSize={pageSize}");
+            if (response.IsSuccessStatusCode)
+            {
+                return await response.Content.ReadFromJsonAsync<ProveedorPagedResult>();
+            }
+
+            return null;
+        }
+
 
         public async Task<Proveedor?> ObtenerProveedorPorIdAsync(int id)
         {

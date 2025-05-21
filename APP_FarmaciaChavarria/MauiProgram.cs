@@ -46,7 +46,9 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<CategoriaService>();
             builder.Services.AddSingleton<LaboratorioService>();
             builder.Services.AddSingleton<FacturaService>();
+            builder.Services.AddSingleton<CompraService>();
             builder.Services.AddSingleton<UsuarioService>();
+            builder.Services.AddSingleton<ProveedorService>();
 
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<InventarioViewModel>();
@@ -59,6 +61,7 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<DetalleCategoriaViewModel>();
             builder.Services.AddSingleton<DashboardViewModel>();
             builder.Services.AddSingleton<MedicamentosPorCaducarViewModel>();
+            builder.Services.AddSingleton<CompraViewModel>();
 
             builder.Services.AddSingleton<ReporteVentasViewModel>();
             builder.Services.AddSingleton<ReporteVentasLaboratoriosViewModel>();

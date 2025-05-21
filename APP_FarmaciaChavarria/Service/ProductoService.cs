@@ -51,6 +51,7 @@ namespace FarmaciaChavarria.Services
         }
 
 
+
         // Obtener un producto por ID
         public async Task<ProductoDTO?> ObtenerProductoPorIdAsync(int id)
         {
