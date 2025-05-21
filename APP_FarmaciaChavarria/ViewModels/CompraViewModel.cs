@@ -342,13 +342,6 @@ namespace FarmaciaChavarria.ViewModels
                 }
             }
 
-            if(Cant > Stock)
-            {
-                MensajeError = "La cantidad ingresada es superior al stock disponible.";
-                return;
-            }
-            
-
             var detalle = new DetalleCompraDTO
             {
                 id_producto = Idproduct,
