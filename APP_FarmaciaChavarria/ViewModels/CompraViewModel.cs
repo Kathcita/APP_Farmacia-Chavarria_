@@ -19,7 +19,7 @@ namespace FarmaciaChavarria.ViewModels
         {
             _compraService = compraService;
             Compras = new ObservableCollection<Compra>();
-            DetallesCompra = new ObservableCollection<DetalleCompra>();
+            DetallesCompra = new ObservableCollection<DetalleCompraDTO>();
             _productoService = productoService;
             _proveedorService = proveedorService;
         }
@@ -28,7 +28,7 @@ namespace FarmaciaChavarria.ViewModels
         private ObservableCollection<Compra> compras;
 
         [ObservableProperty]
-        private ObservableCollection<DetalleCompra> detallesCompra;
+        private ObservableCollection<DetalleCompraDTO> detallesCompra;
 
         [ObservableProperty]
         private Compra compraSeleccionada = new();
@@ -83,6 +83,9 @@ namespace FarmaciaChavarria.ViewModels
         private int cant;
 
         [ObservableProperty]
+        private int stock;
+
+        [ObservableProperty]
         private decimal preciounit;
 
 
@@ -109,6 +112,9 @@ namespace FarmaciaChavarria.ViewModels
 
         [ObservableProperty]
         private string nombreProv;
+
+        [ObservableProperty]
+        private int idProv;
 
         [RelayCommand]
         public async Task ObtenerCompras()
@@ -153,15 +159,43 @@ namespace FarmaciaChavarria.ViewModels
         {
             try
             {
-                if (CompraSeleccionada == null || DetallesCompra.Count == 0)
+                if (DetallesCompra.Count == 0)
                 {
                     Mensaje = "Debe llenar los campos de la compra y agregar al menos un detalle.";
                     return;
                 }
 
-                var resultado = await _compraService.CrearCompraAsync(CompraSeleccionada, new List<DetalleCompra>(DetallesCompra));
-                Mensaje = resultado;
-                await ObtenerCompras();
+                var compra = new Compra
+                {
+                    id_proveedor = IdProv,
+                    fecha_compra = DateTime.Now,
+                    total = DetallesCompra.Sum(d => d.subtotal),
+                };
+
+                var resultado = await _compraService.CrearCompraAsync(compra);
+
+                if (resultado != null)
+                {
+                    foreach (var detalle in DetallesCompra)
+                    {
+                        var detalleCrear = new DetalleCompra
+                        {
+                            id_compra = resultado.Value,
+                            id_producto = detalle.id_producto,
+                            cantidad = detalle.cantidad,
+                            precio_unitario = detalle.precio_unitario,
+                        };
+
+                        var resultadoDetalle = await _compraService.GuardarDetalleCompraAsync(detalleCrear);
+
+                        if (!resultadoDetalle)
+                        {
+                        }
+                    }
+                    MensajeExito = "Compra creada exitosamente";
+                    LimpiarFormulario();
+                    await ObtenerCompras();
+                }
             }
             catch (Exception ex)
             {
@@ -287,24 +321,47 @@ namespace FarmaciaChavarria.ViewModels
         [RelayCommand]
         public void AgregarProductoAlDetalle()
         {
+            if(NombreProv == "")
+            {
+                MensajeError = "Seleccione un proveedor.";
+                return;
+            }
+
             if (Idproduct <= 0 || Cant <= 0)
             {
                 MensajeError = "Seleccione un producto válido y cantidad.";
                 return;
             }
 
-            var detalle = new DetalleCompra
+            foreach(var producto in DetallesCompra)
+            {
+                if (producto.id_producto == Idproduct)
+                {
+                    MensajeError = "El producto ya se encuentra en el detalle.";
+                    return;
+                }
+            }
+
+            if(Cant > Stock)
+            {
+                MensajeError = "La cantidad ingresada es superior al stock disponible.";
+                return;
+            }
+            
+
+            var detalle = new DetalleCompraDTO
             {
                 id_producto = Idproduct,
                 cantidad = Cant,
-                precio_unitario = Preciounit
+                precio_unitario = Preciounit,
+                nombreProducto = NombreProd
             };
 
             DetallesCompra.Add(detalle);
 
-
             Idproduct = 0;
             Preciounit = 0;
+            NombreProd = "";
             Cant = 0;
         }
 
@@ -367,7 +424,7 @@ namespace FarmaciaChavarria.ViewModels
         }
 
         [RelayCommand]
-        public void LimpiarFormulario()
+        public async Task LimpiarFormulario()
         {
             CompraSeleccionada = new Compra
             {
@@ -377,6 +434,9 @@ namespace FarmaciaChavarria.ViewModels
             DetallesCompra.Clear();
             Mensaje = "";
             MensajeError = "";
+            await ObtenerIdComprasAsync();
+            NombreProv = "";
+            IdProv = 0;
         }
     }
 }

@@ -21,7 +21,7 @@ namespace FarmaciaChavarria.ViewModels
             _productoService = productoService;
             _facturaService = facturaService;
 
-            DetallesFactura = new ObservableCollection<DetalleFactura>();
+            DetallesFactura = new ObservableCollection<DetalleFacturaDTO>();
             NuevaFactura = new Factura { fecha_venta = DateTime.Now };
         }
 
@@ -29,7 +29,7 @@ namespace FarmaciaChavarria.ViewModels
         private List<ProductoDTO> productosEncontrados = new();
 
         [ObservableProperty]
-        private ObservableCollection<DetalleFactura> detallesFactura;
+        private ObservableCollection<DetalleFacturaDTO> detallesFactura;
 
         [ObservableProperty]
         private Factura nuevaFactura;
@@ -63,8 +63,6 @@ namespace FarmaciaChavarria.ViewModels
 
         [ObservableProperty]
         private string mensajeError;
-
-
 
         [ObservableProperty]
         private int numeroPagina = 1;
@@ -150,9 +148,17 @@ namespace FarmaciaChavarria.ViewModels
 
             foreach (var detalle in DetallesFactura)
             {
-                detalle.id_factura = idFactura.Value;
-                Console.WriteLine($"ID de factura asignado al detalle: {detalle.id_factura}");
-                var resultado = await _facturaService.GuardarDetalleFacturaAsync(detalle);
+
+                var detalleACrear = new DetalleFactura
+                {
+                    id_factura = idFactura.Value,
+                    cantidad = detalle.cantidad,
+                    id_producto = detalle.id_producto,
+                    precio_unitario = detalle.precio_unitario
+                };
+
+                Console.WriteLine($"ID de factura asignado al detalle: {detalleACrear.id_factura}");
+                var resultado = await _facturaService.GuardarDetalleFacturaAsync(detalleACrear);
                 if (!resultado)
                 {
                     todosExitosos = false;
@@ -258,11 +264,27 @@ namespace FarmaciaChavarria.ViewModels
                 return;
             }
 
-            var detalle = new DetalleFactura
+            foreach(var producto in DetallesFactura)
+            {
+                if(producto.id_producto == Idproducto)
+                {
+                    MensajeError = "El producto ya se encuentra en el detalle.";
+                    return;
+                }
+            }
+
+            if (Cant > Stock)
+            {
+                MensajeError = "La cantidad ingresada es superior al stock del producto.";
+                return;
+            }
+
+            var detalle = new DetalleFacturaDTO
             {
                 id_producto = Idproducto,
                 cantidad = Cant,
-                precio_unitario = PrecioProd
+                precio_unitario = PrecioProd,
+                nombreProducto = NombreProd
             };
 
             DetallesFactura.Add(detalle);

@@ -50,29 +50,30 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<string> CrearCompraAsync(Compra compra, List<DetalleCompra> detalles)
+        public async Task<int?> CrearCompraAsync(Compra compra)
         {
             try
             {
-                var compraConDetalles = new
+                var response = await _httpClient.PostAsJsonAsync("/api/Compras", compra);
+                if (!response.IsSuccessStatusCode)
                 {
-                    Compra = compra,
-                    Detalles = detalles
-                };
-
-                var response = await _httpClient.PostAsJsonAsync("/api/Compras", compraConDetalles);
-                if (response.IsSuccessStatusCode)
-                {
-                    return "Compra creada exitosamente.";
+                    Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                    return null;
                 }
 
-                var errorContent = await response.Content.ReadAsStringAsync();
-                return $"Error: {response.StatusCode} - {response.ReasonPhrase}. Detalle: {errorContent}";
+                var nuevaCompra = await response.Content.ReadFromJsonAsync<Compra>();
+                return nuevaCompra?.id_compra;
             }
             catch (Exception ex)
             {
-                return $"Excepción al crear compra: {ex.Message}";
+                return null;
             }
+        }
+
+        public async Task<bool> GuardarDetalleCompraAsync(DetalleCompra detalle)
+        {
+            var response = await _httpClient.PostAsJsonAsync("api/DetalleCompras", detalle);
+            return response.IsSuccessStatusCode;
         }
 
         public async Task<string> ActualizarCompraAsync(int id, Compra compra)
