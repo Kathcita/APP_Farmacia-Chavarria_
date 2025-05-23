@@ -231,7 +231,7 @@ namespace FarmaciaChavarria.ViewModels
         {
             try
             {
-                var proveedor = await _proveedorService.ObtenerProveedoresAsync(NumeroPagina);
+                var proveedor = await _proveedorService.ObtenerProveedoresAsync(NumeroPaginaprov);
                 if (proveedor is not null && proveedor.Proveedores.Any())
                 {
                     Proveedor = proveedor.Proveedores;
@@ -239,6 +239,7 @@ namespace FarmaciaChavarria.ViewModels
                     TotalDePaginasProv = proveedor.TotalPages;
                     TotalDeproveedores = proveedor.TotalItems;
                     TamañoDePaginaProv = proveedor.PageSize;
+                    FiltroBusquedaProv = false;
                 }
                 else
                 {
@@ -259,9 +260,9 @@ namespace FarmaciaChavarria.ViewModels
 
                 if (BusquedaProvedor == "")
                 {
-                    NumeroPagina = 1;
+                    NumeroPaginaprov = 1;
                     await CargarProveedor();
-                    Filtrobusqueda = false;
+                    FiltroBusquedaProv = false;
                     return;
                 }
 
@@ -269,11 +270,11 @@ namespace FarmaciaChavarria.ViewModels
                 if (proveedor is not null && proveedor.Proveedores.Any())
                 {
                     Proveedor = proveedor.Proveedores;
-                    NumeroPagina = proveedor.CurrentPage;
-                    TotalProductos = proveedor.TotalPages;
-                    TotalDePaginas = proveedor.TotalPages;
-                    TamañoDePagina = proveedor.PageSize;
-                    FiltroBusqueda = true;
+                    NumeroPaginaprov = proveedor.CurrentPage;
+                    TotalDeproveedores = proveedor.TotalPages;
+                    TotalDePaginasProv = proveedor.TotalPages;
+                    TamañoDePaginaProv = proveedor.PageSize;
+                    FiltroBusquedaProv = true;
                 }
                 else
                 {

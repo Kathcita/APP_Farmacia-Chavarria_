@@ -2,6 +2,7 @@
 using APP_FarmaciaChavarria.Service;
 using APP_FarmaciaChavarria.ViewModels;
 using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels;
+using APP_FarmaciaChavarria.ViewModels.ProveedoresViewModel;
 using APP_FarmaciaChavarria.ViewModels.Reportes;
 using FarmaciaChavarria.Services;
 using FarmaciaChavarria.ViewModels;
@@ -62,6 +63,7 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<DashboardViewModel>();
             builder.Services.AddSingleton<MedicamentosPorCaducarViewModel>();
             builder.Services.AddSingleton<CompraViewModel>();
+            builder.Services.AddSingleton<ProveedoresViewModel>();
 
             builder.Services.AddSingleton<ReporteVentasViewModel>();
             builder.Services.AddSingleton<ReporteVentasLaboratoriosViewModel>();
