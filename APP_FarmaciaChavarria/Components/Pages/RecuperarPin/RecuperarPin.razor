@@ -1,0 +1,38 @@
+﻿@page "/Pin"
+@inject RecuperarPinViewModel VM
+<link rel="stylesheet" href="~/css/recuperar.css" />
+
+<h3>Recuperar PIN</h3>
+<div class="container">
+    <div class="form-box">
+        <img src="/Logo.png" alt="Farmacia Chavarría" class="logo" />
+        <h2>Recuperar Pin</h2>
+
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" @bind="VM.Usuario" placeholder="nombre de usuario" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" @bind="VM.Email" placeholder="correo@ejemplo.com" required />
+
+        <button @onclick="Recuperar">Recuperar</button>
+
+        @if (!string.IsNullOrEmpty(VM.Mensaje))
+        {
+            <p class="mensaje">@VM.Mensaje</p>
+        }
+
+        @if (!string.IsNullOrEmpty(VM.Error))
+        {
+            <p class="error">@VM.Error</p>
+        }
+    </div>
+</div>
+
+@code {
+    private async Task Recuperar()
+    {
+        await VM.RecuperarAsync();
+    }
+}
+
+

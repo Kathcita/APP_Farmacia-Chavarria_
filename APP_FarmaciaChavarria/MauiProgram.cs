@@ -70,6 +70,8 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddSingleton<ReporteVentasCategoriasViewModel>();
             builder.Services.AddSingleton<ReporteVentasProductoViewModel>();
             builder.Services.AddSingleton<ReporteMedicamentosEscasosViewModel>();
+            builder.Services.AddSingleton<RecuperarPinViewModel>();
+            builder.Services.AddSingleton<RegistroUsuarioViewModel>();
 
             builder.Services.AddRadzenComponents();
 
