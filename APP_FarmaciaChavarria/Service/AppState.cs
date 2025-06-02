@@ -8,7 +8,7 @@ namespace APP_FarmaciaChavarria.Service
 {
     public static class IpAddress
     {
-        public static string ip = "";
+        public static string ip = "162.215.175.163:7053";
 
         public static string userId = "";
 

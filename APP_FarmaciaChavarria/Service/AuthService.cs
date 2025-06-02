@@ -24,7 +24,7 @@ namespace FarmaciaChavarria.Services
         {
             try
             {
-                var url = "api/login"; 
+                var url = "/api/login"; 
                 var response = await _httpClient.PostAsJsonAsync(url, loginRequest);
                 if (response.IsSuccessStatusCode)
                 {

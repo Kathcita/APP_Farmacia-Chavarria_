@@ -8,16 +8,16 @@ using FarmaciaChavarria.Services;
 using FarmaciaChavarria.ViewModels;
 using Microsoft.Extensions.Logging;
 using Radzen;
+using System.Net.Http;
 
 namespace APP_FarmaciaChavarria
 {
     public static class MauiProgram
     {
-
         public static MauiApp CreateMauiApp()
         {
 #if WINDOWS
-    QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
 #endif
 
             var builder = MauiApp.CreateBuilder();
@@ -28,19 +28,22 @@ namespace APP_FarmaciaChavarria
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
 
-#if ANDROID
-        string baseAddress = "https://10.0.2.2:7053/";
-#else
-        string baseAddress = "https://localhost:7053/";
-#endif
+            string baseAddress = "https://162.215.175.163:7053/";
 
-            builder.Services.AddSingleton(sp => new HttpClient
+            builder.Services.AddSingleton(sp =>
             {
-                BaseAddress = new Uri(baseAddress)
+                var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                };
+
+                return new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(baseAddress)
+                };
             });
 
             builder.Services.AddScoped<TokenHandlerService>();
-
             builder.Services.AddMauiBlazorWebView();
             builder.Services.AddTransient<AuthService>();
             builder.Services.AddSingleton<ProductoService>();
@@ -79,9 +82,6 @@ namespace APP_FarmaciaChavarria
             builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
 #endif
-
-
-
 
             return builder.Build();
         }
