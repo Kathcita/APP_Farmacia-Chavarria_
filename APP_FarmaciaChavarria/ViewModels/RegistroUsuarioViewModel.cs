@@ -9,15 +9,19 @@ using System.Threading.Tasks;
 
 namespace APP_FarmaciaChavarria.ViewModels
 {
-    public class RegistroUsuarioViewModel
+    public partial class RegistroUsuarioViewModel: ObservableObject
     {
         private readonly HttpClient _http;
 
         public string Nombre { get; set; }
         public string Rol { get; set; }
         public string Pin { get; set; }
-        public string Mensaje { get; set; }
-        public string Error { get; set; }
+
+        [ObservableProperty]
+        public string mensaje;
+
+        [ObservableProperty]
+        public string error;
 
         public RegistroUsuarioViewModel(HttpClient http)
         {
@@ -28,13 +32,36 @@ namespace APP_FarmaciaChavarria.ViewModels
             Nombre = string.Empty;
             Pin = string.Empty;
             Rol = string.Empty;
-            Mensaje = string.Empty;
-            Error = string.Empty;
         }
         public async Task RegistrarUsuarioAsync()
         {
             try
             {
+
+                if(Nombre == "")
+                {
+                    Error = "El campo nombre no puede estar vacío";
+                    return;
+                }
+
+                if (Pin == "")
+                {
+                    Error = "El campo pin no puede estar vacío";
+                    return;
+                }
+
+                if (Pin.Length != 4)
+                {
+                    Error = "El campo pin debe contener 4 dígitos";
+                    return;
+                }
+
+                if (Rol != "Administrador" && Rol != "Empleado")
+                {
+                    Error = "Seleccione un rol para el usuario";
+                    return;
+                }
+
                 var usuario = new
                 {
                     nombre = Nombre,
@@ -47,6 +74,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 if (respuesta.IsSuccessStatusCode)
                 {
                     Mensaje = "Usuario registrado exitosamente.";
+                    await ObtenerUsuariosAsync();
                     Error = string.Empty;
                 }
                 else
@@ -62,7 +90,9 @@ namespace APP_FarmaciaChavarria.ViewModels
                 Mensaje = string.Empty;
             }
         }
-        public List<UsuarioDTO> Usuarios { get; set; } = new();
+
+        [ObservableProperty]
+        public List<UsuarioDTO> usuarios = new();
 
         public async Task ObtenerUsuariosAsync()
         {
@@ -90,6 +120,7 @@ namespace APP_FarmaciaChavarria.ViewModels
                 var respuesta = await _http.DeleteAsync($"api/Usuarios/{id}");
                 if (respuesta.IsSuccessStatusCode)
                 {
+                    Mensaje = "Usuario eliminado exitosamente";
                     await ObtenerUsuariosAsync();
                 }
                 else

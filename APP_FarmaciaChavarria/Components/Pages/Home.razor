@@ -41,7 +41,7 @@
             </div>
             <div class="card">
                 <h2>C$ @ViewModel.DashboardData.VentasDelMes</h2>
-                <p>Ganancia - Ene 2025</p>
+                <p>Ganancia - @DateTime.Now.ToString("MMM - yyyy", System.Globalization.CultureInfo.InvariantCulture)</p>
                 <button @onclick=NavegarReporteVentas>Ver Detalles del Reporte</button>
             </div>
             <div class="card">

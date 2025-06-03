@@ -6,6 +6,7 @@ using FarmaciaChavarria.Services;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using System;
+using System.Diagnostics;
 
 namespace FarmaciaChavarria.ViewModels
 {
@@ -322,7 +323,8 @@ namespace FarmaciaChavarria.ViewModels
         [RelayCommand]
         public void AgregarProductoAlDetalle()
         {
-            if(NombreProv == "")
+
+            if(string.IsNullOrEmpty(NombreProv))
             {
                 MensajeError = "Seleccione un proveedor.";
                 return;

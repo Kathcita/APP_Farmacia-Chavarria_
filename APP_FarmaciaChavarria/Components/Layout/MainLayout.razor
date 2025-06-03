@@ -8,7 +8,9 @@
 else
 {
     <div class="page">
-        <button @onclick="ToggleMenu" class="menuBtn">Menu</button>
+        <button @onclick="ToggleMenu" class="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
 
         <div class="sidebar @(isMenuOpen ? "open" : "close")">
             <NavMenu />
@@ -28,7 +30,7 @@ else
 }
 
 @code{
-    private bool isMenuOpen = false;
+    private bool isMenuOpen = true;
 
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
 }

@@ -10,8 +10,8 @@ main {
 
 .menuBtn{
     position:absolute;
-    top:0;
-    left:0;
+    top:10px;
+    right:10px;
     z-index:1001;
 }
 
