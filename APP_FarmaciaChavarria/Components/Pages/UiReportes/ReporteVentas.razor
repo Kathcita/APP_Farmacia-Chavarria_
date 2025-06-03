@@ -85,7 +85,9 @@
 
     <!--Código de interfaz del gráfico de líneas-->
     <div class="contenido-reporte">
-        <div class="grafico" >
+        <div class="grafico-scroll">
+        <div class="grafico">
+           
             <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
                 <RadzenCard Variant="Variant.Outlined">
                     <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Wrap="FlexWrap.Wrap">
@@ -131,6 +133,7 @@
 
                 </RadzenChart>
             </RadzenStack>
+        </div>
         </div>
 
         <div class="tabla">
@@ -444,18 +447,10 @@
         box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
-    .grafico {
+    .grafico-scroll {
         flex: 3;
-    }
-
-
-    .grafico-placeholder {
-        text-align: center;
-        padding: 40px;
-        background-color: #f2f8fc;
-        border-radius: 6px;
-        color: #666;
-        font-weight: bold;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
 
@@ -580,7 +575,6 @@
     /* Responsive */
     @@media (max-width: 768px) {
         .encabezado
-
     {
         flex-direction: column;
         align-items: center;
@@ -600,6 +594,11 @@
         flex-direction: column;
     }
 
+    .grafico{
+        padding: 30px;
+        min-width:768px;
+    }
+
     }
 
     @@media (max-width: 1280px) {
@@ -609,7 +608,7 @@
         flex-direction: column;
     }
 
-    .grafico, .tabla {
+        .grafico-scroll, .tabla {
         width: 100%;
         flex: 1;
     }

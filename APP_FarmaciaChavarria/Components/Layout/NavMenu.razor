@@ -1,4 +1,5 @@
-﻿<div class="sidebar @(isMenuOpen ? "open" : "")">
+﻿@using APP_FarmaciaChavarria.Models.AuthRequest
+<div class="sidebar @(isMenuOpen ? "open" : "")">
     <div class="sidebar-header">
         <img src="farmaciachavarialogo.png" alt="Logo" class="logo" />
         <h3>Farmacia Chavarria</h3>
@@ -7,8 +8,8 @@
     <div class="user-info">
         <img src="user.jpg" alt="User Avatar" class="avatar" />
         <div>
-            <p class="user-name">Juan</p>
-            <p class="user-role">Super Admin</p>
+            <p class="user-name">Usuario</p>
+            <p class="user-role">@UserStatic.Rol</p>
         </div>
     </div>
 
@@ -26,7 +27,7 @@
         </div>
 
         <div class="submenu @(showReports ? "show" : "")">
-            <NavLink class="nav-item submenu-item" href="/reportesGenerales"><i class="bi bi-bar-chart"></i> Reportes Generales</NavLink>
+            <!-- <NavLink class="nav-item submenu-item" href="/reportesGenerales"><i class="bi bi-bar-chart"></i> Reportes Generales</NavLink> -->
             <NavLink class="nav-item submenu-item" href="/reporteVentas"><i class="bi bi-bar-chart"></i> Reporte de Ventas</NavLink>
             <NavLink class="nav-item submenu-item" href="/reporteVentasProducto"><i class="bi bi-bar-chart"></i> Reporte de Ventas Productos</NavLink>
             <NavLink class="nav-item submenu-item" href="/reporteVentasLaboratorios"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
@@ -37,8 +38,12 @@
 
         <NavLink class="nav-item" href="/facturacion"><i class="bi bi-file-earmark-text"></i> Facturación</NavLink>
         <NavLink class="nav-item" href="/compra"><i class="bi bi-bag-check"></i> Compras</NavLink>
-        <NavLink class="nav-item" href="/Pin"><i class="bi bi-bag-check"></i> Pin</NavLink>
-        <NavLink class="nav-item" href="/RegistroUsuario"><i class="bi bi-bag-check"></i> RegistroUsuario</NavLink>
+
+        @if(UserStatic.Rol == "Administrador")
+        {
+            <NavLink class="nav-item" href="/Pin"><i class="bi bi-bag-check"></i> Pin</NavLink>
+            <NavLink class="nav-item" href="/RegistroUsuario"><i class="bi bi-bag-check"></i> Registro Usuario</NavLink>
+        }
     </nav>
 
     <footer class="sidebar-footer">
@@ -47,12 +52,8 @@
     </footer>
 </div>
 
-<button class="menu-toggle" @onclick="ToggleMenu">
-    <i class="bi bi-list"></i>
-</button>
-
 @code {
-    private bool isMenuOpen = false;
+    private bool isMenuOpen = true;
     private bool showReports = false;
 
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
@@ -71,27 +72,14 @@
     top: 0;
     left: 0;
     padding: 1rem 0;
-    overflow-y: auto;
     transition: transform 0.3s ease;
     z-index: 1000;
-    transform: translateX(-100%);
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
     }
 
-    .sidebar.open {
-        transform: translateX(0);
-    }
-
-    @@media (min-width: 768px) {
-    .sidebar {
-        transform: translateX(0);
-        box-shadow: none;
-    }
-
-    .menu-toggle {
-        display: none;
-    }
-    }
+        .sidebar.open {
+            transform: translateX(0);
+        }
 
 .sidebar-header {
     display: flex;

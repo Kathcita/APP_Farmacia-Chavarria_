@@ -37,13 +37,14 @@
                 }
             </tbody>
         </table>
+    </div>
 
-        <div class="pagination">
-            <div class="page-controls">
-                <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
-                <span>Pág @ViewModel.NumeroPagina</span>
-                <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
-            </div>
+
+    <div class="pagination">
+        <div class="page-controls">
+            <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+            <span>Pág @ViewModel.NumeroPagina</span>
+            <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
         </div>
     </div>
 
@@ -99,10 +100,13 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        overflow-x: auto;
+        justify-content: center;
     }
 
-    .table table {
+    .tabla table {
         width: 100%;
+        min-width:600px;
         border-collapse: collapse;
     }
 
@@ -117,9 +121,15 @@
         border-top: 1px solid #e0e0e0;
     }
 
-    .tabla {
-        display: flex;
-        justify-content: center;
+    /* Estilos responsivos para móviles */
+    @@media (max-width: 600px) {
+        .tabla
+
+    {
+        border: 1px solid #e5e7eb; /* Borde visual al hacer scroll */
+        border-radius: 12px;
+    }
+
     }
 
     /*Estilos en paginación*/

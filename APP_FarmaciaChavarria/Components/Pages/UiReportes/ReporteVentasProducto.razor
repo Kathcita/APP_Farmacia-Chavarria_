@@ -310,11 +310,16 @@
         flex: 1;
         display: flex;
         flex-direction: column;
+        justify-content: center;
+        width:100%;
+        overflow-x: auto; /* Scroll horizontal cuando sea necesario */
     }
 
     .table table {
         width: 100%;
+        min-width: 700px;
         border-collapse: collapse;
+        -webkit-overflow-scrolling: touch; /* Mejora en iOS */
     }
 
     table thead th {
@@ -328,9 +333,15 @@
         border-top: 1px solid #e0e0e0;
     }
 
-    .tabla {
-        display: flex;
-        justify-content: center;
+    /* Estilos responsivos para móviles */
+    @@media (max-width: 600px) {
+        .tabla
+
+    {
+        border: 1px solid #e5e7eb; /* Borde visual al hacer scroll */
+        border-radius: 12px;
+    }
+
     }
 
 

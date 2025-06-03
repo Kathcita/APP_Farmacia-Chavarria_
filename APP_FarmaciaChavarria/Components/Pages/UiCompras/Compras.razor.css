@@ -72,8 +72,17 @@
 }
 
 /* TABLA */
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Scroll horizontal cuando sea necesario */
+    -webkit-overflow-scrolling: touch; /* Mejora en iOS */
+    margin-top: 20px;
+}
+
 .invoice-table {
     width: 100%;
+    min-width: 600px;
     margin-top: 30px;
     border-collapse: separate;
     border-spacing: 0;
@@ -108,6 +117,14 @@
         font-weight: bold;
         border-top: 2px solid #cbd5e1;
     }
+
+/* Estilos responsivos para móviles */
+@media (max-width: 600px) {
+    .table-container {
+        border: 1px solid #e5e7eb; /* Borde visual al hacer scroll */
+        border-radius: 12px;
+    }
+}
 
 
 .styled-table {
