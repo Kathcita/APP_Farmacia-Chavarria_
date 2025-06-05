@@ -333,7 +333,43 @@
         var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.DashboardData);
         var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
-        await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+        {
+            try
+            {
+                // Usar el método de guardado específico para Android
+                await SaveAndroidFile(nombreArchivo, fileBytes);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
+                // Mostrar algún mensaje al usuario
+            }
+        }
+        else
+        {
+            await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+        }
+
+    }
+
+    private async Task SaveAndroidFile(string fileName, byte[] fileBytes)
+    {
+        // Obtener el directorio de descargas público
+        var downloadsPath = Android.OS.Environment.GetExternalStoragePublicDirectory(
+            Android.OS.Environment.DirectoryDownloads).AbsolutePath;
+
+        var filePath = Path.Combine(downloadsPath, fileName);
+
+        // Escribir el archivo
+        File.WriteAllBytes(filePath, fileBytes);
+
+        // Notificar al sistema que hay un nuevo archivo
+        var mediaScanIntent = new Android.Content.Intent(
+            Android.Content.Intent.ActionMediaScannerScanFile);
+        mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
+        Android.App.Application.Context.SendBroadcast(mediaScanIntent);
+
     }
 
     private async Task<byte[]> CapturarGraficoComoImagen()

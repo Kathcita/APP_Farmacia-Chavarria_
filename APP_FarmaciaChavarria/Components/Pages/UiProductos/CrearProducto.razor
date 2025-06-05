@@ -93,7 +93,6 @@
 <!-- Modal Categorías -->
 @if (ModalCategoriaVisible)
 {
-    <div class="modal-backdrop">
         <div class="modal-backdrop">
             <div class="modal-content">
                 <h3>Seleccionar Categoría</h3>
@@ -148,7 +147,6 @@
                 <button class="btn btn-danger mt-2" @onclick="()=>ModalCategoriaVisible = false">Cerrar</button>
             </div>
         </div>
-    </div>
 }
 
 <!-- Modal Laboratorios -->
@@ -205,7 +203,7 @@
                 </div>
             </div>
 
-            <button class="btn btn-danger" @onclick="()=>ModalLaboratorioVisible = false">Cerrar</button>
+            <button class="btn btn-danger mt-2" @onclick="()=>ModalLaboratorioVisible = false">Cerrar</button>
         </div>
     </div>
 }

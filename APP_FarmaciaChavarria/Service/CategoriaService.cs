@@ -27,7 +27,7 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<CategoriaPagedResult?> ObtenerCategoriasAsync(int pageNumber = 1, int pageSize = 8)
+        public async Task<CategoriaPagedResult?> ObtenerCategoriasAsync(int pageNumber = 1, int pageSize = 6)
         {
             var url = $"/api/Categorias?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);
@@ -51,7 +51,7 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<CategoriaPagedResult?> ObtenerCategoriaPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
+        public async Task<CategoriaPagedResult?> ObtenerCategoriaPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 6)
         {
             var url = $"/api/Categorias/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);

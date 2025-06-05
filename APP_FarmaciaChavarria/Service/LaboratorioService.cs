@@ -27,7 +27,7 @@ namespace FarmaciaChavarria.Services
             _httpClient = httpClient;
         }
 
-        public async Task<LaboratorioPagedResult?> ObtenerLaboratoriosAsync(int pageNumber = 1, int pageSize = 8)
+        public async Task<LaboratorioPagedResult?> ObtenerLaboratoriosAsync(int pageNumber = 1, int pageSize = 6)
         {
             var response = await _httpClient.GetAsync($"/api/Laboratorios?pageNumber={pageNumber}&pageSize={pageSize}");
             if (response.IsSuccessStatusCode)
@@ -48,7 +48,7 @@ namespace FarmaciaChavarria.Services
             return null;
         }
 
-        public async Task<LaboratorioPagedResult?> ObtenerLaboratorioPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 8)
+        public async Task<LaboratorioPagedResult?> ObtenerLaboratorioPorNombreAsync(string nombre, int pageNumber = 1, int pageSize = 6)
         {
             var url = $"/api/Laboratorios/nombre/{nombre}?pageNumber={pageNumber}&pageSize={pageSize}";
             var response = await _httpClient.GetAsync(url);

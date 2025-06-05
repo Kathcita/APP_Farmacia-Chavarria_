@@ -13,7 +13,7 @@ else
         </button>
 
         <div class="sidebar @(isMenuOpen ? "open" : "close")">
-            <NavMenu />
+            <NavMenu OnLinkClicked="CerrarSidebar" />
         </div> 
 
         <main>
@@ -33,4 +33,5 @@ else
     private bool isMenuOpen = true;
 
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
+    private void CerrarSidebar() => isMenuOpen = false;
 }

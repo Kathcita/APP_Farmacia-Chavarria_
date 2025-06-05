@@ -195,6 +195,21 @@
 }
 /*Responsive mobile*/
 @media (max-width: 768px) {
+
+    .searchbox{
+        display:flex;
+        flex-direction:column;
+    }
+
+    .modal-backdrop {
+        width: 100%;
+    }
+
+    .modal-content{
+        width:90%;
+        max-width:90%;
+    }
+
     .form-header {
         flex-direction: column;
     }
@@ -234,6 +249,10 @@
 
     #btnMobile {
         display: block;
+    }
+
+    .btn-primary{
+        font-size:14px;
     }
 }
 /*Estilos para el componente de paginación de datos*/
@@ -327,3 +346,4 @@
     to {
         opacity: 1;
     }
+}

@@ -14,11 +14,11 @@
     </div>
 
     <nav class="nav-menu">
-        <NavLink class="nav-item" href="/"><i class="bi bi-grid"></i> Dashboard</NavLink>
-        <NavLink class="nav-item" href="/inventario"><i class="bi bi-box-seam"></i> Inventario</NavLink>
-        <NavLink class="nav-item" href="/categorias"><i class="bi bi-box-seam"></i> Categorías</NavLink>
-        <NavLink class="nav-item" href="/laboratorios"><i class="bi bi-box-seam"></i> Laboratorio</NavLink>
-        <NavLink class="nav-item" href="/Proveedores"><i class="bi bi-box-seam"></i> Proveedores</NavLink>
+        <NavLink class="nav-item" href="/" @onclick="OnLinkClicked"><i class="bi bi-grid"></i> Dashboard</NavLink>
+        <NavLink class="nav-item" href="/inventario" @onclick="OnLinkClicked"><i class="bi bi-box-seam"></i> Inventario</NavLink>
+        <NavLink class="nav-item" href="/categorias" @onclick="OnLinkClicked"><i class="bi bi-box-seam"></i> Categorías</NavLink>
+        <NavLink class="nav-item" href="/laboratorios" @onclick="OnLinkClicked"><i class="bi bi-box-seam"></i> Laboratorio</NavLink>
+        <NavLink class="nav-item" href="/Proveedores" @onclick="OnLinkClicked"><i class="bi bi-box-seam"></i> Proveedores</NavLink>
 
         <div class="nav-item report-menu" @onclick="ToggleReportMenu" style="user-select:none;">
             <i class="bi bi-bar-chart"></i> Reportes
@@ -28,21 +28,21 @@
 
         <div class="submenu @(showReports ? "show" : "")">
             <!-- <NavLink class="nav-item submenu-item" href="/reportesGenerales"><i class="bi bi-bar-chart"></i> Reportes Generales</NavLink> -->
-            <NavLink class="nav-item submenu-item" href="/reporteVentas"><i class="bi bi-bar-chart"></i> Reporte de Ventas</NavLink>
-            <NavLink class="nav-item submenu-item" href="/reporteVentasProducto"><i class="bi bi-bar-chart"></i> Reporte de Ventas Productos</NavLink>
-            <NavLink class="nav-item submenu-item" href="/reporteVentasLaboratorios"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
-            <NavLink class="nav-item submenu-item" href="/reporteVentasCategorias"><i class="bi bi-bar-chart"></i> Reporte de Ventas Categorias</NavLink>
-            <NavLink class="nav-item submenu-item" href="/medicamentosEscasos"><i class="bi bi-bar-chart"></i> Medicamentos Escasos</NavLink>
-            <NavLink class="nav-item submenu-item" href="/medicamentosPorCaducar"><i class="bi bi-bar-chart"></i> Medicamentos Por Caducar</NavLink>
+            <NavLink class="nav-item submenu-item" href="/reporteVentas" @onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Reporte de Ventas</NavLink>
+            <NavLink class="nav-item submenu-item" href="/reporteVentasProducto" @onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Reporte de Ventas Productos</NavLink>
+            <NavLink class="nav-item submenu-item" href="/reporteVentasLaboratorios"@onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Reporte de Ventas Laboratorios</NavLink>
+            <NavLink class="nav-item submenu-item" href="/reporteVentasCategorias" @onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Reporte de Ventas Categorias</NavLink>
+            <NavLink class="nav-item submenu-item" href="/medicamentosEscasos"@onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Medicamentos Escasos</NavLink>
+            <NavLink class="nav-item submenu-item" href="/medicamentosPorCaducar"@onclick="OnLinkClicked"><i class="bi bi-bar-chart"></i> Medicamentos Por Caducar</NavLink>
         </div>
 
-        <NavLink class="nav-item" href="/facturacion"><i class="bi bi-file-earmark-text"></i> Facturación</NavLink>
-        <NavLink class="nav-item" href="/compra"><i class="bi bi-bag-check"></i> Compras</NavLink>
+        <NavLink class="nav-item" href="/facturacion"@onclick="OnLinkClicked"><i class="bi bi-file-earmark-text"></i> Facturación</NavLink>
+        <NavLink class="nav-item" href="/compra" @onclick="OnLinkClicked"><i class="bi bi-bag-check"></i> Compras</NavLink>
 
         @if(UserStatic.Rol == "Administrador")
         {
-            <NavLink class="nav-item" href="/Pin"><i class="bi bi-bag-check"></i> Pin</NavLink>
-            <NavLink class="nav-item" href="/RegistroUsuario"><i class="bi bi-bag-check"></i> Registro Usuario</NavLink>
+            <NavLink class="nav-item" href="/Pin" @onclick="OnLinkClicked"><i class="bi bi-bag-check"></i> Pin</NavLink>
+            <NavLink class="nav-item" href="/RegistroUsuario" @onclick="OnLinkClicked"><i class="bi bi-bag-check"></i> Registro Usuario</NavLink>
         }
     </nav>
 
@@ -53,11 +53,17 @@
 </div>
 
 @code {
+
+    [Parameter]
+    public EventCallback OnLinkClicked { get; set; }
+
     private bool isMenuOpen = true;
     private bool showReports = false;
 
     private void ToggleMenu() => isMenuOpen = !isMenuOpen;
     private void ToggleReportMenu() => showReports = !showReports;
+
+   
 }
 
 <style>
