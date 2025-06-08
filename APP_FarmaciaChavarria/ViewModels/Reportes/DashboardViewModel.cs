@@ -1,7 +1,11 @@
-﻿using ClosedXML.Excel;
+﻿using APP_FarmaciaChavarria.Models.ReporteModels;
+using ClosedXML.Excel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using DocumentFormat.OpenXml.Spreadsheet;
 using FarmaciaChavarria.Services;
+using PdfSharpCore.Drawing;
+using PdfSharpCore.Fonts;
+using PdfSharpCore.Pdf;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
@@ -44,6 +48,12 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
         [ObservableProperty]
         public bool cargando;
+
+        [ObservableProperty]
+        public string mensajeExito;
+
+        [ObservableProperty]
+        public string mensajeError;
 
         public async Task CargarDatos()
         {
@@ -126,17 +136,17 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
 
                     // Llenar datos
 
-                        worksheet.Cell(4, 1).Value = DashboardData.TotalFacturasDelMes;
-                        worksheet.Cell(4, 2).Value = DashboardData.VentasDelMes;
-                        worksheet.Cell(4, 3).Value = DashboardData.TotalMedicamentosVendidosDelMes;
+                    worksheet.Cell(4, 1).Value = DashboardData.TotalFacturasDelMes;
+                    worksheet.Cell(4, 2).Value = DashboardData.VentasDelMes;
+                    worksheet.Cell(4, 3).Value = DashboardData.TotalMedicamentosVendidosDelMes;
 
                     var firstRowRange = worksheet.Range("A4:C4");
                     firstRowRange.Style.Font.FontSize = 16;
                     firstRowRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
 
                     worksheet.Cell(4, 2).Style.Font.FontSize = 16;
-                        worksheet.Cell(4, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
-                        worksheet.Cell(4, 2).Style.NumberFormat.Format = "C$ #,##0.00";
+                    worksheet.Cell(4, 2).Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+                    worksheet.Cell(4, 2).Style.NumberFormat.Format = "C$ #,##0.00";
 
 
                     // Segunda Fila de datos
@@ -211,10 +221,10 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             }
             catch (Exception e)
             {
-                
+                MensajeError = $"Error: {e.Message}";
                 return null;
             }
-           
+
         }
 
         public byte[]? GenerarPdf(DashboardData data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteGeneral")
@@ -380,9 +390,106 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             }
             catch (Exception e)
             {
-
+                MensajeError = $"Error: {e.Message}";
                 return null;
             }
         }
+
+        public byte[]? GenerarPdfConPdfSharp(DashboardData data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteGeneral")
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(data.EstadoInventario))
+                    return null;
+
+                using var document = new PdfDocument();
+                var page = document.AddPage();
+                page.Size = PdfSharpCore.PageSize.A4;
+                page.Orientation = PdfSharpCore.PageOrientation.Portrait;
+
+                var gfx = XGraphics.FromPdfPage(page);
+                var fontTitle = new XFont("Arial", 20, XFontStyle.Bold);
+                var fontSubTitle = new XFont("Arial", 14, XFontStyle.Bold);
+                var fontText = new XFont("Arial", 12);
+
+                double y = 40;
+
+                // Título
+                gfx.DrawString("Reporte General", fontTitle, XBrushes.Blue, new XRect(0, y, page.Width, 30), XStringFormats.TopCenter);
+                y += 40;
+
+                // Fecha inicial y final
+                var fecha = DateTime.Now;
+                gfx.DrawString($"Fecha Inicial: {new DateTime(fecha.Year, fecha.Month, 1):dd/MM/yyyy}", fontText, XBrushes.Black, new XPoint(40, y));
+                gfx.DrawString($"Fecha Final: {new DateTime(fecha.Year, fecha.Month, DateTime.DaysInMonth(fecha.Year, fecha.Month)):dd/MM/yyyy}", fontText, XBrushes.Black, new XPoint(300, y));
+                y += 30;
+
+                // Totales (Facturas, Ventas, Medicamentos Vendidos)
+                gfx.DrawString($"Total de Facturas: {data.TotalFacturasDelMes}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Total de Ventas: C$ {data.VentasDelMes:#,##0.00}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Total de Medicamentos Vendidos: {data.TotalMedicamentosVendidosDelMes}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 30;
+
+                // Medicamentos disponibles, escasos y más vendido
+                gfx.DrawString($"Medicamentos Disponibles: {data.MedicamentosDisponibles}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Medicamentos Escasos: {data.MedicamentosEscasos}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Producto Más Vendido del Mes: {data.ProductoMasVendido}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 30;
+
+                // Categorías, proveedores, usuarios
+                gfx.DrawString($"Total Categorías: {data.CategoriasTotales}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Total Proveedores: {data.TotalProveedores}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Total Usuarios: {data.TotalUsuarios}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 30;
+
+                // Totales e inventario
+                gfx.DrawString($"Medicamentos Totales: {data.MedicamentosTotales}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 20;
+                gfx.DrawString($"Estado del Inventario: {data.EstadoInventario}", fontText, XBrushes.Black, new XPoint(40, y));
+                y += 30;
+
+                // Fecha de generación
+                gfx.DrawString($"Generado el {DateTime.Now:dd/MM/yyyy HH:mm}", fontText, XBrushes.Gray, new XPoint(40, y));
+
+                // Si hay imagen para el gráfico, la insertamos en una nueva página
+                if (imagenGrafico != null)
+                {
+                    var imgPage = document.AddPage();
+                    imgPage.Orientation = PdfSharpCore.PageOrientation.Landscape;
+                    var gfxImg = XGraphics.FromPdfPage(imgPage);
+
+                    using var ms = new MemoryStream(imagenGrafico);
+                    var image = XImage.FromStream(() => ms);
+
+                    double maxWidth = imgPage.Width - 60;
+                    double maxHeight = imgPage.Height - 60;
+
+                    double scaleX = maxWidth / image.PixelWidth;
+                    double scaleY = maxHeight / image.PixelHeight;
+                    double scale = Math.Min(scaleX, scaleY);
+
+                    double imgWidth = image.PixelWidth * scale;
+                    double imgHeight = image.PixelHeight * scale;
+
+                    gfxImg.DrawImage(image, (imgPage.Width - imgWidth) / 2, (imgPage.Height - imgHeight) / 2, imgWidth, imgHeight);
+                }
+
+                using var outputStream = new MemoryStream();
+                document.Save(outputStream);
+                return outputStream.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MensajeError = $"Error al generar PDF: {ex.Message}";
+                return null;
+            }
+        }
+
     }
 }

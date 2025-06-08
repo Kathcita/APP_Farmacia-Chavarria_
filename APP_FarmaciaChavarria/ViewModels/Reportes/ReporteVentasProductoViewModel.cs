@@ -3,6 +3,8 @@ using APP_FarmaciaChavarria.Models.ReporteModels;
 using ClosedXML.Excel;
 using CommunityToolkit.Mvvm.ComponentModel;
 using FarmaciaChavarria.Services;
+using PdfSharpCore.Drawing;
+using PdfSharpCore.Pdf;
 using QuestPDF.Fluent;
 using System;
 using System.Collections.Generic;
@@ -239,6 +241,71 @@ namespace APP_FarmaciaChavarria.ViewModels.Reportes
             {
                 Console.WriteLine("Error al generar el PDF: " + ex.Message);
                 MensajeError = "Error al generar el PDF: " + ex.Message;
+                return null;
+            }
+        }
+
+        public byte[] GenerarPdfConPdfSharp(List<ProductoVentasDTO> data, string nombreArchivo = "ReporteProductosVendidos")
+        {
+            try
+            {
+                using var document = new PdfDocument();
+                var page = document.AddPage();
+                page.Size = PdfSharpCore.PageSize.A4;
+                page.Orientation = PdfSharpCore.PageOrientation.Portrait;
+
+                var gfx = XGraphics.FromPdfPage(page);
+                var fontTitle = new XFont("OpenSans#", 20, XFontStyle.Bold);
+                var fontHeader = new XFont("OpenSans#", 14, XFontStyle.Bold);
+                var fontText = new XFont("OpenSans#", 12);
+
+                double y = 40;
+
+                // Título
+                gfx.DrawString("Reporte de Productos Vendidos", fontTitle, XBrushes.Blue, new XRect(0, y, page.Width, 30), XStringFormats.TopCenter);
+                y += 40;
+
+                // Fechas y usuario
+                gfx.DrawString($"Fecha Inicial: {PrimeraFecha:dd/MM/yyyy}", fontText, XBrushes.Black, new XPoint(40, y));
+                gfx.DrawString($"Fecha Final: {UltimaFecha:dd/MM/yyyy}", fontText, XBrushes.Black, new XPoint(300, y));
+                y += 30;
+
+                var usuario = UserId != 0 ? Usuarios.Find(u => u.id_usuario == UserId)?.nombre : null;
+                if (!string.IsNullOrEmpty(usuario))
+                {
+                    gfx.DrawString($"Usuario: {usuario}", fontText, XBrushes.Black, new XPoint(40, y));
+                    y += 30;
+                }
+
+                // Encabezados de tabla
+                gfx.DrawString("Producto", fontHeader, XBrushes.Black, new XPoint(40, y));
+                gfx.DrawString("Total", fontHeader, XBrushes.Black, new XPoint(400, y));
+                y += 25;
+
+                // Datos de productos vendidos
+                foreach (var producto in data)
+                {
+                    if (y > page.Height - 50)
+                    {
+                        // Añadir nueva página si se acaba el espacio
+                        page = document.AddPage();
+                        page.Size = PdfSharpCore.PageSize.A4;
+                        gfx = XGraphics.FromPdfPage(page);
+                        y = 40;
+                    }
+
+                    gfx.DrawString(producto.NombreProducto, fontText, XBrushes.Black, new XPoint(40, y));
+                    gfx.DrawString($"C$ {producto.TotalVentas:#,##0.00}", fontText, XBrushes.Black, new XPoint(400, y));
+                    y += 20;
+                }
+
+                using var outputStream = new MemoryStream();
+                document.Save(outputStream);
+                return outputStream.ToArray();
+            }
+            catch (Exception ex)
+            {
+                MensajeError = $"Error al generar PDF: {ex.Message}";
                 return null;
             }
         }

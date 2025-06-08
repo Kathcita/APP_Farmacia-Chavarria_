@@ -1,12 +1,15 @@
 ﻿using APP_FarmaciaChavarria.Components.Pages.UiCategorias;
+using APP_FarmaciaChavarria.Models.ReporteModels;
 using APP_FarmaciaChavarria.Service;
 using APP_FarmaciaChavarria.ViewModels;
 using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels;
 using APP_FarmaciaChavarria.ViewModels.ProveedoresViewModel;
 using APP_FarmaciaChavarria.ViewModels.Reportes;
+using CommunityToolkit.Maui;
 using FarmaciaChavarria.Services;
 using FarmaciaChavarria.ViewModels;
 using Microsoft.Extensions.Logging;
+using PdfSharpCore.Fonts;
 using Radzen;
 using System.Net.Http;
 
@@ -23,6 +26,7 @@ namespace APP_FarmaciaChavarria
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -42,6 +46,8 @@ namespace APP_FarmaciaChavarria
                     BaseAddress = new Uri(baseAddress)
                 };
             });
+
+            GlobalFontSettings.FontResolver = new OpenSansFontResolver();
 
             builder.Services.AddScoped<TokenHandlerService>();
             builder.Services.AddMauiBlazorWebView();

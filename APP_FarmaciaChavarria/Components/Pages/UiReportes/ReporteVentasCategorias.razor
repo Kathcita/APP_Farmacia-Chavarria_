@@ -2,6 +2,7 @@
 
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Globalization
+@using CommunityToolkit.Maui.Storage
 @using Radzen
 @using Radzen.Blazor
 @using System.Diagnostics
@@ -65,12 +66,12 @@
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
         </div>
-      <!--<div>
-            <label>Grupo de Medicamentos</label>
-            <select>
-                <option>- Seleccionar Categorías -</option>
-            </select>
-          </div> -->
+        <!--<div>
+        <label>Grupo de Medicamentos</label>
+        <select>
+        <option>- Seleccionar Categorías -</option>
+        </select>
+        </div> -->
         <div>
             <label>Nombre de Usuario</label>
             <select @onchange="OnUserChanged" value="@ViewModel.UserId">
@@ -83,37 +84,37 @@
         </div>
     </div>
 
-        <div class="contenido-reporte">
-            <div class="grafico"> 
-                <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
+    <div class="contenido-reporte">
+        <div class="grafico"> 
+            <RadzenStack class="rz-p-0 rz-p-md-6 rz-p-lg-12">
 
-    <RadzenCard Variant="Variant.Outlined">
-        <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
-            <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
-            <RadzenLabel Text="Mostrar números" Component="dataLabels" />
-        </RadzenStack>
-    </RadzenCard>
+                <RadzenCard Variant="Variant.Outlined">
+                    <RadzenStack Orientation="Orientation.Horizontal" AlignItems="AlignItems.Center" Gap="0.5rem" Wrap="FlexWrap.Wrap">
+                        <RadzenCheckBox @bind-Value="@showDataLabels" Name="dataLabels"></RadzenCheckBox>
+                        <RadzenLabel Text="Mostrar números" Component="dataLabels" />
+                    </RadzenStack>
+                </RadzenCard>
 
-    <RadzenRow>
-        <RadzenColumn Size="12">
-            <RadzenChart>
+                <RadzenRow>
+                    <RadzenColumn Size="12">
+                        <RadzenChart>
 
-                <RadzenColumnSeries Data="@ViewModel.VentasCategoria" CategoryProperty="NombreCategoria" LineType="LineType.Dashed" ValueProperty="TotalVentas">
-                    <RadzenSeriesDataLabels Visible="@showDataLabels" />
-                </RadzenColumnSeries>
+                            <RadzenColumnSeries Data="@ViewModel.VentasCategoria" CategoryProperty="NombreCategoria" LineType="LineType.Dashed" ValueProperty="TotalVentas">
+                                <RadzenSeriesDataLabels Visible="@showDataLabels" />
+                            </RadzenColumnSeries>
 
-                <RadzenColumnOptions Radius="5" />
-                <RadzenValueAxis Formatter="@FormatAsNIO">
-                    <RadzenGridLines Visible="true" />
-                    <RadzenAxisTitle Text="Ventas en còrdobas" />
-                </RadzenValueAxis>
-            </RadzenChart>
-        </RadzenColumn>
+                            <RadzenColumnOptions Radius="5" />
+                            <RadzenValueAxis Formatter="@FormatAsNIO">
+                                <RadzenGridLines Visible="true" />
+                                <RadzenAxisTitle Text="Ventas en còrdobas" />
+                            </RadzenValueAxis>
+                        </RadzenChart>
+                    </RadzenColumn>
                 </RadzenRow>
 
             </RadzenStack>
-            </div>
         </div>
+    </div>
 </div>
 
 <div id="grafico-reporte-export" style="position: absolute; top: -9999px; width: 1200px; height: 550px; display:none;">
@@ -176,41 +177,27 @@
         var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasCategoria);
         var nombreArchivo = $"ReporteDeVentasCategorias_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
-        if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+        try
         {
-            try
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+    DeviceInfo.Current.Platform == DevicePlatform.iOS)
             {
-                // Usar el método de guardado específico para Android
-                await SaveAndroidFile(nombreArchivo, fileBytes);
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(fileBytes),
+            new CancellationToken());
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
-                // Mostrar algún mensaje al usuario
+                await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+
             }
         }
-        else
+        catch (Exception ex)
         {
-            await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+            Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
+            // Mostrar algún mensaje al usuario
         }
-    }
-
-    private async Task SaveAndroidFile(string fileName, byte[] fileBytes)
-    {
-        // Obtener el directorio de descargas público
-        var downloadsPath = Android.OS.Environment.GetExternalStoragePublicDirectory(
-            Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-
-        var filePath = Path.Combine(downloadsPath, fileName);
-
-        // Escribir el archivo
-        File.WriteAllBytes(filePath, fileBytes);
-
-        // Notificar al sistema que hay un nuevo archivo
-        var mediaScanIntent = new Android.Content.Intent(
-            Android.Content.Intent.ActionMediaScannerScanFile);
-        mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
-        Android.App.Application.Context.SendBroadcast(mediaScanIntent);
 
     }
 
@@ -232,13 +219,35 @@
 
         var imagenGrafico = await CapturarGraficoComoImagen();
 
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasCategoria, imagenGrafico);
-
-        if (pdfBytes != null)
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+    DeviceInfo.Current.Platform == DevicePlatform.iOS)
         {
-            var nombreArchivo = $"ReporteDeVentasCategorias_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
-            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            var pdfBytes = ViewModel.GenerarPdfVentasPorCategoriaConPdfSharp(ViewModel.VentasCategoria, imagenGrafico);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasCategorias_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(pdfBytes),
+            new CancellationToken());
+
+                ViewModel.MensajeExito = "El archivo se guardó exitosamente";
+            }
         }
+        else
+        {
+            var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasCategoria, imagenGrafico);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasCategorias_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            }
+        }
+
+
+        
     }
 }
 

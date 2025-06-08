@@ -16,6 +16,8 @@ using Microsoft.JSInterop;
 using QuestPDF.Fluent;
 using QuestPDF.Helpers;
 using QuestPDF.Infrastructure;
+using PdfSharpCore.Drawing;
+using PdfSharpCore.Pdf;
 
 
 namespace APP_FarmaciaChavarria.ViewModels.Reportes
@@ -317,6 +319,109 @@ public byte[] GenerarExcelYDescargar(List<RevenueDataItem> data, string nombreAr
             }
         }
 
+        public byte[] GenerarPdfConPdfSharpCore(List<RevenueDataItem> data, byte[] imagenGrafico = null, string nombreArchivo = "ReporteDeVentas")
+        {
+            try
+            {
+                if (data == null || data.Count == 0)
+                {
+                    MensajeError = "No hay datos para generar el reporte.";
+                    return null;
+                }
+
+                var usuario = UserId != 0 ? Usuarios.Find(u => u.id_usuario == UserId)?.nombre : null;
+
+                using var stream = new MemoryStream();
+                var document = new PdfDocument();
+
+                // --- Página 1: Datos y tabla ---
+                var page = document.AddPage();
+                page.Size = PdfSharpCore.PageSize.A4;
+                var gfx = XGraphics.FromPdfPage(page);
+
+                double margin = 40;
+                double y = margin;
+
+                var titleFont = new XFont("Arial", 20, XFontStyle.Bold);
+                var headerFont = new XFont("Arial", 12, XFontStyle.Bold);
+                var normalFont = new XFont("Arial", 12, XFontStyle.Regular);
+
+                // Título
+                gfx.DrawString("Reporte de Ventas", titleFont, XBrushes.DarkBlue, new XRect(0, y, page.Width, 30), XStringFormats.TopCenter);
+                y += 50;
+
+                // Fechas y usuario
+                gfx.DrawString($"Fecha Inicial: {PrimeraFecha:dd/MM/yyyy}", normalFont, XBrushes.Black, new XPoint(margin, y));
+                y += 20;
+                gfx.DrawString($"Fecha Final: {UltimaFecha:dd/MM/yyyy}", normalFont, XBrushes.Black, new XPoint(margin, y));
+                y += 20;
+
+                if (!string.IsNullOrEmpty(usuario))
+                {
+                    gfx.DrawString($"Usuario: {usuario}", normalFont, XBrushes.Black, new XPoint(margin, y));
+                    y += 30;
+                }
+
+                // Tabla
+                gfx.DrawString("Fecha", headerFont, XBrushes.Black, new XPoint(margin, y));
+                gfx.DrawString("Total", headerFont, XBrushes.Black, new XPoint(margin + 250, y));
+                y += 20;
+
+                foreach (var item in data)
+                {
+                    gfx.DrawString($"{item.Date:MMMM yyyy}", normalFont, XBrushes.Black, new XPoint(margin, y));
+                    gfx.DrawString($"C$ {item.Revenue:#,##0.00}", normalFont, XBrushes.Black, new XPoint(margin + 250, y));
+                    y += 20;
+                }
+
+                y += 30;
+                gfx.DrawString($"Generado el {DateTime.Now:dd/MM/yyyy HH:mm}", normalFont, XBrushes.Gray, new XPoint(margin, page.Height - margin));
+
+                // --- Página 2: Imagen (gráfico) en orientación horizontal ---
+                if (imagenGrafico != null)
+                {
+                    var page2 = document.AddPage();
+                    page2.Size = PdfSharpCore.PageSize.A4;
+                    page2.Orientation = PdfSharpCore.PageOrientation.Landscape;
+                    var gfx2 = XGraphics.FromPdfPage(page2);
+
+                    var imageStream = new MemoryStream(imagenGrafico);
+                    var image = XImage.FromStream(() => imageStream);
+
+                    // Título
+                    gfx2.DrawString("Gráfico de Ventas", titleFont, XBrushes.DarkBlue, new XRect(0, 30, page2.Width, 30), XStringFormats.TopCenter);
+
+                    // Imagen centrada
+                    double imageMaxWidth = page2.Width - 100;
+                    double imageMaxHeight = page2.Height - 100;
+                    double imgWidth = image.PixelWidth;
+                    double imgHeight = image.PixelHeight;
+                    double ratio = Math.Min(imageMaxWidth / imgWidth, imageMaxHeight / imgHeight);
+
+                    double drawWidth = imgWidth * ratio;
+                    double drawHeight = imgHeight * ratio;
+
+                    gfx2.DrawImage(image,
+                        (page2.Width - drawWidth) / 2,
+                        (page2.Height - drawHeight) / 2 + 20,
+                        drawWidth,
+                        drawHeight
+                    );
+                }
+
+                // Guardar
+                document.Save(stream, false);
+                MensajeExito = "El archivo pdf se guardó exitosamente en memoria";
+                MensajeError = "";
+                return stream.ToArray();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al generar el PDF: " + ex.Message);
+                MensajeError = "Error al generar el PDF: " + ex.Message;
+                return null;
+            }
+        }
 
 
     }

@@ -6,6 +6,8 @@
 @using System.Diagnostics
 @using System.Globalization
 @using System.Net.Http.Headers
+@using CommunityToolkit.Maui.Storage
+@using Microsoft.Maui.Controls.PlatformConfiguration
 
 @inject NavigationManager Navigation
 @inject DashboardViewModel ViewModel
@@ -13,6 +15,22 @@
 @inject TokenHandlerService TokenHandler
 
 
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
 
 @if(ViewModel.Cargando){
     <p>Cargando información...</p>
@@ -266,6 +284,75 @@
     height: 550px;
     display: none;
     }
+
+    /*Estilos para mensaje de error*/
+
+    .alert-error {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+    }
+
+    .alert-error button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    @@keyframes fadein {
+    from {
+    opacity: 0;
+    }
+
+    to {
+    opacity: 1;
+    }
+    }
+
+    /*Estilos para mensaje de éxito*/
+    .alert-success {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+    }
+
+    .alert-success button {
+    background: transparent;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    }
+
+    @@keyframes fadein {
+    from {
+    opacity: 0;
+    }
+
+    to {
+    opacity: 1;
+    }
+    }
 </style>
 
 @code {
@@ -300,6 +387,8 @@
     protected override async Task OnInitializedAsync()
     {
         await ViewModel.CargarDatos();
+        ViewModel.MensajeExito = "";
+        ViewModel.MensajeError = "";
     }
 
     private void NavegarAProductosEscasos()
@@ -333,43 +422,29 @@
         var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.DashboardData);
         var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
-        if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+        try
         {
-            try
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+    DeviceInfo.Current.Platform == DevicePlatform.iOS)
             {
-                // Usar el método de guardado específico para Android
-                await SaveAndroidFile(nombreArchivo, fileBytes);
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(fileBytes),
+            new CancellationToken());
+
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
-                // Mostrar algún mensaje al usuario
+                await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
             }
+
+            ViewModel.MensajeExito = "El archivo se guardó exitosamente";
         }
-        else
+        catch (Exception ex)
         {
-            await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+            Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
+            ViewModel.mensajeError = ex.Message;
         }
-
-    }
-
-    private async Task SaveAndroidFile(string fileName, byte[] fileBytes)
-    {
-        // Obtener el directorio de descargas público
-        var downloadsPath = Android.OS.Environment.GetExternalStoragePublicDirectory(
-            Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-
-        var filePath = Path.Combine(downloadsPath, fileName);
-
-        // Escribir el archivo
-        File.WriteAllBytes(filePath, fileBytes);
-
-        // Notificar al sistema que hay un nuevo archivo
-        var mediaScanIntent = new Android.Content.Intent(
-            Android.Content.Intent.ActionMediaScannerScanFile);
-        mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
-        Android.App.Application.Context.SendBroadcast(mediaScanIntent);
-
     }
 
     private async Task<byte[]> CapturarGraficoComoImagen()
@@ -390,13 +465,38 @@
 
         var imagenGrafico = await CapturarGraficoComoImagen();
         Debug.WriteLine($"Imagen {imagenGrafico}");
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.DashboardData, imagenGrafico);
 
-        if (pdfBytes != null)
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+       DeviceInfo.Current.Platform == DevicePlatform.iOS)
         {
-            var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
-            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            var pdfBytes = ViewModel.GenerarPdfConPdfSharp(ViewModel.DashboardData, imagenGrafico);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(pdfBytes),
+            new CancellationToken());
+
+                ViewModel.MensajeExito = "El archivo se guardó con éxito";
             }
+        }
+        else
+        {
+            var pdfBytes = ViewModel.GenerarPdf(ViewModel.DashboardData, imagenGrafico);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteGeneral_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+                ViewModel.MensajeExito = "El archivo se guardó con éxito";
+            }
+        }
+        
+
+
     }
 
     private static string ObtenerMesAbreviado()

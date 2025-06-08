@@ -3,24 +3,25 @@
 @using APP_FarmaciaChavarria.ViewModels.Reportes
 @using System.Diagnostics
 @using System.Globalization
+@using CommunityToolkit.Maui.Storage
 
 @inject ReporteVentasProductoViewModel ViewModel
 @inject IJSRuntime JSRuntime
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
 {
-        <div class="alert-error">
-            <span>@ViewModel.MensajeError</span>
-            <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
-        </div>
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
 }
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
 {
-        <div class="alert-success">
-            <span>@ViewModel.MensajeExito</span>
-            <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
-        </div>
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
 }
 
 
@@ -63,12 +64,12 @@
                 <button @onclick="() => ActualizarDatos()">Buscar</button>
             </div>
         </div>
-      <!--<div>
-            <label>Grupo de Medicamentos</label>
-            <select>
-                <option>- Seleccionar Categorías -</option>
-            </select>
-          </div> -->
+        <!--<div>
+        <label>Grupo de Medicamentos</label>
+        <select>
+        <option>- Seleccionar Categorías -</option>
+        </select>
+        </div> -->
         <div>
             <label>Nombre de Usuario</label>
             <select @onchange="OnUserChanged" value="@ViewModel.UserId">
@@ -105,25 +106,27 @@
         </table>
     </div>
 
-   </div>
+</div>
 
 @code {
-        protected override async Task OnInitializedAsync()
-        {
-            await ViewModel.CargarUsuarios();
-            await ActualizarDatos();
-        }
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarUsuarios();
+        await ActualizarDatos();
+        ViewModel.MensajeExito = "";
+        ViewModel.MensajeError = "";
+    }
 
-        protected async Task ActualizarDatos()
-        {
-            await ViewModel.CargarTotalVentas();
-        }
+    protected async Task ActualizarDatos()
+    {
+        await ViewModel.CargarTotalVentas();
+    }
 
-        private async Task OnUserChanged(ChangeEventArgs e)
-        {
-            ViewModel.UserId = Convert.ToInt32(e.Value);
-            await ActualizarDatos(); // Llama a tu método para cargar datos
-        }
+    private async Task OnUserChanged(ChangeEventArgs e)
+    {
+        ViewModel.UserId = Convert.ToInt32(e.Value);
+        await ActualizarDatos(); // Llama a tu método para cargar datos
+    }
 
     private string FormatAsNIO(object value)
     {
@@ -137,72 +140,77 @@
         return Convert.ToDecimal(value).ToString("C2", culture);
     }
 
-        // Funciones para la descarga de reporte en excel o pdf
+    // Funciones para la descarga de reporte en excel o pdf
 
 
-        private bool mostrarOpciones = false;
+    private bool mostrarOpciones = false;
 
-        private void ToggleOpcionesDescarga()
-        {
-            mostrarOpciones = !mostrarOpciones;
-        }
+    private void ToggleOpcionesDescarga()
+    {
+        mostrarOpciones = !mostrarOpciones;
+    }
 
-        private async Task DescargarExcel()
-        {
-            mostrarOpciones = false;
-        
+    private async Task DescargarExcel()
+    {
+        mostrarOpciones = false;
+
         var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasProducto);
         var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
 
-        if (DeviceInfo.Current.Platform == DevicePlatform.Android)
+        try
         {
-            try
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+   DeviceInfo.Current.Platform == DevicePlatform.iOS)
             {
-                // Usar el método de guardado específico para Android
-                await SaveAndroidFile(nombreArchivo, fileBytes);
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(fileBytes),
+            new CancellationToken());
             }
-            catch (Exception ex)
+            else
             {
-                Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
-                // Mostrar algún mensaje al usuario
+                await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
+            // Mostrar algún mensaje al usuario
+        }
+    }
+
+    private async Task DescargarPdf()
+    {
+        mostrarOpciones = false;
+
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+       DeviceInfo.Current.Platform == DevicePlatform.iOS)
+        {
+            var pdfBytes = ViewModel.GenerarPdfConPdfSharp(ViewModel.VentasProducto);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(pdfBytes),
+            new CancellationToken());
+                ViewModel.MensajeExito = "El archivo se guardó exitosamente";
             }
         }
         else
         {
-            await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
-        }
-    }
+            var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasProducto);
 
-    private async Task SaveAndroidFile(string fileName, byte[] fileBytes)
-    {
-        // Obtener el directorio de descargas público
-        var downloadsPath = Android.OS.Environment.GetExternalStoragePublicDirectory(
-            Android.OS.Environment.DirectoryDownloads).AbsolutePath;
-
-        var filePath = Path.Combine(downloadsPath, fileName);
-
-        // Escribir el archivo
-        File.WriteAllBytes(filePath, fileBytes);
-
-        // Notificar al sistema que hay un nuevo archivo
-        var mediaScanIntent = new Android.Content.Intent(
-            Android.Content.Intent.ActionMediaScannerScanFile);
-        mediaScanIntent.SetData(Android.Net.Uri.FromFile(new Java.IO.File(filePath)));
-        Android.App.Application.Context.SendBroadcast(mediaScanIntent);
-
-    }
-
-        private async Task DescargarPdf()
-        {
-            mostrarOpciones = false;
-
-        var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasProducto); 
-
-        if (pdfBytes != null)
-        {
-            var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
-            await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
             }
+        }
     }
 }
 
