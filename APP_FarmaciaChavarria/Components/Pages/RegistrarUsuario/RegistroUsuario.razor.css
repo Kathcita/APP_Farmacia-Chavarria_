@@ -1,0 +1,342 @@
+﻿/* RESET */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+select {
+    padding: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6fa;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h2 {
+    color: #3c3c3c;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+    h2 span {
+        font-weight: bold;
+        color: #000;
+    }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd1d9;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.pin-inputs {
+    display: flex;
+    gap: 10px;
+}
+
+    .pin-inputs input {
+        flex: 1;
+        padding: 10px;
+        font-size: 18px;
+        text-align: center;
+        border: 1px solid #ccd1d9;
+        border-radius: 5px;
+        max-width: 60px;
+    }
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccd1d9;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+    .dropdown-item:hover {
+        background-color: #f1f1f1;
+    }
+
+.save-btn {
+    background-color: #e53935;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 100%;
+}
+
+    .save-btn:hover {
+        background-color: #d32f2f;
+    }
+/* Estilo para tabla de lista de usuarios */
+.user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+    .user-table thead {
+        background-color: #e53935;
+        color: white;
+        text-align: left;
+    }
+
+    .user-table th, .user-table td {
+        padding: 12px 16px;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 15px;
+    }
+
+    .user-table tbody tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    .user-table td button {
+        margin-right: 8px;
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+        .user-table td button:first-child {
+            background-color: #1976d2;
+            color: white;
+        }
+
+            .user-table td button:first-child:hover {
+                background-color: #1565c0;
+            }
+
+        .user-table td button:last-child {
+            background-color: #d32f2f;
+            color: white;
+        }
+
+            .user-table td button:last-child:hover {
+                background-color: #b71c1c;
+            }
+
+/* Responsivo para tabla */
+@media (max-width: 768px) {
+    .user-table thead {
+        display: none;
+    }
+
+    .user-table, .user-table tbody, .user-table tr, .user-table td {
+        display: block;
+        width: 100%;
+    }
+
+        .user-table tr {
+            margin-bottom: 15px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .user-table td {
+            text-align: right;
+            padding-left: 50%;
+            position: relative;
+        }
+
+            .user-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 16px;
+                top: 12px;
+                font-weight: bold;
+                text-align: left;
+            }
+
+            .user-table td button {
+                width: 100%;
+                margin: 6px 0;
+            }
+}
+
+/*Estilos para mensaje de error*/
+
+.alert-error {
+    position: absolute;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+}
+
+    .alert-error button {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/*Estilos para mensaje de éxito*/
+.alert-success {
+    position: absolute;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    position: relative;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: fadein 0.3s ease-in-out;
+}
+
+    .alert-success button {
+        background: transparent;
+        border: none;
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Responsive: Tablets y Celulares */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    .pin-inputs input {
+        max-width: 50px;
+        font-size: 16px;
+    }
+
+    .save-btn {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pin-inputs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+        .pin-inputs input {
+            flex: 1 1 45%;
+            max-width: none;
+        }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    .dropdown-btn {
+        font-size: 14px;
+    }
+
+    .save-btn {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+}

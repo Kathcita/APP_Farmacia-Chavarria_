@@ -1,0 +1,275 @@
+﻿@page "/Proveedores"
+@using APP_FarmaciaChavarria.ViewModels.ProveedoresViewModel
+@inject ProveedoresViewModel ViewModel
+@inject NavigationManager Navigation
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inventario - Proveedores</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body >
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+    {
+        <div class="alert-error">
+            <span>@ViewModel.MensajeError</span>
+            <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+        </div>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+    {
+        <div class="alert-success">
+            <span>@ViewModel.MensajeExito</span>
+            <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+        </div>
+    }
+
+    <div class="container" >
+        <div class="breadcrumb" >
+            <strong> Inventario</strong> &rsaquo; <strong class="active"> Proveedores</strong>
+        </div >
+        <p class="subtitle" > Lista de Proveedores</p >
+        <div class="top-bar">
+            <div class="search-box">
+                <input type="text" placeholder="Buscar Proveedores" @bind=ViewModel.BusquedaProvedor @onkeydown="ManejarTeclaEnter" />
+                <button class="search-btn" @onclick="() => ViewModel.BuscarProveedor(1)"> 🔍</button>
+            </div>
+            <button class="add-btn" @onclick="() => NavegarAgregarProveedor()">
+                <span>➕</span> Agregar Proveedores
+            </button>
+        </div>
+        <table >
+            <thead >
+                <tr >
+                    <th > Nombre del Proveedor</th >
+                    <th > Teléfono </th >
+                    <th > Acción</th >
+                </tr >
+            </thead >
+            <tbody >
+                @foreach (var prov in ViewModel.Proveedor)
+                {
+                    <tr >
+                        <td> @prov.nombre </td>
+                        <td> @prov.telefono </td>
+                        <td > <a href="#" @onclick="() => NavegarActualizarProveedor(prov.id_proveedor)"> Ver detalles →</a > </td >
+                    </tr >
+                }
+            </tbody >
+        </table >
+
+        <div class="pagination">
+            <span>Mostrando 1 - @ViewModel.TamañoDePaginaProv resultados de @ViewModel.TotalDeproveedores</span>
+            <div class="page-controls">
+                <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+                <span>Pág @ViewModel.NumeroPaginaprov</span>
+                <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+            </div>
+        </div>
+    </div >
+</body >
+
+@code {
+    void NavegarAgregarProveedor()
+    {
+        Navigation.NavigateTo($"/AgregarProveedor");
+    }
+
+    void NavegarActualizarProveedor(int id)
+    {
+        Navigation.NavigateTo($"/ActualizarProveedor/{id}");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProveedores();
+        ViewModel.MensajeError = "";
+        ViewModel.MensajeExito = "";
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task SiguientePagina()
+    {
+        if (ViewModel.NumeroPaginaprov < ViewModel.TotalDePaginasProv && ViewModel.FiltroBusquedaProv == true)
+        {
+            ViewModel.NumeroPaginaprov += 1;
+            
+            await ViewModel.BuscarProveedor(ViewModel.NumeroPaginaprov);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaprov < ViewModel.TotalDePaginasProv)
+        {
+            ViewModel.NumeroPaginaprov += 1;
+            await ViewModel.CargarProveedores();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnterior()
+    {
+        if (ViewModel.NumeroPaginaprov > 1 && ViewModel.FiltroBusquedaProv == true)
+        {
+            ViewModel.NumeroPaginaprov -= 1;
+            await ViewModel.BuscarProveedor(ViewModel.NumeroPaginaprov);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaprov > 1)
+        {
+            ViewModel.NumeroPaginaprov -= 1;
+            await ViewModel.CargarProveedores();
+        }
+    }
+
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarProveedor(1);
+        }
+    }
+}
+
+    <style >
+
+        .container {
+    background: #f4f7fa;
+    margin: auto;
+    padding:30px;
+    border-radius: 8px;
+}
+
+.breadcrumb {
+    font-size: 18px;
+    color: #444;
+}
+
+    .breadcrumb .active {
+        font-weight: 700;
+    }
+
+.subtitle {
+    margin-top: 5px;
+    color: #666;
+    font-size: 14px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    overflow: hidden;
+    background: white;
+}
+
+    .search-box input {
+        padding: 8px;
+        border: none;
+        outline: none;
+        width: 400px;
+    }
+.add-btn {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 400;
+}
+
+.search-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+th, td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f9fbfd;
+    font-weight: bold;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /*Estilos para el componente de paginación de datos*/
+    .pagination {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .page-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    @@media(max-width: 1000px){
+        .top-bar{
+            max-width:100%;
+            flex-direction:column;
+            align-items:center;
+            justify-content:center;
+            gap:10px;
+        }
+
+        .search-box{
+            max-width: 100%;
+        }
+    }
+
+    @@media(max-width: 768px){
+            .page-controls {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+        .pagination{
+            flex-direction:column;
+        }
+
+    .pagination span{
+        text-align:center;
+    }
+    }
+    </style >

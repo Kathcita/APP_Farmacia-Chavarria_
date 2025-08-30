@@ -1,0 +1,37 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
+
+@if (Navigation.Uri.Contains("login"))
+{
+    @Body
+}
+else
+{
+    <div class="page">
+        <button @onclick="ToggleMenu" class="menuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="sidebar @(isMenuOpen ? "open" : "close")">
+            <NavMenu OnLinkClicked="CerrarSidebar" />
+        </div> 
+
+        <main>
+           <!--  <div class="top-row px-4">
+                <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+            </div>
+             -->
+            <article class="content px-4">
+                @Body
+            </article>
+            
+        </main>
+    </div>
+}
+
+@code{
+    private bool isMenuOpen = true;
+
+    private void ToggleMenu() => isMenuOpen = !isMenuOpen;
+    private void CerrarSidebar() => isMenuOpen = false;
+}

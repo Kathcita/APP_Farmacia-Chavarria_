@@ -1,0 +1,315 @@
+﻿@page "/laboratorios"
+
+@using APP_FarmaciaChavarria.Models.AuthRequest
+@using Microsoft.AspNetCore.Components.Web
+@using APP_FarmaciaChavarria.ViewModels
+@inject CrearLaboratorioViewModel ViewModel
+@inject NavigationManager Navigation
+
+<div class="inventory-container">
+    <div class="header">
+        <div class="title-section">
+            <h3><span class="gray-text">Laboratorios</span> › <strong>Lista de Laboratorios</strong></h3>
+            <p>Listado de laboratorios registrados en el sistema</p>
+        </div>
+        <button class="btn-add" @onclick="NavegarCrearLaboratorio">
+            <span>➕</span> Agregar Laboratorio
+        </button>
+    </div>
+
+    <div class="search-filter-bar">
+        <input class="search-box"
+               placeholder="Buscar por nombre"
+               value="@laboratorioABuscar"
+               @oninput="ActualizarLaboratorioABuscar"
+               @onkeydown="ManejarTeclaEnter" />
+        <button @onclick="BuscarLaboratorio">Buscar</button>
+    </div>
+
+    <table class="medicine-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                @if (UserStatic.Rol == "Administrador")
+                {           
+                <th>Acción</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @if (ViewModel.Laboratorios is not null && ViewModel.Laboratorios.Count > 0)
+            {
+                @foreach (var item in ViewModel.Laboratorios)
+                {
+                    <tr>
+                        <td>@item.id_laboratorio</td>
+                        <td>@item.nombre</td>
+                        @if (UserStatic.Rol == "Administrador")
+                        {
+                            <td>
+                            <a class="view-link" href="#" @onclick="() => NavegarAlDetalle(item.id_laboratorio)">
+                                Actualizar »
+                            </a>
+                        </td>
+                        }
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="3">No hay laboratorios para mostrar.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+    {
+        <div class="error-message">@ViewModel.MensajeError</div>
+    }
+</div>
+
+@code {
+    private string laboratorioABuscar = string.Empty;
+
+    private void ActualizarLaboratorioABuscar(ChangeEventArgs e)
+    {
+        laboratorioABuscar = e.Value?.ToString() ?? string.Empty;
+    }
+
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await BuscarLaboratorio();
+        }
+    }
+
+    private async Task BuscarLaboratorio()
+    {
+        if (!string.IsNullOrWhiteSpace(laboratorioABuscar))
+        {
+            var resultado = await ViewModel.LaboratorioService.ObtenerLaboratorioPorNombreAsync(laboratorioABuscar);
+            if (resultado != null && resultado.Laboratorios.Any())
+            {
+                ViewModel.Laboratorios = resultado.Laboratorios;
+                ViewModel.MensajeError = string.Empty;
+            }
+            else
+            {
+                ViewModel.Laboratorios.Clear();
+                ViewModel.MensajeError = "No se encontraron laboratorios con ese nombre.";
+            }
+        }
+        else
+        {
+            await ViewModel.CargarLaboratoriosAsync();
+        }
+    }
+
+    private void NavegarAlDetalle(int id)
+    {
+        Navigation.NavigateTo($"/actualizarLaboratorio/{id}");
+    }
+
+    private void NavegarCrearLaboratorio()
+    {
+        Navigation.NavigateTo($"/crearLaboratorio");
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarLaboratoriosAsync();
+    }
+}
+
+                <style>
+    .inventory-container {
+        padding: 20px;
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f3f6f9;
+        height: 100vh; /* o usa min-height si tienes scroll */
+        box-sizing: border-box;
+    }
+
+    /*Cabezera de la interfaz*/
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .title-section h3 {
+        margin: 0;
+        font-size: 20px;
+    }
+
+    .title-section p {
+        margin: 4px 0 0 0;
+        font-size: 14px;
+        color: #6b7280;
+    }
+
+    .gray-text {
+        color: #9ca3af;
+    }
+
+    .btn-add {
+        background-color: #ef4444;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 500;
+    }
+
+    /*Contenedor de barra de búsqueda y combobox de filtro de categorías*/
+    .search-filter-bar {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .search-box {
+        flex-grow: 1;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+    }
+
+    .category-select {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #cbd5e1;
+        background-color: white;
+    }
+
+    .medicine-table {
+        width: 100%;
+        border-collapse: collapse;
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+        .medicine-table th,
+        .medicine-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .medicine-table th {
+            background-color: #f9fafb;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+    .view-link {
+        color: #2563eb;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    /*Estilos para el componente de paginación de datos*/
+    .pagination {
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .page-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-btn {
+        background-color: white;
+        border: 1px solid #cbd5e1;
+        border-radius: 4px;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    /*Responsive mobile*/
+    @@media (max-width: 768px) {
+        .header
+
+    {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .btn-add {
+        width: 100%;
+        text-align: center;
+    }
+
+    .search-filter-bar {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+        .search-filter-bar input,
+        .search-filter-bar button,
+        .category-select {
+            width: 100%;
+        }
+
+    .page-controls {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .pagination {
+        flex-direction: column;
+    }
+
+        .pagination span {
+            text-align: center;
+        }
+
+    }
+
+    .modal-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .modal {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        width: 300px;
+    }
+
+    .modal-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-buttons button {
+        margin-right: 10px;
+    }
+
+    .btn-accion {
+        margin-right: 5px;
+    }
+
+                    </style>

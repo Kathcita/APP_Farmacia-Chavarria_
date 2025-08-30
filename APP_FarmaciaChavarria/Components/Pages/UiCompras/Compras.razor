@@ -1,0 +1,346 @@
+﻿@page "/compra"
+@using API_FarmaciaChavarria.Models
+@using APP_FarmaciaChavarria.Models.ModelsDTO
+@using System.Diagnostics
+@inject FarmaciaChavarria.ViewModels.CompraViewModel ViewModel
+
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+<div class="container">
+    <h2 class="title">Compra</h2>
+
+    <div class="form-group">
+        <label>No. Factura <span style="color:red">*</span></label>
+        <input readonly class="form-control"
+        value="@ViewModel.NumeroCompra" />
+    </div>
+    <div class="form-section">
+        <div class="form-group">
+            <label>Proveedor <span style="color:red">*</span></label>
+            @if(ViewModel.DetallesCompra.Count > 0)
+            {
+                <input readonly @onclick="()=>ModalProveedores = true" class="form-control"
+                value="@ViewModel.NombreProv" placeholder="Seleccionar Proveedor" disabled/>
+            }
+            else
+            {
+                <input readonly @onclick="()=>ModalProveedores = true" class="form-control"
+                value="@ViewModel.NombreProv" placeholder="Seleccionar Proveedor" />
+            }
+        </div>
+
+        <div class="form-group">
+            <label>Producto <span style="color:red">*</span></label>
+            <input readonly @onclick="()=>mostrarModal = true" class="form-control"
+            value="@ViewModel.NombreProd" placeholder="Seleccionar Producto" />
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad</label>
+            <input type="number" class="input" min="1" @bind="ViewModel.Cant" />
+        </div>
+
+
+    </div>
+
+    <button class="btn btn-primary mt-2" @onclick="() => ViewModel.AgregarProductoAlDetalle()">
+        ➕ Agregar Producto
+    </button>
+
+    <!-- DETALLES FACTURA -->
+    <div class="table-container">
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Sub Total</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detalle in ViewModel.DetallesCompra)
+            {
+                <tr>
+                    <td>@detalle.nombreProducto</td>
+                    <td>@detalle.cantidad</td>
+                    <td>C$ @detalle.precio_unitario</td>
+                    <td>C$ @detalle.subtotal</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm" @onclick="() => QuitarDetalle(detalle)">Quitar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="total-label">Total</td>
+                <td colspan="2" class="total-value">C$ @ViewModel.DetallesCompra.Sum(d => d.subtotal)</td>
+            </tr>
+        </tfoot>
+    </table>
+    </div>
+    <br>
+    <br>
+    <div class="form-group right-align">
+        <button class="btn-red" @onclick="async () => await ViewModel.CrearCompra()">Guardar Compra</button>
+    </div>
+</div>
+@if (mostrarModal)
+{
+    <div class="modal-backdrop">
+        <div class="modal-content">
+            <h3>Seleccionar Producto</h3>
+
+            <div class="modal-body">
+                <div class="d-flex mb-2 searchbox" style="gap: 8px;">
+                    <input type="text" class="form-control" placeholder="Buscar Producto..."
+                    @bind="ViewModel.BusquedaProductos"
+                    @onkeydown="ManejarTeclaPresionada" />
+
+                    <button class="btn btn-primary" @onclick="() => ViewModel.BuscarProductos(1)">
+                        Buscar
+                    </button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <div class="row-flex">
+                                    <span>Nombre</span>
+                                    <span>Acción</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var produc in ViewModel.Productos)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <div class="row-flex">
+                                        <span>@produc.Nombre</span>
+                                        <button class="btn btn-primary" @onclick="() => seleccionarprod(produc)">
+                                            Seleccionar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDePaginas</span>
+                    <div class="page-controls">
+                        <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+                        <span>Pág @ViewModel.NumeroPagina</span>
+                        <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-danger mt-2" @onclick="()=>mostrarModal = false">Cerrar</button>
+        </div>
+    </div>
+}
+@if (ModalProveedores)
+{
+    <div class="modal-backdrop">
+        <div class="modal-content">
+            <h3>Seleccionar Proveedores</h3>
+
+            <div class="modal-body">
+                <div class="d-flex mb-2 searchbox" style="gap: 8px;">
+                    <input type="text" class="form-control" placeholder="Buscar Proveedor..."
+                    @bind="ViewModel.BusquedaProvedor"
+                    @onkeydown="ManejarTeclaPresionadaProv" />
+
+                    <button class="btn btn-primary" @onclick="() => ViewModel.BuscarProveedores(1)">
+                        Buscar
+                    </button>
+                </div>
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th colspan="2">
+                                <div class="row-flex">
+                                    <span>Nombre</span>
+                                    <span>Acción</span>
+                                </div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var prov in ViewModel.Proveedor)
+                        {
+                            <tr>
+                                <td colspan="2">
+                                    <div class="row-flex">
+                                        <span>@prov.nombre</span>
+                                        <button class="btn btn-primary" @onclick="() => seleccionarProveedor(prov)">
+                                            Seleccionar
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="pagination">
+                    <span>Mostrando 1 - @ViewModel.TamañoDePaginaProv resultados de @ViewModel.TotalDePaginasProv</span>
+                    <div class="page-controls">
+                        <button class="nav-btn" @onclick="() => PaginaAnteriorProv()">‹</button>
+                        <span>Pág @ViewModel.NumeroPaginaprov</span>
+                        <button class="nav-btn" @onclick="() => SiguientePaginaProv()">›</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-danger mt-2" @onclick="()=>ModalProveedores = false">Cerrar</button>
+        </div>
+    </div>
+}
+
+@code{
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductos();
+        await ViewModel.CargarProveedor();
+        await ViewModel.ObtenerIdComprasAsync();
+    }
+    private bool mostrarModal = false;
+    private bool ModalProveedores = false;
+    private int cantidadPorDefecto = 1;
+    #region Proveedores Funcion
+
+    private async Task seleccionarProveedor(Proveedor prov)
+    {
+        ViewModel.IdProv = prov.id_proveedor;
+        ViewModel.NombreProv = prov.nombre;
+        ModalProveedores = false;
+        ViewModel.NumeroPaginaprov = 1;
+        ViewModel.FiltroBusquedaProv = false;
+        await ViewModel.CargarProductos();
+    }
+
+    protected async Task PaginaAnteriorProv()
+    {
+        if (ViewModel.NumeroPaginaprov > 1 && ViewModel.FiltroBusquedaProv == true)
+        {
+            ViewModel.NumeroPaginaprov -= 1;
+            await ViewModel.BuscarProveedores(ViewModel.NumeroPaginaprov);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaprov > 1)
+        {
+            ViewModel.NumeroPaginaprov -= 1;
+            await ViewModel.CargarProveedor();
+        }
+    }
+    protected async Task SiguientePaginaProv()
+    {
+        if (ViewModel.NumeroPaginaprov < ViewModel.TotalDePaginasProv && ViewModel.FiltroBusquedaProv == true)
+        {
+            ViewModel.NumeroPaginaprov += 1;
+            await ViewModel.BuscarProveedores(ViewModel.NumeroPaginaprov);
+            return;
+        }
+
+        if (ViewModel.NumeroPaginaprov < ViewModel.TotalDePaginasProv)
+        {
+            ViewModel.NumeroPaginaprov += 1;
+            await ViewModel.CargarProveedor();
+        }
+
+    }
+
+    private async Task ManejarTeclaPresionadaProv(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarProveedores(1);
+        }
+    }
+
+    #endregion
+
+    #region Productos Funciones
+    private async Task seleccionarprod(ProductoDTO produc)
+    {
+        ViewModel.Idproduct = produc.IdProducto;
+        ViewModel.NombreProd = produc.Nombre;
+        ViewModel.Preciounit = produc.Precio;
+        ViewModel.Stock = produc.Stock;
+        mostrarModal = false;
+        ViewModel.NumeroPagina = 1;
+        ViewModel.Filtrobusqueda = false;
+        await ViewModel.CargarProductos();
+    }
+
+    protected async Task PaginaAnterior()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.BuscarProductos(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarProductos();
+        }
+    }
+    protected async Task SiguientePagina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.Filtrobusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.BuscarProductos(ViewModel.NumeroPagina);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarProductos();
+        }
+
+    }
+
+    private async Task ManejarTeclaPresionada(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await ViewModel.BuscarProductos(1);
+        }
+    }
+    private void QuitarDetalle(DetalleCompraDTO detalle)
+    {
+        ViewModel.DetallesCompra.Remove(detalle);
+    }
+    #endregion
+}

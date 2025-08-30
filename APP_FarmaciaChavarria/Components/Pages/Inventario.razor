@@ -1,0 +1,179 @@
+﻿@page "/inventario"
+
+@using Microsoft.AspNetCore.Components.Web
+@using APP_FarmaciaChavarria.ViewModels
+@inject InventarioViewModel ViewModel
+@inject NavigationManager Navigation
+
+
+<div class="inventory-container">
+    <div class="header">
+        <div class="title-section">
+            <h3><span class="gray-text">Inventario</span> › <strong>Lista de medicinas</strong></h3>
+            <p>Lista de medicinas disponibles para venta</p>
+        </div>
+        <button class="btn-add" @onclick="() => NavegarCrearProducto()">
+            <span>➕</span> Agregar Medicamento
+        </button>
+    </div>
+
+    <div class="search-filter-bar">
+        <input class="search-box"
+        placeholder="Búsqueda de medicamentos en el inventario"
+        value="@productoABuscar"
+        @oninput="ActualizarProductoABuscar"
+        @onkeydown="ManejarTeclaEnter" />
+
+        <button @onclick="async () => await BuscarProductos()">Buscar</button>
+        <select class="category-select" @onchange="FiltrarPorCategoria">
+            <option value="0" selected>Seleccionar categoría</option>
+            @foreach (var item in ViewModel.Categorias)
+            {
+                <option value="@item.id_categoria">@item.nombre</option>
+            }
+        </select>
+    </div>
+
+    <div class="table-container">
+    <table class="medicine-table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>ID</th>
+                <th>Categorías</th>
+                <th>Stock</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewModel.Medicinas)
+            {
+                <tr>
+                    <td>@item.Nombre</td>
+                    <td>@item.IdProducto</td>
+                    <td>@item.CategoriaNombre</td>
+                    <td>@item.Stock</td>
+                    <td>
+                        <a class="view-link" href="#" @onclick="() => NavegarAlDetalle(item.IdProducto)">
+                            Ver Detalles »</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    </div>
+
+    <div class="pagination">
+        <span>Mostrando 1 - @ViewModel.TamañoDePagina resultados de @ViewModel.TotalDeProductos</span>
+        <div class="page-controls">
+            <button class="nav-btn" @onclick="() => PaginaAnteriorMedicina()">‹</button>
+            <span>Pág @ViewModel.NumeroPagina</span>
+            <button class="nav-btn" @onclick="() => SiguientePaginaMedicina()">›</button>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    /*Código para la actualización del valor de la barra de búsqueda*/
+    private string productoABuscar { get; set; } = string.Empty;
+
+    private void ActualizarProductoABuscar(ChangeEventArgs e)
+    {
+        productoABuscar = e.Value?.ToString() ?? string.Empty;
+    }
+
+    /*Función para la carga inicial de medicinas y categorías*/
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarMedicinasAsync();
+        await ViewModel.CargarCategorias();
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task SiguientePaginaMedicina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await BuscarProductos();
+            return;
+        }
+
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroCategoria == true)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.FiltrarProductosPorCategoria(ViewModel.IdCategoria);
+            return;
+        }
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas && ViewModel.FiltroCategoria == false)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnteriorMedicina()
+    {
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroBusqueda == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await BuscarProductos();
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroCategoria == true)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.FiltrarProductosPorCategoria(ViewModel.IdCategoria);
+            return;
+        }
+
+        if (ViewModel.NumeroPagina > 1 && ViewModel.FiltroCategoria == false)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarMedicinasAsync();
+        }
+    }
+
+    void NavegarAlDetalle(int id)
+    {
+        Navigation.NavigateTo($"/detalle-producto/{id}");
+    }
+
+
+    void NavegarCrearProducto()
+    {
+        Navigation.NavigateTo($"/crearProducto");
+    }
+
+    /*Función para al dar click en Enter, entonces realizar una búsqueda de productos*/
+    private async Task ManejarTeclaEnter(KeyboardEventArgs e)
+    {
+        if (e.Key == "Enter")
+        {
+            await BuscarProductos();
+        }
+    }
+    
+    /*Función para buscar producto por nombre*/
+
+    protected async Task BuscarProductos()
+    {
+        await ViewModel.BuscarMedicina(productoABuscar);
+    }
+
+    /*Función para filtro de categorías según la elegida en el select*/
+    private async Task FiltrarPorCategoria(ChangeEventArgs e)
+    {
+        if (e.Value is not null)
+        {
+            var idCategoria = int.Parse(e.Value.ToString());
+            await ViewModel.FiltrarProductosPorCategoria(idCategoria);
+        }
+    }
+}

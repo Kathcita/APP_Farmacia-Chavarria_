@@ -1,0 +1,198 @@
+﻿@page "/detalle-producto/{id:int}"
+@using APP_FarmaciaChavarria.Models.AuthRequest
+@using APP_FarmaciaChavarria.ViewModels
+@inject ProductoDetalleViewModel ViewModel
+@inject NavigationManager Navigation
+
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductoPorId(id);
+    }
+
+    // Funciones para navegar a inventario o actualizar producto
+    void NavegarActualizarProducto()
+    {
+        Navigation.NavigateTo($"/actualizarProducto/{id}");
+    }
+
+    void NavegarInventario()
+    {
+        Navigation.NavigateTo("/inventario");
+    }
+
+    private bool mostrarConfirmacion = false;
+    private string nombreConfirmacion = "";
+    private string errorMensaje = "";
+
+    //Fuciones para mostrar u ocultar el modal
+
+    private void MostrarModal()
+    {
+        nombreConfirmacion = "";
+        mostrarConfirmacion = true;
+    }
+
+    private void Cancelar()
+    {
+        mostrarConfirmacion = false;
+        nombreConfirmacion = "";
+    }
+
+    /*Función para confirmar y eliminar el producto de la base de datos*/
+    private async Task ConfirmarEliminacion()
+    {
+        if (nombreConfirmacion.Trim().Equals(ViewModel.Producto.Nombre, StringComparison.OrdinalIgnoreCase))
+        {
+            var response = await ViewModel.EliminarProducto();
+
+            if (!response.Contains("Error"))
+            {
+                NavegarInventario();
+                mostrarConfirmacion = false;
+            }
+            else
+            {
+                errorMensaje = response;
+            }
+        }
+        else
+        {
+            errorMensaje = "El nombre del producto no coincide.";
+        }
+    }
+
+}
+
+@if (ViewModel.Producto is null)
+{
+            <p>Cargando información del producto...</p>
+}
+else
+{
+            <div class="detalle-container">
+
+                <div class="header-container">
+                <h2>Inventario › Lista de Medicinas › <strong>@ViewModel.Producto.Nombre</strong></h2>
+            @if (UserStatic.Rol == "Administrador")
+            {
+                        <button class="btn btn-primary" @onclick="() => NavegarActualizarProducto()">✏️ Editar Detalles</button>
+            }
+                </div>
+
+                <p>Lista de medicinas disponibles para venta</p>
+
+                <div class="grid grid-cols-2 gap-4 mt-4">
+
+            <div class="greatContainer">
+                    <div class="card card1">
+                        <strong>Medicamento</strong>
+                        <hr />
+
+                      <div class="card-container">
+
+                            <div class="minicard-continer">
+                        <span class="dataValue">@ViewModel.Producto.IdProducto</span> <br />
+                        <span class="small">ID</span>
+                            </div>
+
+                            <div class="minicard-continer">
+                        <span class="dataValue">@ViewModel.Producto.CategoriaNombre</span> <br />
+                        <span class="small">Categoría</span>
+                            </div>
+
+                       </div>
+               </div>
+
+                        <div class="card card1">
+                            <strong>Cantidad en Inventario</strong>
+                            <hr />
+
+                           <div class="card-container">
+
+                        <!--<div class="minicard-continer">
+                            <span class="dataValue">@ViewModel.Producto.Precio</span>  <br />
+                           <span class="small">Ventas</span>
+                            </div>-->
+
+                                <div class="minicard-continer">
+                            <span class="dataValue">@ViewModel.Producto.Stock</span> <br />
+                            <span class="small">Stock Restante</span>
+                            </div>
+
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="greatContainer">
+                    <div class="card card1">
+                        <strong>Laboratorio</strong>
+                        <hr />
+
+                        <span>@ViewModel.Producto.LaboratorioNombre</span>
+                    </div>
+
+                    <div class="card card1">
+                        <strong>Fecha de vencimiento</strong>
+                        <hr />
+
+                        <span>@ViewModel.Producto.FechaVencimiento.ToString("dd/MM/yyyy")</span>
+                    </div>
+                        </div>
+
+                        <div class="greatContainer2">
+           <div class ="card">
+                 <strong>Cómo Usar</strong>
+                 <hr />
+                    <span>@ViewModel.Producto.Como_Usar</span>
+           </div>
+               </div>
+
+            <div class="greatContainer2">
+
+            <div class="card">
+                <strong>Efectos Secundarios</strong>
+                <hr />
+                    <span>@ViewModel.Producto.Efectos_Secundarios</span>
+            </div>
+                </div>
+
+                </div>
+
+                <div class="flex justify-between mt-6">
+            <button class="btn btn-danger" @onclick="MostrarModal">🗑 Borrar</button>
+                </div>
+             </div>
+
+             /*Modal con mensaje e input para confirmar la eliminación del producto*/
+    @if (mostrarConfirmacion)
+    {
+        <div class="modal-overlay">
+            <div class="modal-content">
+                <h3 class="text-lg font-bold">Confirmar eliminación</h3>
+                <p class="mt-2">Escriba el nombre del producto <strong>@ViewModel.Producto.Nombre </strong> para confirmar:</p>
+
+                <input class="form-control mt-2" @bind="nombreConfirmacion" placeholder="Escriba el nombre del producto..." />
+
+                @if (!string.IsNullOrEmpty(errorMensaje))
+                {
+                    <div class="text-danger mt-1">@errorMensaje</div>
+                }
+
+                <div class="d-flex justify-content-end gap-2 mt-3">
+                    <button class="btn btn-secondary" @onclick="Cancelar">Cancelar</button>
+                    <button class="btn btn-danger" @onclick="() => ConfirmarEliminacion()">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    }
+          
+}
+
+

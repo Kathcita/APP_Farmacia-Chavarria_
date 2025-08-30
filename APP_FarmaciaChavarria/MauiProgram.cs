@@ -1,0 +1,95 @@
+﻿using APP_FarmaciaChavarria.Components.Pages.UiCategorias;
+using APP_FarmaciaChavarria.Models.ReporteModels;
+using APP_FarmaciaChavarria.Service;
+using APP_FarmaciaChavarria.ViewModels;
+using APP_FarmaciaChavarria.ViewModels.CategoriaViewModels;
+using APP_FarmaciaChavarria.ViewModels.ProveedoresViewModel;
+using APP_FarmaciaChavarria.ViewModels.Reportes;
+using CommunityToolkit.Maui;
+using FarmaciaChavarria.Services;
+using FarmaciaChavarria.ViewModels;
+using Microsoft.Extensions.Logging;
+using PdfSharpCore.Fonts;
+using Radzen;
+using System.Net.Http;
+
+namespace APP_FarmaciaChavarria
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+#if WINDOWS
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+#endif
+
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                });
+
+            string baseAddress = "https://162.215.175.163:7053/";
+
+            builder.Services.AddSingleton(sp =>
+            {
+                var handler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
+                };
+
+                return new HttpClient(handler)
+                {
+                    BaseAddress = new Uri(baseAddress)
+                };
+            });
+
+            GlobalFontSettings.FontResolver = new OpenSansFontResolver();
+
+            builder.Services.AddScoped<TokenHandlerService>();
+            builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddTransient<AuthService>();
+            builder.Services.AddSingleton<ProductoService>();
+            builder.Services.AddSingleton<CategoriaService>();
+            builder.Services.AddSingleton<LaboratorioService>();
+            builder.Services.AddSingleton<FacturaService>();
+            builder.Services.AddSingleton<CompraService>();
+            builder.Services.AddSingleton<UsuarioService>();
+            builder.Services.AddSingleton<ProveedorService>();
+
+            builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<InventarioViewModel>();
+            builder.Services.AddSingleton<ProductoDetalleViewModel>();
+            builder.Services.AddSingleton<CrearProductoViewModel>();
+            builder.Services.AddSingleton<FacturacionViewModel>();
+            builder.Services.AddSingleton<CrearLaboratorioViewModel>();
+            builder.Services.AddSingleton<ActualizarProductoViewModel>();
+            builder.Services.AddSingleton<CategoriaViewModel>();
+            builder.Services.AddSingleton<DetalleCategoriaViewModel>();
+            builder.Services.AddSingleton<DashboardViewModel>();
+            builder.Services.AddSingleton<MedicamentosPorCaducarViewModel>();
+            builder.Services.AddSingleton<CompraViewModel>();
+            builder.Services.AddSingleton<ProveedoresViewModel>();
+
+            builder.Services.AddSingleton<ReporteVentasViewModel>();
+            builder.Services.AddSingleton<ReporteVentasLaboratoriosViewModel>();
+            builder.Services.AddSingleton<ReporteVentasCategoriasViewModel>();
+            builder.Services.AddSingleton<ReporteVentasProductoViewModel>();
+            builder.Services.AddSingleton<ReporteMedicamentosEscasosViewModel>();
+            builder.Services.AddSingleton<RecuperarPinViewModel>();
+            builder.Services.AddSingleton<RegistroUsuarioViewModel>();
+
+            builder.Services.AddRadzenComponents();
+
+#if DEBUG
+            builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
+    }
+}

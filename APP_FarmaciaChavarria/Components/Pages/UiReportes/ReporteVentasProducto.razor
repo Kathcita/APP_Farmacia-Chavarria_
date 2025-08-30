@@ -1,0 +1,490 @@
+﻿@page "/reporteVentasProducto"
+
+@using APP_FarmaciaChavarria.ViewModels.Reportes
+@using System.Diagnostics
+@using System.Globalization
+@using CommunityToolkit.Maui.Storage
+
+@inject ReporteVentasProductoViewModel ViewModel
+@inject IJSRuntime JSRuntime
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+{
+    <div class="alert-error">
+        <span>@ViewModel.MensajeError</span>
+        <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+    </div>
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+{
+    <div class="alert-success">
+        <span>@ViewModel.MensajeExito</span>
+        <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+    </div>
+}
+
+
+<div class="reporte-container">
+    <div class="encabezado">
+        <div class="texto">
+            <h2><strong>Reportes › Reporte de Ventas por Producto</strong></h2>
+            <p class="subtitulo">Reporte relacionado a las ventas de la farmacia.</p>
+        </div>
+        <div class="contenedor-boton">
+            <button class="btn-descargar" @onclick="ToggleOpcionesDescarga">
+                📄 Descargar Reporte
+            </button>
+
+            @if (mostrarOpciones)
+            {
+                <div class="menu-opciones">
+                    <button class="btn-opcion" @onclick="DescargarExcel">📊 Excel</button>
+                    <button class="btn-opcion" @onclick="DescargarPdf">🧾 PDF</button>
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="filtros">
+
+        <div class="FechasMaxContainer">
+            <div class="fechasContainer">
+                <div>
+                    <label>Fecha Inicio</label>
+                    <input type="date" placeholder="Fecha Inicio" @bind=@ViewModel.PrimeraFecha  class="inputFecha"/>
+                </div>
+
+                <div>
+                    <label>Fecha Final</label>
+                    <input type="date" placeholder="Fecha final" @bind=ViewModel.UltimaFecha />
+                </div>
+            </div>
+            <div class="filtrarFechaBtn">
+                <button @onclick="() => ActualizarDatos()">Buscar</button>
+            </div>
+        </div>
+        <!--<div>
+        <label>Grupo de Medicamentos</label>
+        <select>
+        <option>- Seleccionar Categorías -</option>
+        </select>
+        </div> -->
+        <div>
+            <label>Nombre de Usuario</label>
+            <select @onchange="OnUserChanged" value="@ViewModel.UserId">
+                <option value="0">- Seleccionar Usuario -</option>
+                @foreach (var user in ViewModel.Usuarios)
+                {
+                    <option value="@user.id_usuario">@user.nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Orden</th>
+                    <th>ID</th>
+                    <th>Producto</th>
+                    <th>Total de Ventas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < ViewModel.VentasProducto.Count; i++)
+                {
+                    <tr>
+                        <td>@(i + 1)</td> <!-- Sumamos 1 porque los índices empiezan en 0 -->
+                        <td>@ViewModel.VentasProducto[i].IdProducto</td>
+                        <td>@ViewModel.VentasProducto[i].NombreProducto</td>
+                        <td>@FormatAsNIO(ViewModel.VentasProducto[i].TotalVentas)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarUsuarios();
+        await ActualizarDatos();
+        ViewModel.MensajeExito = "";
+        ViewModel.MensajeError = "";
+    }
+
+    protected async Task ActualizarDatos()
+    {
+        await ViewModel.CargarTotalVentas();
+    }
+
+    private async Task OnUserChanged(ChangeEventArgs e)
+    {
+        ViewModel.UserId = Convert.ToInt32(e.Value);
+        await ActualizarDatos(); // Llama a tu método para cargar datos
+    }
+
+    private string FormatAsNIO(object value)
+    {
+        // Crear cultura personalizada para Nicaragua
+        var culture = (CultureInfo)CultureInfo.CreateSpecificCulture("es-NI").Clone();
+        culture.NumberFormat.CurrencyDecimalSeparator = ".";
+        culture.NumberFormat.CurrencyGroupSeparator = ",";
+        culture.NumberFormat.CurrencySymbol = "C$ ";
+
+        // Usar Convert.ToDecimal en lugar de (double)
+        return Convert.ToDecimal(value).ToString("C2", culture);
+    }
+
+    // Funciones para la descarga de reporte en excel o pdf
+
+
+    private bool mostrarOpciones = false;
+
+    private void ToggleOpcionesDescarga()
+    {
+        mostrarOpciones = !mostrarOpciones;
+    }
+
+    private async Task DescargarExcel()
+    {
+        mostrarOpciones = false;
+
+        var fileBytes = ViewModel.GenerarExcelYDescargar(ViewModel.VentasProducto);
+        var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.xlsx";
+
+        try
+        {
+            if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+   DeviceInfo.Current.Platform == DevicePlatform.iOS)
+            {
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(fileBytes),
+            new CancellationToken());
+            }
+            else
+            {
+                await JSRuntime.InvokeVoidAsync("descargarExcel", fileBytes, nombreArchivo);
+
+            }
+
+        }
+        catch (Exception ex)
+        {
+            Debug.WriteLine($"Error al guardar archivo: {ex.Message}");
+            // Mostrar algún mensaje al usuario
+        }
+    }
+
+    private async Task DescargarPdf()
+    {
+        mostrarOpciones = false;
+
+        if (DeviceInfo.Current.Platform == DevicePlatform.Android ||
+       DeviceInfo.Current.Platform == DevicePlatform.iOS)
+        {
+            var pdfBytes = ViewModel.GenerarPdfConPdfSharp(ViewModel.VentasProducto);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+
+                var result = await FileSaver.Default.SaveAsync(
+            nombreArchivo,
+            new MemoryStream(pdfBytes),
+            new CancellationToken());
+                ViewModel.MensajeExito = "El archivo se guardó exitosamente";
+            }
+        }
+        else
+        {
+            var pdfBytes = ViewModel.GenerarPdf(ViewModel.VentasProducto);
+
+            if (pdfBytes != null)
+            {
+                var nombreArchivo = $"ReporteDeVentasProductos_{DateTime.Now:yyyyMMdd_HHmmss}.pdf";
+                await JSRuntime.InvokeVoidAsync("descargarPdf", pdfBytes, nombreArchivo); // podemos usar la misma función JS
+            }
+        }
+    }
+}
+
+<style>
+    .reporte-container {
+        padding: 30px;
+        background-color: #f4f7fa;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .encabezado {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    .texto {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .subtitulo {
+        color: #6c757d;
+        margin-top: 5px;
+    }
+
+    .contenedor-boton {
+        position: relative;
+        display: inline-block;
+    }
+
+    .btn-descargar {
+        background-color: #0078d7;
+        color: white;
+        padding: 8px 12px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    .menu-opciones {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 6px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        z-index: 1000;
+        border-radius: 6px;
+        margin-top: 4px;
+    }
+
+    .btn-opcion {
+        display: block;
+        width: 100%;
+        background: none;
+        border: none;
+        padding: 6px 10px;
+        text-align: left;
+        cursor: pointer;
+        color: #333;
+    }
+
+        .btn-opcion:hover {
+            background-color: #f0f0f0;
+        }
+
+
+    .subtitulo {
+        color: #6c757d;
+        margin-bottom: 20px;
+    }
+
+    .filtros {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+        .filtros > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filtros input, .filtros select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            width: 230px;
+        }
+
+    .FechasMaxContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .fechasContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+        .fechasContainer > div {
+            display: flex;
+            flex-direction: column;
+            padding: 0 5px;
+        }
+
+    .filtrarFechaBtn {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .filtrarFechaBtn > button {
+            width: 50%;
+        }
+
+
+    .boton-descargar {
+        margin-left: auto;
+        align-self: flex-end;
+    }
+
+        .boton-descargar button {
+            padding: 10px 20px;
+            background-color: #e9ecef;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+    /*Estilos para la tabla*/
+    .tabla {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width:100%;
+        overflow-x: auto; /* Scroll horizontal cuando sea necesario */
+    }
+
+    .table table {
+        width: 100%;
+        min-width: 700px;
+        border-collapse: collapse;
+        -webkit-overflow-scrolling: touch; /* Mejora en iOS */
+    }
+
+    table thead th {
+        background-color: #f0f0f0;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table tbody td {
+        padding: 10px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    /* Estilos responsivos para móviles */
+    @@media (max-width: 600px) {
+        .tabla
+
+    {
+        border: 1px solid #e5e7eb; /* Borde visual al hacer scroll */
+        border-radius: 12px;
+    }
+
+    }
+
+
+    /*Estilos para mensaje de error*/
+
+    .alert-error {
+        position: absolute;
+        background-color: #f44336;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-error button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from
+
+    {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    }
+
+    /*Estilos para mensaje de éxito*/
+    .alert-success {
+        position: absolute;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-success button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from
+
+    {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+    }
+
+    /* Responsive */
+    @@media (max-width: 768px) {
+        .encabezado
+
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-descargar {
+        margin-top: 15px;
+        align-self: center; /* CENTRA horizontalmente el botón */
+    }
+
+    .filtros {
+        justify-content: center;
+    }
+
+    .fechasContainer {
+        display: flex;
+        flex-direction: column;
+    }
+
+    }
+</style>

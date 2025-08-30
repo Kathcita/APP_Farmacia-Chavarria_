@@ -1,0 +1,57 @@
+﻿using API_FarmaciaChavarria.Models;
+using APP_FarmaciaChavarria.Models.ModelsDTO;
+using CommunityToolkit.Mvvm.ComponentModel;
+using FarmaciaChavarria.Services;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace APP_FarmaciaChavarria.ViewModels
+{
+    public partial class ProductoDetalleViewModel : ObservableObject
+    {
+        private readonly ProductoService _productoService;
+
+        public ProductoDetalleViewModel(ProductoService productoService)
+        {
+            _productoService = productoService;
+        }
+
+        /*Obtiene y carga la información del producto para mostrarlo en la interfaz
+         detalle de producto*/
+
+        [ObservableProperty]
+        private ProductoDTO? producto;
+
+
+        public async Task CargarProductoPorId(int id)
+        {
+            var lista = await _productoService.ObtenerProductoPorIdAsync(id);
+            Producto = lista;
+        }
+
+        /*Función para eliminar producto con su id*/
+        public async Task<string> EliminarProducto()
+        {
+            try
+            {
+                var response = await _productoService.EliminarProductoAsync(producto.IdProducto);
+
+                if (!response.Contains("Error"))
+                {
+                    return response;
+                }
+                else
+                {
+                    return response;
+                }
+            }
+            catch(Exception ex)
+            {
+                return $"Error: {ex.Message}";
+            }
+        }
+    }
+}

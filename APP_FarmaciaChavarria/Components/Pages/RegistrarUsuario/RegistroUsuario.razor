@@ -1,0 +1,103 @@
+﻿@page "/RegistroUsuario"
+@using APP_FarmaciaChavarria.ViewModels
+@inject RegistroUsuarioViewModel VM
+
+<div class="container">
+
+    @if (!string.IsNullOrEmpty(VM.Mensaje))
+    {
+        <div class="alert-success">
+            <span>@VM.Mensaje</span>
+            <button @onclick="() => VM.Mensaje = string.Empty">X</button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(VM.Error))
+    {
+        <div class="alert-error">
+            <span>@VM.Error</span>
+            <button @onclick="() => VM.Error = string.Empty">X</button>
+        </div>
+    }
+
+    <h2><span>Agregar Usuario</span></h2>
+    <EditForm Model="VM" OnValidSubmit="RegistrarUsuario">
+        <div class="form-group">
+            <label>Nombre del Usuario</label>
+            <input type="text" id="nombre" @bind="VM.Nombre" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label>PIN</label>
+            <input type="text" maxlength="4" @bind="VM.Pin" class="form-control" required />
+        </div>
+
+        <div class="form-group">
+            <label>Rol</label>
+            <select @bind="VM.Rol" class="form-control">
+                <option value="">Seleccionar Rol</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Empleado">Empleado</option>
+            </select>
+        </div>
+
+        <button type="submit" class="save-btn">Guardar</button>
+    </EditForm>
+
+</div>
+<h3>Lista de Usuarios</h3>
+@if (VM.Usuarios.Count == 0)
+{
+    <p>No hay usuarios registrados.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var usuario in VM.Usuarios)
+            {
+                <tr>
+                    <td>@usuario.nombre</td>
+                    <td>@usuario.rol</td>
+
+                    <td>
+                        <button class="btn btn-danger" @onclick="() => VM.EliminarUsuarioAsync(usuario.id_usuario)">Eliminar</button>
+                        <button class="btn btn-primary" @onclick="() => NavegarActualizar(usuario.id_usuario)">Actualizar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private async Task RegistrarUsuario()
+    {
+        await VM.RegistrarUsuarioAsync();
+
+        if (string.IsNullOrEmpty(VM.Error))
+        {
+            VM.Limpiar();
+        }
+    }
+    [Inject] NavigationManager Navigation { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        VM.Error = "";
+        VM.Mensaje = "";
+        await VM.ObtenerUsuariosAsync();
+    }
+
+    private void NavegarActualizar(int id)
+    {
+        Navigation.NavigateTo($"/ActualizarUsuario/{id}");
+    }
+}

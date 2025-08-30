@@ -1,0 +1,231 @@
+﻿@page "/ActualizarProveedor/{id:int}"
+@using APP_FarmaciaChavarria.ViewModels.ProveedoresViewModel
+
+@inject ProveedoresViewModel ViewModel
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Proveedor</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeError))
+    {
+        <div class="alert-error">
+            <span>@ViewModel.MensajeError</span>
+            <button @onclick="() => ViewModel.MensajeError = string.Empty">X</button>
+        </div>
+    }
+
+    @if (!string.IsNullOrWhiteSpace(ViewModel.MensajeExito))
+    {
+        <div class="alert-success">
+            <span>@ViewModel.MensajeExito</span>
+            <button @onclick="() => ViewModel.MensajeExito = string.Empty">X</button>
+        </div>
+    }
+
+    <nav class="breadcrumb">
+        <span class="gray">Inventario </span>
+        <span class="bold"> > Proveedores > </span>
+        <span class="bold">Actualizar Proveedor</span>
+    </nav>
+    <div class="container">
+        <div class="form">
+
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Proveedor <span style="color:red;">*</span></label>
+                    <input type="text" id="nombre" class="input-box" @bind=ViewModel.NombreProveedor>
+                </div>
+
+                <div class="form-group">
+                    <label for="id">ID del Proveedor</label>
+                    <input type="text" id="id" class="input-box" readonly @bind=ViewModel.Id>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono <span style="color:red;">*</span></label>
+                    <input type="number" id="telefono" class="input-box" @bind=ViewModel.Telefono>
+                </div>
+            </div>
+            <button class="save-button" @onclick=ViewModel.ActualizarProveedor>Guardar Detalles</button>
+        </div>
+    </div>
+</body>
+
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProveedor(id);
+        ViewModel.MensajeError = "";
+        ViewModel.MensajeExito = "";
+    }
+}
+
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        background-color: #f2f4f8;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .topbar {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    .search-bar {
+        flex: 1;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+    }
+
+    .search-icon {
+        padding: 10px;
+        background-color: #e0e0e0;
+        border: 1px solid #ccc;
+        border-left: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+
+    .breadcrumb {
+        margin-bottom: 30px;
+        font-size: 18px;
+    }
+
+    .gray {
+        color: #888;
+        font-weight: bold;
+    }
+
+    .bold {
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .form-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .input-box {
+        padding: 10px;
+        border: 1px solid #ccc;
+        background-color: #e7edf5;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .save-button {
+        background-color: #f44336;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    /*Estilos para mensaje de error*/
+
+    .alert-error {
+        position: absolute;
+        background-color: #f44336;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-error button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    /*Estilos para mensaje de éxito*/
+    .alert-success {
+        position: absolute;
+        background-color: #4CAF50;
+        color: white;
+        padding: 12px 20px;
+        border-radius: 5px;
+        position: relative;
+        margin-bottom: 16px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        animation: fadein 0.3s ease-in-out;
+    }
+
+        .alert-success button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+    @@keyframes fadein {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+</style>

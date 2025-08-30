@@ -1,0 +1,118 @@
+# .NET build
+bin/
+obj/
+*.dll
+*.exe
+*.app
+*.pdb
+*.cache
+*.mdb
+*.log
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vscode/
+.vs/
+*.swp
+*.dbmdl
+*.bak
+*.Backup
+*.tmp
+
+# Rider
+.idea/
+*.sln.iml
+
+# User-specific files
+*.userprefs
+*.user
+*.sdf
+*.orig
+
+# ASP.NET / Blazor
+wwwroot/dist/
+wwwroot/node_modules/
+node_modules/
+dist/
+
+# Maui specific
+*.apk
+*.aab
+*.ap_
+*.keystore
+platforms/
+Resources/Raw/*.zip
+*.xcuserstate
+
+# macOS / iOS / Xcode
+build/
+*.pbxuser
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+xcuserdata/
+*.xccheckout
+*.moved-aside
+DerivedData/
+*.ipa
+
+# Windows
+*.appx
+*.appxbundle
+*.msix
+*.msixbundle
+*.cer
+*.pfx
+
+# Logs
+*.log
+logs/
+*.tlog
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# System files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DS_Store
+
+# Optional: Ignore secrets
+secrets.json
+
+# Optional: Ignore SQLite DBs
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Optional: Ignore test results
+TestResults/
+*.coverage
+*.coveragexml
+
+# NuGet
+*.nupkg
+.nuget/
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Android Studio
+.gradle/
+.idea/
+local.properties
+
+# Tizen
+tizen-bin/
+tizen-profile.xml
+
+/APP_FarmaciaChavarria/bin/
+/APP_FarmaciaChavarria/obj/

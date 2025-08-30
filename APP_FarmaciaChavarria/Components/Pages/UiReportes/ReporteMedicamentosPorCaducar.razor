@@ -1,0 +1,153 @@
+﻿@page "/medicamentosPorCaducar"
+
+@using APP_FarmaciaChavarria.ViewModels.Reportes
+
+@inject MedicamentosPorCaducarViewModel ViewModel
+
+
+<div class="reporte-container">
+    <div class="encabezado">
+        <div class="texto">
+            <h2><strong>Reportes › Medicamentos Escasos</strong></h2>
+            <p class="subtitulo">Reporte relacionado a los productos próximos a caducar. (Período de 3 meses)</p>
+        </div>
+    </div>
+
+    <div class="tabla">
+        <table>
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th>Categoría</th>
+                    <th>Laboratorio</th>
+                    <th>Stock</th>
+                    <th>Fecha de Vencimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < ViewModel.ProductosPorCaducar.Count; i++)
+                {
+                    <tr>
+                        <td>@ViewModel.ProductosPorCaducar[i].Nombre</td>
+                        <td>@ViewModel.ProductosPorCaducar[i].CategoriaNombre</td>
+                        <td>@ViewModel.ProductosPorCaducar[i].LaboratorioNombre</td>
+                        <td>@ViewModel.ProductosPorCaducar[i].Stock</td>
+                        <td>@ViewModel.ProductosPorCaducar[i].FechaVencimiento</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="pagination">
+        <div class="page-controls">
+            <button class="nav-btn" @onclick="() => PaginaAnterior()">‹</button>
+            <span>Pág @ViewModel.NumeroPagina</span>
+            <button class="nav-btn" @onclick="() => SiguientePagina()">›</button>
+        </div>
+    </div>
+
+</div>
+
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await ViewModel.CargarProductos();
+    }
+
+    protected async Task SiguientePagina()
+    {
+        if (ViewModel.NumeroPagina < ViewModel.TotalDePaginas)
+        {
+            ViewModel.NumeroPagina += 1;
+            await ViewModel.CargarProductos();
+        }
+
+    }
+
+    /*Función que maneja el paginado de datos hacia atras*/
+
+    protected async Task PaginaAnterior()
+    {
+        if (ViewModel.NumeroPagina > 1)
+        {
+            ViewModel.NumeroPagina -= 1;
+            await ViewModel.CargarProductos();
+        }
+    }
+}
+
+<style>
+    .reporte-container {
+        height: 100vh;
+        padding: 30px;
+        background-color: #f4f7fa;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .encabezado {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+    }
+
+    /*Estilos para la tabla*/
+    .tabla {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-x: auto;
+        justify-content: center;
+    }
+
+    .tabla table {
+        width: 100%;
+        min-width:600px;
+        border-collapse: collapse;
+    }
+
+    table thead th {
+        background-color: #f0f0f0;
+        padding: 10px;
+        text-align: left;
+    }
+
+    table tbody td {
+        padding: 10px;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    /* Estilos responsivos para móviles */
+    @@media (max-width: 600px) {
+        .tabla
+
+    {
+        border: 1px solid #e5e7eb; /* Borde visual al hacer scroll */
+        border-radius: 12px;
+    }
+
+    }
+
+    /*Estilos en paginación*/
+
+    .page-controls {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .pagination {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+        .pagination span {
+            text-align: center;
+        }
+
+</style>
